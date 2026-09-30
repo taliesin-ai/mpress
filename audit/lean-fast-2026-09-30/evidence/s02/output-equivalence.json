@@ -1,0 +1,13 @@
+{
+  "before": {
+    "files": 100,
+    "aggregateSHA256": "99e6f6d84fa22cfa76696d0811df8129955d012d295f396392dac59ed80612ca"
+  },
+  "after": {
+    "files": 100,
+    "aggregateSHA256": "99e6f6d84fa22cfa76696d0811df8129955d012d295f396392dac59ed80612ca"
+  },
+  "identical": true,
+  "changed": [],
+  "baseline": "0623f38 production-source overlay; identical complete self-doc corpus and project path"
+}

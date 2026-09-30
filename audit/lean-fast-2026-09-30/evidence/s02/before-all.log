@@ -1,0 +1,428 @@
+--- FAIL: TestRenderPagesRejectsEscapedWriteTargets (0.00s)
+    --- FAIL: TestRenderPagesRejectsEscapedWriteTargets/../outside/index.html (0.00s)
+        render_pages_test.go:32: unsafe output accepted
+        render_pages_test.go:36: outside sentinel changed
+    --- FAIL: TestRenderPagesRejectsEscapedWriteTargets/guide/../index.html (0.00s)
+        render_pages_test.go:32: unsafe output accepted
+        render_pages_test.go:39: output created before rejection
+    --- FAIL: TestRenderPagesRejectsEscapedWriteTargets//index.html (0.00s)
+        render_pages_test.go:32: unsafe output accepted
+        render_pages_test.go:39: output created before rejection
+    --- FAIL: TestRenderPagesRejectsEscapedWriteTargets/guide\index.html (0.00s)
+        render_pages_test.go:32: unsafe output accepted
+        render_pages_test.go:39: output created before rejection
+    --- FAIL: TestRenderPagesRejectsEscapedWriteTargets/C:/index.html (0.00s)
+        render_pages_test.go:32: unsafe output accepted
+        render_pages_test.go:39: output created before rejection
+    --- FAIL: TestRenderPagesRejectsEscapedWriteTargets/guide//index.html (0.00s)
+        render_pages_test.go:32: unsafe output accepted
+        render_pages_test.go:39: output created before rejection
+--- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput (0.65s)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/../escaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmd953684859/001/site/last-good: no such file or directory)
+        route_safety_test.go:28: protected escaped/index.html changed (got 15988 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/../escaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmd4214739396/001/site/last-good: no such file or directory)
+        route_safety_test.go:28: protected escaped/index.html changed (got 15988 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/../escaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmpd3109235796/001/site/last-good: no such file or directory)
+        route_safety_test.go:28: protected escaped/index.html changed (got 15988 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/../escaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected escaped/index.html changed (got 15988 bytes, error <nil>)
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmpd1008126453/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/../../escaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide....es2051165907/001/site/last-good: no such file or directory)
+        route_safety_test.go:28: protected escaped/index.html changed (got 16009 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/../../escaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide....es1307602919/001/site/last-good: no such file or directory)
+        route_safety_test.go:28: protected escaped/index.html changed (got 16009 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/../../escaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide....es3104286208/001/site/last-good: no such file or directory)
+        route_safety_test.go:28: protected escaped/index.html changed (got 16009 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/../../escaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide....es3544102777/001/site/last-good: no such file or directory)
+        route_safety_test.go:28: protected escaped/index.html changed (got 16009 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/./topic/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide.topic2023331910/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/./topic/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide.topic3715413105/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/./topic/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide.topic595534625/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/./topic/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide.topic2087443396/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/..\escaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmd3872868609/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/..\escaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmd4140795390/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/..\escaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmpd1282207951/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/..\escaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput..escapedmpd2017834214/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:\escaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmd3256784223/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:\escaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmd2578454373/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:\escaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmpd1217246839/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:\escaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmpd2661528858/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:/escaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmd1325396569/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:/escaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmd1987162709/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:/escaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmpd636297988/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/C:/escaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputCescapedmpd1804166454/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/\\server\share/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputservershare68296252/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/\\server\share/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputservershare3555855910/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/\\server\share/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputservershare3095953315/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/\\server\share/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputservershare1133398615/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide:stream/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidestreamm1401575315/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide:stream/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidestreamm1900987467/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide:stream/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidestreamm108915873/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide:stream/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidestreamm727326721/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/CON.txt/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideCON.txt1523060415/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/CON.txt/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideCON.txt3699994028/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/CON.txt/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideCON.txt355957883/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/CON.txt/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideCON.txt2063969394/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/LPT²/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideLPT²md4071105214/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/LPT²/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideLPT²md605657981/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/LPT²/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideLPT²mp1984447643/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/LPT²/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideLPT²mp1098616083/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end./md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend.md193855042/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end./md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend.md2474530072/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end./mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend.mpd4140839873/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end./mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend.mpd460569736/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end_/topic/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend_top2219726362/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end_/topic/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend_top54627188/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end_/topic/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend_top2350581600/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide/end_/topic/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguideend_top381956503/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e/escaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2eescaped2045638496/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e/escaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2eescaped3908414080/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e/escaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2eescaped3037543223/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e/escaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2eescaped4192236227/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide%2f..%2fescaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide%2f..%2fe1198566566/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide%2f..%2fescaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide%2f..%2fe853427446/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide%2f..%2fescaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide%2f..%2fe1420583049/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide%2f..%2fescaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide%2f..%2fe3097049661/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%252e%252e/escaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%252e%252eesc2097958347/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%252e%252e/escaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%252e%252eesc1690255194/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%252e%252e/escaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%252e%252eesc3251840897/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%252e%252e/escaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%252e%252eesc3486801887/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e%5cescaped/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2e%5cescap216751961/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e%5cescaped/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2e%5cescap1624446606/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e%5cescaped/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2e%5cescap489053388/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%2e%2e%5cescaped/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%2e%2e%5cescap2235345643/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%ff/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%ffmdstrict=181476198/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%ff/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%ffmdstrict=3057818469/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%ff/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%ffmpdstrict104203988/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%ff/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%ffmpdstrict4271087018/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%zz/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%zzmdstrict=2797979564/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%zz/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%zzmdstrict=2808784686/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%zz/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%zzmpdstrict1158497361/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%zz/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%zzmpdstrict893844435/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%00/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%00mdstrict=2451577248/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%00/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%00mdstrict=323518011/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%00/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%00mpdstrict1431851790/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/%00/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutput%00mpdstrict645749174/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide?query/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidequerymd2964320958/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide?query/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidequerymd3851310975/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide?query/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidequerymp2718943064/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide?query/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguidequerymp3077361279/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide#fragment/md/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide#fragment3292948214/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide#fragment/md/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide#fragment1947039772/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide#fragment/mpd/strict=false (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide#fragment2916769594/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/guide#fragment/mpd/strict=true (0.01s)
+        route_safety_test.go:26: unsafe route accepted
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputguide#fragment1446082295/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/bad\x00name/md/strict=false (0.01s)
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputbadx00namemd2400027762/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/bad\x00name/md/strict=true (0.01s)
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputbadx00namemd1346224690/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/bad\x00name/mpd/strict=false (0.01s)
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputbadx00namemp1433832208/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeRoutesBeforeReplacingOutput/bad\x00name/mpd/strict=true (0.01s)
+        route_safety_test.go:28: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeRoutesBeforeReplacingOutputbadx00namemp1401080905/001/site/last-good: no such file or directory)
+--- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput (0.07s)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["guide/topic"_"guide//topic"]/strict=false (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputguidetop4145208003/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["guide/topic"_"guide//topic"]/strict=true (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputguidetop3898322824/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["guide"_"%67uide"]/strict=false (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputguide_%4140937715/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["guide"_"%67uide"]/strict=true (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputguide_%533271016/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["Guide"_"guide"]/strict=false (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputGuide_g3779747319/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["Guide"_"guide"]/strict=true (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputGuide_g2398125680/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["café"_"café"]/strict=false (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputcafé_c1417515341/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["café"_"café"]/strict=true (0.01s)
+        route_safety_test.go:66: colliding routes accepted
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputcafé_c1034237221/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["guide"_"guide/index.html/topic"]/strict=false (0.01s)
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputguide_g1337872887/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsRouteCollisionsBeforeReplacingOutput/["guide"_"guide/index.html/topic"]/strict=true (0.01s)
+        route_safety_test.go:68: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsRouteCollisionsBeforeReplacingOutputguide_g50392945/001/site/last-good: no such file or directory)
+--- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions (0.09s)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/assets/mpress.css (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsassetsmpr1167383714/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/assets/mpress.js/topic (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsassetsmpr2088634695/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/knowledge/index.json (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsknowledge1626738196/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/knowledge/pages.json.gz (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsknowledge1465606279/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/search-index.json (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionssearch-ind170569474/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/sitemap.xml (0.01s)
+        route_safety_test.go:80: generated file collision accepted
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionssitemap.xm2756624966/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/llms.txt (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsllms.txt3363613079/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/robots.txt (0.01s)
+        route_safety_test.go:80: generated file collision accepted
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsrobots.txt1458881871/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/mpress-manifest.json (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsmpress-man784644136/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/404.html (0.01s)
+        route_safety_test.go:80: generated file collision accepted
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisions404.html890231101/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/_headers (0.01s)
+        route_safety_test.go:82: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisions_headers2756249225/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/static/guide (0.01s)
+        route_safety_test.go:93: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsstaticgui1788194370/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/static/guide/index.html (0.01s)
+        route_safety_test.go:91: static collision accepted
+        route_safety_test.go:93: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsstaticgui2288743381/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsGeneratedFileAndStaticRouteCollisions/static/guide/index.html/child.txt (0.01s)
+        route_safety_test.go:93: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGeneratedFileAndStaticRouteCollisionsstaticgui680291241/001/site/last-good: no such file or directory)
+--- FAIL: TestBuildRejectsGlobalLocaleRouteCollision (0.01s)
+    route_safety_test.go:108: default page and localized home collision accepted
+    route_safety_test.go:110: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsGlobalLocaleRouteCollision1097104202/001/site/last-good: no such file or directory)
+--- FAIL: TestBuildRejectsActiveOptionalFileRouteCollisions (0.04s)
+    --- FAIL: TestBuildRejectsActiveOptionalFileRouteCollisions/contribute.sh (0.01s)
+        route_safety_test.go:127: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsActiveOptionalFileRouteCollisionscontribute.sh2758118725/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsActiveOptionalFileRouteCollisions/contribute.ps1 (0.01s)
+        route_safety_test.go:127: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsActiveOptionalFileRouteCollisionscontribute.ps11196873406/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsActiveOptionalFileRouteCollisions/mpress-contribute.sh (0.01s)
+        route_safety_test.go:127: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsActiveOptionalFileRouteCollisionsmpress-contrib493766911/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsActiveOptionalFileRouteCollisions/mpress-contribute.ps1 (0.01s)
+        route_safety_test.go:127: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsActiveOptionalFileRouteCollisionsmpress-contrib1863158284/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsActiveOptionalFileRouteCollisions/versions/versions.json (0.01s)
+        route_safety_test.go:127: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsActiveOptionalFileRouteCollisionsversionsversi2225785633/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsActiveOptionalFileRouteCollisions/fr/search-index.json (0.01s)
+        route_safety_test.go:127: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsActiveOptionalFileRouteCollisionsfrsearch-inde3936081641/001/site/last-good: no such file or directory)
+--- FAIL: TestBuildRejectsUnsafeCachedRoutes (0.05s)
+    --- FAIL: TestBuildRejectsUnsafeCachedRoutes/guide/../escaped/index.html (0.01s)
+        route_safety_test.go:181: unsafe cache output accepted
+        route_safety_test.go:183: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeCachedRoutesguide..escapedindex.html2592590876/001/site/last-good: no such file or directory)
+        route_safety_test.go:183: protected escaped/index.html changed (got 15655 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeCachedRoutes/guide//guide/index.html (0.01s)
+        route_safety_test.go:181: unsafe cache output accepted
+        route_safety_test.go:183: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeCachedRoutesguideguideindex.html922943368/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeCachedRoutes/guide/guide\index.html (0.01s)
+        route_safety_test.go:181: unsafe cache output accepted
+        route_safety_test.go:183: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeCachedRoutesguideguideindex.html1116382348/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeCachedRoutes/guide/guide/../guide/index.html (0.01s)
+        route_safety_test.go:181: unsafe cache output accepted
+        route_safety_test.go:183: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeCachedRoutesguideguide..guideindex.ht3547133245/001/site/last-good: no such file or directory)
+    --- FAIL: TestBuildRejectsUnsafeCachedRoutes/../escaped/../escaped/index.html (0.01s)
+        route_safety_test.go:181: unsafe cache output accepted
+        route_safety_test.go:183: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeCachedRoutes..escaped..escapedindex.h3851522103/001/site/last-good: no such file or directory)
+        route_safety_test.go:183: protected escaped/index.html changed (got 15992 bytes, error <nil>)
+    --- FAIL: TestBuildRejectsUnsafeCachedRoutes/guide//topic/guide/topic/index.html (0.01s)
+        route_safety_test.go:181: unsafe cache output accepted
+        route_safety_test.go:183: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsUnsafeCachedRoutesguidetopicguidetopicinde1138140753/001/site/last-good: no such file or directory)
+--- FAIL: TestBuildRejectsVersionSnapshotRouteCollision (0.01s)
+    route_safety_test.go:232: snapshot collision accepted
+    route_safety_test.go:234: protected site/last-good changed (got 0 bytes, error open /tmp/TestBuildRejectsVersionSnapshotRouteCollision3876584816/001/site/last-good: no such file or directory)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/site	0.980s
+--- FAIL: TestValidateRejectsLanguagePathComponents (0.00s)
+    --- FAIL: TestValidateRejectsLanguagePathComponents/. (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/.. (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/../outside (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/fr/ca (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/fr\ca (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/C:\fr (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/C: (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents//fr (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/%2e%2e (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/fr?query (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/fr#hash (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/NUL (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/LPT¹ (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/fr. (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/fr_ (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+    --- FAIL: TestValidateRejectsLanguagePathComponents/fr\x00ca (0.00s)
+        language_safety_test.go:13: unsafe language component accepted
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/config	0.004s
+FAIL

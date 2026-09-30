@@ -143,7 +143,7 @@ func assertOutputSafetySentinels(t *testing.T, root string, files map[string]str
 	for name, want := range files {
 		data, err := os.ReadFile(filepath.Join(root, name))
 		if err != nil || string(data) != want {
-			t.Errorf("protected %s changed: %q, %v", name, data, err)
+			t.Errorf("protected %s changed (got %d bytes, error %v)", name, len(data), err)
 		}
 	}
 }

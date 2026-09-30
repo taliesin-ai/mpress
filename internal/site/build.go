@@ -3,6 +3,7 @@ package site
 import (
 	"crypto/sha256"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"io/fs"
@@ -19,6 +20,7 @@ import (
 	"github.com/leaanthony/mpress/internal/knowledge"
 	"github.com/leaanthony/mpress/internal/navigation"
 	"github.com/leaanthony/mpress/internal/quickedit"
+	"github.com/leaanthony/mpress/internal/routes"
 	docversion "github.com/leaanthony/mpress/internal/version"
 )
 
@@ -116,6 +118,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 	pagesByLang := map[string][]*content.Page{}
 	routesByLang := map[string]map[string]*content.Page{}
 	quickEdits := make(map[*content.Page]*quickedit.Document)
+	unsafeRoutes := false
 	for _, lang := range cfg.Site.Languages {
 		routesByLang[lang] = map[string]*content.Page{}
 	}
@@ -134,6 +137,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 				diagnosticFile = filepath.ToSlash(filepath.Join(lang, rel))
 			}
 			result.Diagnostics = append(result.Diagnostics, content.Diagnostic{Severity: "error", Code: "parse", File: diagnosticFile, Message: parseErr.Error()})
+			unsafeRoutes = unsafeRoutes || errors.Is(parseErr, routes.ErrUnsafe)
 			continue
 		}
 		if page.Draft && !opts.IncludeDrafts {
@@ -152,6 +156,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 				diagnosticFile = filepath.ToSlash(filepath.Join(lang, rel))
 			}
 			result.Diagnostics = append(result.Diagnostics, content.Diagnostic{Severity: "error", Code: "duplicate-route", File: diagnosticFile, Message: fmt.Sprintf("route /%s already used by %s", page.URLPath, prev.SourcePath)})
+			unsafeRoutes = true
 			continue
 		}
 		routesByLang[lang][page.URLPath] = page
@@ -160,8 +165,21 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 			quickEdits[page] = parsed.quickEdit
 		}
 	}
+	if unsafeRoutes {
+		return result, fmt.Errorf("unsafe or duplicate page routes; output was not replaced")
+	}
 	if len(pagesByLang[cfg.Site.DefaultLanguage]) == 0 {
 		return result, fmt.Errorf("no pages found for default language %s", cfg.Site.DefaultLanguage)
+	}
+	var versionLabels []string
+	if cfg.Version.Enabled {
+		versionLabels, err = docversion.List(projectDir)
+		if err != nil {
+			return result, err
+		}
+	}
+	if err := preflightPageOutputs(projectDir, cfg, pagesByLang, versionLabels); err != nil {
+		return result, err
 	}
 	startTiming("prepare", "Prepare output")
 	if err := cfg.RemoveOutput(projectDir, outputDir); err != nil {
@@ -276,13 +294,6 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 		}
 	}
 	defaultRoutes := routesByLang[cfg.Site.DefaultLanguage]
-	var versionLabels []string
-	if cfg.Version.Enabled {
-		versionLabels, err = docversion.List(projectDir)
-		if err != nil {
-			return result, err
-		}
-	}
 	renderLabel := "Render pages and search"
 	if opts.LinkCollector != nil {
 		renderLabel = "Render pages, search, and link index"
@@ -313,10 +324,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 		compiledNav := compileNav(nav, lang, cfg.Site.DefaultLanguage, cfg.Site.DefaultAtRoot, routesByLang[lang])
 		rendered, tokens, renderErr := renderPages(outputDir, len(pages), opts.PurgeUnusedCSS, opts.LinkCollector != nil, func(i int) (string, templateData, error) {
 			page := pages[i]
-			pageOut := page.OutputPath
-			if lang != cfg.Site.DefaultLanguage || !cfg.Site.DefaultAtRoot {
-				pageOut = filepath.ToSlash(filepath.Join(lang, pageOut))
-			}
+			pageOut := localizedPageOutput(cfg, lang, page.OutputPath)
 			root := relativeRoot(pageOut)
 			prev, next := neighbors(flat, page.URLPath)
 			links := languageLinks(cfg, page.URLPath, routesByLang)

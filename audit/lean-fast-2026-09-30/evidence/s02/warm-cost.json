@@ -1,0 +1,90 @@
+{
+  "corpus": "Pinned Wails 337a757, 2010 pages; same project path, five alternating-order warm cache runs per binary, strict/no-purge-css. Version-specific parse caches primed by qualification builds.",
+  "samples": {
+    "before": [
+      {
+        "wallSeconds": 7.43,
+        "peakRSSKiB": 1083752,
+        "reportedBuildMS": 7266.675993,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.47,
+        "peakRSSKiB": 958848,
+        "reportedBuildMS": 7288.725364,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.43,
+        "peakRSSKiB": 956152,
+        "reportedBuildMS": 7283.710094,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.55,
+        "peakRSSKiB": 1087172,
+        "reportedBuildMS": 7362.922825,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.48,
+        "peakRSSKiB": 1084588,
+        "reportedBuildMS": 7291.901825,
+        "pages": 2010,
+        "files": 2165
+      }
+    ],
+    "after": [
+      {
+        "wallSeconds": 7.42,
+        "peakRSSKiB": 992116,
+        "reportedBuildMS": 7242.032298,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.37,
+        "peakRSSKiB": 1029492,
+        "reportedBuildMS": 7189.122187,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.42,
+        "peakRSSKiB": 907208,
+        "reportedBuildMS": 7251.284817,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.43,
+        "peakRSSKiB": 951988,
+        "reportedBuildMS": 7257.120707,
+        "pages": 2010,
+        "files": 2165
+      },
+      {
+        "wallSeconds": 7.41,
+        "peakRSSKiB": 951596,
+        "reportedBuildMS": 7230.134337,
+        "pages": 2010,
+        "files": 2165
+      }
+    ]
+  },
+  "medians": {
+    "before": {
+      "wallSeconds": 7.47,
+      "peakRSSKiB": 1083752
+    },
+    "after": {
+      "wallSeconds": 7.42,
+      "peakRSSKiB": 951988
+    }
+  },
+  "purpose": "Cost check for safety validation, not an optimization claim."
+}

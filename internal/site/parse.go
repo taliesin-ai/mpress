@@ -25,8 +25,8 @@ import (
 // changes that produce different output for identical Markdown.
 // Increment this whenever parser or component rendering changes can alter the
 // cached page HTML without changing the source document.
-// v21 removes the English prefix from generated D2 descriptions.
-const parseCacheVersion = "mpress-parse-v21"
+// v22 validates and canonicalizes page routes before caching their output paths.
+const parseCacheVersion = "mpress-parse-v22"
 
 const maxParseWorkers = 8
 

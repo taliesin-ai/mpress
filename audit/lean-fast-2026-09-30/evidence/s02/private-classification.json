@@ -1,0 +1,11 @@
+{
+  "baselineTopLevelFailures": 4,
+  "candidateTopLevelFailuresBeforeTestCorrection": 5,
+  "candidateTopLevelFailuresAfterTestCorrection": 4,
+  "sameBaselineFailingTestsAfterCorrection": true,
+  "sameBaselineFailureAssertionLocationsAfterCorrection": false,
+  "correction": "One conformance test expected a rejected duplicate-route build to create partial output. Corrected to assert preservation of the last good site; retained unsupported-component rendering and JSON diagnostics coverage. Corrected test fails baseline source and passes candidate.",
+  "privacy": "Private fixtures and raw logs remain outside public repository.",
+  "sameBaselineFailureAssertionsAfterCorrection": true,
+  "lineLocationNote": "Conformance test additions shift subsequent line numbers; comparison also checks unchanged assertion source text."
+}

@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/leaanthony/mpress/internal/routes"
 	"gopkg.in/yaml.v3"
 )
 
@@ -502,6 +503,9 @@ func (c *Config) Validate() error {
 	for _, lang := range c.Site.Languages {
 		if lang == "" || seen[lang] {
 			return fmt.Errorf("site.languages contains an empty or duplicate language %q", lang)
+		}
+		if err := routes.Component(lang); err != nil {
+			return fmt.Errorf("site.languages: %w", err)
 		}
 		seen[lang] = true
 		if lang == c.Site.DefaultLanguage {

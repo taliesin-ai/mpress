@@ -28,6 +28,8 @@ CLI reproduction: frontmatter slug ../escaped exits 0 and creates project/escape
 
 Done when: Reject dot segments, platform separators, invalid language path components, output escapes and generated-file namespace collisions before writes. Detect equivalent routes deterministically. Cover Markdown, MPD, multilingual routes and Windows path forms; source/outside sentinels remain unchanged.
 
+Resolution: implemented and qualified on 2026-09-30; see [S02.md](S02.md) for fresh/cached route regressions, output preflight, artifact equivalence and private conformance correction. Beads carries the authoritative closure and commit.
+
 ### S03 · `mp-b52.1.3` · P0 · Keep authoring file reads and writes inside the project through symlinks
 
 Evidence: **confirmed**. Sources: `internal/dev/server.go:sourcePath/handleFile/writeSource/handleLivePreview; internal/dev/mcp.go`.
