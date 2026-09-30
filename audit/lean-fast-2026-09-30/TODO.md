@@ -18,6 +18,8 @@ Disposable CLI reproductions: outputDir=content and outputDir=static both exit 0
 
 Done when: Validate canonical containment and disjointness from content, static, configuration, Git and persistent state BEFORE any removal. Cover equal, ancestor, descendant, symlinked and non-existent paths, override output paths and clean. Existing sentinels survive every rejection; ordinary, export and live-preview output still work.
 
+Resolution: implemented and qualified on 2026-09-30; see [S01.md](S01.md) for the sentinel regressions, unchanged artifact hashes and remaining filesystem-audit boundaries. Beads carries the authoritative closure and commit.
+
 ### S02 · `mp-b52.1.2` · P0 · Contain and normalise every generated page route
 
 Evidence: **confirmed**. Sources: `internal/content/content.go:routeFor/outputFor; internal/site/render_pages.go; internal/config/config.go`.

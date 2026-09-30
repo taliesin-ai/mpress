@@ -1,0 +1,11 @@
+{
+  "filesBefore": 100,
+  "filesAfter": 100,
+  "identical": true,
+  "changed": [],
+  "aggregateSHA256": {
+    "before": "99e6f6d84fa22cfa76696d0811df8129955d012d295f396392dac59ed80612ca",
+    "after": "99e6f6d84fa22cfa76696d0811df8129955d012d295f396392dac59ed80612ca"
+  },
+  "baseline": "74488e1b1 source overlay replaces Build and clean; same complete documentation corpus/config/project path"
+}

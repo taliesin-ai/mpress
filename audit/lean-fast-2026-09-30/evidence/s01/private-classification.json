@@ -1,0 +1,7 @@
+{
+  "baselineTopLevelFailures": 4,
+  "candidateTopLevelFailures": 4,
+  "sameFailingTests": true,
+  "sameFailureAssertionLocations": true,
+  "privacy": "Only aggregate comparison retained; raw private logs and test names are not copied."
+}

@@ -1,0 +1,43 @@
+ripwire situational-awareness — 3 changed file(s), 99 symbols in them
+root: .
+at: 74488e1b1+dirty
+  [1] blast radius: 160 symbols across 42 files transitively depend on these changes (showing 8 of 42 files; --pr-context's own per-file blast-radius list is also capped, at 20)
+        counts_floor=1: every count above is a FLOOR, never a total (call edges are name-based; dynamic dispatch, callbacks and macros can be missing) — read a zero as "none found", never as "none exists"; graph_ambiguous=154 graph_unresolved=372 is the whole graph's resolver gauge (calls split over several defs / calls whose in-repo defs were all language-filtered), the map header's ambiguous=/unresolved=
+        internal/dev/server_test.go  (24 dependent symbols)
+        internal/site/build_test.go  (19 dependent symbols)
+        internal/dev/server.go  (18 dependent symbols)
+        cmd/mpress/main_test.go  (17 dependent symbols)
+        internal/importer/starlight_test.go  (9 dependent symbols)
+        internal/translate/provider_test.go  (7 dependent symbols)
+        internal/config/output_test.go  (5 dependent symbols)
+        internal/site/output_safety_test.go  (5 dependent symbols)
+  [2] tests to run (29) (showing 25 of 29 tests) — evidence order: [changed] you edited it, [partner] named after a changed file, then hops (1 = calls a changed symbol directly):
+        cmd/mpress/main_test.go [partner] [hops=1]   (run: not derivable)
+        internal/config/output_test.go [partner] [hops=1]   (run: not derivable)
+        internal/site/build_test.go [partner] [hops=1]   (run: not derivable)
+        audit/lean-fast-2026-09-30/tools/lcp/landing_test.go [hops=1]   (run: not derivable)
+        audit/lean-fast-2026-09-30/tools/popover_test.go [hops=1]   (run: not derivable)
+        cmd/mpress/check_test.go [hops=1]   (run: not derivable)
+        cmd/mpress/clean_test.go [hops=1]   (run: not derivable)
+        cmd/mpress/version_test.go [hops=1]   (run: not derivable)
+        internal/importer/starlight_test.go [hops=1]   (run: not derivable)
+        internal/site/assets_test.go [hops=1]   (run: not derivable)
+        internal/site/build_bench_test.go [hops=1]   (run: not derivable)
+        internal/site/d2_test.go [hops=1]   (run: not derivable)
+        internal/site/native_layout_test.go [hops=1]   (run: not derivable)
+        internal/site/output_safety_test.go [hops=1]   (run: not derivable)
+        internal/site/parse_test.go [hops=1]   (run: not derivable)
+        internal/check/rendered_test.go [hops=2]   (run: not derivable)
+        internal/exportzip/export_test.go [hops=2]   (run: not derivable)
+        internal/mpdconformance/corpus_test.go [hops=2]   (run: not derivable)
+        internal/operations/operations_test.go [hops=2]   (run: not derivable)
+        internal/site/localized_links_test.go [hops=2]   (run: not derivable)
+        internal/dev/server_test.go [hops=3]   (run: not derivable)
+        internal/dev/translation_state_test.go [hops=4]   (run: not derivable)
+        internal/version/version_test.go [hops=4]   (run: not derivable)
+        internal/contribute/contribute_test.go [hops=5]   (run: not derivable)
+        internal/deploy/cloudflare_test.go [hops=5]   (run: not derivable)
+        (0 test/*.sh gates are NOT modelled: script-to-binary edges are not call edges, so they never appear here — a path count, not every one invokes the binary)
+  [3] co-change — usually edited with these but NOT in your diff (0) window="18mo@HEAD" commits="28":
+        (none — 28 commits were mined and none co-edited a file outside your diff)
+  next: --test-gate

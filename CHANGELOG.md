@@ -6,6 +6,7 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Fixed — 2026-09-30
 
+- Build and clean now share canonical output validation and rooted removal, rejecting output that overlaps source, assets, configuration, Git or persistent state. Safe internal aliases, missing output directories, export and live preview remain supported; final output symlinks are replaced without deleting their targets. Sentinel regressions and identical ordinary-doc artifact hashes qualify Beads `mp-b52.1.1`; see `audit/lean-fast-2026-09-30/S01.md`.
 - Retained literal runtime classes from inline scripts during production CSS purging, including whitespace-separated class lists and template literals. Added failing-before regression coverage at the purge and build boundaries.
 - Marked both frontmatter hero theme images eager, high priority and asynchronously decoded. Prepared in [PR #7](https://github.com/leaanthony/mpress/pull/7); public CI passed, publication and field qualification remain pending.
 - Prepared Wails documentation fixes for blocking CSS and reported legacy carousel/article images. The released M-Press 1.0.18 production build now safely purges CSS with page-local animation styles: 191,986 → 123,740 bytes. Repeated cold throttled v3 LCP medians improved 9–10%; this is laboratory evidence, not a claim that the reported field outliers are resolved.

@@ -1,0 +1,93 @@
+--- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData (0.62s)
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/content (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected content/index.md changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectDatacontent3769322895/001/content/index.md: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/content/generated (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/static (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected static/asset.txt changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectDatastatic2847374160/001/static/asset.txt: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/static/generated (0.54s)
+        output_safety_test.go:23: expected unsafe output rejection, got open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectDatastaticgen683989727/001/static/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/generated/asset.txt: file name too long
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/mpress.yaml (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got read /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectDatampress.yam3939109551/001/mpress.yaml: is a directory
+        output_safety_test.go:25: protected mpress.yaml changed: "", read /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectDatampress.yam3939109551/001/mpress.yaml: is a directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.git (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .git/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.git213754764/001/.git/sentinel: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.git/generated (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.mpress (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .mpress/translations/state.json changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpress3270312395/001/.mpress/translations/state.json: no such file or directory
+        output_safety_test.go:25: protected .mpress/versions/prior/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpress3270312395/001/.mpress/versions/prior/sentinel: no such file or directory
+        output_safety_test.go:25: protected .mpress/backups/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpress3270312395/001/.mpress/backups/sentinel: no such file or directory
+        output_safety_test.go:25: protected .mpress/onboarding changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpress3270312395/001/.mpress/onboarding: no such file or directory
+        output_safety_test.go:25: protected .mpress/unknown-state/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpress3270312395/001/.mpress/unknown-state/sentinel: no such file or directory
+        output_safety_test.go:25: protected .mpress/cache/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpress3270312395/001/.mpress/cache/sentinel: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.mpress/cache (0.00s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .mpress/cache/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpressca1475305715/001/.mpress/cache/sentinel: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.mpress/translations (0.00s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .mpress/translations/state.json changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpresstr3114154426/001/.mpress/translations/state.json: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.mpress/versions (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .mpress/versions/prior/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpressve359280436/001/.mpress/versions/prior/sentinel: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.mpress/backups (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .mpress/backups/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpressba2262133955/001/.mpress/backups/sentinel: no such file or directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.mpress/onboarding (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .mpress/onboarding changed: "", read /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpresson4265986933/001/.mpress/onboarding: is a directory
+    --- FAIL: TestBuildPreservesInputsWhenOutputOverlapsProjectData/.mpress/unknown-state (0.01s)
+        output_safety_test.go:23: expected unsafe output rejection, got <nil>
+        output_safety_test.go:25: protected .mpress/unknown-state/sentinel changed: "", open /tmp/TestBuildPreservesInputsWhenOutputOverlapsProjectData.mpressun407583780/001/.mpress/unknown-state/sentinel: no such file or directory
+--- FAIL: TestBuildOverrideCannotDeleteContent (0.01s)
+    output_safety_test.go:37: override should be rejected, got <nil>
+    output_safety_test.go:39: protected content/index.md changed: "", open /tmp/TestBuildOverrideCannotDeleteContent4080020563/001/content/index.md: no such file or directory
+--- FAIL: TestBuildRejectsOutputThroughExternalParent (0.01s)
+    output_safety_test.go:53: external parent should be rejected, got <nil>
+    output_safety_test.go:58: external sentinel changed: "", open /tmp/TestBuildRejectsOutputThroughExternalParent3358270770/002/site/sentinel.txt: no such file or directory
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/site	0.688s
+Cleaned /tmp/TestCleanPreservesProtectedProjectDatacontent1088708229/001/content
+Cleaned /tmp/TestCleanPreservesProtectedProjectDatacontentgenerated3248379392/001/content/generated
+Cleaned /tmp/TestCleanPreservesProtectedProjectDatastatic4120338949/001/static
+Cleaned /tmp/TestCleanPreservesProtectedProjectData.git1378619565/001/.git
+Cleaned /tmp/TestCleanPreservesProtectedProjectDatampress.yaml32729500/001/mpress.yaml
+Cleaned /tmp/TestCleanPreservesProtectedProjectData.mpress1155002935/001/.mpress
+Cleaned /tmp/TestCleanPreservesProtectedProjectData.mpresstranslations4057792770/001/.mpress/translations
+Cleaned /tmp/TestCleanPreservesProtectedProjectData.mpressunknown-state3944255529/001/.mpress/unknown-state
+--- FAIL: TestCleanPreservesProtectedProjectData (0.01s)
+    --- FAIL: TestCleanPreservesProtectedProjectData/content (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+        clean_test.go:30: sentinel changed: "", open /tmp/TestCleanPreservesProtectedProjectDatacontent1088708229/001/content/keep.md: no such file or directory
+    --- FAIL: TestCleanPreservesProtectedProjectData/content/generated (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+    --- FAIL: TestCleanPreservesProtectedProjectData/static (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+        clean_test.go:30: sentinel changed: "", open /tmp/TestCleanPreservesProtectedProjectDatastatic4120338949/001/static/keep.txt: no such file or directory
+    --- FAIL: TestCleanPreservesProtectedProjectData/.git (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+        clean_test.go:30: sentinel changed: "", open /tmp/TestCleanPreservesProtectedProjectData.git1378619565/001/.git/keep: no such file or directory
+    --- FAIL: TestCleanPreservesProtectedProjectData/mpress.yaml (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+        clean_test.go:33: configuration lost: stat /tmp/TestCleanPreservesProtectedProjectDatampress.yaml32729500/001/mpress.yaml: no such file or directory
+    --- FAIL: TestCleanPreservesProtectedProjectData/.mpress (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+        clean_test.go:30: sentinel changed: "", open /tmp/TestCleanPreservesProtectedProjectData.mpress1155002935/001/.mpress/translations/keep: no such file or directory
+        clean_test.go:30: sentinel changed: "", open /tmp/TestCleanPreservesProtectedProjectData.mpress1155002935/001/.mpress/unknown-state/keep: no such file or directory
+    --- FAIL: TestCleanPreservesProtectedProjectData/.mpress/translations (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+        clean_test.go:30: sentinel changed: "", open /tmp/TestCleanPreservesProtectedProjectData.mpresstranslations4057792770/001/.mpress/translations/keep: no such file or directory
+    --- FAIL: TestCleanPreservesProtectedProjectData/.mpress/unknown-state (0.00s)
+        clean_test.go:27: expected unsafe clean rejection, got <nil>
+        clean_test.go:30: sentinel changed: "", open /tmp/TestCleanPreservesProtectedProjectData.mpressunknown-state3944255529/001/.mpress/unknown-state/keep: no such file or directory
+Cleaned /tmp/TestCleanRejectsExternalSymlinkParent4001494546/001/linked/site
+--- FAIL: TestCleanRejectsExternalSymlinkParent (0.00s)
+    clean_test.go:53: expected unsafe clean rejection, got <nil>
+    clean_test.go:55: sentinel changed: "", open /tmp/TestCleanRejectsExternalSymlinkParent4001494546/002/site/keep: no such file or directory
+FAIL
+FAIL	github.com/leaanthony/mpress/cmd/mpress	0.071s
+FAIL

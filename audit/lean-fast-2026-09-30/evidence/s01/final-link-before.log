@@ -1,0 +1,6 @@
+--- FAIL: TestBuildReplacesFinalOutputLinkWithoutDeletingItsTarget (0.00s)
+    output_safety_test.go:111: final output link was followed during deletion: "", open /tmp/TestBuildReplacesFinalOutputLinkWithoutDeletingItsTarget2531277117/001/generated/keep: no such file or directory
+    output_safety_test.go:115: output link was not replaced with a directory: &{site 85 134218239 {617172714 63926367208 0x26d9360} {56 994266 1 41471 1000 1000 0 0 85 4096 0 {1790770408 617478366} {1790770408 617172714} {1790770408 617172714} [0 0 0]}}, <nil>
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/site	0.061s
+FAIL

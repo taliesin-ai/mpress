@@ -1028,13 +1028,7 @@ func clean() error {
 		return err
 	}
 	out := cfg.OutputPath(root)
-	absRoot, _ := filepath.Abs(root)
-	absOut, _ := filepath.Abs(out)
-	rel, relErr := filepath.Rel(absRoot, absOut)
-	if relErr != nil || rel == "." || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-		return fmt.Errorf("refusing unsafe clean target %s", out)
-	}
-	if err = os.RemoveAll(out); err == nil {
+	if err = cfg.RemoveOutput(root, out); err == nil {
 		fmt.Println("Cleaned", out)
 	}
 	return err

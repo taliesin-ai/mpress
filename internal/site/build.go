@@ -93,6 +93,16 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 	if err != nil {
 		return result, err
 	}
+	outputDir := cfg.OutputPath(projectDir)
+	if strings.TrimSpace(opts.OutputDir) != "" {
+		outputDir = opts.OutputDir
+		if !filepath.IsAbs(outputDir) {
+			outputDir = filepath.Join(projectDir, outputDir)
+		}
+	}
+	if outputDir, err = cfg.SafeOutputPath(projectDir, outputDir); err != nil {
+		return result, err
+	}
 	contentDir := cfg.ContentPath(projectDir)
 	info, err := os.Stat(contentDir)
 	if err != nil || !info.IsDir() {
@@ -154,17 +164,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 		return result, fmt.Errorf("no pages found for default language %s", cfg.Site.DefaultLanguage)
 	}
 	startTiming("prepare", "Prepare output")
-	outputDir := cfg.OutputPath(projectDir)
-	if strings.TrimSpace(opts.OutputDir) != "" {
-		outputDir = opts.OutputDir
-		if !filepath.IsAbs(outputDir) {
-			outputDir = filepath.Join(projectDir, outputDir)
-		}
-	}
-	if err := safeOutput(projectDir, outputDir); err != nil {
-		return result, err
-	}
-	if err := os.RemoveAll(outputDir); err != nil {
+	if err := cfg.RemoveOutput(projectDir, outputDir); err != nil {
 		return result, err
 	}
 	if err := os.MkdirAll(filepath.Join(outputDir, "assets"), 0o755); err != nil {
@@ -825,15 +825,6 @@ func writeManifest(output string, cfg config.Config, pages map[string][]*content
 	}
 	data, _ := json.MarshalIndent(map[string]any{"schemaVersion": 1, "pages": es}, "", "  ")
 	return os.WriteFile(filepath.Join(output, "mpress-manifest.json"), data, 0o644)
-}
-func safeOutput(root, out string) error {
-	r, _ := filepath.Abs(root)
-	o, _ := filepath.Abs(out)
-	rel, err := filepath.Rel(r, o)
-	if err != nil || rel == "." || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) || filepath.IsAbs(rel) {
-		return fmt.Errorf("unsafe output directory %s", out)
-	}
-	return nil
 }
 func copyTree(src, dst string, onFile func(relative, target string) error) error {
 	return filepath.WalkDir(src, func(path string, e fs.DirEntry, err error) error {
