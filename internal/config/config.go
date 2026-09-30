@@ -300,7 +300,12 @@ func validLayoutLength(value string, allowPercent bool) bool {
 }
 
 func Load(projectDir string) (Config, error) {
-	data, err := os.ReadFile(filepath.Join(projectDir, Filename))
+	return LoadWithReadFile(projectDir, os.ReadFile)
+}
+
+// LoadWithReadFile lets project callers retain a confined filesystem boundary.
+func LoadWithReadFile(projectDir string, readFile func(string) ([]byte, error)) (Config, error) {
+	data, err := readFile(filepath.Join(projectDir, Filename))
 	if err != nil {
 		if errors.Is(err, os.ErrNotExist) {
 			return Default(), fmt.Errorf("%s not found", Filename)

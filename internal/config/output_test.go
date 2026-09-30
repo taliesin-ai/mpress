@@ -17,6 +17,11 @@ func TestRemoveOutputProtectsConfiguredDataAndAncestors(t *testing.T) {
 		{"custom translation state", "state", "state/languages/keep", func(c *Config) { c.Translation.StateDir = "state/languages" }},
 		{"custom version store", "history", "history/versions/keep", func(c *Config) { c.Version.Artifacts = "history/versions" }},
 		{"custom stylesheet", "theme", "theme/custom.css", func(c *Config) { c.Build.CustomCSS = "theme/custom.css" }},
+		{"navigation outside content", "preview", "preview/nav.yaml", func(c *Config) { c.Build.NavFile = "../preview/nav.yaml" }},
+		{"localized navigation outside content", "preview", "preview/nav.yaml", func(c *Config) { c.Site.Languages = []string{"en", "fr"}; c.Build.NavFile = "../../preview/nav.yaml" }},
+		{"translation glossary", "preview", "preview/glossary.yaml", func(c *Config) { c.Translation.Glossary = "preview/glossary.yaml" }},
+		{"translation style guide", "preview", "preview/style.md", func(c *Config) { c.Translation.StyleGuide = "preview/style.md" }},
+		{"contributor guide", "preview", "preview/guide.md", func(c *Config) { c.Contribution.Guide = "preview/guide.md" }},
 		{"temporary output source conflict", ".mpress/live-preview/build", ".mpress/live-preview/build/content/keep", func(c *Config) { c.Build.ContentDir = ".mpress/live-preview/build/content" }},
 		{"temporary output state conflict", ".mpress/export-abc/site", ".mpress/export-abc/site/state/keep", func(c *Config) { c.Translation.StateDir = ".mpress/export-abc/site/state" }},
 	} {

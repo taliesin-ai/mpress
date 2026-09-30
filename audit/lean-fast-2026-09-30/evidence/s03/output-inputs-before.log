@@ -1,0 +1,19 @@
+--- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors (0.00s)
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/navigation_outside_content (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorsnavigation_ou1246639054/001/preview/nav.yaml: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/localized_navigation_outside_content (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorslocalized_nav1660342863/001/preview/nav.yaml: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/translation_glossary (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorstranslation_g2497437481/001/preview/glossary.yaml: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/translation_style_guide (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorstranslation_s1434975935/001/preview/style.md: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/contributor_guide (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorscontributor_g2147747992/001/preview/guide.md: no such file or directory
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/config	0.006s
+FAIL

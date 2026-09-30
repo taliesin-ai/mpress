@@ -1,0 +1,56 @@
+{
+  "before": {
+    "samples": [
+      {
+        "elapsedSeconds": 7.31,
+        "peakRSSKiB": 1028464
+      },
+      {
+        "elapsedSeconds": 7.39,
+        "peakRSSKiB": 953116
+      },
+      {
+        "elapsedSeconds": 7.47,
+        "peakRSSKiB": 964360
+      },
+      {
+        "elapsedSeconds": 7.8,
+        "peakRSSKiB": 954664
+      },
+      {
+        "elapsedSeconds": 7.91,
+        "peakRSSKiB": 995176
+      }
+    ],
+    "medianElapsedSeconds": 7.47,
+    "medianPeakRSSKiB": 964360
+  },
+  "after": {
+    "samples": [
+      {
+        "elapsedSeconds": 7.4,
+        "peakRSSKiB": 957416
+      },
+      {
+        "elapsedSeconds": 7.57,
+        "peakRSSKiB": 919188
+      },
+      {
+        "elapsedSeconds": 7.43,
+        "peakRSSKiB": 963488
+      },
+      {
+        "elapsedSeconds": 7.77,
+        "peakRSSKiB": 1033064
+      },
+      {
+        "elapsedSeconds": 7.53,
+        "peakRSSKiB": 957296
+      }
+    ],
+    "medianElapsedSeconds": 7.53,
+    "medianPeakRSSKiB": 957416
+  },
+  "purpose": "Same-workload safety cost check; not an optimization claim.",
+  "candidate": "final S03 checkpoint with rooted inputs and expanded configured-input overlap guards"
+}

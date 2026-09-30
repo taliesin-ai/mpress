@@ -19,12 +19,14 @@ import (
 	"github.com/leaanthony/mpress/internal/content"
 	"github.com/leaanthony/mpress/internal/knowledge"
 	"github.com/leaanthony/mpress/internal/navigation"
+	"github.com/leaanthony/mpress/internal/projectfs"
 	"github.com/leaanthony/mpress/internal/quickedit"
 	"github.com/leaanthony/mpress/internal/routes"
 	docversion "github.com/leaanthony/mpress/internal/version"
 )
 
 type BuildOptions struct {
+	files         *projectfs.FS
 	Strict        bool
 	IncludeDrafts bool
 	// Development includes local-only authoring aids such as inline quick edit.
@@ -91,7 +93,17 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 		result.Duration = time.Since(started)
 	}()
 	startTiming("discover", "Discover project")
-	cfg, err := config.Load(projectDir)
+	projectDir, err := filepath.Abs(projectDir)
+	if err != nil {
+		return result, err
+	}
+	files, err := projectfs.Open(projectDir)
+	if err != nil {
+		return result, err
+	}
+	defer files.Close()
+	opts.files = files
+	cfg, err := config.LoadWithReadFile(projectDir, files.ReadFile)
 	if err != nil {
 		return result, err
 	}
@@ -106,7 +118,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 		return result, err
 	}
 	contentDir := cfg.ContentPath(projectDir)
-	info, err := os.Stat(contentDir)
+	info, err := files.Stat(contentDir)
 	if err != nil || !info.IsDir() {
 		return result, fmt.Errorf("content directory not found: %s", contentDir)
 	}
@@ -137,7 +149,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 				diagnosticFile = filepath.ToSlash(filepath.Join(lang, rel))
 			}
 			result.Diagnostics = append(result.Diagnostics, content.Diagnostic{Severity: "error", Code: "parse", File: diagnosticFile, Message: parseErr.Error()})
-			unsafeRoutes = unsafeRoutes || errors.Is(parseErr, routes.ErrUnsafe)
+			unsafeRoutes = unsafeRoutes || errors.Is(parseErr, routes.ErrUnsafe) || errors.Is(parseErr, projectfs.ErrOutside)
 			continue
 		}
 		if page.Draft && !opts.IncludeDrafts {
@@ -166,7 +178,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 		}
 	}
 	if unsafeRoutes {
-		return result, fmt.Errorf("unsafe or duplicate page routes; output was not replaced")
+		return result, fmt.Errorf("unsafe source paths or duplicate page routes; output was not replaced")
 	}
 	if len(pagesByLang[cfg.Site.DefaultLanguage]) == 0 {
 		return result, fmt.Errorf("no pages found for default language %s", cfg.Site.DefaultLanguage)
@@ -204,7 +216,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 	themeCSS = strings.Replace(themeCSS, "#95aaff", cfg.Theme.HoverColorDark, 1)
 	themeCSS += documentationLayoutCSS(cfg.Theme.Layout)
 	if cfg.Build.CustomCSS != "" {
-		customCSS, err := os.ReadFile(filepath.Join(projectDir, cfg.Build.CustomCSS))
+		customCSS, err := files.ReadFile(filepath.Join(projectDir, cfg.Build.CustomCSS))
 		if err != nil {
 			result.Diagnostics = append(result.Diagnostics, content.Diagnostic{Severity: "error", Code: "custom-css", Message: err.Error()})
 		} else {
@@ -235,7 +247,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 	if opts.LinkCollector != nil {
 		opts.LinkCollector.AddFile("assets/mpress.js")
 	}
-	if err := copyTree(cfg.StaticPath(projectDir), outputDir, func(relative, target string) error {
+	if err := copyTree(files, cfg.StaticPath(projectDir), outputDir, func(relative, target string) error {
 		if opts.LinkCollector == nil && !opts.PurgeUnusedCSS {
 			return nil
 		}
@@ -311,11 +323,13 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 		navPath := filepath.Join(contentDir, cfg.Build.NavFile)
 		if lang != cfg.Site.DefaultLanguage {
 			candidate := filepath.Join(contentDir, lang, cfg.Build.NavFile)
-			if _, e := os.Stat(candidate); e == nil {
+			if _, e := files.Stat(candidate); e == nil {
 				navPath = candidate
+			} else if !os.IsNotExist(e) {
+				return result, e
 			}
 		}
-		nav, navErr := navigation.Load(navPath, pages)
+		nav, navErr := navigation.LoadWithReadFile(navPath, pages, files.ReadFile)
 		if navErr != nil {
 			return result, navErr
 		}
@@ -378,7 +392,7 @@ func Build(projectDir string, opts BuildOptions) (result BuildResult, buildErr e
 	notFoundPath := filepath.Join(outputDir, "404.html")
 	if _, statErr := os.Stat(notFoundPath); os.IsNotExist(statErr) {
 		defaultPages := pagesByLang[cfg.Site.DefaultLanguage]
-		nav, navErr := navigation.Load(filepath.Join(contentDir, cfg.Build.NavFile), defaultPages)
+		nav, navErr := navigation.LoadWithReadFile(filepath.Join(contentDir, cfg.Build.NavFile), defaultPages, files.ReadFile)
 		if navErr != nil {
 			return result, navErr
 		}
@@ -834,8 +848,8 @@ func writeManifest(output string, cfg config.Config, pages map[string][]*content
 	data, _ := json.MarshalIndent(map[string]any{"schemaVersion": 1, "pages": es}, "", "  ")
 	return os.WriteFile(filepath.Join(output, "mpress-manifest.json"), data, 0o644)
 }
-func copyTree(src, dst string, onFile func(relative, target string) error) error {
-	return filepath.WalkDir(src, func(path string, e fs.DirEntry, err error) error {
+func copyTree(files *projectfs.FS, src, dst string, onFile func(relative, target string) error) error {
+	return files.WalkDir(src, func(path string, e fs.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
@@ -844,7 +858,7 @@ func copyTree(src, dst string, onFile func(relative, target string) error) error
 		if e.IsDir() {
 			return os.MkdirAll(target, 0o755)
 		}
-		if err := copyFile(path, target); err != nil {
+		if err := copyFile(files, path, target); err != nil {
 			return err
 		}
 		if onFile != nil {
@@ -853,8 +867,8 @@ func copyTree(src, dst string, onFile func(relative, target string) error) error
 		return nil
 	})
 }
-func copyFile(src, dst string) error {
-	in, err := os.Open(src)
+func copyFile(files *projectfs.FS, src, dst string) error {
+	in, err := files.Open(src)
 	if err != nil {
 		return err
 	}

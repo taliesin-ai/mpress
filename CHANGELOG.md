@@ -4,6 +4,11 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ## Unreleased
 
+### Fixed — 2026-10-01
+
+- Confined direct REST/MCP authoring file operations, uploads, backups, trees and preview/site serving to the project using rooted IO; protected preview cleanup from source, state and published-output overlap. Delegated source/cache/static/CSS/navigation inputs now use the same boundary. Safe aliases and ordinary artifacts remain covered. Beads `mp-b52.1.3` stays in progress for the remaining delegates; see `audit/lean-fast-2026-09-30/S03.md`.
+- Extended shared build/clean/preview guards to preserve configured navigation, translation glossary, writing guide and contributor guide files outside the main content directory. Added failing-before data-preservation checks for these cases.
+
 ### Fixed — 2026-09-30
 
 - Page routes and language components now reject traversal and nonportable path forms. Canonical route/output preflight catches duplicate, multilingual, generated-file, static and snapshot collisions before replacing the current site; cached pages and direct page writes use the same contract. Root/nested/Unicode routes and supported static overrides remain covered. Beads `mp-b52.1.2`; see `audit/lean-fast-2026-09-30/S02.md` for failing-before tests, artifact equivalence and remaining qualification.

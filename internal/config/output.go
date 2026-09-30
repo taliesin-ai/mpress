@@ -1,11 +1,12 @@
 package config
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/leaanthony/mpress/internal/projectfs"
 )
 
 // SafeOutputPath resolves an output directory and rejects paths that can erase
@@ -14,11 +15,21 @@ import (
 // final component is retained so removal unlinks an output symlink rather than
 // deleting the directory it points to.
 func (c Config) SafeOutputPath(project, output string) (string, error) {
-	root, err := canonicalPath(project)
+	return c.safeOutputPath(project, output, false)
+}
+
+// SafePreviewPool applies the same input/state overlap policy to the dev
+// server's managed pool, whose startup cleanup removes the pool itself.
+func (c Config) SafePreviewPool(project string) (string, error) {
+	return c.safeOutputPath(project, filepath.Join(project, ".mpress", "live-preview"), true)
+}
+
+func (c Config) safeOutputPath(project, output string, previewPool bool) (string, error) {
+	root, err := projectfs.CanonicalPath(project)
 	if err != nil {
 		return "", fmt.Errorf("unsafe output directory %s: resolve project: %w", output, err)
 	}
-	resolved, err := canonicalPath(output)
+	resolved, err := projectfs.CanonicalPath(output)
 	if err != nil {
 		return "", fmt.Errorf("unsafe output directory %s: %w", output, err)
 	}
@@ -27,16 +38,30 @@ func (c Config) SafeOutputPath(project, output string) (string, error) {
 	}
 	protected := []string{
 		c.ContentPath(project), c.StaticPath(project), filepath.Join(project, Filename),
+		filepath.Join(c.ContentPath(project), c.Build.NavFile),
 		filepath.Join(project, ".git"), c.ArtifactsPath(project),
 		filepath.Join(project, c.Translation.StateDir),
 		filepath.Join(project, ".mpress", "cache"), filepath.Join(project, ".mpress", "backups"),
 		filepath.Join(project, ".mpress", "onboarding"),
 	}
+	for _, language := range c.Site.Languages {
+		if language != c.Site.DefaultLanguage {
+			protected = append(protected, filepath.Join(c.ContentPath(project), language, c.Build.NavFile))
+		}
+	}
+	for _, path := range []string{c.Translation.Glossary, c.Translation.StyleGuide, c.Contribution.Guide} {
+		if path != "" {
+			protected = append(protected, filepath.Join(project, path))
+		}
+	}
+	if previewPool {
+		protected = append(protected, c.OutputPath(project))
+	}
 	if c.Build.CustomCSS != "" {
 		protected = append(protected, filepath.Join(project, c.Build.CustomCSS))
 	}
 	for _, path := range protected {
-		canonical, err := canonicalPath(path)
+		canonical, err := projectfs.CanonicalPath(path)
 		if err != nil {
 			return "", fmt.Errorf("unsafe output directory %s: resolve protected path %s: %w", output, path, err)
 		}
@@ -44,14 +69,15 @@ func (c Config) SafeOutputPath(project, output string) (string, error) {
 			return "", fmt.Errorf("unsafe output directory %s: overlaps protected path %s", output, path)
 		}
 	}
-	state, err := canonicalPath(filepath.Join(project, ".mpress"))
+	state, err := projectfs.CanonicalPath(filepath.Join(project, ".mpress"))
 	if err != nil {
 		return "", fmt.Errorf("unsafe output directory %s: resolve project state: %w", output, err)
 	}
-	if pathsOverlap(resolved, state) && !temporaryOutput(state, resolved) {
+	managedPool := previewPool && resolved == filepath.Join(state, "live-preview")
+	if pathsOverlap(resolved, state) && !temporaryOutput(state, resolved) && !managedPool {
 		return "", fmt.Errorf("unsafe output directory %s: overlaps project state", output)
 	}
-	parent, err := canonicalPath(filepath.Dir(output))
+	parent, err := projectfs.CanonicalPath(filepath.Dir(output))
 	if err != nil {
 		return "", fmt.Errorf("unsafe output directory %s: resolve parent: %w", output, err)
 	}
@@ -66,7 +92,7 @@ func (c Config) RemoveOutput(project, output string) error {
 	if err != nil {
 		return err
 	}
-	root, err := canonicalPath(project)
+	root, err := projectfs.CanonicalPath(project)
 	if err != nil {
 		return err
 	}
@@ -80,36 +106,6 @@ func (c Config) RemoveOutput(project, output string) error {
 	}
 	defer directory.Close()
 	return directory.RemoveAll(relative)
-}
-
-func canonicalPath(path string) (string, error) {
-	absolute, err := filepath.Abs(path)
-	if err != nil {
-		return "", err
-	}
-	var missing []string
-	for {
-		_, err := os.Lstat(absolute)
-		if err == nil {
-			resolved, err := filepath.EvalSymlinks(absolute)
-			if err != nil {
-				return "", err
-			}
-			for i := len(missing) - 1; i >= 0; i-- {
-				resolved = filepath.Join(resolved, missing[i])
-			}
-			return resolved, nil
-		}
-		if !errors.Is(err, os.ErrNotExist) {
-			return "", err
-		}
-		parent := filepath.Dir(absolute)
-		if parent == absolute {
-			return "", err
-		}
-		missing = append(missing, filepath.Base(absolute))
-		absolute = parent
-	}
 }
 
 func pathBelow(parent, child string) bool {

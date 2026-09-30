@@ -1,0 +1,11 @@
+{
+  "baselineFailureCount": 4,
+  "candidateFailureCount": 4,
+  "sameFailingTests": true,
+  "fixtureCommit": "58f54a3",
+  "rawLogs": "kept outside public repository",
+  "sameAssertionMessages": true,
+  "baselineAssertionCount": 7,
+  "candidateAssertionCount": 7,
+  "comparisonNormalization": "Temporary project directories and randomly allocated local HTTP ports; assertion line numbers ignored."
+}

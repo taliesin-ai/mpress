@@ -1,0 +1,16 @@
+--- FAIL: TestNewServerPreservesUnsafePreviewPools (0.04s)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/navigation (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsnavigation2844763820/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/glossary (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsglossary2460753210/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/style-guide (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsstyle-guide2258287030/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/contributor-guide (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolscontributor-guide3479307959/001/.mpress/live-preview/sentinel: no such file or directory)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.106s
+FAIL

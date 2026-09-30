@@ -1,0 +1,207 @@
+// Package projectfs confines project file operations to the selected directory.
+package projectfs
+
+import (
+	"crypto/rand"
+	"errors"
+	"fmt"
+	"io/fs"
+	"os"
+	"path/filepath"
+)
+
+var ErrOutside = errors.New("path leaves the project")
+
+type FS struct {
+	project string
+	root    *os.Root
+}
+
+func Open(project string) (*FS, error) {
+	canonical, err := CanonicalPath(project)
+	if err != nil {
+		return nil, err
+	}
+	root, err := os.OpenRoot(canonical)
+	if err != nil {
+		return nil, err
+	}
+	return &FS{project: canonical, root: root}, nil
+}
+
+func (f *FS) Close() error { return f.root.Close() }
+
+func (f *FS) Open(name string) (*os.File, error) {
+	rel, err := f.readPath(name, true)
+	if err != nil {
+		return nil, err
+	}
+	return f.root.Open(rel)
+}
+
+// Relative validates physical containment, including missing descendants.
+// Subsequent IO uses Root, so an external link substituted after this check
+// cannot redirect the operation. Resolve first to retain safe absolute links
+// within the project, which Root itself does not follow.
+func (f *FS) Relative(name string) (string, error) {
+	if !filepath.IsAbs(name) {
+		name = filepath.Join(f.project, name)
+	}
+	canonical, err := CanonicalPath(name)
+	if err != nil {
+		return "", err
+	}
+	rel, err := filepath.Rel(f.project, canonical)
+	if err != nil || !filepath.IsLocal(rel) {
+		return "", fmt.Errorf("%w: %s", ErrOutside, name)
+	}
+	return rel, nil
+}
+
+func (f *FS) ReadFile(name string) ([]byte, error) {
+	rel, err := f.readPath(name, false)
+	if err != nil {
+		return nil, err
+	}
+	return f.root.ReadFile(rel)
+}
+
+func (f *FS) readPath(name string, allowDirectory bool) (string, error) {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return "", err
+	}
+	info, err := f.root.Stat(rel)
+	if err != nil {
+		return "", err
+	}
+	if !info.Mode().IsRegular() && !(allowDirectory && info.IsDir()) {
+		return "", fmt.Errorf("not a regular project file: %s", name)
+	}
+	return rel, nil
+}
+
+func (f *FS) Stat(name string) (fs.FileInfo, error) {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return nil, err
+	}
+	return f.root.Stat(rel)
+}
+
+func (f *FS) ReadDir(name string) ([]os.DirEntry, error) {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return nil, err
+	}
+	return fs.ReadDir(f.root.FS(), filepath.ToSlash(rel))
+}
+
+func (f *FS) MkdirAll(name string, mode fs.FileMode) error {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return err
+	}
+	return f.root.MkdirAll(rel, mode)
+}
+
+// WalkDir enumerates through the pinned project root, retaining logical names.
+// As with filepath.WalkDir, directory symlinks are not followed.
+func (f *FS) WalkDir(name string, visit fs.WalkDirFunc) error {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return err
+	}
+	return fs.WalkDir(f.root.FS(), filepath.ToSlash(rel), func(path string, entry fs.DirEntry, err error) error {
+		tail, relErr := filepath.Rel(rel, filepath.FromSlash(path))
+		if relErr != nil {
+			return relErr
+		}
+		return visit(filepath.Join(name, tail), entry, err)
+	})
+}
+
+// destination validates a final target but retains its leaf name. Atomic
+// replacement and removal unlink a final internal symlink; they must not
+// delete or rewrite the unrelated file it points to.
+func (f *FS) destination(name string) (parent, leaf string, err error) {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return "", "", err
+	}
+	if rel == "." {
+		return "", "", errors.New("cannot modify the project root")
+	}
+	parent, err = f.Relative(filepath.Dir(name))
+	return parent, filepath.Base(name), err
+}
+
+func (f *FS) Remove(name string) error {
+	parent, leaf, err := f.destination(name)
+	if err != nil {
+		return err
+	}
+	return f.root.Remove(filepath.Join(parent, leaf))
+}
+
+func (f *FS) RemoveAll(name string) error {
+	parent, leaf, err := f.destination(name)
+	if err != nil {
+		return err
+	}
+	return f.root.RemoveAll(filepath.Join(parent, leaf))
+}
+
+// WriteAtomic uses a pinned parent and an exclusively created temporary file.
+// Neither directory creation, temporary writes nor promotion use ambient paths.
+func (f *FS) WriteAtomic(name string, data []byte) error {
+	return f.writeAtomic(name, data, 0644, true)
+}
+
+// WriteCache atomically replaces recomputable data without a durability sync.
+func (f *FS) WriteCache(name string, data []byte) error {
+	return f.writeAtomic(name, data, 0600, false)
+}
+
+func (f *FS) writeAtomic(name string, data []byte, mode fs.FileMode, durable bool) error {
+	parent, leaf, err := f.destination(name)
+	if err != nil {
+		return err
+	}
+	if err := f.root.MkdirAll(parent, 0755); err != nil {
+		return err
+	}
+	dir, err := f.root.OpenRoot(parent)
+	if err != nil {
+		return err
+	}
+	defer dir.Close()
+	tmpName := ".mpress-write-" + rand.Text()
+	tmp, err := dir.OpenFile(tmpName, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0600)
+	if err != nil {
+		return err
+	}
+	promoted := false
+	defer func() {
+		if !promoted {
+			_ = dir.Remove(tmpName)
+		}
+	}()
+	if _, err = tmp.Write(data); err == nil && mode != 0600 {
+		err = tmp.Chmod(mode)
+	}
+	if err == nil && durable {
+		err = tmp.Sync()
+	}
+	if closeErr := tmp.Close(); err == nil {
+		err = closeErr
+	}
+	if err != nil {
+		return err
+	}
+	if err := dir.Rename(tmpName, leaf); err != nil {
+		return err
+	}
+	promoted = true
+	return nil
+}

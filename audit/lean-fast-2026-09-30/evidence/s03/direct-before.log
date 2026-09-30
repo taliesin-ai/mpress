@@ -1,0 +1,71 @@
+Rebuilt 1 pages in 5ms
+Rebuilt 2 pages in 5ms
+Rebuilt 2 pages in 3ms
+--- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites (0.10s)
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/parent/authoring (0.02s)
+        confinement_test.go:49: external path accepted with HTTP 200
+        confinement_test.go:60: external path accepted with HTTP 200
+        confinement_test.go:60: external path accepted with HTTP 200
+        confinement_test.go:62: sentinel external.md changed (10 bytes, error <nil>)
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/parent/read-only (0.02s)
+        confinement_test.go:49: external path accepted with HTTP 200
+        confinement_test.go:60: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/final/authoring (0.02s)
+        confinement_test.go:49: external path accepted with HTTP 200
+        confinement_test.go:60: external path accepted with HTTP 200
+        confinement_test.go:60: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/final/read-only (0.01s)
+        confinement_test.go:49: external path accepted with HTTP 200
+        confinement_test.go:60: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/dangling/authoring (0.02s)
+        confinement_test.go:60: external path accepted with HTTP 200
+        confinement_test.go:60: external path accepted with HTTP 200
+Rebuilt 1 pages in 5ms
+--- FAIL: TestAuthoringMCPRejectsExternalSymlinkPaths (0.04s)
+    --- FAIL: TestAuthoringMCPRejectsExternalSymlinkPaths/read-only (0.02s)
+        confinement_test.go:99: MCP read_file accepted external path
+    --- FAIL: TestAuthoringMCPRejectsExternalSymlinkPaths/authoring (0.02s)
+        confinement_test.go:99: MCP read_file accepted external path
+        confinement_test.go:99: MCP write_file accepted external path
+        confinement_test.go:106: sentinel external.md changed (10 bytes, error <nil>)
+rebuild: no pages found for default language en
+--- FAIL: TestAuthoringUploadRejectsExternalStaticAndContentParents (0.02s)
+    --- FAIL: TestAuthoringUploadRejectsExternalStaticAndContentParents/brand (0.01s)
+        confinement_test.go:158: external path accepted with HTTP 200
+        confinement_test.go:161: upload wrote outside project
+    --- FAIL: TestAuthoringUploadRejectsExternalStaticAndContentParents/import (0.01s)
+        confinement_test.go:158: external path accepted with HTTP 201
+        confinement_test.go:161: upload wrote outside project
+--- FAIL: TestAuthoringBackupsRejectExternalParentWithoutChangingSource (0.01s)
+    confinement_test.go:183: backup escaped project
+    confinement_test.go:185: sentinel content/index.md changed (10 bytes, error <nil>)
+    confinement_test.go:188: external backup created
+--- FAIL: TestNewServerPreservesUnsafePreviewPools (0.08s)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/external-parent (0.01s)
+        confinement_test.go:229: unsafe preview pool accepted
+        confinement_test.go:232: sentinel live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsexternal-parent141726950/002/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/external-final (0.01s)
+        confinement_test.go:229: unsafe preview pool accepted
+        confinement_test.go:236: external pool link removed
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/content (0.01s)
+        confinement_test.go:229: unsafe preview pool accepted
+        confinement_test.go:239: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolscontent474153866/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/nested-content (0.01s)
+        confinement_test.go:229: unsafe preview pool accepted
+        confinement_test.go:239: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsnested-content3694986243/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/static (0.01s)
+        confinement_test.go:229: unsafe preview pool accepted
+        confinement_test.go:239: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsstatic3570945792/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/translation-state (0.01s)
+        confinement_test.go:229: unsafe preview pool accepted
+        confinement_test.go:239: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolstranslation-state2835173467/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/version-store (0.01s)
+        confinement_test.go:229: unsafe preview pool accepted
+        confinement_test.go:239: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsversion-store4034421325/001/.mpress/live-preview/sentinel: no such file or directory)
+--- FAIL: TestAuthoringConfigurationAndTreeDoNotFollowExternalLinks (0.02s)
+    confinement_test.go:262: tree exposed external filenames
+    confinement_test.go:277: external path accepted with HTTP 200
+    confinement_test.go:279: startup read external configuration
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.341s
+FAIL

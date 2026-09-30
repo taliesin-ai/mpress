@@ -1,0 +1,50 @@
+{
+  "pages": 62,
+  "files": 100,
+  "duration": 209246621,
+  "timings": [
+    {
+      "name": "discover",
+      "label": "Discover project",
+      "offsetMs": 0.000211,
+      "durationMs": 1.138636,
+      "status": "passed"
+    },
+    {
+      "name": "parse",
+      "label": "Parse Markdown",
+      "offsetMs": 1.139187,
+      "durationMs": 5.364173,
+      "status": "passed"
+    },
+    {
+      "name": "prepare",
+      "label": "Prepare output",
+      "offsetMs": 6.503951,
+      "durationMs": 7.268536,
+      "status": "passed"
+    },
+    {
+      "name": "render",
+      "label": "Render pages and search",
+      "offsetMs": 13.772917,
+      "durationMs": 24.907827,
+      "status": "passed"
+    },
+    {
+      "name": "optimize",
+      "label": "Optimize CSS and JavaScript",
+      "offsetMs": 38.680964,
+      "durationMs": 34.858744,
+      "status": "passed"
+    },
+    {
+      "name": "finalize",
+      "label": "Finalize static site",
+      "offsetMs": 73.541471,
+      "durationMs": 135.70501,
+      "status": "passed"
+    }
+  ],
+  "diagnostics": null
+}

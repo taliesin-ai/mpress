@@ -1,0 +1,14 @@
+{
+  "before": {
+    "files": 100,
+    "aggregateSHA256": "3225b5f6e85d83a8fa4926864a0c7a74aad227a267eb68565a7c003219a843aa"
+  },
+  "after": {
+    "files": 100,
+    "aggregateSHA256": "3225b5f6e85d83a8fa4926864a0c7a74aad227a267eb68565a7c003219a843aa"
+  },
+  "identical": true,
+  "changed": [],
+  "baseline": "a06977e source; same complete self-doc corpus and project path",
+  "aggregateEncoding": "UTF-8 sorted relative filename + NUL + content SHA256 hex + newline"
+}

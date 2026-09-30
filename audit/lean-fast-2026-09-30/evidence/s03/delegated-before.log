@@ -1,0 +1,15 @@
+Rebuilt 1 pages in 4ms
+--- FAIL: TestAuthoringRebuildDoesNotWriteCacheThroughExternalParent (0.02s)
+    confinement_test.go:423: authoring rebuild wrote cache outside project
+--- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs (0.06s)
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/content (0.02s)
+        confinement_test.go:474: preview published an external input
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/static (0.02s)
+        confinement_test.go:474: preview published an external input
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/navigation (0.01s)
+        confinement_test.go:474: preview published an external input
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/custom-css (0.01s)
+        confinement_test.go:474: preview published an external input
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.144s
+FAIL

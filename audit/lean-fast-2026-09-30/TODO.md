@@ -38,6 +38,8 @@ Black-box dev API: GET content/linked/outside.md returns an external sentinel, a
 
 Done when: Use a shared confined file boundary for REST and MCP reads, writes, previews and uploads. Reject external parent/final symlinks before reading or creating files; cover non-existent targets, existing links, authenticated remote mode and read-only mode. External sentinels never change.
 
+Progress: tested checkpoint on 2026-10-01; see [S03.md](S03.md) for rooted direct endpoints, selected build delegates, preview/input preservation and unchanged ordinary artifacts. S03 remains in progress for the remaining delegated operations; Beads carries authoritative status and commit.
+
 ### S04 · `mp-b52.1.4` · P1 · Prevent static copying from publishing external symlink targets
 
 Evidence: **confirmed**. Sources: `internal/site/build.go:copyTree/copyFile; internal/version/version.go:copyTree; internal/exportzip/export.go`.

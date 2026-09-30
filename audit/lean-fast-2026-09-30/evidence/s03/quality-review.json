@@ -1,0 +1,26 @@
+{
+  "counts": {
+    "baseline": "git-HEAD",
+    "regressions": "71",
+    "minor": "3",
+    "acked": "0",
+    "stale": "0",
+    "preexisting-worse": "30",
+    "new-symbol": "41",
+    "gating": "27",
+    "register-macro-excluded": "0",
+    "at": "a06977e2e+dirty",
+    "renames": "0",
+    "rename_window_commits": "38",
+    "acked_by_rename": "0",
+    "acked_by_content": "0"
+  },
+  "findingGroups": {
+    "realChangeCost": "Build adds root/config setup and error checks: complexity 185 to 188, logical lines 434 to 446. Preview adds guarded cleanup checks. Shared boundary replaces ambient IO; broad aesthetic rewrites are deferred to V07.",
+    "idiomaticMatches": "Short checked-result wrappers match unrelated JSON marshaling, JSON reading and project lookup functions. These have different contracts/packages; sharing them would introduce incorrect coupling.",
+    "testMatches": "Independent dev/config/CLI/projectfs sentinel fixtures and matrices intentionally exercise different entry points and live file effects. Production-to-test sharing is inappropriate.",
+    "resolverFalsePositive": "Version Remove remains called by REST/MCP/CLI. The new projectfs method of the same name changes the static name resolver; its dead-code row is not evidence that the version operation is unused.",
+    "newCode": "Go test entry points are executed; new matrix complexity and tiny filesystem adapter similarities remain visible. Common regular-file read validation was extracted once.",
+    "acknowledgements": "None. The nonzero heuristic gate is preserved and reviewed rather than represented as zero new debt."
+  }
+}

@@ -8,7 +8,6 @@ import (
 	"math"
 	"net/http"
 	"net/url"
-	"os"
 	"path/filepath"
 	"sort"
 	"strconv"
@@ -377,7 +376,7 @@ func (s *Server) setTranslationModel(w http.ResponseWriter, r *http.Request, id,
 		return
 	}
 	path := filepath.Join(s.project, config.Filename)
-	current, err := os.ReadFile(path)
+	current, err := s.files.ReadFile(path)
 	if err != nil {
 		writeAPIError(w, http.StatusInternalServerError, err)
 		return
