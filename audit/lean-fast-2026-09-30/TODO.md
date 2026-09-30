@@ -340,6 +340,14 @@ Parser/render caps are both 8; serial finalization may dominate. Cloudflare hash
 Done when: Compare constrained and multi-core build settings, static-heavy sites and mock deployment uploads. Measure peak RSS/bytes/time; use bounded streaming/reuse where justified and preserve hashes, cancellation, retry/error handling and file limits. No real deployment needed.
 
 
+### P12 · `mp-b52.4.12` · P1 · Fix measured v3 landing-page LCP delays without adding features
+
+Added after the initial 48-task audit in response to the user's field report. Evidence: **user-reported / measured**. Sources: `internal/site/csspurge.go`, `internal/site/template.go`, Wails documentation builds and [wailsapp/wails#6198](https://github.com/wailsapp/wails/issues/6198).
+
+The report includes v3 hero SVG LCP of 31,280ms and 4,635ms, plus legacy Docusaurus carousel/article images. Blocking v3 CSS is measurable; direct custom-domain requests also receive a Cloudflare managed challenge. The 31-second field outcome has not been reproduced or attributed.
+
+Done when: repeated controlled before/after mobile/desktop and both-theme measurements establish improvements; regression checks preserve animation, theme selection, no-JavaScript rendering and carousel autoplay. Update implementation/evidence, CHANGELOG and Beads; qualify deployment and new field data separately. Source work and lab results are in [LCP.md](LCP.md); this task remains in progress pending publication and field qualification.
+
 ## Make qualification repeatable and close the audit — `mp-b52.5`
 
 ### V01 · `mp-b52.5.1` · P1 · Reconcile the private conformance suite with current contracts

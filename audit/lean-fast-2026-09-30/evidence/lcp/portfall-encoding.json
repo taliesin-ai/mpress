@@ -1,0 +1,21 @@
+{
+  "originalBytes": 1060030,
+  "frames": 234,
+  "totalDurationMs": 9920,
+  "loop": 0,
+  "attempts": [
+    {
+      "encoding": "Pillow lossless, method 6, minimize_size",
+      "bytes": 4010258
+    },
+    {
+      "encoding": "Pillow quality 80, method 4, minimize_size, allow_mixed",
+      "bytes": 1136204
+    },
+    {
+      "encoding": "fixed 256-colour palette, lossless method 4, minimize_size",
+      "bytes": 1621356
+    }
+  ],
+  "decision": "All candidates are larger; original asset remains unchanged. Hints-only Portfall LCP still about seven seconds in throttled article tests; issue 6198 remains open."
+}

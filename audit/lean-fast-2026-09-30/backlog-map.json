@@ -489,6 +489,18 @@
       "acceptance": "Compare constrained and multi-core build settings, static-heavy sites and mock deployment uploads. Measure peak RSS/bytes/time; use bounded streaming/reuse where justified and preserve hashes, cancellation, retry/error handling and file limits. No real deployment needed."
     },
     {
+      "key": "P12",
+      "group": "performance",
+      "id": "mp-b52.4.12",
+      "priority": 1,
+      "type": "bug",
+      "evidence": "user-reported / measured",
+      "title": "Fix measured v3 landing-page LCP delays without adding features",
+      "sources": "internal/site/csspurge.go; internal/site/template.go; Wails documentation builds; wailsapp/wails#6198",
+      "finding": "User-reported v3 hero LCP 31280ms/4635ms plus legacy Docusaurus images. Lab traces show blocking CSS and carousel image competition; custom-domain curl receives a Cloudflare challenge. See LCP.md for pinned before/after evidence.",
+      "acceptance": "Repeated controlled before/after mobile/desktop both-theme measurements; retain visuals, animation, theme/no-JS/autoplay behaviour and CSS purging. Meaningful regression coverage; update CHANGELOG and Beads. Separate lab results from deployment and field qualification."
+    },
+    {
       "key": "V01",
       "group": "validation",
       "id": "mp-b52.5.1",

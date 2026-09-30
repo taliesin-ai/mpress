@@ -1,0 +1,14 @@
+{
+  "v3": [
+    "HTTP/2 403 ",
+    "content-type: text/html; charset=UTF-8",
+    "content-length: 5317",
+    "cf-mitigated: challenge"
+  ],
+  "v2": [
+    "HTTP/2 403 ",
+    "content-type: text/html; charset=UTF-8",
+    "content-length: 5314",
+    "cf-mitigated: challenge"
+  ]
+}

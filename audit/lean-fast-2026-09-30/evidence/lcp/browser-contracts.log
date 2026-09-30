@@ -1,0 +1,6 @@
+=== RUN   TestLandingVisualContracts
+    landing_test.go:40: 1365px: theme/no-JS hero checks pass; carousel rotates with stable 330.9px height
+    landing_test.go:40: 390px: theme/no-JS hero checks pass; carousel rotates with stable 193.1px height
+--- PASS: TestLandingVisualContracts (14.57s)
+PASS
+ok  	github.com/leaanthony/mpress/audit/lean-fast-tools/lcp	14.576s

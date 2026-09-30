@@ -54,3 +54,27 @@ To recreate the large workload, archive the pinned Wails `docs/mpress/` revision
 listed in `AUDIT.md` into a disposable directory, then build there with
 `--strict --no-purge-css` and run `check`. Do not modify the user's Wails checkout
 or substitute a different revision without recording its provenance.
+
+For controlled LCP/resource measurements, use the separate `lcp` program:
+
+```sh
+MPRESS_LCP_GZIP=1 go run ./lcp /absolute/path/to/generated/site 3 > lcp-results.json
+MPRESS_LCP_GZIP=1 MPRESS_LCP_ROUTE=/docs/community/showcase/portfall/ go run ./lcp /absolute/path/to/legacy/build 2 > article-results.json
+MPRESS_LCP_GZIP=1 go run ./lcp https://public-pages-host.example/ 1 > live-results.json
+MPRESS_V3_SITE=/absolute/path/to/v3/site MPRESS_V2_SITE=/absolute/path/to/v2/build go test -count=1 -run '^TestLandingVisualContracts$' -v ./lcp
+```
+
+Each measurement uses a fresh Chrome context, disabled cache, 150ms latency,
+200 KiB/s download, 4x CPU slowdown and 1365px/390px viewports in both themes.
+The local server can gzip text assets; use the same setting for both builds.
+It observes LCP, layout shifts, long tasks and resource timings until four
+seconds after navigation finishes. An autoplay carousel may produce multiple
+LCP candidates: the last observed candidate is used, not a cherry-picked first
+paint. These are lab samples, not field percentiles or an entire browsing visit.
+
+`TestLandingVisualContracts` checks generated styles, both themes, translated
+no-JavaScript hero rendering, and carousel eager/lazy loading plus autoplay with
+stable height at desktop/mobile widths. Missing site environment variables skip
+the test; a skip does not qualify the change. See `../LCP.md` for pinned build
+sources and measurement evidence. Browser dependencies remain outside M-Press's
+production module.

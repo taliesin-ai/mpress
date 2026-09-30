@@ -1,0 +1,56 @@
+Notice: Detected codex environment. Use `coderabbit review --agent` for structured agent-friendly output.
+╔═══════════════════════════════════════════╗
+║                                           ║
+║   New update available! 0.7.6 -> 0.8.2    ║
+║          Run: coderabbit update           ║
+║                                           ║
+╚═══════════════════════════════════════════╝
+
+Connecting to CodeRabbit... 1s elapsed
+
+   !   This looks like a public open-source repository. CodeRabbit will review
+       it for free, and no organization will be billed. Free OSS limits apply.
+
+────────────────────────────────────────
+CodeRabbit Review
+
+Diff      : staged changes, tracked edits, and untracked files
+Compare   : perf/docs-lcp-20260930 → origin/master (local master differs, using origin/master)
+Directory : wails-docs-lcp-20260930/docs/mpress
+────────────────────────────────────────
+
+(\(\
+(• .•)  My bunny whiskers are tingling.
+
+
+   !   CodeRabbit CLI 0.7.6 cannot update automatically. Keep this review
+       running. After it finishes, run `coderabbit update` (Homebrew: `brew
+       upgrade coderabbit`), then verify with `coderabbit --version`. If you are
+       the calling agent, handle this follow-up using your normal permissions.
+       For an organization-managed installation, ask your administrator to
+       update it.
+
+Preparing review... 3s elapsed
+Summarizing changes... 3s elapsed
+Writing review comments... 7s elapsed
+Writing review comments... 1m 03s elapsed - still working
+Writing review comments... 2m 03s elapsed - still working
+Writing review comments... 3m 03s elapsed - still working
+
+────────────────────────────────────────
+Review complete
+No findings ✔
+
+12 files reviewed:
+  - docs/mpress/content/de/index.md
+  - docs/mpress/content/fr/index.md
+  - docs/mpress/content/id/index.md
+  - docs/mpress/content/index.md
+  - docs/mpress/content/ja/index.md
+  - docs/mpress/content/ko/index.md
+  - docs/mpress/content/pt/index.md
+  - docs/mpress/content/ru/index.md
+  - docs/mpress/content/zh-cn/index.md
+  - docs/mpress/content/zh-tw/index.md
+  ... and 2 more files
+────────────────────────────────────────

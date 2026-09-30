@@ -1,0 +1,13 @@
+{
+  "dimensions": [
+    1024,
+    761
+  ],
+  "pixelIdentical": true,
+  "pngBytes": 91573,
+  "webpBytes": 83722,
+  "sha256": {
+    "mac-app.png": "8857670f5108443748b99ed6897756c936b8e48ab019b15ca3fb504391b7c835",
+    "mac-app.webp": "1c76cb5f6858d32c19b28e2aa99f52969c8ed628f268a8d7fbf38b8036999fc5"
+  }
+}
