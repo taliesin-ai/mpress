@@ -31,6 +31,20 @@ The original failing baseline is preserved in `../evidence/mobile.json`.
 The browser currently defaults to `/usr/bin/google-chrome`; adjust that local
 path for another installation. This harness is Chromium-only.
 
+The assertion-based popover regression check uses generated production output
+without injecting CSS:
+
+```sh
+MPRESS_TOUCH_SITE=/absolute/path/to/generated/site go test -count=1 -run '^TestUtilityPopoverInteraction$' -v .
+```
+
+Run it against both accessibility-enabled and disabled builds. It checks all
+utility popovers on `/configuration/` at 375x667 and 375x375: closed focus/hit
+testing, open focus/hit testing, immediate and settled exit transitions, and
+page scrolling after closing. Without `MPRESS_TOUCH_SITE`, this test skips;
+a skip does not qualify browser behaviour. It is a focused regression, while
+the broader overflow-family matrix remains Beads task `mp-b52.2.4`.
+
 Public audit evidence is committed. Raw private conformance logs and private
 fixtures are deliberately kept in the private test environment. To run that
 suite, select the exact candidate explicitly with `MPRESS_SOURCE`/`MPRESS_BIN`

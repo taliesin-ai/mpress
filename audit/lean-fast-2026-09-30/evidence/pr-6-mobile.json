@@ -1,0 +1,314 @@
+[
+  {
+    "accessibilityGeometry": {
+      "bodyH": 457,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width-heading",
+      "panelBottom": 663,
+      "panelH": 649,
+      "panelScrollH": 649,
+      "panelY": 12,
+      "viewport": 667
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 168,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 186,
+    "bodyScrollAfterSwipe": 186,
+    "bodyScrollWithInertCSS": 187,
+    "height": 667,
+    "initial": {
+      "hit": "\u003ccode\u003empress.yaml\u003c/code\u003e",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 641.2349853515625,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 9208,
+      "viewport": 667
+    },
+    "path": "/configuration/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 457,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width-heading",
+      "panelBottom": 663,
+      "panelH": 649,
+      "panelScrollH": 649,
+      "panelY": 12,
+      "viewport": 667
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 168,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 192,
+    "bodyScrollAfterSwipe": 186,
+    "bodyScrollWithInertCSS": 192,
+    "height": 667,
+    "initial": {
+      "hit": "\u003carticle\u003e\u003cheader class=\"docs-page-header\"\u003e\u003ch1\u003eCode and terminal\u003c/h1\u003e\u003cp class=\"page-lead\"\u003eCommands, source explanations, diffs, and API endpoints.\u003c/p\u003e\u003c/header\u003e\u003ch2 id=\"terminal\"\u003eTerm",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 641.2349853515625,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 3641,
+      "viewport": 667
+    },
+    "path": "/code-components/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 457,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width-heading",
+      "panelBottom": 663,
+      "panelH": 649,
+      "panelScrollH": 649,
+      "panelY": 12,
+      "viewport": 667
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 168,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 187,
+    "bodyScrollAfterSwipe": 186,
+    "bodyScrollWithInertCSS": 192,
+    "height": 667,
+    "initial": {
+      "hit": "\u003carticle\u003e\u003cheader class=\"docs-page-header\"\u003e\u003ch1\u003eData and product components\u003c/h1\u003e\u003cp class=\"page-lead\"\u003ePresent comparisons, releases, status, dates, plans, and proof.\u003c/p\u003e\u003c/header\u003e\u003ch2 i",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 641.2349853515625,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 4776,
+      "viewport": 667
+    },
+    "path": "/data-components/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 400,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width-heading",
+      "panelBottom": 371,
+      "panelH": 357,
+      "panelScrollH": 528,
+      "panelY": 12,
+      "viewport": 375
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 186,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 192,
+    "bodyScrollAfterSwipe": 191,
+    "bodyScrollWithInertCSS": 192,
+    "height": 375,
+    "initial": {
+      "hit": "\u003ccode\u003empress.yaml\u003c/code\u003e",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 353.614990234375,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 9208,
+      "viewport": 375
+    },
+    "path": "/configuration/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 400,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width-heading",
+      "panelBottom": 371,
+      "panelH": 357,
+      "panelScrollH": 528,
+      "panelY": 12,
+      "viewport": 375
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 186,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 192,
+    "bodyScrollAfterSwipe": 186,
+    "bodyScrollWithInertCSS": 192,
+    "height": 375,
+    "initial": {
+      "hit": "\u003carticle\u003e\u003cheader class=\"docs-page-header\"\u003e\u003ch1\u003eCode and terminal\u003c/h1\u003e\u003cp class=\"page-lead\"\u003eCommands, source explanations, diffs, and API endpoints.\u003c/p\u003e\u003c/header\u003e\u003ch2 id=\"terminal\"\u003eTerm",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 353.614990234375,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 3641,
+      "viewport": 375
+    },
+    "path": "/code-components/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 400,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width-heading",
+      "panelBottom": 371,
+      "panelH": 357,
+      "panelScrollH": 528,
+      "panelY": 12,
+      "viewport": 375
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 186,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 187,
+    "bodyScrollAfterSwipe": 186,
+    "bodyScrollWithInertCSS": 192,
+    "height": 375,
+    "initial": {
+      "hit": "\u003carticle\u003e\u003cheader class=\"docs-page-header\"\u003e\u003ch1\u003eData and product components\u003c/h1\u003e\u003cp class=\"page-lead\"\u003ePresent comparisons, releases, status, dates, plans, and proof.\u003c/p\u003e\u003c/header\u003e\u003ch2 i",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 353.614990234375,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "none",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 4776,
+      "viewport": 375
+    },
+    "path": "/data-components/",
+    "width": 375
+  }
+]
