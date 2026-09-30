@@ -1,0 +1,31 @@
+[
+  {
+    "case": "route-escape",
+    "exit": 0,
+    "stdout": "Built 4 pages and 17 files in 65ms\n",
+    "stderr": "",
+    "outside_output_written": true
+  },
+  {
+    "case": "static-symlink-leak",
+    "exit": 0,
+    "stdout": "Built 3 pages and 18 files in 62ms\n",
+    "stderr": "",
+    "copied_external": "external-sentinel"
+  },
+  {
+    "case": "duplicate-carousel",
+    "exit": 0,
+    "stdout": "Built 4 pages and 18 files in 47ms\n",
+    "stderr": "",
+    "duplicate_ids": {
+      "mpress-carousel-a2db93368d": 2
+    }
+  },
+  {
+    "case": "reserved-route-assets",
+    "exit": 1,
+    "stdout": "Built 0 pages and 0 files in 31ms\n",
+    "stderr": "Error: open /tmp/mpress-audit-9qh0bs7e/site/assets/mpress.css/index.html: not a directory\n"
+  }
+]

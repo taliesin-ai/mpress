@@ -1,0 +1,26 @@
+File: site.test
+Build ID: 11fe1b2ace1f3ee388ff945640cbe859decaf969
+Type: alloc_space
+Time: 2026-09-30 19:36:53 AEST
+Showing nodes accounting for 2542.32MB, 83.42% of 3047.44MB total
+Dropped 325 nodes (cum <= 15.24MB)
+Showing top 18 nodes out of 119
+      flat  flat%   sum%        cum   cum%
+  350.12MB 11.49% 11.49%   443.12MB 14.54%  golang.org/x/net/html.(*Tokenizer).Token
+  317.40MB 10.42% 21.90%   317.40MB 10.42%  internal/bytealg.MakeNoZero
+  276.59MB  9.08% 30.98%   678.48MB 22.26%  github.com/leaanthony/mpress/internal/site.rewriteAssetVersions.func1
+  203.21MB  6.67% 37.65%   203.21MB  6.67%  bytes.growSlice
+  198.88MB  6.53% 44.17%   199.38MB  6.54%  os.readFileContents
+  187.65MB  6.16% 50.33%   363.71MB 11.93%  github.com/leaanthony/mpress/internal/knowledge.makeIndex
+  160.64MB  5.27% 55.60%   179.47MB  5.89%  regexp.(*Regexp).replaceAll
+  137.01MB  4.50% 60.10%   137.01MB  4.50%  golang.org/x/net/html.(*parser).addText
+  129.51MB  4.25% 64.35%   130.01MB  4.27%  golang.org/x/net/html.(*parser).addElement (inline)
+  117.05MB  3.84% 68.19%   157.55MB  5.17%  github.com/leaanthony/mpress/internal/knowledge.makeIndex.func1 (inline)
+   79.73MB  2.62% 70.81%    79.73MB  2.62%  strings.Fields
+   78.07MB  2.56% 73.37%   226.07MB  7.42%  encoding/json.Marshal
+      73MB  2.40% 75.76%       73MB  2.40%  bytes.Replace
+   54.38MB  1.78% 77.55%   155.64MB  5.11%  encoding/json.MarshalIndent
+   48.93MB  1.61% 79.15%  1595.56MB 52.36%  github.com/leaanthony/mpress/internal/knowledge.generate
+   48.86MB  1.60% 80.76%   228.33MB  7.49%  regexp.(*Regexp).ReplaceAllStringFunc
+   45.74MB  1.50% 82.26%    45.74MB  1.50%  strings.(*Builder).WriteString (inline)
+   35.54MB  1.17% 83.42%    35.54MB  1.17%  github.com/kungfusheep/glint.(*trie).Add

@@ -1,0 +1,27 @@
+File: site.test
+Build ID: 11fe1b2ace1f3ee388ff945640cbe859decaf969
+Type: cpu
+Time: 2026-09-30 19:36:47 AEST
+Duration: 6.27s, Total samples = 9140ms (145.79%)
+Showing nodes accounting for 3970ms, 43.44% of 9140ms total
+Dropped 408 nodes (cum <= 45.70ms)
+Showing top 18 nodes out of 275
+      flat  flat%   sum%        cum   cum%
+     840ms  9.19%  9.19%      840ms  9.19%  internal/runtime/syscall/linux.Syscall6
+     400ms  4.38% 13.57%      410ms  4.49%  golang.org/x/net/html.(*Tokenizer).readByte
+     370ms  4.05% 17.61%      370ms  4.05%  runtime.memmove
+     280ms  3.06% 20.68%      330ms  3.61%  encoding/json.appendIndent
+     230ms  2.52% 23.19%      330ms  3.61%  runtime.tryDeferToSpanScan
+     220ms  2.41% 25.60%      220ms  2.41%  indexbytebody
+     190ms  2.08% 27.68%      190ms  2.08%  runtime.memclrNoHeapPointers
+     190ms  2.08% 29.76%      190ms  2.08%  runtime.nextFreeFast (inline)
+     150ms  1.64% 31.40%     1410ms 15.43%  runtime.mallocgc
+     150ms  1.64% 33.04%      230ms  2.52%  strings.Fields
+     140ms  1.53% 34.57%      510ms  5.58%  runtime.scanObject
+     130ms  1.42% 36.00%      370ms  4.05%  golang.org/x/net/html.(*Tokenizer).readTagAttrVal
+     130ms  1.42% 37.42%      130ms  1.42%  runtime.madvise
+     130ms  1.42% 38.84%      210ms  2.30%  runtime.mallocgcTiny
+     110ms  1.20% 40.04%     1140ms 12.47%  golang.org/x/net/html.(*Tokenizer).Token
+     110ms  1.20% 41.25%      220ms  2.41%  runtime.scanObjectsSmall
+     100ms  1.09% 42.34%      100ms  1.09%  aeshashbody
+     100ms  1.09% 43.44%      110ms  1.20%  encoding/json.appendString[go.shape.string]

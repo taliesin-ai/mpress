@@ -1,0 +1,10 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/678 completed
+fuzz: elapsed: 3s, gathering baseline coverage: 252/678 completed
+fuzz: elapsed: 6s, gathering baseline coverage: 507/678 completed
+fuzz: elapsed: 8s, gathering baseline coverage: 678/678 completed, now fuzzing with 4 workers
+fuzz: elapsed: 9s, execs: 7646 (2380/sec), new interesting: 4 (total: 682)
+fuzz: elapsed: 12s, execs: 22671 (5008/sec), new interesting: 12 (total: 690)
+fuzz: elapsed: 15s, execs: 32931 (3421/sec), new interesting: 17 (total: 695)
+fuzz: elapsed: 16s, execs: 32931 (0/sec), new interesting: 17 (total: 695)
+PASS
+ok  	github.com/leaanthony/mpress/internal/mpd	16.313s

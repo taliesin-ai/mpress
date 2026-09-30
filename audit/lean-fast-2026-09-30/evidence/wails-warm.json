@@ -1,0 +1,155 @@
+[
+  {
+    "wall_ms": 7398.086775996489,
+    "pages": 2010,
+    "files": 2165,
+    "duration": 7237229648,
+    "timings": [
+      {
+        "name": "discover",
+        "label": "Discover project",
+        "offsetMs": 0.000251,
+        "durationMs": 6.288966,
+        "status": "passed"
+      },
+      {
+        "name": "parse",
+        "label": "Parse Markdown",
+        "offsetMs": 6.289638,
+        "durationMs": 48.744217,
+        "status": "passed"
+      },
+      {
+        "name": "prepare",
+        "label": "Prepare output",
+        "offsetMs": 55.034206,
+        "durationMs": 121.252741,
+        "status": "passed"
+      },
+      {
+        "name": "render",
+        "label": "Render pages and search",
+        "offsetMs": 176.287588,
+        "durationMs": 445.681151,
+        "status": "passed"
+      },
+      {
+        "name": "optimize",
+        "label": "Optimize CSS and JavaScript",
+        "offsetMs": 621.969019,
+        "durationMs": 610.783245,
+        "status": "passed"
+      },
+      {
+        "name": "finalize",
+        "label": "Finalize static site",
+        "offsetMs": 1232.754298,
+        "durationMs": 6004.475019,
+        "status": "passed"
+      }
+    ],
+    "diagnostics": null
+  },
+  {
+    "wall_ms": 7448.057396017248,
+    "pages": 2010,
+    "files": 2165,
+    "duration": 7258892146,
+    "timings": [
+      {
+        "name": "discover",
+        "label": "Discover project",
+        "offsetMs": 0.00013,
+        "durationMs": 6.346656,
+        "status": "passed"
+      },
+      {
+        "name": "parse",
+        "label": "Parse Markdown",
+        "offsetMs": 6.347097,
+        "durationMs": 49.390006,
+        "status": "passed"
+      },
+      {
+        "name": "prepare",
+        "label": "Prepare output",
+        "offsetMs": 55.737514,
+        "durationMs": 141.840394,
+        "status": "passed"
+      },
+      {
+        "name": "render",
+        "label": "Render pages and search",
+        "offsetMs": 197.578529,
+        "durationMs": 450.974302,
+        "status": "passed"
+      },
+      {
+        "name": "optimize",
+        "label": "Optimize CSS and JavaScript",
+        "offsetMs": 648.553071,
+        "durationMs": 617.033989,
+        "status": "passed"
+      },
+      {
+        "name": "finalize",
+        "label": "Finalize static site",
+        "offsetMs": 1265.588643,
+        "durationMs": 5993.303423,
+        "status": "passed"
+      }
+    ],
+    "diagnostics": null
+  },
+  {
+    "wall_ms": 7523.378470999887,
+    "pages": 2010,
+    "files": 2165,
+    "duration": 7354051028,
+    "timings": [
+      {
+        "name": "discover",
+        "label": "Discover project",
+        "offsetMs": 0.000151,
+        "durationMs": 6.162836,
+        "status": "passed"
+      },
+      {
+        "name": "parse",
+        "label": "Parse Markdown",
+        "offsetMs": 6.163308,
+        "durationMs": 47.549313,
+        "status": "passed"
+      },
+      {
+        "name": "prepare",
+        "label": "Prepare output",
+        "offsetMs": 53.713192,
+        "durationMs": 119.936296,
+        "status": "passed"
+      },
+      {
+        "name": "render",
+        "label": "Render pages and search",
+        "offsetMs": 173.65031,
+        "durationMs": 456.951064,
+        "status": "passed"
+      },
+      {
+        "name": "optimize",
+        "label": "Optimize CSS and JavaScript",
+        "offsetMs": 630.601755,
+        "durationMs": 645.277217,
+        "status": "passed"
+      },
+      {
+        "name": "finalize",
+        "label": "Finalize static site",
+        "offsetMs": 1275.881147,
+        "durationMs": 6078.1698,
+        "status": "passed"
+      }
+    ],
+    "diagnostics": null
+  }
+]

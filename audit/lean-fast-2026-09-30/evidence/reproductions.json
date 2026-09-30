@@ -1,0 +1,43 @@
+[
+  {
+    "case": "output-content",
+    "exit": 0,
+    "stdout": "{\n  \"pages\": 3,\n  \"files\": 17,\n  \"duration\": 60284136,\n  \"timings\": [\n    {\n      \"name\": \"discover\",\n      \"label\": \"Discover project\",\n      \"offsetMs\": 0.000411,\n      \"durationMs\": 0.314779,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"parse\",\n      \"label\": \"Parse Markdown\",\n      \"offsetMs\": 0.3155,\n      \"durationMs\": 16.678563,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"prepare\",\n      \"label\": \"Prepare output\",\n      \"offsetMs\": 16.994704,\n      \"durationMs\": 1.058734,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"render\",\n      \"label\": \"Render pages and search\",\n      \"offsetMs\": 18.05442,\n      \"durationMs\": 1.272852,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"optimize\",\n      \"label\": \"Optimize CSS and JavaScript\",\n      \"offsetMs\": 19.327562,\n      \"durationMs\": 32.525052,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"finalize\",\n      \"label\": \"Finalize static site\",\n      \"offsetMs\": 51.854027,\n      \"durationMs\": 8.429838,\n      \"status\": \"passed\"\n    }\n  ],\n  \"diagnostics\": null\n}\n",
+    "stderr": "",
+    "source_survives": false
+  },
+  {
+    "case": "output-static",
+    "exit": 0,
+    "stdout": "{\n  \"pages\": 3,\n  \"files\": 15,\n  \"duration\": 48779678,\n  \"timings\": [\n    {\n      \"name\": \"discover\",\n      \"label\": \"Discover project\",\n      \"offsetMs\": 0.000201,\n      \"durationMs\": 0.313145,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"parse\",\n      \"label\": \"Parse Markdown\",\n      \"offsetMs\": 0.313627,\n      \"durationMs\": 13.328929,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"prepare\",\n      \"label\": \"Prepare output\",\n      \"offsetMs\": 13.642857,\n      \"durationMs\": 5.324129,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"render\",\n      \"label\": \"Render pages and search\",\n      \"offsetMs\": 18.968439,\n      \"durationMs\": 1.589825,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"optimize\",\n      \"label\": \"Optimize CSS and JavaScript\",\n      \"offsetMs\": 20.558565,\n      \"durationMs\": 20.478402,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"finalize\",\n      \"label\": \"Finalize static site\",\n      \"offsetMs\": 41.03853,\n      \"durationMs\": 7.740998,\n      \"status\": \"passed\"\n    }\n  ],\n  \"diagnostics\": null\n}\n",
+    "stderr": "",
+    "asset_survives": false
+  },
+  {
+    "case": "symlink-parent",
+    "exit": 0,
+    "stdout": "{\n  \"pages\": 3,\n  \"files\": 17,\n  \"duration\": 38177376,\n  \"timings\": [\n    {\n      \"name\": \"discover\",\n      \"label\": \"Discover project\",\n      \"offsetMs\": 0.00038,\n      \"durationMs\": 0.313357,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"parse\",\n      \"label\": \"Parse Markdown\",\n      \"offsetMs\": 0.313947,\n      \"durationMs\": 13.482702,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"prepare\",\n      \"label\": \"Prepare output\",\n      \"offsetMs\": 13.796869,\n      \"durationMs\": 2.132989,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"render\",\n      \"label\": \"Render pages and search\",\n      \"offsetMs\": 15.930369,\n      \"durationMs\": 0.775395,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"optimize\",\n      \"label\": \"Optimize CSS and JavaScript\",\n      \"offsetMs\": 16.706135,\n      \"durationMs\": 16.161899,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"finalize\",\n      \"label\": \"Finalize static site\",\n      \"offsetMs\": 32.868976,\n      \"durationMs\": 5.308129,\n      \"status\": \"passed\"\n    }\n  ],\n  \"diagnostics\": null\n}\n",
+    "stderr": "",
+    "outside_survives": false
+  },
+  {
+    "case": "strict-preserves-output",
+    "exit": 1,
+    "stdout": "{\n  \"pages\": 4,\n  \"files\": 18,\n  \"duration\": 30016218,\n  \"timings\": [\n    {\n      \"name\": \"discover\",\n      \"label\": \"Discover project\",\n      \"offsetMs\": 0.00013,\n      \"durationMs\": 0.310521,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"parse\",\n      \"label\": \"Parse Markdown\",\n      \"offsetMs\": 0.310952,\n      \"durationMs\": 0.905392,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"prepare\",\n      \"label\": \"Prepare output\",\n      \"offsetMs\": 1.217937,\n      \"durationMs\": 3.639535,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"render\",\n      \"label\": \"Render pages and search\",\n      \"offsetMs\": 4.858995,\n      \"durationMs\": 1.695816,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"optimize\",\n      \"label\": \"Optimize CSS and JavaScript\",\n      \"offsetMs\": 6.555002,\n      \"durationMs\": 19.21083,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"finalize\",\n      \"label\": \"Finalize static site\",\n      \"offsetMs\": 25.767184,\n      \"durationMs\": 4.248954,\n      \"status\": \"failed\"\n    }\n  ],\n  \"diagnostics\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"unparsed-component\",\n      \"file\": \"bad.md\",\n      \"message\": \"component directive was not parsed: @end\"\n    }\n  ]\n}\n",
+    "stderr": "Error: strict build failed with 1 error(s)\n",
+    "previous_output_survives": false
+  },
+  {
+    "case": "reserved-static-css",
+    "exit": 0,
+    "stdout": "{\n  \"pages\": 3,\n  \"files\": 17,\n  \"duration\": 47181126,\n  \"timings\": [\n    {\n      \"name\": \"discover\",\n      \"label\": \"Discover project\",\n      \"offsetMs\": 0.00017,\n      \"durationMs\": 0.325429,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"parse\",\n      \"label\": \"Parse Markdown\",\n      \"offsetMs\": 0.3259,\n      \"durationMs\": 19.439606,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"prepare\",\n      \"label\": \"Prepare output\",\n      \"offsetMs\": 19.766177,\n      \"durationMs\": 2.532248,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"render\",\n      \"label\": \"Render pages and search\",\n      \"offsetMs\": 22.299937,\n      \"durationMs\": 1.633158,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"optimize\",\n      \"label\": \"Optimize CSS and JavaScript\",\n      \"offsetMs\": 23.933395,\n      \"durationMs\": 19.086294,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"finalize\",\n      \"label\": \"Finalize static site\",\n      \"offsetMs\": 43.020661,\n      \"durationMs\": 4.160395,\n      \"status\": \"passed\"\n    }\n  ],\n  \"diagnostics\": null\n}\n",
+    "stderr": "",
+    "output_css": ":root{--accent:#5375f6;--accent-text:color-mix(in srgb,var(--accent) 45%,#000);--accent-fi"
+  },
+  {
+    "case": "invalid-js",
+    "exit": 0,
+    "stdout": "{\n  \"pages\": 3,\n  \"files\": 18,\n  \"duration\": 69193547,\n  \"timings\": [\n    {\n      \"name\": \"discover\",\n      \"label\": \"Discover project\",\n      \"offsetMs\": 0.00028,\n      \"durationMs\": 0.335889,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"parse\",\n      \"label\": \"Parse Markdown\",\n      \"offsetMs\": 0.33648,\n      \"durationMs\": 23.642191,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"prepare\",\n      \"label\": \"Prepare output\",\n      \"offsetMs\": 23.979283,\n      \"durationMs\": 2.692743,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"render\",\n      \"label\": \"Render pages and search\",\n      \"offsetMs\": 26.673579,\n      \"durationMs\": 1.530201,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"optimize\",\n      \"label\": \"Optimize CSS and JavaScript\",\n      \"offsetMs\": 28.204101,\n      \"durationMs\": 33.111658,\n      \"status\": \"passed\"\n    },\n    {\n      \"name\": \"finalize\",\n      \"label\": \"Finalize static site\",\n      \"offsetMs\": 61.317462,\n      \"durationMs\": 7.875935,\n      \"status\": \"passed\"\n    }\n  ],\n  \"diagnostics\": null\n}\n",
+    "stderr": ""
+  }
+]

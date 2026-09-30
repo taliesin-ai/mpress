@@ -1,0 +1,31 @@
+File: site.test
+Build ID: 11fe1b2ace1f3ee388ff945640cbe859decaf969
+Type: cpu
+Time: 2026-09-30 19:36:47 AEST
+Duration: 6.27s, Total samples = 9.14s (145.79%)
+Showing nodes accounting for 0.52s, 5.69% of 9.14s total
+Dropped 408 nodes (cum <= 0.05s)
+Showing top 22 nodes out of 275
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%      5.92s 64.77%  testing.(*B).runN
+         0     0%     0%      5.90s 64.55%  github.com/leaanthony/mpress/internal/site.BenchmarkBuildWarm
+         0     0%     0%      5.82s 63.68%  github.com/leaanthony/mpress/internal/site.Build
+         0     0%     0%      4.92s 53.83%  github.com/leaanthony/mpress/internal/knowledge.Generate (inline)
+         0     0%     0%      4.92s 53.83%  github.com/leaanthony/mpress/internal/knowledge.generate
+         0     0%     0%      4.88s 53.39%  testing.(*B).launch
+     0.01s  0.11%  0.11%      3.31s 36.21%  github.com/leaanthony/mpress/internal/knowledge.makeChunks
+         0     0%  0.11%      3.11s 34.03%  github.com/leaanthony/mpress/internal/knowledge.sectionsFromHTML
+         0     0%  0.11%      2.91s 31.84%  golang.org/x/net/html.ParseFragment (inline)
+         0     0%  0.11%      2.91s 31.84%  golang.org/x/net/html.ParseFragmentWithOptions
+     0.08s  0.88%  0.98%      2.90s 31.73%  golang.org/x/net/html.(*parser).parse
+         0     0%  0.98%      1.55s 16.96%  runtime.systemstack
+     0.15s  1.64%  2.63%      1.41s 15.43%  runtime.mallocgc
+     0.08s  0.88%  3.50%      1.22s 13.35%  golang.org/x/net/html.(*Tokenizer).Next
+     0.11s  1.20%  4.70%      1.14s 12.47%  golang.org/x/net/html.(*Tokenizer).Token
+     0.07s  0.77%  5.47%      1.08s 11.82%  golang.org/x/net/html.(*Tokenizer).readTag
+         0     0%  5.47%      1.05s 11.49%  github.com/leaanthony/mpress/internal/site.parseDiscoveredPages.func3
+         0     0%  5.47%      1.05s 11.49%  github.com/leaanthony/mpress/internal/site.parseOne
+         0     0%  5.47%      1.04s 11.38%  testing.(*B).run1.func1
+     0.02s  0.22%  5.69%      1.03s 11.27%  golang.org/x/net/html.(*Tokenizer).readStartTag
+         0     0%  5.69%         1s 10.94%  runtime.gcBgMarkWorker
+         0     0%  5.69%      0.94s 10.28%  runtime.gcBgMarkWorker.func2

@@ -1,0 +1,8 @@
+fuzz: elapsed: 0s, gathering baseline coverage: 0/167 completed
+fuzz: elapsed: 3s, gathering baseline coverage: 102/167 completed
+fuzz: elapsed: 5s, gathering baseline coverage: 167/167 completed, now fuzzing with 1 workers
+fuzz: elapsed: 6s, execs: 2621 (840/sec), new interesting: 3 (total: 170)
+fuzz: elapsed: 9s, execs: 2621 (0/sec), new interesting: 3 (total: 170)
+fuzz: elapsed: 10s, execs: 2621 (0/sec), new interesting: 3 (total: 170)
+PASS
+ok  	github.com/leaanthony/mpress/internal/site	10.503s

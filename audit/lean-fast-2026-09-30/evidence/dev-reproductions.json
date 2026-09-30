@@ -1,0 +1,12 @@
+[
+  {
+    "case": "dev-external-read",
+    "status": 200,
+    "content": "external-test-data"
+  },
+  {
+    "case": "dev-external-write",
+    "status": 200,
+    "outside_written": true
+  }
+]

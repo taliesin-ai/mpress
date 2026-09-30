@@ -1,0 +1,314 @@
+[
+  {
+    "accessibilityGeometry": {
+      "bodyH": 457,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width",
+      "panelBottom": 663,
+      "panelH": 649,
+      "panelScrollH": 649,
+      "panelY": 12,
+      "viewport": 667
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 168,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 0,
+    "bodyScrollAfterSwipe": 0,
+    "bodyScrollWithInertCSS": 192,
+    "height": 667,
+    "initial": {
+      "hit": "\u003cdiv class=\"mpress-a11y-width\"\u003e\u003cdiv class=\"mpress-a11y-width-heading\"\u003e\u003cspan\u003eSite layout\u003c/span\u003e\u003c/div\u003e\u003cdiv class=\"mpress-a11y-width-mode\" role=\"radiogroup\" aria-label=\"Site layout\"\u003e\u003c",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 641.2349853515625,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 9208,
+      "viewport": 667
+    },
+    "path": "/configuration/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 457,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width",
+      "panelBottom": 663,
+      "panelH": 649,
+      "panelScrollH": 649,
+      "panelY": 12,
+      "viewport": 667
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 168,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 0,
+    "bodyScrollAfterSwipe": 0,
+    "bodyScrollWithInertCSS": 192,
+    "height": 667,
+    "initial": {
+      "hit": "\u003cdiv class=\"mpress-a11y-width\"\u003e\u003cdiv class=\"mpress-a11y-width-heading\"\u003e\u003cspan\u003eSite layout\u003c/span\u003e\u003c/div\u003e\u003cdiv class=\"mpress-a11y-width-mode\" role=\"radiogroup\" aria-label=\"Site layout\"\u003e\u003c",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 641.2349853515625,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 3641,
+      "viewport": 667
+    },
+    "path": "/code-components/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 457,
+      "bodyScrollH": 625,
+      "hit": "mpress-a11y-width",
+      "panelBottom": 663,
+      "panelH": 649,
+      "panelScrollH": 649,
+      "panelY": 12,
+      "viewport": 667
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 168,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 0,
+    "bodyScrollAfterSwipe": 0,
+    "bodyScrollWithInertCSS": 192,
+    "height": 667,
+    "initial": {
+      "hit": "\u003cdiv class=\"mpress-a11y-width\"\u003e\u003cdiv class=\"mpress-a11y-width-heading\"\u003e\u003cspan\u003eSite layout\u003c/span\u003e\u003c/div\u003e\u003cdiv class=\"mpress-a11y-width-mode\" role=\"radiogroup\" aria-label=\"Site layout\"\u003e\u003c",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 641.2349853515625,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 4776,
+      "viewport": 667
+    },
+    "path": "/data-components/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 400,
+      "bodyScrollH": 625,
+      "hit": "",
+      "panelBottom": 371,
+      "panelH": 357,
+      "panelScrollH": 528,
+      "panelY": 12,
+      "viewport": 375
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 225,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 0,
+    "bodyScrollAfterSwipe": 0,
+    "bodyScrollWithInertCSS": 187,
+    "height": 375,
+    "initial": {
+      "hit": "\u003cdiv class=\"mpress-a11y-width\"\u003e\u003cdiv class=\"mpress-a11y-width-heading\"\u003e\u003cspan\u003eSite layout\u003c/span\u003e\u003c/div\u003e\u003cdiv class=\"mpress-a11y-width-mode\" role=\"radiogroup\" aria-label=\"Site layout\"\u003e\u003c",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 353.614990234375,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 9208,
+      "viewport": 375
+    },
+    "path": "/configuration/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 400,
+      "bodyScrollH": 625,
+      "hit": "",
+      "panelBottom": 371,
+      "panelH": 357,
+      "panelScrollH": 528,
+      "panelY": 12,
+      "viewport": 375
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 225,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 0,
+    "bodyScrollAfterSwipe": 0,
+    "bodyScrollWithInertCSS": 186,
+    "height": 375,
+    "initial": {
+      "hit": "\u003cdiv class=\"mpress-a11y-width\"\u003e\u003cdiv class=\"mpress-a11y-width-heading\"\u003e\u003cspan\u003eSite layout\u003c/span\u003e\u003c/div\u003e\u003cdiv class=\"mpress-a11y-width-mode\" role=\"radiogroup\" aria-label=\"Site layout\"\u003e\u003c",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 353.614990234375,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 3641,
+      "viewport": 375
+    },
+    "path": "/code-components/",
+    "width": 375
+  },
+  {
+    "accessibilityGeometry": {
+      "bodyH": 400,
+      "bodyScrollH": 625,
+      "hit": "",
+      "panelBottom": 371,
+      "panelH": 357,
+      "panelScrollH": 528,
+      "panelY": 12,
+      "viewport": 375
+    },
+    "accessibilityScrollAfterSwipe": {
+      "body": 225,
+      "page": 0,
+      "panel": 0
+    },
+    "bodyScrollAfterClose": 0,
+    "bodyScrollAfterSwipe": 0,
+    "bodyScrollWithInertCSS": 186,
+    "height": 375,
+    "initial": {
+      "hit": "\u003cdiv class=\"mpress-a11y-width\"\u003e\u003cdiv class=\"mpress-a11y-width-heading\"\u003e\u003cspan\u003eSite layout\u003c/span\u003e\u003c/div\u003e\u003cdiv class=\"mpress-a11y-width-mode\" role=\"radiogroup\" aria-label=\"Site layout\"\u003e\u003c",
+      "panels": [
+        {
+          "display": "none",
+          "h": 0,
+          "id": "mpress-language-menu",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "display": "grid",
+          "h": 353.614990234375,
+          "id": "mpress-accessibility-panel",
+          "opacity": "0",
+          "open": false,
+          "pointer": "auto",
+          "w": 345.7350158691406,
+          "x": 5.264984130859375,
+          "y": 53
+        }
+      ],
+      "scrollHeight": 4776,
+      "viewport": 375
+    },
+    "path": "/data-components/",
+    "width": 375
+  }
+]
