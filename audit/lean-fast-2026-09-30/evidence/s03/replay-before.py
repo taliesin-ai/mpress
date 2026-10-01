@@ -46,6 +46,9 @@ with tempfile.TemporaryDirectory(prefix="mpress-s03-replay-") as work:
     lifecycle = temporary / "future-lifecycle-shim_test.go"
     lifecycle.write_text("package dev\nfunc (s *Server) Close() error { return nil }\n")
     cases[0][1][str(root / "internal/dev/translation_confinement_test.go")] = str(lifecycle)
+    future_plan = temporary / "future-plan-tests.go"
+    future_plan.write_text("package dev\n")
+    cases[0][1][str(root / "internal/dev/translation_plan_confinement_test.go")] = str(future_plan)
     for label, replacement, package, pattern in cases:
         overlay = temporary / (label + ".json")
         overlay.write_text(json.dumps({"Replace": replacement}))

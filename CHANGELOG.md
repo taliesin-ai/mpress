@@ -4,6 +4,10 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ## Unreleased
 
+### Fixed — 2026-10-02
+
+- Translation planning and execution now share the pinned project filesystem across source, target, state, provider inputs and relocation cleanup. External links and provider-time parent replacements are rejected; safe internal aliases remain supported. Style-guide/glossary limits apply before allocation. Generated documentation is unchanged. Beads `mp-b52.1.3` remains in progress for remaining delegates; see `audit/lean-fast-2026-09-30/S03.md`.
+
 ### Fixed — 2026-10-01
 
 - Translation review now confines source/target/state reads, page-key discovery, review-state writes and old-sidecar cleanup to the pinned project root. Authenticated regressions reject five external boundaries, including an external state overwrite; eight internal alias cases preserve reviewed state and target bytes. Other translation operations remain under audit. Beads `mp-b52.1.3`; see `S03.md`.

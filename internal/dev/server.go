@@ -391,7 +391,7 @@ func (s *Server) handleTranslations(w http.ResponseWriter, r *http.Request) {
 			writeJSON(w, http.StatusOK, response)
 			return
 		}
-		report, err := translate.NewEngine(s.project, s.cfg, nil).Run(r.Context(), translate.Options{
+		report, err := translate.NewEngine(s.project, s.cfg, nil).RunRoot(r.Context(), s.files, translate.Options{
 			Language: language, File: file, DryRun: true,
 			Scope: r.URL.Query().Get("scope"), Force: r.URL.Query().Get("force") == "true",
 		})
@@ -582,7 +582,7 @@ func (s *Server) handleTranslations(w http.ResponseWriter, r *http.Request) {
 			writeAPIError(w, http.StatusBadRequest, err)
 			return
 		}
-		report, err := engine.Run(r.Context(), translate.Options{Language: input.Language, File: input.File, Scope: input.Scope, Force: input.Force, Workers: input.Workers})
+		report, err := engine.RunRoot(r.Context(), s.files, translate.Options{Language: input.Language, File: input.File, Scope: input.Scope, Force: input.Force, Workers: input.Workers})
 		if err != nil {
 			writeAPIError(w, http.StatusBadGateway, err)
 			return

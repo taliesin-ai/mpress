@@ -23,9 +23,7 @@ func TestAuthoringTranslationReviewRejectsExternalFiles(t *testing.T) {
 			if response.StatusCode < 400 {
 				t.Errorf("translation review read/wrote external %s: %d %s", boundary, response.StatusCode, readBody(response))
 			}
-			if string(readTranslationFixture(t, sentinel)) != string(original) {
-				t.Errorf("translation review changed external %s", boundary)
-			}
+			assertDevFileUnchanged(t, filepath.Dir(sentinel), filepath.Base(sentinel), string(original))
 		})
 	}
 }

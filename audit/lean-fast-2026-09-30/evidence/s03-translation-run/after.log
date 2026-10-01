@@ -1,0 +1,46 @@
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/source
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/target
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/state-file
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/state-parent
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/state-discovery
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/style-guide
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/glossary
+--- PASS: TestAuthoringTranslationPlanRejectsExternalFiles (0.74s)
+    --- PASS: TestAuthoringTranslationPlanRejectsExternalFiles/source (0.11s)
+    --- PASS: TestAuthoringTranslationPlanRejectsExternalFiles/target (0.11s)
+    --- PASS: TestAuthoringTranslationPlanRejectsExternalFiles/state-file (0.09s)
+    --- PASS: TestAuthoringTranslationPlanRejectsExternalFiles/state-parent (0.16s)
+    --- PASS: TestAuthoringTranslationPlanRejectsExternalFiles/state-discovery (0.11s)
+    --- PASS: TestAuthoringTranslationPlanRejectsExternalFiles/style-guide (0.09s)
+    --- PASS: TestAuthoringTranslationPlanRejectsExternalFiles/glossary (0.07s)
+=== RUN   TestTranslationRunRejectsParentsRearrangedDuringProvider
+=== RUN   TestTranslationRunRejectsParentsRearrangedDuringProvider/target
+=== RUN   TestTranslationRunRejectsParentsRearrangedDuringProvider/state-file
+--- PASS: TestTranslationRunRejectsParentsRearrangedDuringProvider (0.21s)
+    --- PASS: TestTranslationRunRejectsParentsRearrangedDuringProvider/target (0.09s)
+    --- PASS: TestTranslationRunRejectsParentsRearrangedDuringProvider/state-file (0.11s)
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/source
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/target
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/state-file
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/state-parent
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/state-discovery
+--- PASS: TestTranslationRunRejectsExternalFilesBeforeProvider (0.48s)
+    --- PASS: TestTranslationRunRejectsExternalFilesBeforeProvider/source (0.10s)
+    --- PASS: TestTranslationRunRejectsExternalFilesBeforeProvider/target (0.09s)
+    --- PASS: TestTranslationRunRejectsExternalFilesBeforeProvider/state-file (0.11s)
+    --- PASS: TestTranslationRunRejectsExternalFilesBeforeProvider/state-parent (0.08s)
+    --- PASS: TestTranslationRunRejectsExternalFilesBeforeProvider/state-discovery (0.10s)
+=== RUN   TestTranslationRunRetainsInternalAliases
+=== RUN   TestTranslationRunRetainsInternalAliases/source
+=== RUN   TestTranslationRunRetainsInternalAliases/target
+=== RUN   TestTranslationRunRetainsInternalAliases/state-file
+=== RUN   TestTranslationRunRetainsInternalAliases/state-parent
+--- PASS: TestTranslationRunRetainsInternalAliases (0.54s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/source (0.12s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/target (0.14s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/state-file (0.15s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/state-parent (0.12s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/dev	3.656s

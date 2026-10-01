@@ -15,6 +15,13 @@ with tempfile.TemporaryDirectory(prefix="mpress-translation-review-") as work:
         original = temp / name.replace("/", "-")
         original.write_bytes(subprocess.check_output(["git", "show", "22dddd1:" + name], cwd=root))
         replacements[str(root / name)] = str(original)
+    # Future worker-root tests reference RunRoot, absent at this review baseline.
+    future = temp / "future-plan-tests.go"
+    future.write_text("package dev\n")
+    replacements[str(root / "internal/dev/translation_plan_confinement_test.go")] = str(future)
+    future_input = temp / "future-input-tests.go"
+    future_input.write_text("package translate\n")
+    replacements[str(root / "internal/translate/root_inputs_test.go")] = str(future_input)
     overlay = temp / "overlay.json"
     overlay.write_text(json.dumps({"Replace": replacements}))
     result = subprocess.run(["go", "test", "-overlay=" + str(overlay), "./internal/dev",
@@ -28,5 +35,5 @@ with tempfile.TemporaryDirectory(prefix="mpress-translation-review-") as work:
     if result.returncode == 0 or "[build failed]" in result.stdout or failures != expected or top != {
             "TestAuthoringTranslationReviewRejectsExternalFiles"} or not all(
             "--- PASS: " + v in result.stdout for v in ["TestAuthoringTranslationReviewRetainsInternalStateAliases",
-            "TestAuthoringTranslationReviewRetainsInternalFileAliases"]) or "translation review changed external state-parent" not in result.stdout:
+            "TestAuthoringTranslationReviewRetainsInternalFileAliases"]) or "sentinel index.json changed" not in result.stdout:
         raise SystemExit("Did not reproduce all five original boundaries, external write and safe alias controls")

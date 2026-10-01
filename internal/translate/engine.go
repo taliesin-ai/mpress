@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -233,6 +234,7 @@ func reviewSegments(input *reviewFiles, status string) (map[string]SegmentState,
 }
 
 type Engine struct {
+	runRoot  *projectfs.FS // Borrowed only by a RunRoot clone.
 	Project  string
 	Config   config.Config
 	Provider Provider
@@ -305,6 +307,28 @@ func (p *configuredProvider) Translate(ctx context.Context, request TranslationR
 	return provider.Translate(ctx, request)
 }
 
+// RunRoot shares one borrowed project boundary across planning and workers.
+// The caller retains ownership; all workers finish before this method returns.
+func (e *Engine) RunRoot(ctx context.Context, root *projectfs.FS, options Options) (Report, error) {
+	if root == nil {
+		return Report{}, errors.New("translation project root is required")
+	}
+	borrowed := *e
+	borrowed.runRoot = root
+	return borrowed.Run(ctx, options)
+}
+
+func (e *Engine) runFiles() (*projectfs.FS, func() error, error) {
+	if e.runRoot != nil {
+		return e.runRoot, func() error { return nil }, nil
+	}
+	files, err := projectfs.Open(e.Project)
+	if err != nil {
+		return nil, nil, err
+	}
+	return files, files.Close, nil
+}
+
 func (e *Engine) Run(ctx context.Context, options Options) (Report, error) {
 	if options.Scope == "" {
 		options.Scope = "stale"
@@ -316,15 +340,20 @@ func (e *Engine) Run(ctx context.Context, options Options) (Report, error) {
 	if err != nil {
 		return Report{}, err
 	}
-	files, err := e.sourceFiles(options.File)
+	root, closeFiles, err := e.runFiles()
 	if err != nil {
 		return Report{}, err
 	}
-	styleGuide, err := readOptionalProjectFile(e.Project, e.Config.Translation.StyleGuide, 128<<10)
+	defer closeFiles()
+	files, err := e.sourceFilesWithRoot(root, options.File)
+	if err != nil {
+		return Report{}, err
+	}
+	styleGuide, err := readOptionalProjectFileRoot(root, e.Config.Translation.StyleGuide, 128<<10)
 	if err != nil {
 		return Report{}, fmt.Errorf("read translation style guide: %w", err)
 	}
-	glossary, err := loadGlossary(e.Project, e.Config.Translation.Glossary)
+	glossary, err := loadGlossaryRoot(root, e.Config.Translation.Glossary)
 	if err != nil {
 		return Report{}, err
 	}
@@ -365,7 +394,7 @@ func (e *Engine) Run(ctx context.Context, options Options) (Report, error) {
 				var fileReport FileReport
 				var jobErr error
 				for attempt := 0; attempt < 3; attempt++ {
-					fileReport, jobErr = e.translateFile(workerContext, job.language, job.sourceFile, options, styleGuide, glossary[job.language], requestSlots)
+					fileReport, jobErr = e.translateFile(workerContext, root, job.language, job.sourceFile, options, styleGuide, glossary[job.language], requestSlots)
 					var structural *structuralTranslationFailure
 					if jobErr == nil || !errors.As(jobErr, &structural) || attempt == 2 {
 						break
@@ -499,7 +528,7 @@ type matchedSegment struct {
 	State      string
 }
 
-func (e *Engine) translateFile(ctx context.Context, language, sourceFile string, options Options, styleGuide string, glossary []GlossaryTerm, requestSlots chan struct{}) (FileReport, error) {
+func (e *Engine) translateFile(ctx context.Context, files *projectfs.FS, language, sourceFile string, options Options, styleGuide string, glossary []GlossaryTerm, requestSlots chan struct{}) (FileReport, error) {
 	contentDir := e.Config.ContentPath(e.Project)
 	sourcePath := filepath.Join(contentDir, filepath.FromSlash(sourceFile))
 	targetPath := filepath.Join(contentDir, filepath.FromSlash(language), filepath.FromSlash(sourceFile))
@@ -507,7 +536,7 @@ func (e *Engine) translateFile(ctx context.Context, language, sourceFile string,
 	if err != nil {
 		return FileReport{}, err
 	}
-	sourceBytes, err := os.ReadFile(sourcePath)
+	sourceBytes, err := files.ReadFile(sourcePath)
 	if err != nil {
 		return FileReport{}, err
 	}
@@ -517,25 +546,25 @@ func (e *Engine) translateFile(ctx context.Context, language, sourceFile string,
 	}
 	statePathToLoad := stateFile
 	if sourceDoc.TranslationKey != "" {
-		if matchedPath, findErr := findStateByPageKey(filepath.Join(e.Project, filepath.FromSlash(e.Config.Translation.StateDir), language), sourceDoc.TranslationKey); findErr != nil {
+		if matchedPath, findErr := findStateByPageKeyRoot(files, filepath.Join(e.Project, filepath.FromSlash(e.Config.Translation.StateDir), language), sourceDoc.TranslationKey); findErr != nil {
 			return FileReport{}, findErr
 		} else if matchedPath != "" {
 			statePathToLoad = matchedPath
 		}
 	}
-	state, err := loadState(statePathToLoad, sourceFile, e.Config.Site.DefaultLanguage, language, sourceDoc.TranslationKey)
+	state, err := loadStateRoot(files, statePathToLoad, sourceFile, e.Config.Site.DefaultLanguage, language, sourceDoc.TranslationKey)
 	if err != nil {
 		return FileReport{}, err
 	}
 
 	targetReadPath := targetPath
 	if state.SourceFile != "" && filepath.ToSlash(state.SourceFile) != filepath.ToSlash(sourceFile) {
-		if _, statErr := os.Stat(targetPath); errors.Is(statErr, os.ErrNotExist) {
+		if _, statErr := files.Stat(targetPath); errors.Is(statErr, os.ErrNotExist) {
 			targetReadPath = filepath.Join(contentDir, filepath.FromSlash(language), filepath.FromSlash(state.SourceFile))
 		}
 	}
 	report := FileReport{SourceFile: filepath.ToSlash(sourceFile), TargetFile: filepath.ToSlash(filepath.Join(language, sourceFile)), TargetLanguage: language, Segments: len(sourceDoc.Segments), States: map[string]int{}}
-	targetDoc, err := e.readTranslationTarget(sourceFile, targetReadPath, sourceBytes, state, options)
+	targetDoc, err := e.readTranslationTarget(files, sourceFile, targetReadPath, sourceBytes, state, options)
 	if options.DryRun && (errors.Is(err, errUntrackedTranslation) || errors.Is(err, errTranslationMigration) || errors.Is(err, errMigrationReview)) {
 		stateName := "untracked"
 		if errors.Is(err, errTranslationMigration) {
@@ -721,32 +750,48 @@ func (e *Engine) translateFile(ctx context.Context, language, sourceFile string,
 			return report, err
 		}
 	}
-	if err := writeAtomic(targetPath, output); err != nil {
+	if err := files.WriteAtomic(targetPath, output); err != nil {
 		return report, err
 	}
-	if err := saveState(stateFile, newState); err != nil {
+	if err := saveStateRoot(files, stateFile, newState); err != nil {
 		return report, err
 	}
-	if needsRelocation && state.SourceFile != "" && filepath.ToSlash(state.SourceFile) != filepath.ToSlash(sourceFile) {
-		oldSource := filepath.Join(contentDir, filepath.FromSlash(state.SourceFile))
-		if _, statErr := os.Stat(oldSource); errors.Is(statErr, os.ErrNotExist) {
-			if statePathToLoad != stateFile {
-				_ = os.Remove(statePathToLoad)
-			}
-			if targetReadPath != targetPath {
-				_ = os.Remove(targetReadPath)
-			}
+	if needsRelocation {
+		if err := cleanupRelocatedTranslation(files, translationRelocation{content: contentDir, source: sourceFile, previousSource: state.SourceFile, state: stateFile, previousState: statePathToLoad, target: targetPath, previousTarget: targetReadPath}); err != nil {
+			return report, err
 		}
 	}
 	report.Written = true
 	return report, nil
 }
 
+type translationRelocation struct {
+	content, source, previousSource, state, previousState, target, previousTarget string
+}
+
+func cleanupRelocatedTranslation(files *projectfs.FS, move translationRelocation) error {
+	if move.previousSource == "" || filepath.ToSlash(move.previousSource) == filepath.ToSlash(move.source) {
+		return nil
+	}
+	oldSource := filepath.Join(move.content, filepath.FromSlash(move.previousSource))
+	if _, err := files.Stat(oldSource); !os.IsNotExist(err) {
+		return nil
+	}
+	for _, pair := range [][2]string{{move.previousState, move.state}, {move.previousTarget, move.target}} {
+		if pair[0] != pair[1] {
+			if err := files.Remove(pair[0]); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
 var errUntrackedTranslation = errors.New("existing text has no translation state")
 
 // readTranslationTarget checks the on-disk target before any provider request.
-func (e *Engine) readTranslationTarget(sourceFile, targetPath string, source []byte, state *FileState, options Options) (*Document, error) {
-	target, err := os.ReadFile(targetPath)
+func (e *Engine) readTranslationTarget(files *projectfs.FS, sourceFile, targetPath string, source []byte, state *FileState, options Options) (*Document, error) {
+	target, err := files.ReadFile(targetPath)
 	if errors.Is(err, os.ErrNotExist) {
 		// A sidecar is not a translation. Cached machine text must not hide a
 		// deleted target or its lost manual edits from status and missing-only runs.
@@ -1450,14 +1495,29 @@ type glossaryFile struct {
 }
 
 func loadGlossary(root, name string) (map[string][]GlossaryTerm, error) {
-	result := map[string][]GlossaryTerm{}
 	if strings.TrimSpace(name) == "" {
-		return result, nil
+		return map[string][]GlossaryTerm{}, nil
 	}
 	data, err := readProjectFile(root, name, 1<<20)
 	if err != nil {
 		return nil, fmt.Errorf("read translation glossary: %w", err)
 	}
+	return decodeGlossary(data)
+}
+
+func loadGlossaryRoot(files *projectfs.FS, name string) (map[string][]GlossaryTerm, error) {
+	if strings.TrimSpace(name) == "" {
+		return map[string][]GlossaryTerm{}, nil
+	}
+	data, err := readProjectFileRoot(files, name, 1<<20)
+	if err != nil {
+		return nil, fmt.Errorf("read translation glossary: %w", err)
+	}
+	return decodeGlossary(data)
+}
+
+func decodeGlossary(data []byte) (map[string][]GlossaryTerm, error) {
+	result := map[string][]GlossaryTerm{}
 	var file glossaryFile
 	if err := yaml.Unmarshal(data, &file); err != nil {
 		return nil, fmt.Errorf("parse translation glossary: %w", err)
@@ -1468,6 +1528,44 @@ func loadGlossary(root, name string) (map[string][]GlossaryTerm, error) {
 		}
 	}
 	return result, nil
+}
+
+func readOptionalProjectFileRoot(files *projectfs.FS, name string, limit int64) (string, error) {
+	if strings.TrimSpace(name) == "" {
+		return "", nil
+	}
+	data, err := readProjectFileRoot(files, name, limit)
+	return string(data), err
+}
+
+func readProjectFileRoot(files *projectfs.FS, name string, limit int64) ([]byte, error) {
+	clean := filepath.Clean(filepath.FromSlash(name))
+	if clean == "." || clean == ".." || filepath.IsAbs(clean) || strings.HasPrefix(clean, ".."+string(filepath.Separator)) {
+		return nil, errors.New("path must stay inside the project")
+	}
+	file, err := files.Open(clean)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+	info, err := file.Stat()
+	if err != nil {
+		return nil, err
+	}
+	if !info.Mode().IsRegular() {
+		return nil, fmt.Errorf("not a regular translation input: %s", name)
+	}
+	if info.Size() > limit {
+		return nil, fmt.Errorf("file exceeds %d bytes", limit)
+	}
+	data, err := io.ReadAll(io.LimitReader(file, limit+1))
+	if err != nil {
+		return nil, err
+	}
+	if int64(len(data)) > limit {
+		return nil, fmt.Errorf("file exceeds %d bytes", limit)
+	}
+	return data, nil
 }
 
 func readOptionalProjectFile(root, name string, limit int64) (string, error) {

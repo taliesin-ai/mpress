@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/fs"
 	"os"
 	"path/filepath"
 	"strings"
@@ -173,20 +172,11 @@ func saveStateRoot(files *projectfs.FS, path string, state *FileState) error {
 }
 
 func findStateByPageKeyRoot(files *projectfs.FS, root, pageKey string) (string, error) {
-	return findStateWithIO(root, pageKey, files.WalkDir, files.ReadFile)
-}
-
-func findStateByPageKey(root, pageKey string) (string, error) {
-	return findStateWithIO(root, pageKey, filepath.WalkDir, os.ReadFile)
-}
-
-func findStateWithIO(root, pageKey string, walk func(string, fs.WalkDirFunc) error, read func(string) ([]byte, error)) (string, error) {
-
 	if pageKey == "" {
 		return "", nil
 	}
 	var match string
-	err := walk(root, func(path string, entry os.DirEntry, err error) error {
+	err := files.WalkDir(root, func(path string, entry os.DirEntry, err error) error {
 		if errors.Is(err, os.ErrNotExist) {
 			return nil
 		}
@@ -196,7 +186,7 @@ func findStateWithIO(root, pageKey string, walk func(string, fs.WalkDirFunc) err
 		if entry.IsDir() || strings.ToLower(filepath.Ext(path)) != ".json" {
 			return nil
 		}
-		data, readErr := read(path)
+		data, readErr := files.ReadFile(path)
 		if readErr != nil {
 			return readErr
 		}

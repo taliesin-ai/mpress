@@ -1,0 +1,64 @@
+{
+  "input": "Same 16MiB sparse file and path per comparison;128KiB limit",
+  "runs": 3,
+  "operationsPerSample": 10,
+  "ambientReader": "Actual retained original production helper;still used by separately unqualified paths",
+  "timingOrder": "Ambient then rooted in each pair;no ordinary-loading speed claim",
+  "memoryMetric": "Total Go allocation bytes/op,not peakRSS",
+  "samples": [
+    {
+      "reader": "ambient",
+      "iteration": 0,
+      "ns": 6873786.0,
+      "allocatedBytes": 16789001,
+      "allocations": 12
+    },
+    {
+      "reader": "rooted",
+      "iteration": 0,
+      "ns": 53594.0,
+      "allocatedBytes": 2920,
+      "allocations": 30
+    },
+    {
+      "reader": "ambient",
+      "iteration": 1,
+      "ns": 6758213.0,
+      "allocatedBytes": 16788982,
+      "allocations": 12
+    },
+    {
+      "reader": "rooted",
+      "iteration": 1,
+      "ns": 51856.0,
+      "allocatedBytes": 2920,
+      "allocations": 30
+    },
+    {
+      "reader": "ambient",
+      "iteration": 2,
+      "ns": 5033304.0,
+      "allocatedBytes": 16789003,
+      "allocations": 12
+    },
+    {
+      "reader": "rooted",
+      "iteration": 2,
+      "ns": 57218.0,
+      "allocatedBytes": 2922,
+      "allocations": 30
+    }
+  ],
+  "medians": {
+    "ambient": {
+      "ns": 6758213.0,
+      "allocatedBytes": 16789001,
+      "allocations": 12
+    },
+    "rooted": {
+      "ns": 53594.0,
+      "allocatedBytes": 2920,
+      "allocations": 30
+    }
+  }
+}
