@@ -1,0 +1,15 @@
+=== RUN   TestAccessibilityViewportReachability
+=== RUN   TestAccessibilityViewportReachability/761x601-text2-light
+2026/10/01 20:16:52 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:16:52 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:192: touch cannot reach .mpress-a11y-option[data-value="low"]
+=== RUN   TestAccessibilityViewportReachability/1280x900-text2-dark
+2026/10/01 20:17:19 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:17:19 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:82: 1280x900, text 200%, dark: preferences/reset/close reachable; panel scroll 0px
+--- FAIL: TestAccessibilityViewportReachability (33.51s)
+    --- FAIL: TestAccessibilityViewportReachability/761x601-text2-light (27.21s)
+    --- PASS: TestAccessibilityViewportReachability/1280x900-text2-dark (6.25s)
+FAIL
+exit status 1
+FAIL	github.com/leaanthony/mpress/audit/lean-fast-tools	33.515s

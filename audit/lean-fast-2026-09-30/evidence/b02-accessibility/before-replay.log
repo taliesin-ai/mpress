@@ -1,0 +1,55 @@
+=== RUN   TestAccessibilityViewportReachability
+=== RUN   TestAccessibilityViewportReachability/375x667-text1-light
+2026/10/01 20:19:24 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:24 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:71: constrained viewport has nested scroll containers: map[bodyH:457 bodyScrollH:625 bottom:663 left:12 panelH:649 panelScrollH:649 right:363 top:12]
+=== RUN   TestAccessibilityViewportReachability/667x375-text1-dark
+2026/10/01 20:19:24 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:24 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:71: constrained viewport has nested scroll containers: map[bodyH:400 bodyScrollH:592 bottom:371 left:12 panelH:357 panelScrollH:510 right:572 top:12]
+=== RUN   TestAccessibilityViewportReachability/375x375-text1-light
+2026/10/01 20:19:24 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:24 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:71: constrained viewport has nested scroll containers: map[bodyH:400 bodyScrollH:625 bottom:371 left:12 panelH:357 panelScrollH:528 right:363 top:12]
+=== RUN   TestAccessibilityViewportReachability/320x320-text2-dark
+2026/10/01 20:19:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:71: constrained viewport has nested scroll containers: map[bodyH:400 bodyScrollH:1341 bottom:316 left:12 panelH:302 panelScrollH:646 right:308 top:12]
+=== RUN   TestAccessibilityViewportReachability/667x375-text2-light
+2026/10/01 20:19:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:71: constrained viewport has nested scroll containers: map[bodyH:400 bodyScrollH:978 bottom:371 left:12 panelH:357 panelScrollH:610 right:572 top:12]
+=== RUN   TestAccessibilityViewportReachability/1024x375-text2-dark
+2026/10/01 20:19:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:71: constrained viewport has nested scroll containers: map[bodyH:400 bodyScrollH:978 bottom:371 left:344.828125 panelH:357 panelScrollH:610 right:904.828125 top:12]
+=== RUN   TestAccessibilityViewportReachability/1280x900-text1-dark
+2026/10/01 20:19:26 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:26 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 1280x900, text 100%, dark: preferences/reset/close reachable; panel scroll 0px
+=== RUN   TestAccessibilityViewportReachability/375x667-text2-light
+2026/10/01 20:19:28 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:28 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:71: constrained viewport has nested scroll containers: map[bodyH:400 bodyScrollH:1153 bottom:663 left:12 panelH:649 panelScrollH:649 right:363 top:12]
+=== RUN   TestAccessibilityViewportReachability/761x601-text2-light
+2026/10/01 20:19:28 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:28 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:194: touch cannot reach .mpress-a11y-option[data-value="low"]
+=== RUN   TestAccessibilityViewportReachability/1280x900-text2-dark
+2026/10/01 20:19:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 1280x900, text 200%, dark: preferences/reset/close reachable; panel scroll 0px
+--- FAIL: TestAccessibilityViewportReachability (37.99s)
+    --- FAIL: TestAccessibilityViewportReachability/375x667-text1-light (0.56s)
+    --- FAIL: TestAccessibilityViewportReachability/667x375-text1-dark (0.26s)
+    --- FAIL: TestAccessibilityViewportReachability/375x375-text1-light (0.28s)
+    --- FAIL: TestAccessibilityViewportReachability/320x320-text2-dark (0.27s)
+    --- FAIL: TestAccessibilityViewportReachability/667x375-text2-light (0.26s)
+    --- FAIL: TestAccessibilityViewportReachability/1024x375-text2-dark (0.29s)
+    --- PASS: TestAccessibilityViewportReachability/1280x900-text1-dark (2.20s)
+    --- FAIL: TestAccessibilityViewportReachability/375x667-text2-light (0.26s)
+    --- FAIL: TestAccessibilityViewportReachability/761x601-text2-light (27.28s)
+    --- PASS: TestAccessibilityViewportReachability/1280x900-text2-dark (6.27s)
+FAIL
+exit status 1
+FAIL	github.com/leaanthony/mpress/audit/lean-fast-tools	37.995s

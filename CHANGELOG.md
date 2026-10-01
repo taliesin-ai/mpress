@@ -6,6 +6,8 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Fixed — 2026-10-01
 
+- Accessibility settings now use one scrollable panel on phones and short windows. The body can shrink at other sizes; focus scroll padding keeps controls clear of clipping edges. Real touch/keyboard checks cover all settings, colour options, width/font preferences, reset and close across ten viewport/text/theme cases, including 200% text simulation. Beads `mp-b52.2.2`; see `audit/lean-fast-2026-09-30/B02.md`.
+
 - Snapshot mounting now pins the verified snapshot and output boundaries, rejecting linked destinations that overwrite external or protected files. Shared reader locks coordinate list/verify/mount with capture/removal. Legacy read-only stores, version navigation and safe aliases remain supported; nested manifest-named assets are published. Ordinary and mounted docs remain byte-identical. Beads `mp-b52.1.7`; recovery/platform and build-wide coordination qualification remains open.
 
 - Snapshot capture now confines reads and writes, owns a unique workspace and preserves the previous snapshot across copy, manifest and promotion failures. Capture/removal writers coordinate across processes; failed rollback retains a recovery backup. Capturing `v1` preserves `v1.tmp`, and nested manifest-named assets are indexed correctly. Full-corpus snapshot checksums remain identical; capture performance cost is recorded in `S07.md`. Beads `mp-b52.1.7` remains open for mounting and reader coordination.

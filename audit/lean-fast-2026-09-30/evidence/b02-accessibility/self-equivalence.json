@@ -1,0 +1,13 @@
+{
+  "baseline": "902cd7a",
+  "files": 100,
+  "changed_css_assets": 1,
+  "changed_html_css_cache_keys": 63,
+  "all_other_bytes_identical": true,
+  "css": {
+    "before_bytes": 121040,
+    "after_bytes": 121287,
+    "before_gzip_bytes": 21409,
+    "after_gzip_bytes": 21445
+  }
+}

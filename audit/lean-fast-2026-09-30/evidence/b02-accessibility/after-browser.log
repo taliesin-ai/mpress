@@ -1,0 +1,54 @@
+=== RUN   TestAccessibilityViewportReachability
+=== RUN   TestAccessibilityViewportReachability/375x667-text1-light
+2026/10/01 20:19:22 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:22 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 375x667, text 100%, light: preferences/reset/close reachable; panel scroll 168px
+=== RUN   TestAccessibilityViewportReachability/667x375-text1-dark
+2026/10/01 20:19:26 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:26 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 667x375, text 100%, dark: preferences/reset/close reachable; panel scroll 370px
+=== RUN   TestAccessibilityViewportReachability/375x375-text1-light
+2026/10/01 20:19:34 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:34 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 375x375, text 100%, light: preferences/reset/close reachable; panel scroll 460px
+=== RUN   TestAccessibilityViewportReachability/320x320-text2-dark
+2026/10/01 20:19:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:19:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 320x320, text 200%, dark: preferences/reset/close reachable; panel scroll 1338px
+=== RUN   TestAccessibilityViewportReachability/667x375-text2-light
+2026/10/01 20:20:19 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:20:19 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 667x375, text 200%, light: preferences/reset/close reachable; panel scroll 912px
+=== RUN   TestAccessibilityViewportReachability/1024x375-text2-dark
+2026/10/01 20:20:40 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:20:40 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 1024x375, text 200%, dark: preferences/reset/close reachable; panel scroll 910px
+=== RUN   TestAccessibilityViewportReachability/1280x900-text1-dark
+2026/10/01 20:21:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:21:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 1280x900, text 100%, dark: preferences/reset/close reachable; panel scroll 0px
+=== RUN   TestAccessibilityViewportReachability/375x667-text2-light
+2026/10/01 20:21:05 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:21:05 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 375x667, text 200%, light: preferences/reset/close reachable; panel scroll 752px
+=== RUN   TestAccessibilityViewportReachability/761x601-text2-light
+2026/10/01 20:21:16 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:21:16 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 761x601, text 200%, light: preferences/reset/close reachable; panel scroll 0px
+=== RUN   TestAccessibilityViewportReachability/1280x900-text2-dark
+2026/10/01 20:21:27 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:21:27 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:83: 1280x900, text 200%, dark: preferences/reset/close reachable; panel scroll 0px
+--- PASS: TestAccessibilityViewportReachability (131.28s)
+    --- PASS: TestAccessibilityViewportReachability/375x667-text1-light (4.49s)
+    --- PASS: TestAccessibilityViewportReachability/667x375-text1-dark (8.06s)
+    --- PASS: TestAccessibilityViewportReachability/375x375-text1-light (9.87s)
+    --- PASS: TestAccessibilityViewportReachability/320x320-text2-dark (35.15s)
+    --- PASS: TestAccessibilityViewportReachability/667x375-text2-light (20.67s)
+    --- PASS: TestAccessibilityViewportReachability/1024x375-text2-dark (21.23s)
+    --- PASS: TestAccessibilityViewportReachability/1280x900-text1-dark (4.24s)
+    --- PASS: TestAccessibilityViewportReachability/375x667-text2-light (11.03s)
+    --- PASS: TestAccessibilityViewportReachability/761x601-text2-light (10.23s)
+    --- PASS: TestAccessibilityViewportReachability/1280x900-text2-dark (6.25s)
+PASS
+ok  	github.com/leaanthony/mpress/audit/lean-fast-tools	131.286s

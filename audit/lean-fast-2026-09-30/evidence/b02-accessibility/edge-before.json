@@ -1,0 +1,36 @@
+[
+  {
+    "height": 601,
+    "initial": {
+      "bodyH": 400,
+      "bodyScrollH": 978,
+      "bottom": 596.9022789001465,
+      "left": 81.8876953125,
+      "panelH": 583,
+      "panelScrollH": 610,
+      "right": 641.828125,
+      "top": 11.964534759521484
+    },
+    "textScale": 2,
+    "theme": "light",
+    "width": 761
+  },
+  {
+    "height": 900,
+    "initial": {
+      "bodyH": 524,
+      "bodyScrollH": 978,
+      "bottom": 873.5,
+      "left": 600.828125,
+      "panelH": 818,
+      "panelScrollH": 818,
+      "right": 1160.828125,
+      "top": 53.5
+    },
+    "maxPanelScroll": 0,
+    "textScale": 2,
+    "theme": "dark",
+    "touch_and_keyboard": "pass",
+    "width": 1280
+  }
+]

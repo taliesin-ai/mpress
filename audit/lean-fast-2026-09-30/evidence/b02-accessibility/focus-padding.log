@@ -1,0 +1,14 @@
+=== RUN   TestAccessibilityViewportReachability
+=== RUN   TestAccessibilityViewportReachability/667x375-text1-dark
+2026/10/01 20:03:34 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:03:34 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:180: 667x375, text 100%, dark: controls/reset/close reachable
+=== RUN   TestAccessibilityViewportReachability/320x320-text2-dark
+2026/10/01 20:03:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 20:03:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:180: 320x320, text 200%, dark: controls/reset/close reachable
+--- PASS: TestAccessibilityViewportReachability (43.19s)
+    --- PASS: TestAccessibilityViewportReachability/667x375-text1-dark (8.39s)
+    --- PASS: TestAccessibilityViewportReachability/320x320-text2-dark (34.75s)
+PASS
+ok  	github.com/leaanthony/mpress/audit/lean-fast-tools	43.196s

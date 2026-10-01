@@ -1,0 +1,6 @@
+=== RUN   TestUtilityPopoverInteraction
+    popover_test.go:73: height=667: 2 popovers pass focus/hit/transition checks; touch scroll 186px
+    popover_test.go:73: height=375: 2 popovers pass focus/hit/transition checks; touch scroll 186px
+--- PASS: TestUtilityPopoverInteraction (3.98s)
+PASS
+ok  	github.com/leaanthony/mpress/audit/lean-fast-tools	3.985s

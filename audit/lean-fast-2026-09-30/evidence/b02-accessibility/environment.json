@@ -1,0 +1,12 @@
+{
+  "chrome": "Google Chrome 151.0.7922.71",
+  "go": "go1.26.6 linux/amd64",
+  "native_platform": "Linux",
+  "input": "Native CDP touch/keyboard; mobile metrics and portrait/landscape orientation for phone viewports",
+  "text_enlargement": "200% computed font size simulation; overflow and positioning CSS not injected",
+  "limitations": [
+    "No physical phone or native Safari/Firefox execution",
+    "Required browser execution in CI remains V02 work"
+  ],
+  "qualification": "10 viewport/text/theme cases pass; original CSS reproduces 8 case failures with two large-desktop controls passing"
+}

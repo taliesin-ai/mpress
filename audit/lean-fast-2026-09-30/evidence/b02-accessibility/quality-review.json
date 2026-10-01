@@ -1,0 +1,4 @@
+{
+  "gating_findings": 5,
+  "review": "Five retained shape heuristics concern tiny JSON quoting/native-test error wrappers versus unrelated private HTTP/renderer/test helpers. The different packages, input/output contracts and ownership prevent meaningful reuse. Test harness was split by gesture, setup, preference and keyboard responsibilities; new helper complexity/nesting/length flags are eliminated. Go test entry point is invoked by the runner. Production change is four added CSS lines and adaptive body sizing; the existing CSS constant has a minor LOC increase. No blanket acknowledgements applied."
+}
