@@ -42,6 +42,8 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Maintenance — 2026-10-01
 
+- Restored the historical authoring-confinement replay after later config/server seams changed, preserving original tested behavior and requiring exact failures across all three stages. Beads `mp-b52.5.8`; the final audit gate remains open.
+
 - Qualified image and contribution focus restoration with 60 native/script activation and close cases, each repeated twice. Corrected the private image keyboard test to use Enter and await closure; its false failure is removed while three private failing tests remain. Production modal behavior is unchanged. Beads `mp-b52.2.5`; see `audit/lean-fast-2026-09-30/B05.md`.
 
 ### Maintenance — 2026-09-30

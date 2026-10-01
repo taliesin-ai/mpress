@@ -14,7 +14,16 @@ with tempfile.TemporaryDirectory(prefix="mpress-s03-replay-") as work:
         replacement = {}
         for name in names:
             target = temporary / name.replace("/", "-")
-            target.write_bytes(subprocess.check_output(["git", "show", baseline + ":" + name], cwd=root))
+            data = subprocess.check_output(["git", "show", baseline + ":" + name], cwd=root)
+            if name == "internal/config/output.go":
+                # Later version guards require this helper at compile time. The
+                # original output/preview methods under test remain untouched.
+                helper = re.search(r"func \(c Config\) protectedInputs\(.*?\n\}",
+                                   (root / name).read_text(), re.S)
+                if helper is None:
+                    raise SystemExit("Missing current version-guard compilation helper")
+                data += ("\n" + helper.group(0) + "\n").encode()
+            target.write_bytes(data)
             replacement[str(root / name)] = str(target)
         return replacement
 
@@ -31,6 +40,12 @@ with tempfile.TemporaryDirectory(prefix="mpress-s03-replay-") as work:
     adapted = temporary / "direct-confinement_test.go"
     adapted.write_text(current)
     cases[0][1][str(root / "internal/dev/confinement_test.go")] = str(adapted)
+    # The old Server owns no root handle. Later fixture files reference Close,
+    # so provide a no-op lifecycle shim in an excluded future test compilation
+    # unit. It does not participate in any original endpoint operation.
+    lifecycle = temporary / "future-lifecycle-shim_test.go"
+    lifecycle.write_text("package dev\nfunc (s *Server) Close() error { return nil }\n")
+    cases[0][1][str(root / "internal/dev/translation_confinement_test.go")] = str(lifecycle)
     for label, replacement, package, pattern in cases:
         overlay = temporary / (label + ".json")
         overlay.write_text(json.dumps({"Replace": replacement}))
@@ -38,7 +53,25 @@ with tempfile.TemporaryDirectory(prefix="mpress-s03-replay-") as work:
         result = subprocess.run(["go", "test", "-overlay=" + str(overlay), package, "-run", pattern, "-count=1"], cwd=root, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         print(result.stdout, end="", flush=True)
         failures = re.findall(r"^--- FAIL: (\S+)", result.stdout, re.M)
-        if len(failures) != {"direct": 6, "delegated": 2, "output": 1}[label] or "[build failed]" in result.stdout:
-            raise SystemExit("Baseline replay did not reproduce the expected entry points: " + label)
+        expected = {
+            "direct": {"TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites",
+                       "TestAuthoringMCPRejectsExternalSymlinkPaths",
+                       "TestAuthoringUploadRejectsExternalStaticAndContentParents",
+                       "TestAuthoringBackupsRejectExternalParentWithoutChangingSource",
+                       "TestNewServerPreservesUnsafePreviewPools",
+                       "TestAuthoringConfigurationAndTreeDoNotFollowExternalLinks"},
+            "delegated": {"TestAuthoringRebuildDoesNotWriteCacheThroughExternalParent",
+                          "TestAuthoringPreviewRejectsOtherExternalInputs"},
+            "output": {"TestRemoveOutputProtectsConfiguredDataAndAncestors"},
+        }[label]
+        if set(failures) != expected or len(failures) != len(expected) or "[build failed]" in result.stdout:
+            raise SystemExit("Baseline replay did not reproduce the exact entry points: " + label)
+        if label == "output":
+            subfailures = set(re.findall(r"^    --- FAIL: (\S+)", result.stdout, re.M))
+            expected_sub = {"TestRemoveOutputProtectsConfiguredDataAndAncestors/" + name for name in
+                            ["navigation_outside_content", "localized_navigation_outside_content",
+                             "translation_glossary", "translation_style_guide", "contributor_guide"]}
+            if subfailures != expected_sub:
+                raise SystemExit("Baseline replay did not reproduce all five protected-input failures")
         if result.returncode == 0:
             raise SystemExit("Expected failing-before regressions did not fail: " + label)
