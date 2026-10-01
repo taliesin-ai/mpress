@@ -19,22 +19,33 @@ func validateLabel(label string) error {
 	return nil
 }
 
-func openVersionStore(project string) (*projectfs.FS, config.Config, error) {
+func loadVersionProject(project string) (*projectfs.FS, config.Config, error) {
 	files, err := projectfs.Open(project)
 	if err != nil {
 		return nil, config.Config{}, err
 	}
-	defer files.Close()
 	cfg, err := config.LoadWithReadFile(project, files.ReadFile)
 	if err == nil {
 		err = cfg.SafeVersionPath(project, cfg.ArtifactsPath(project))
 	}
 	if err != nil {
+		files.Close()
 		return nil, cfg, err
 	}
+	return files, cfg, nil
+}
+
+func openVersionStore(project string) (*projectfs.FS, config.Config, error) {
+	files, cfg, err := loadVersionProject(project)
+	if err != nil {
+		return nil, cfg, err
+	}
+	defer files.Close()
 	store, err := files.Sub(cfg.ArtifactsPath(project))
 	if os.IsNotExist(err) {
 		err = fmt.Errorf("%w: %w", errMissingStore, err)
 	}
 	return store, cfg, err
 }
+
+const storeLockFile = ".mpress-version-lock"

@@ -1,0 +1,6 @@
+--- FAIL: TestAuthoringMCPCapturePreservesExternalStore (0.05s)
+    capture_confinement_test.go:39: sentinel v1/index.html changed (15292 bytes, error <nil>)
+    capture_confinement_test.go:40: sentinel v1/mpress-version.json changed (1285 bytes, error <nil>)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.117s
+FAIL

@@ -5,6 +5,7 @@ import (
 	"crypto/rand"
 	"errors"
 	"fmt"
+	"io"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -121,6 +122,14 @@ func (f *FS) MkdirAll(name string, mode fs.FileMode) error {
 	return f.root.MkdirAll(rel, mode)
 }
 
+func (f *FS) Chmod(name string, mode fs.FileMode) error {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return err
+	}
+	return f.root.Chmod(rel, mode)
+}
+
 // MkdirTemp exclusively allocates a private directory through the project root.
 func (f *FS) MkdirTemp(parent, prefix string) (string, error) {
 	if strings.ContainsAny(prefix, `/\`) {
@@ -191,18 +200,37 @@ func (f *FS) RemoveAll(name string) error {
 	return f.root.RemoveAll(filepath.Join(parent, leaf))
 }
 
+// Rename retains both leaf names and performs the move through the pinned root.
+func (f *FS) Rename(old, new string) error {
+	oldParent, oldLeaf, err := f.destination(old)
+	if err != nil {
+		return err
+	}
+	newParent, newLeaf, err := f.destination(new)
+	if err != nil {
+		return err
+	}
+	return f.root.Rename(filepath.Join(oldParent, oldLeaf), filepath.Join(newParent, newLeaf))
+}
+
 // WriteAtomic uses a pinned parent and an exclusively created temporary file.
 // Neither directory creation, temporary writes nor promotion use ambient paths.
 func (f *FS) WriteAtomic(name string, data []byte) error {
-	return f.writeAtomic(name, data, 0644, true)
+	return f.writeAtomic(name, func(file *os.File) error { _, err := file.Write(data); return err }, 0644, true)
 }
 
 // WriteCache atomically replaces recomputable data without a durability sync.
 func (f *FS) WriteCache(name string, data []byte) error {
-	return f.writeAtomic(name, data, 0600, false)
+	return f.writeAtomic(name, func(file *os.File) error { _, err := file.Write(data); return err }, 0600, false)
 }
 
-func (f *FS) writeAtomic(name string, data []byte, mode fs.FileMode, durable bool) error {
+// WriteFrom atomically copies a stream without a durability sync. It supports
+// owned staging files without allocating the entire input in memory.
+func (f *FS) WriteFrom(name string, source io.Reader) error {
+	return f.writeAtomic(name, func(file *os.File) error { _, err := io.Copy(file, source); return err }, 0644, false)
+}
+
+func (f *FS) writeAtomic(name string, write func(*os.File) error, mode fs.FileMode, durable bool) error {
 	parent, leaf, err := f.destination(name)
 	if err != nil {
 		return err
@@ -226,7 +254,7 @@ func (f *FS) writeAtomic(name string, data []byte, mode fs.FileMode, durable boo
 			_ = dir.Remove(tmpName)
 		}
 	}()
-	if _, err = tmp.Write(data); err == nil && mode != 0600 {
+	if err = write(tmp); err == nil && mode != 0600 {
 		err = tmp.Chmod(mode)
 	}
 	if err == nil && durable {

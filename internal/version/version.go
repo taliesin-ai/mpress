@@ -14,7 +14,6 @@ import (
 	"regexp"
 	"sort"
 	"strings"
-	"time"
 
 	"github.com/leaanthony/mpress/internal/config"
 	"github.com/leaanthony/mpress/internal/icons"
@@ -42,65 +41,7 @@ const (
 )
 
 func Capture(project, label string, force bool) error {
-	if err := validateLabel(label); err != nil {
-		return err
-	}
-	cfg, err := config.Load(project)
-	if err != nil {
-		return err
-	}
-	src := cfg.OutputPath(project)
-	if _, err = os.Stat(filepath.Join(src, "index.html")); err != nil {
-		return fmt.Errorf("build output missing; run mpress build first")
-	}
-	base := cfg.ArtifactsPath(project)
-	dest := filepath.Join(base, label)
-	if _, err = os.Stat(dest); err == nil && !force {
-		return fmt.Errorf("version %s already exists", label)
-	}
-	tmp := dest + ".tmp"
-	_ = os.RemoveAll(tmp)
-	keepTemp := false
-	defer func() {
-		if !keepTemp {
-			_ = os.RemoveAll(tmp)
-		}
-	}()
-	if err = copyTree(src, tmp, func(rel string) bool { return strings.HasPrefix(filepath.ToSlash(rel), "versions/") }); err != nil {
-		return err
-	}
-	manifest := Manifest{SchemaVersion: 1, Version: label, CreatedAt: time.Now().UTC().Format(time.RFC3339), Files: map[string]string{}}
-	if err = filepath.WalkDir(tmp, func(path string, e fs.DirEntry, err error) error {
-		if err != nil || e.IsDir() {
-			return err
-		}
-		rel, _ := filepath.Rel(tmp, path)
-		if filepath.Base(path) == "mpress-version.json" {
-			return nil
-		}
-		data, er := os.ReadFile(path)
-		if er != nil {
-			return er
-		}
-		sum := sha256.Sum256(data)
-		manifest.Files[filepath.ToSlash(rel)] = hex.EncodeToString(sum[:])
-		return nil
-	}); err != nil {
-		return err
-	}
-	data, _ := json.MarshalIndent(manifest, "", "  ")
-	if err = os.WriteFile(filepath.Join(tmp, "mpress-version.json"), data, 0o644); err != nil {
-		return err
-	}
-	_ = os.RemoveAll(dest)
-	if err = os.MkdirAll(base, 0o755); err != nil {
-		return err
-	}
-	if err = os.Rename(tmp, dest); err != nil {
-		return err
-	}
-	keepTemp = true
-	return nil
+	return capture(project, label, force)
 }
 func List(project string) ([]string, error) {
 	files, _, err := openVersionStore(project)
@@ -245,6 +186,11 @@ func Remove(project, label string) error {
 	if err := cfg.SafeVersionPath(project, path); err != nil {
 		return err
 	}
+	lock, err := files.Lock(storeLockFile)
+	if err != nil {
+		return err
+	}
+	defer lock.Close()
 	return files.RemoveAll(label)
 }
 func Mount(project, output string) (int, error) {

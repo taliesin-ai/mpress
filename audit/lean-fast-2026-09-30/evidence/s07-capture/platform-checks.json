@@ -1,0 +1,9 @@
+{
+  "native": "Linux amd64; public race/vet plus separate process captures pass",
+  "compile_only": [
+    "Windows amd64 projectfs/version tests",
+    "macOS arm64 projectfs/version tests"
+  ],
+  "unsupported_lock_platforms": "Explicit error on platforms outside the Unix flock and Windows implementations; shipping release platforms are Linux/macOS/Windows",
+  "dependency": "Existing golang.org/x/sys version moved to direct requirement; no dependency version changes"
+}

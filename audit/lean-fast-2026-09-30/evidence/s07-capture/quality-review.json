@@ -1,0 +1,5 @@
+{
+  "gating_findings": 11,
+  "review": "No blanket acknowledgements. Thin Root wrappers Chmod/MkdirAll and WriteAtomic/WriteCache/WriteFrom share validation and atomic implementation but differ in operation, permissions, data and durability. Repeated sentinel setup covers rename and path recheck contracts. Churn records necessary shared-IO changes. New capture complexity is sequential acquisition/error cleanup; promotion complexity covers explicit backup, rollback and recovery errors. Test complexity covers failure matrices; Go test entry points are reachable via test runner. All findings retained.",
+  "performance": "Measured safety cost recorded; no faster-capture claim."
+}
