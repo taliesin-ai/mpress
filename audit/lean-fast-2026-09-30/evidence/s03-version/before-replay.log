@@ -1,0 +1,86 @@
+package original-production replay:
+--- FAIL: TestVersionRemoveRejectsExternalArtifactParent (0.00s)
+    confinement_test.go:49: external snapshot removal accepted
+    confinement_test.go:53: external sentinel was removed
+--- FAIL: TestVersionRemovePreservesProjectInputs (0.00s)
+    --- FAIL: TestVersionRemovePreservesProjectInputs/. (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+    --- FAIL: TestVersionRemovePreservesProjectInputs/content (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+    --- FAIL: TestVersionRemovePreservesProjectInputs/static (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+    --- FAIL: TestVersionRemovePreservesProjectInputs/site (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+    --- FAIL: TestVersionRemovePreservesProjectInputs/.git (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+    --- FAIL: TestVersionRemovePreservesProjectInputs/.mpress (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+    --- FAIL: TestVersionRemovePreservesProjectInputs/.mpress/cache (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+    --- FAIL: TestVersionRemovePreservesProjectInputs/.mpress/backups (0.00s)
+        confinement_test.go:64: removal with overlapping artifact store accepted
+        confinement_test.go:68: project input/state sentinel was removed
+--- FAIL: TestVersionListAndVerifyRejectExternalLinks (0.00s)
+    --- FAIL: TestVersionListAndVerifyRejectExternalLinks/store (0.00s)
+        confinement_test.go:100: verification followed an external snapshot input
+        confinement_test.go:105: List published external manifest metadata: [v1]
+    --- FAIL: TestVersionListAndVerifyRejectExternalLinks/manifest (0.00s)
+        confinement_test.go:100: verification followed an external snapshot input
+        confinement_test.go:105: List published external manifest metadata: [v1]
+    --- FAIL: TestVersionListAndVerifyRejectExternalLinks/file (0.00s)
+        confinement_test.go:100: verification followed an external snapshot input
+--- FAIL: TestVersionVerifyRejectsTraversalLabel (0.00s)
+    confinement_test.go:118: verification accepted traversal label
+--- FAIL: TestVersionVerifyConfinesManifestToSnapshot (0.00s)
+    confinement_test.go:129: manifest followed a file outside the selected snapshot
+--- FAIL: TestVersionVerifyRejectsUnsupportedSchema (0.00s)
+    confinement_test.go:137: unsupported manifest schema accepted
+--- FAIL: TestVersionOperationsSharePortableLabels (0.00s)
+    --- FAIL: TestVersionOperationsSharePortableLabels/v1. (0.00s)
+        confinement_test.go:154: remove accepted unsafe label
+    --- FAIL: TestVersionOperationsSharePortableLabels/CON (0.00s)
+        confinement_test.go:154: remove accepted unsafe label
+    --- FAIL: TestVersionOperationsSharePortableLabels/LPT1 (0.00s)
+        confinement_test.go:154: remove accepted unsafe label
+--- FAIL: TestVersionVerifyRejectsNoncanonicalManifestPaths (0.00s)
+    --- FAIL: TestVersionVerifyRejectsNoncanonicalManifestPaths/nested/../index.html (0.00s)
+        confinement_test.go:165: noncanonical/host-dependent manifest path accepted
+    --- FAIL: TestVersionVerifyRejectsNoncanonicalManifestPaths/./index.html (0.00s)
+        confinement_test.go:165: noncanonical/host-dependent manifest path accepted
+    --- FAIL: TestVersionVerifyRejectsNoncanonicalManifestPaths/index.html/ (0.00s)
+        confinement_test.go:165: noncanonical/host-dependent manifest path accepted
+    --- FAIL: TestVersionVerifyRejectsNoncanonicalManifestPaths/C:\index.html (0.00s)
+        confinement_test.go:165: noncanonical/host-dependent manifest path accepted
+    --- FAIL: TestVersionVerifyRejectsNoncanonicalManifestPaths/nested\index.html (0.00s)
+        confinement_test.go:165: noncanonical/host-dependent manifest path accepted
+--- FAIL: TestVersionRemoveRejectsSnapshotAliasToSource (0.00s)
+    confinement_test.go:176: snapshot alias to protected source accepted
+    confinement_test.go:183: rejected source alias was removed
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/version	0.047s
+FAIL
+HTTP/MCP original-production replay:
+Rebuilt 1 pages in 3ms
+Rebuilt 1 pages in 8ms
+--- FAIL: TestAuthoringVersionsRejectExternalStore (0.07s)
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/list (0.01s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+        version_confinement_test.go:56: MCP listed versions through an external store
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/verify (0.02s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/remove (0.02s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+        version_confinement_test.go:59: sentinel v1/index.html changed (0 bytes, error open /tmp/TestAuthoringVersionsRejectExternalStoreremove2816467324/002/v1/index.html: no such file or directory)
+        version_confinement_test.go:60: sentinel v1/mpress-version.json changed (0 bytes, error open /tmp/TestAuthoringVersionsRejectExternalStoreremove2816467324/002/v1/mpress-version.json: no such file or directory)
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/current (0.02s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.133s
+FAIL

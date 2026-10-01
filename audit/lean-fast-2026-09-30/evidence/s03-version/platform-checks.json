@@ -1,0 +1,8 @@
+{
+  "native": "Linux amd64",
+  "compileOnly": [
+    "Windows amd64 projectfs/version",
+    "macOS arm64 projectfs/version"
+  ],
+  "nativeCrossPlatformQualification": "Pending"
+}

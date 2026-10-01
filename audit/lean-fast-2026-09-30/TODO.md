@@ -64,13 +64,15 @@ Run claims atomic conversion but sequentially renames every target, then deletes
 
 Done when: Inject target write/rename, source deletion and config/state-save failures. Preserve originals and translation state or perform verified rollback; reject target collisions and existing temporary symlinks. Successful Markdown/MPD conversions remain semantically equivalent.
 
-### S07 · `mp-b52.1.7` · P1 · Validate and protect every version snapshot operation
+### S07 · `mp-b52.1.7` · P0 · Validate and protect every version snapshot operation
 
 Evidence: **source-risk**. Sources: `internal/version/version.go:Capture/List/Verify/Remove/Mount/manifestFilePath`.
 
 Capture uses dest+.tmp, removes it preemptively and removes the destination before rename; Verify joins a caller label without the Capture label validator. Manifest path checking is lexical. Public package coverage is 44.2%.
 
 Done when: Exercise invalid labels, symlinked artifacts/manifest paths, simultaneous captures, overwrite failure, missing/extra/tampered files and read-only destinations. Reuse one label/path policy; preserve the last verified snapshot on failure and keep mounted navigation correct.
+
+Progress: raised to confirmed P0 after reproducing external and project-input deletion. Listing, verification and removal are confined and qualified; see [S07.md](S07.md). Capture, promotion recovery, concurrent operations and mounting remain in progress. Beads carries authoritative status and evidence.
 
 ### S08 · `mp-b52.1.8` · P2 · Bound and confine knowledge artifact loading
 

@@ -1,0 +1,11 @@
+{
+  "plainFiles": 100,
+  "plainIdentical": true,
+  "mountedBeforeFiles": 199,
+  "mountedAfterFiles": 199,
+  "mountedIdentical": true,
+  "changed": [],
+  "snapshotLabel": "audit-v1",
+  "workload": "Complete 62-page self-doc corpus; same project/path/artifacts",
+  "operations": "Strict build, capture, verify, list, mounted strict build, removal"
+}

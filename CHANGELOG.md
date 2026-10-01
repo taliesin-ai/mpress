@@ -6,6 +6,8 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Fixed — 2026-10-01
 
+- Version listing, verification and removal now use rooted artifact/snapshot boundaries, reject unsafe labels and manifest paths/schemas, and preserve source/state/output when the artifact store overlaps them. Authenticated REST/MCP regressions reproduce the original external deletion. Ordinary and version-mounted documentation output remains identical. Beads `mp-b52.1.7` is now P0 and stays in progress for capture, overwrite recovery, concurrency and mounting; see `audit/lean-fast-2026-09-30/S07.md`.
+
 - Export now rejects external project-state parents before creating a workspace, uses rooted workspace cleanup and archive reads, and retains safe internal state aliases. An authenticated HTTP regression catches temporary external writes; full Wails ZIP entry contents remain unchanged. Beads `mp-b52.1.3`; export/snapshot qualification continues.
 
 - Confined direct REST/MCP authoring file operations, uploads, backups, trees and preview/site serving to the project using rooted IO; protected preview cleanup from source, state and published-output overlap. Delegated source/cache/static/CSS/navigation inputs now use the same boundary. Safe aliases and ordinary artifacts remain covered. Beads `mp-b52.1.3` stays in progress for the remaining delegates; see `audit/lean-fast-2026-09-30/S03.md`.

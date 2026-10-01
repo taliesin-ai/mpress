@@ -1,0 +1,17 @@
+Rebuilt 1 pages in 3ms
+Rebuilt 1 pages in 5ms
+--- FAIL: TestAuthoringVersionsRejectExternalStore (0.06s)
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/list (0.01s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+        version_confinement_test.go:56: MCP listed versions through an external store
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/verify (0.01s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/remove (0.02s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+        version_confinement_test.go:59: sentinel v1/index.html changed (0 bytes, error open /tmp/TestAuthoringVersionsRejectExternalStoreremove221628437/002/v1/index.html: no such file or directory)
+        version_confinement_test.go:60: sentinel v1/mpress-version.json changed (0 bytes, error open /tmp/TestAuthoringVersionsRejectExternalStoreremove221628437/002/v1/mpress-version.json: no such file or directory)
+    --- FAIL: TestAuthoringVersionsRejectExternalStore/current (0.02s)
+        version_confinement_test.go:46: external path accepted with HTTP 200
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.119s
+FAIL

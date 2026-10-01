@@ -32,6 +32,21 @@ func Open(project string) (*FS, error) {
 
 func (f *FS) Close() error { return f.root.Close() }
 
+// Sub pins a directory inside this boundary and confines subsequent operations
+// to it. A snapshot manifest cannot use an internal link to read another part
+// of the project through this narrower root.
+func (f *FS) Sub(name string) (*FS, error) {
+	rel, err := f.Relative(name)
+	if err != nil {
+		return nil, err
+	}
+	root, err := f.root.OpenRoot(rel)
+	if err != nil {
+		return nil, err
+	}
+	return &FS{project: filepath.Join(f.project, rel), root: root}, nil
+}
+
 func (f *FS) Open(name string) (*os.File, error) {
 	rel, err := f.readPath(name, true)
 	if err != nil {

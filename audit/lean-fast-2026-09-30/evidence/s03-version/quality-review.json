@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "baseline": "git-HEAD",
+    "regressions": "22",
+    "minor": "0",
+    "acked": "0",
+    "stale": "0",
+    "preexisting-worse": "5",
+    "new-symbol": "17",
+    "gating": "5",
+    "register-macro-excluded": "0",
+    "at": "72aea1aa7+dirty",
+    "renames": "0",
+    "rename_window_commits": "42",
+    "acked_by_rename": "0",
+    "acked_by_content": "0"
+  },
+  "review": "Five major heuristics: Open/Sub boundary constructors and Remove/Verify orchestration wrappers are structurally similar but own different roots and perform different final operations; current shared output guard has recent churn from safety fixes. No callback/boolean abstraction or blanket acknowledgements added. Verification algorithm retains its original ccx 21, separately from root ownership. New explicit REST/MCP test complexity and distinct sentinel-fixture similarity remain recorded. Go test entrypoints flagged as dead code are executed by the test runner, not production calls."
+}

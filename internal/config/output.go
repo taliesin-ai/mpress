@@ -36,29 +36,9 @@ func (c Config) safeOutputPath(project, output string, previewPool bool) (string
 	if !pathBelow(root, resolved) {
 		return "", fmt.Errorf("unsafe output directory %s: must stay inside the project", output)
 	}
-	protected := []string{
-		c.ContentPath(project), c.StaticPath(project), filepath.Join(project, Filename),
-		filepath.Join(c.ContentPath(project), c.Build.NavFile),
-		filepath.Join(project, ".git"), c.ArtifactsPath(project),
-		filepath.Join(project, c.Translation.StateDir),
-		filepath.Join(project, ".mpress", "cache"), filepath.Join(project, ".mpress", "backups"),
-		filepath.Join(project, ".mpress", "onboarding"),
-	}
-	for _, language := range c.Site.Languages {
-		if language != c.Site.DefaultLanguage {
-			protected = append(protected, filepath.Join(c.ContentPath(project), language, c.Build.NavFile))
-		}
-	}
-	for _, path := range []string{c.Translation.Glossary, c.Translation.StyleGuide, c.Contribution.Guide} {
-		if path != "" {
-			protected = append(protected, filepath.Join(project, path))
-		}
-	}
+	protected := append(c.protectedInputs(project), c.ArtifactsPath(project))
 	if previewPool {
 		protected = append(protected, c.OutputPath(project))
-	}
-	if c.Build.CustomCSS != "" {
-		protected = append(protected, filepath.Join(project, c.Build.CustomCSS))
 	}
 	for _, path := range protected {
 		canonical, err := projectfs.CanonicalPath(path)
@@ -82,6 +62,31 @@ func (c Config) safeOutputPath(project, output string, previewPool bool) (string
 		return "", fmt.Errorf("unsafe output directory %s: resolve parent: %w", output, err)
 	}
 	return filepath.Join(parent, filepath.Base(output)), nil
+}
+
+func (c Config) protectedInputs(project string) []string {
+	protected := []string{
+		c.ContentPath(project), c.StaticPath(project), filepath.Join(project, Filename),
+		filepath.Join(c.ContentPath(project), c.Build.NavFile),
+		filepath.Join(project, ".git"),
+		filepath.Join(project, c.Translation.StateDir),
+		filepath.Join(project, ".mpress", "cache"), filepath.Join(project, ".mpress", "backups"),
+		filepath.Join(project, ".mpress", "onboarding"),
+	}
+	for _, language := range c.Site.Languages {
+		if language != c.Site.DefaultLanguage {
+			protected = append(protected, filepath.Join(c.ContentPath(project), language, c.Build.NavFile))
+		}
+	}
+	for _, path := range []string{c.Translation.Glossary, c.Translation.StyleGuide, c.Contribution.Guide} {
+		if path != "" {
+			protected = append(protected, filepath.Join(project, path))
+		}
+	}
+	if c.Build.CustomCSS != "" {
+		protected = append(protected, filepath.Join(project, c.Build.CustomCSS))
+	}
+	return protected
 }
 
 // RemoveOutput applies the shared build/clean policy immediately before

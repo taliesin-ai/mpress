@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"html"
 	"io"
@@ -17,6 +18,8 @@ import (
 
 	"github.com/leaanthony/mpress/internal/config"
 	"github.com/leaanthony/mpress/internal/icons"
+	"github.com/leaanthony/mpress/internal/projectfs"
+	"github.com/leaanthony/mpress/internal/routes"
 )
 
 type Manifest struct {
@@ -39,8 +42,8 @@ const (
 )
 
 func Capture(project, label string, force bool) error {
-	if !labelRE.MatchString(label) {
-		return fmt.Errorf("invalid version label %q", label)
+	if err := validateLabel(label); err != nil {
+		return err
 	}
 	cfg, err := config.Load(project)
 	if err != nil {
@@ -100,36 +103,77 @@ func Capture(project, label string, force bool) error {
 	return nil
 }
 func List(project string) ([]string, error) {
-	cfg, err := config.Load(project)
-	if err != nil {
-		return nil, err
-	}
-	entries, err := os.ReadDir(cfg.ArtifactsPath(project))
-	if os.IsNotExist(err) {
+	files, _, err := openVersionStore(project)
+	if errors.Is(err, errMissingStore) {
 		return nil, nil
 	}
 	if err != nil {
 		return nil, err
 	}
+	defer files.Close()
+	entries, err := files.ReadDir(".")
+	if err != nil {
+		return nil, err
+	}
 	var out []string
 	for _, e := range entries {
-		if e.IsDir() && labelRE.MatchString(e.Name()) {
-			if info, statErr := os.Stat(filepath.Join(cfg.ArtifactsPath(project), e.Name(), "mpress-version.json")); statErr != nil || !info.Mode().IsRegular() {
-				continue
+		if e.IsDir() && validateLabel(e.Name()) == nil {
+			complete, err := hasSnapshotManifest(files, e.Name())
+			if err != nil {
+				return nil, err
 			}
-			out = append(out, e.Name())
+			if complete {
+				out = append(out, e.Name())
+			}
 		}
 	}
 	sort.Strings(out)
 	return out, nil
 }
+
+// Listing requires a manifest file, not a full checksum verification. Keep
+// incomplete snapshots hidden, while diagnosing unsafe or unreadable inputs.
+func hasSnapshotManifest(files *projectfs.FS, path string) (bool, error) {
+	snapshot, err := files.Sub(path)
+	if err != nil {
+		return false, err
+	}
+	defer snapshot.Close()
+	info, err := snapshot.Stat("mpress-version.json")
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	if err != nil {
+		return false, err
+	}
+	return info.Mode().IsRegular(), nil
+}
+
 func Verify(project, label string) error {
-	cfg, err := config.Load(project)
+	if err := validateLabel(label); err != nil {
+		return err
+	}
+	files, cfg, err := openVersionStore(project)
 	if err != nil {
 		return err
 	}
-	root := filepath.Join(cfg.ArtifactsPath(project), label)
-	data, err := os.ReadFile(filepath.Join(root, "mpress-version.json"))
+	defer files.Close()
+	path := filepath.Join(cfg.ArtifactsPath(project), label)
+	if err := cfg.SafeVersionPath(project, path); err != nil {
+		return err
+	}
+	snapshot, err := files.Sub(label)
+	if err != nil {
+		return err
+	}
+	defer snapshot.Close()
+	return verifySnapshot(snapshot, label)
+}
+
+// Verification uses one pinned snapshot for its manifest, checksums and
+// enumeration; callers must keep that boundary open throughout the operation.
+func verifySnapshot(snapshot *projectfs.FS, label string) error {
+	data, err := snapshot.ReadFile("mpress-version.json")
 	if err != nil {
 		return err
 	}
@@ -137,15 +181,18 @@ func Verify(project, label string) error {
 	if err = json.Unmarshal(data, &m); err != nil {
 		return err
 	}
+	if m.SchemaVersion != 1 {
+		return fmt.Errorf("unsupported version manifest schema %d", m.SchemaVersion)
+	}
 	if m.Version != label {
 		return fmt.Errorf("manifest version %q does not match %q", m.Version, label)
 	}
 	for rel, want := range m.Files {
-		path, pathErr := manifestFilePath(root, rel)
+		path, pathErr := manifestFilePath(".", rel)
 		if pathErr != nil {
 			return pathErr
 		}
-		data, err = os.ReadFile(path)
+		data, err = snapshot.ReadFile(path)
 		if err != nil {
 			return fmt.Errorf("%s: %w", rel, err)
 		}
@@ -154,11 +201,11 @@ func Verify(project, label string) error {
 			return fmt.Errorf("checksum mismatch: %s", rel)
 		}
 	}
-	if err = filepath.WalkDir(root, func(path string, entry fs.DirEntry, walkErr error) error {
+	if err = snapshot.WalkDir(".", func(path string, entry fs.DirEntry, walkErr error) error {
 		if walkErr != nil || entry.IsDir() {
 			return walkErr
 		}
-		rel, relErr := filepath.Rel(root, path)
+		rel, relErr := filepath.Rel(".", path)
 		if relErr != nil {
 			return relErr
 		}
@@ -177,21 +224,28 @@ func Verify(project, label string) error {
 }
 
 func manifestFilePath(root, rel string) (string, error) {
-	clean := filepath.Clean(filepath.FromSlash(rel))
-	if rel == "" || filepath.IsAbs(clean) || clean == ".." || strings.HasPrefix(clean, ".."+string(filepath.Separator)) {
+	if routes.Output(rel) != nil {
 		return "", fmt.Errorf("invalid manifest path: %s", rel)
 	}
-	return filepath.Join(root, clean), nil
+	return filepath.Join(root, filepath.FromSlash(rel)), nil
 }
 func Remove(project, label string) error {
-	cfg, err := config.Load(project)
+	if err := validateLabel(label); err != nil {
+		return err
+	}
+	files, cfg, err := openVersionStore(project)
+	if errors.Is(err, errMissingStore) {
+		return nil
+	}
 	if err != nil {
 		return err
 	}
-	if !labelRE.MatchString(label) {
-		return fmt.Errorf("invalid version label")
+	defer files.Close()
+	path := filepath.Join(cfg.ArtifactsPath(project), label)
+	if err := cfg.SafeVersionPath(project, path); err != nil {
+		return err
 	}
-	return os.RemoveAll(filepath.Join(cfg.ArtifactsPath(project), label))
+	return files.RemoveAll(label)
 }
 func Mount(project, output string) (int, error) {
 	cfg, err := config.Load(project)
