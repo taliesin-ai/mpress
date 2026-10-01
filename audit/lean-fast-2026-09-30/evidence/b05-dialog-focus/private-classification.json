@@ -1,0 +1,15 @@
+{
+  "baselineFailures": 4,
+  "candidateFailures": 3,
+  "removedFailure": "image dialog keyboard activation oracle",
+  "newFailingTests": 0,
+  "remainingAssertionMessagesIdentical": true,
+  "baselineAssertions": 7,
+  "candidateAssertions": 6,
+  "fixtureBefore": "58f54a3",
+  "fixtureAfter": "300cd5e",
+  "productionCandidate": "1dabe78, unchanged",
+  "axe": "Executed using installed axe-core",
+  "WailsPrivateGate": "Not run: private WAILS_DOCS_SOURCE absent; public pinned strict corpus qualification remains separately recorded",
+  "rawLogs": "Outside public repository"
+}

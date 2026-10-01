@@ -1,0 +1,569 @@
+=== RUN   TestDialogOpenerFocus
+=== RUN   TestDialogOpenerFocus/image-1/enter/escape
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/enter/button
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/enter/backdrop
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/enter/script
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/space/escape
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/space/button
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/space/backdrop
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/space/script
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/mouse/escape
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/mouse/button
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/mouse/backdrop
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/mouse/script
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/touch/escape
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/touch/button
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/touch/backdrop
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/touch/script
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-1/script/escape
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-1 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/image-1/script/button
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-1 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/image-1/script/backdrop
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-1 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/image-1/script/script
+2026/10/01 21:14:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-1 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/image-2/enter/escape
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/enter/button
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/enter/backdrop
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/enter/script
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/space/escape
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/space/button
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/space/backdrop
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/space/script
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/mouse/escape
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/mouse/button
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/mouse/backdrop
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/mouse/script
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/touch/escape
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/touch/button
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/touch/backdrop
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/touch/script
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/image-2/script/escape
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-2 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/image-2/script/button
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-2 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/image-2/script/backdrop
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-2 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/image-2/script/script
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected image-2 focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/contribution/enter/escape
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/enter/button
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/enter/backdrop
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/enter/script
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/space/escape
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/space/button
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/space/backdrop
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/space/script
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/mouse/escape
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/mouse/button
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/mouse/backdrop
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/mouse/script
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/touch/escape
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/touch/button
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/touch/backdrop
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/touch/script
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+=== RUN   TestDialogOpenerFocus/contribution/script/escape
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:49 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:50 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:50 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected contribution focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/contribution/script/button
+2026/10/01 21:14:50 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:50 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:50 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:50 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected contribution focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/contribution/script/backdrop
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected contribution focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+=== RUN   TestDialogOpenerFocus/contribution/script/script
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:14:51 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    dialog_focus_test.go:46: close did not restore expected contribution focus on repeat 0: <button id="theme" class="header-group theme-toggle" type="button" data-theme-mode="system" aria-label="Theme: System. Switch to Dark" title="Theme: System"><svg xmlns="http://www.w3.org/2000/svg" wid (waiting for function failed: timeout)
+--- FAIL: TestDialogOpenerFocus (11.70s)
+    --- PASS: TestDialogOpenerFocus/image-1/enter/escape (0.35s)
+    --- PASS: TestDialogOpenerFocus/image-1/enter/button (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-1/enter/backdrop (0.10s)
+    --- PASS: TestDialogOpenerFocus/image-1/enter/script (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-1/space/escape (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-1/space/button (0.10s)
+    --- PASS: TestDialogOpenerFocus/image-1/space/backdrop (0.10s)
+    --- PASS: TestDialogOpenerFocus/image-1/space/script (0.08s)
+    --- PASS: TestDialogOpenerFocus/image-1/mouse/escape (0.08s)
+    --- PASS: TestDialogOpenerFocus/image-1/mouse/button (0.10s)
+    --- PASS: TestDialogOpenerFocus/image-1/mouse/backdrop (0.10s)
+    --- PASS: TestDialogOpenerFocus/image-1/mouse/script (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-1/touch/escape (0.15s)
+    --- PASS: TestDialogOpenerFocus/image-1/touch/button (0.14s)
+    --- PASS: TestDialogOpenerFocus/image-1/touch/backdrop (0.15s)
+    --- PASS: TestDialogOpenerFocus/image-1/touch/script (0.15s)
+    --- FAIL: TestDialogOpenerFocus/image-1/script/escape (0.56s)
+    --- FAIL: TestDialogOpenerFocus/image-1/script/button (0.57s)
+    --- FAIL: TestDialogOpenerFocus/image-1/script/backdrop (0.56s)
+    --- FAIL: TestDialogOpenerFocus/image-1/script/script (0.57s)
+    --- PASS: TestDialogOpenerFocus/image-2/enter/escape (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-2/enter/button (0.08s)
+    --- PASS: TestDialogOpenerFocus/image-2/enter/backdrop (0.10s)
+    --- PASS: TestDialogOpenerFocus/image-2/enter/script (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-2/space/escape (0.07s)
+    --- PASS: TestDialogOpenerFocus/image-2/space/button (0.08s)
+    --- PASS: TestDialogOpenerFocus/image-2/space/backdrop (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-2/space/script (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-2/mouse/escape (0.08s)
+    --- PASS: TestDialogOpenerFocus/image-2/mouse/button (0.10s)
+    --- PASS: TestDialogOpenerFocus/image-2/mouse/backdrop (0.08s)
+    --- PASS: TestDialogOpenerFocus/image-2/mouse/script (0.09s)
+    --- PASS: TestDialogOpenerFocus/image-2/touch/escape (0.14s)
+    --- PASS: TestDialogOpenerFocus/image-2/touch/button (0.14s)
+    --- PASS: TestDialogOpenerFocus/image-2/touch/backdrop (0.13s)
+    --- PASS: TestDialogOpenerFocus/image-2/touch/script (0.13s)
+    --- FAIL: TestDialogOpenerFocus/image-2/script/escape (0.55s)
+    --- FAIL: TestDialogOpenerFocus/image-2/script/button (0.56s)
+    --- FAIL: TestDialogOpenerFocus/image-2/script/backdrop (0.57s)
+    --- FAIL: TestDialogOpenerFocus/image-2/script/script (0.57s)
+    --- PASS: TestDialogOpenerFocus/contribution/enter/escape (0.08s)
+    --- PASS: TestDialogOpenerFocus/contribution/enter/button (0.07s)
+    --- PASS: TestDialogOpenerFocus/contribution/enter/backdrop (0.06s)
+    --- PASS: TestDialogOpenerFocus/contribution/enter/script (0.06s)
+    --- PASS: TestDialogOpenerFocus/contribution/space/escape (0.06s)
+    --- PASS: TestDialogOpenerFocus/contribution/space/button (0.07s)
+    --- PASS: TestDialogOpenerFocus/contribution/space/backdrop (0.06s)
+    --- PASS: TestDialogOpenerFocus/contribution/space/script (0.06s)
+    --- PASS: TestDialogOpenerFocus/contribution/mouse/escape (0.05s)
+    --- PASS: TestDialogOpenerFocus/contribution/mouse/button (0.06s)
+    --- PASS: TestDialogOpenerFocus/contribution/mouse/backdrop (0.04s)
+    --- PASS: TestDialogOpenerFocus/contribution/mouse/script (0.04s)
+    --- PASS: TestDialogOpenerFocus/contribution/touch/escape (0.09s)
+    --- PASS: TestDialogOpenerFocus/contribution/touch/button (0.12s)
+    --- PASS: TestDialogOpenerFocus/contribution/touch/backdrop (0.10s)
+    --- PASS: TestDialogOpenerFocus/contribution/touch/script (0.11s)
+    --- FAIL: TestDialogOpenerFocus/contribution/script/escape (0.57s)
+    --- FAIL: TestDialogOpenerFocus/contribution/script/button (0.57s)
+    --- FAIL: TestDialogOpenerFocus/contribution/script/backdrop (0.57s)
+    --- FAIL: TestDialogOpenerFocus/contribution/script/script (0.57s)
+FAIL
+exit status 1
+FAIL	github.com/leaanthony/mpress/audit/lean-fast-tools	11.702s

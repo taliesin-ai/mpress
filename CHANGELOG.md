@@ -32,6 +32,10 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 - Regenerated the embedded MPD viewer CSS and its HTML cache keys for the popover fix, restoring viewer reproducibility tests.
 - Added browser checks against generated production CSS for popover focus, hit testing, closing transitions and touch scrolling, including builds with accessibility disabled.
 
+### Maintenance — 2026-10-01
+
+- Qualified image and contribution focus restoration with 60 native/script activation and close cases, each repeated twice. Corrected the private image keyboard test to use Enter and await closure; its false failure is removed while three private failing tests remain. Production modal behavior is unchanged. Beads `mp-b52.2.5`; see `audit/lean-fast-2026-09-30/B05.md`.
+
 ### Maintenance — 2026-09-30
 
 - Audited current `main` at `f6ca003f255fe7636e97d63ba80e4bfcd9cffa32` under a feature freeze.

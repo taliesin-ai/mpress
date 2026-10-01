@@ -94,3 +94,13 @@ primitives, and enforce independent scroll-owner checks. Missing environment
 variables skip these checks. Optional `MPRESS_A11Y_REPORT` and
 `MPRESS_CONTRIBUTE_REPORT` paths save JSON evidence. See `../B02.md` and `../B03.md`
 for viewport coverage, original-CSS replay and test limitations.
+
+The focus matrix builds its own small public fixture with the candidate CLI:
+
+```sh
+MPRESS_DIALOG_BIN=/absolute/path/to/candidate go test -race -count=1 -run '^TestDialogOpenerFocus$' -v .
+```
+
+It distinguishes native keyboard/mouse/touch activation from script clicks and
+waits for focus restoration after all four supported closing methods. See
+`../B05.md` for its no-change diagnosis and stale-oracle replay.
