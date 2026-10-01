@@ -318,7 +318,7 @@ func (e *Engine) RunRoot(ctx context.Context, root *projectfs.FS, options Option
 }
 
 // BorrowRoot returns a copy whose Run, Audit, RefineWithProvider, Estimate and
-// CompareModels operations borrow root. The caller owns its lifetime; the
+// CompareModels and Check operations borrow root. The caller owns its lifetime; the
 // original Engine is unchanged.
 func (e *Engine) BorrowRoot(root *projectfs.FS) (*Engine, error) {
 	if root == nil {
@@ -489,11 +489,11 @@ func (e *Engine) targetLanguages(requested string) ([]string, error) {
 }
 
 func (e *Engine) sourceFiles(requested string) ([]string, error) {
-	files, err := projectfs.Open(e.Project)
+	files, closeFiles, err := e.projectFiles()
 	if err != nil {
 		return nil, err
 	}
-	defer files.Close()
+	defer closeFiles()
 	return e.sourceFilesWithRoot(files, requested)
 }
 

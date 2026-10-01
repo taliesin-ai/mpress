@@ -13,7 +13,8 @@ with tempfile.TemporaryDirectory(prefix="mpress-translation-review-") as work:
     for name in ["internal/dev/server.go", "internal/content/content.go",
                  "internal/translate/engine.go", "internal/translate/state.go",
                  "internal/translate/audit.go", "internal/translate/refine.go",
-                 "internal/translate/comparison.go", "internal/dev/translation_models.go"]:
+                 "internal/translate/comparison.go", "internal/dev/translation_models.go",
+                 "internal/translate/check.go"]:
         original = temp / name.replace("/", "-")
         original.write_bytes(subprocess.check_output(["git", "show", "22dddd1:" + name], cwd=root))
         replacements[str(root / name)] = str(original)

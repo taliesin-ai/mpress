@@ -1,0 +1,26 @@
+=== RUN   TestCheckExceptionsRejectExternalFiles
+=== RUN   TestCheckExceptionsRejectExternalFiles/source
+=== RUN   TestCheckExceptionsRejectExternalFiles/target
+--- PASS: TestCheckExceptionsRejectExternalFiles (0.00s)
+    --- PASS: TestCheckExceptionsRejectExternalFiles/source (0.00s)
+    --- PASS: TestCheckExceptionsRejectExternalFiles/target (0.00s)
+=== RUN   TestCheckCoverageRejectsExternalTarget
+--- PASS: TestCheckCoverageRejectsExternalTarget (0.00s)
+=== RUN   TestCheckRetainsInternalAliases
+=== RUN   TestCheckRetainsInternalAliases/source
+=== RUN   TestCheckRetainsInternalAliases/target
+--- PASS: TestCheckRetainsInternalAliases (0.00s)
+    --- PASS: TestCheckRetainsInternalAliases/source (0.00s)
+    --- PASS: TestCheckRetainsInternalAliases/target (0.00s)
+=== RUN   TestCheckTranslationCoverage
+--- PASS: TestCheckTranslationCoverage (0.01s)
+=== RUN   TestCheckAuditsLocallyAndKeepsExclusionCoverage
+--- PASS: TestCheckAuditsLocallyAndKeepsExclusionCoverage (0.01s)
+=== RUN   TestCheckHashPinnedExceptions
+--- PASS: TestCheckHashPinnedExceptions (0.00s)
+=== RUN   TestCheckReportsAcceptedFindingsAndWarnings
+--- PASS: TestCheckReportsAcceptedFindingsAndWarnings (0.02s)
+=== RUN   TestBorrowedTranslationRootDoesNotEscapeToEngine
+--- PASS: TestBorrowedTranslationRootDoesNotEscapeToEngine (0.03s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/translate	1.743s

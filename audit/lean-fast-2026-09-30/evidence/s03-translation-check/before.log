@@ -1,0 +1,20 @@
+=== RUN   TestCheckExceptionsRejectExternalFiles
+=== RUN   TestCheckExceptionsRejectExternalFiles/source
+    check_confinement_test.go:41: check accepted hashes read from outside the project
+=== RUN   TestCheckExceptionsRejectExternalFiles/target
+    check_confinement_test.go:41: check accepted hashes read from outside the project
+--- FAIL: TestCheckExceptionsRejectExternalFiles (0.00s)
+    --- FAIL: TestCheckExceptionsRejectExternalFiles/source (0.00s)
+    --- FAIL: TestCheckExceptionsRejectExternalFiles/target (0.00s)
+=== RUN   TestCheckCoverageRejectsExternalTarget
+    check_confinement_test.go:50: coverage read an external target without reporting its boundary
+--- FAIL: TestCheckCoverageRejectsExternalTarget (0.00s)
+=== RUN   TestCheckRetainsInternalAliases
+=== RUN   TestCheckRetainsInternalAliases/source
+=== RUN   TestCheckRetainsInternalAliases/target
+--- PASS: TestCheckRetainsInternalAliases (0.00s)
+    --- PASS: TestCheckRetainsInternalAliases/source (0.00s)
+    --- PASS: TestCheckRetainsInternalAliases/target (0.00s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/translate	0.058s
+FAIL

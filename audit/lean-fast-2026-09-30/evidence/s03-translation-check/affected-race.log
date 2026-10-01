@@ -1,0 +1,440 @@
+=== RUN   TestCheckExceptionsRejectExternalFiles
+=== RUN   TestCheckExceptionsRejectExternalFiles/source
+=== RUN   TestCheckExceptionsRejectExternalFiles/target
+--- PASS: TestCheckExceptionsRejectExternalFiles (0.00s)
+    --- PASS: TestCheckExceptionsRejectExternalFiles/source (0.00s)
+    --- PASS: TestCheckExceptionsRejectExternalFiles/target (0.00s)
+=== RUN   TestCheckCoverageRejectsExternalTarget
+--- PASS: TestCheckCoverageRejectsExternalTarget (0.00s)
+=== RUN   TestCheckRetainsInternalAliases
+=== RUN   TestCheckRetainsInternalAliases/source
+=== RUN   TestCheckRetainsInternalAliases/target
+--- PASS: TestCheckRetainsInternalAliases (0.00s)
+    --- PASS: TestCheckRetainsInternalAliases/source (0.00s)
+    --- PASS: TestCheckRetainsInternalAliases/target (0.00s)
+=== RUN   TestCheckTranslationCoverage
+--- PASS: TestCheckTranslationCoverage (0.00s)
+=== RUN   TestCheckAuditsLocallyAndKeepsExclusionCoverage
+--- PASS: TestCheckAuditsLocallyAndKeepsExclusionCoverage (0.02s)
+=== RUN   TestCheckHashPinnedExceptions
+--- PASS: TestCheckHashPinnedExceptions (0.00s)
+=== RUN   TestCheckReportsAcceptedFindingsAndWarnings
+--- PASS: TestCheckReportsAcceptedFindingsAndWarnings (0.02s)
+=== RUN   TestCloneProjectUsesLocalGitCheckout
+--- PASS: TestCloneProjectUsesLocalGitCheckout (0.03s)
+=== RUN   TestCloneProjectRefusesNonEmptyDestination
+--- PASS: TestCloneProjectRefusesNonEmptyDestination (0.00s)
+=== RUN   TestCloneProjectRejectsCredentialsInRepositoryURL
+--- PASS: TestCloneProjectRejectsCredentialsInRepositoryURL (0.00s)
+=== RUN   TestEstimateProjectMeasuresSourceAndRemainingWork
+--- PASS: TestEstimateProjectMeasuresSourceAndRemainingWork (0.01s)
+=== RUN   TestCompareProjectModelsUsesSameRandomSampleWithoutWriting
+--- PASS: TestCompareProjectModelsUsesSameRandomSampleWithoutWriting (0.01s)
+=== RUN   TestRandomComparisonSampleCanTargetOnePage
+--- PASS: TestRandomComparisonSampleCanTargetOnePage (0.00s)
+=== RUN   TestNavigationAllowsLocalizedPunctuationAndQuotes
+--- PASS: TestNavigationAllowsLocalizedPunctuationAndQuotes (0.00s)
+=== RUN   TestMPDNestedMetadataAndHTMLProse
+--- PASS: TestMPDNestedMetadataAndHTMLProse (0.00s)
+=== RUN   TestHTMLPlaceholdersDoNotNest
+--- PASS: TestHTMLPlaceholdersDoNotNest (0.00s)
+=== RUN   TestD2TranslationPreservesGraphAndCode
+--- PASS: TestD2TranslationPreservesGraphAndCode (0.03s)
+=== RUN   TestD2TranslationDoesNotReadImports
+--- PASS: TestD2TranslationDoesNotReadImports (0.00s)
+=== RUN   TestD2SequenceLabelIdentitySurvivesTranslationAndRefinement
+--- PASS: TestD2SequenceLabelIdentitySurvivesTranslationAndRefinement (0.07s)
+=== RUN   TestDiagramStateUsesGraphIdentityAndRejectsOldOrdinalState
+--- PASS: TestDiagramStateUsesGraphIdentityAndRejectsOldOrdinalState (0.00s)
+=== RUN   TestTranslationStatePrefersExactIdentityForRepeatedProse
+--- PASS: TestTranslationStatePrefersExactIdentityForRepeatedProse (0.00s)
+=== RUN   TestProtectedQuantitiesKeepDecimalsAndRangesBeforeUnits
+--- PASS: TestProtectedQuantitiesKeepDecimalsAndRangesBeforeUnits (0.00s)
+=== RUN   TestExistingQuantityCannotMatchPartOfAnotherNumber
+--- PASS: TestExistingQuantityCannotMatchPartOfAnotherNumber (0.00s)
+=== RUN   TestVersionProtectionIncludesPrefixAndAllComponents
+--- PASS: TestVersionProtectionIncludesPrefixAndAllComponents (0.00s)
+=== RUN   TestTranslatedMentionAtStartOfParagraphRemainsText
+--- PASS: TestTranslatedMentionAtStartOfParagraphRemainsText (0.00s)
+=== RUN   TestMPDReuseDistinguishesLiteralAndFormattingUnderscores
+--- PASS: TestMPDReuseDistinguishesLiteralAndFormattingUnderscores (0.00s)
+=== RUN   TestMPDReuseRejectsChangedProtectedQuantity
+--- PASS: TestMPDReuseRejectsChangedProtectedQuantity (0.00s)
+=== RUN   TestMPDReuseAllowsProtectedSpansToBecomeAdjacent
+--- PASS: TestMPDReuseAllowsProtectedSpansToBecomeAdjacent (0.00s)
+=== RUN   TestMPDValidationRejectsBrokenInlineProtection
+--- PASS: TestMPDValidationRejectsBrokenInlineProtection (0.00s)
+=== RUN   TestNavigationQuotedMultilineLabels
+--- PASS: TestNavigationQuotedMultilineLabels (0.00s)
+=== RUN   TestPrepareExistingNumbersDoNotMatchInsertedPlaceholders
+--- PASS: TestPrepareExistingNumbersDoNotMatchInsertedPlaceholders (0.00s)
+=== RUN   TestD2MarkdownLabelsRemainMarkdown
+--- PASS: TestD2MarkdownLabelsRemainMarkdown (0.00s)
+=== RUN   TestTranslationProtectsEntitiesAndRejectsControlCharacters
+--- PASS: TestTranslationProtectsEntitiesAndRejectsControlCharacters (0.00s)
+=== RUN   TestHTMLAttributesDoNotTranslateAttributeLikeData
+--- PASS: TestHTMLAttributesDoNotTranslateAttributeLikeData (0.00s)
+=== RUN   TestD2CodeAndMathLabelsRemainProtected
+--- PASS: TestD2CodeAndMathLabelsRemainProtected (0.01s)
+=== RUN   TestPrepareExistingDistinguishesVersionNamesFromNumbers
+--- PASS: TestPrepareExistingDistinguishesVersionNamesFromNumbers (0.00s)
+=== RUN   TestUnchangedProseDoesNotCountProtectedImagePaths
+--- PASS: TestUnchangedProseDoesNotCountProtectedImagePaths (0.00s)
+=== RUN   TestMPDReuseAllowsNewLineLeadingMentionEscapes
+--- PASS: TestMPDReuseAllowsNewLineLeadingMentionEscapes (0.00s)
+=== RUN   TestMPDProtectsNumbersAdjacentToEmphasis
+--- PASS: TestMPDProtectsNumbersAdjacentToEmphasis (0.00s)
+=== RUN   TestResolveAPIKeyReadsPrivateProviderFile
+--- PASS: TestResolveAPIKeyReadsPrivateProviderFile (0.00s)
+=== RUN   TestResolveAPIKeyRejectsPublicProviderFile
+--- PASS: TestResolveAPIKeyRejectsPublicProviderFile (0.00s)
+=== RUN   TestExtractAndApplyPreserveMarkdownSyntax
+--- PASS: TestExtractAndApplyPreserveMarkdownSyntax (0.00s)
+=== RUN   TestApplyRejectsMissingPlaceholder
+--- PASS: TestApplyRejectsMissingPlaceholder (0.00s)
+=== RUN   TestExtractsMultilineAndNestedFrontmatterProse
+--- PASS: TestExtractsMultilineAndNestedFrontmatterProse (0.00s)
+=== RUN   TestValidateRejectsChangedCode
+--- PASS: TestValidateRejectsChangedCode (0.00s)
+=== RUN   TestValidateAllowsTranslatedProsePunctuation
+--- PASS: TestValidateAllowsTranslatedProsePunctuation (0.00s)
+=== RUN   TestPunctuationAfterInlineCodeIsInsideTheFollowingProseSegment
+--- PASS: TestPunctuationAfterInlineCodeIsInsideTheFollowingProseSegment (0.00s)
+=== RUN   TestClosingParenthesisAfterInlineCodeHasStableChineseBoundary
+--- PASS: TestClosingParenthesisAfterInlineCodeHasStableChineseBoundary (0.00s)
+=== RUN   TestExplainedCodeMarkerHasStableChineseBoundary
+--- PASS: TestExplainedCodeMarkerHasStableChineseBoundary (0.00s)
+=== RUN   TestPricingMarkerHasStableChineseBoundary
+--- PASS: TestPricingMarkerHasStableChineseBoundary (0.00s)
+=== RUN   TestNumberedHeadingHasStableChineseBoundary
+--- PASS: TestNumberedHeadingHasStableChineseBoundary (0.00s)
+=== RUN   TestTranslationCanReorderProtectedNumbers
+--- PASS: TestTranslationCanReorderProtectedNumbers (0.00s)
+=== RUN   TestMarkdownEscapesAreProtectedFromTranslation
+--- PASS: TestMarkdownEscapesAreProtectedFromTranslation (0.00s)
+=== RUN   TestNavigationTranslationPreservesLinksAndNesting
+--- PASS: TestNavigationTranslationPreservesLinksAndNesting (0.00s)
+=== RUN   TestComponentListMarkersRemainOutsideTranslationRanges
+--- PASS: TestComponentListMarkersRemainOutsideTranslationRanges (0.00s)
+=== RUN   TestFastSegmentFormattingMatchesFormattedOutput
+--- PASS: TestFastSegmentFormattingMatchesFormattedOutput (0.00s)
+=== RUN   TestHashMatchesSHA256Hex
+--- PASS: TestHashMatchesSHA256Hex (0.00s)
+=== RUN   TestExtractMPDTranslatesVisibleContentAndPreservesSyntax
+--- PASS: TestExtractMPDTranslatesVisibleContentAndPreservesSyntax (0.00s)
+=== RUN   TestApplyMPDTranslationMayReflowSoftLines
+--- PASS: TestApplyMPDTranslationMayReflowSoftLines (0.00s)
+=== RUN   TestApplyMPDTranslationDoesNotUseMarkdownPunctuationRules
+--- PASS: TestApplyMPDTranslationDoesNotUseMarkdownPunctuationRules (0.00s)
+=== RUN   TestApplyMPDTranslationPreservesSegmentBoundaryWhitespace
+--- PASS: TestApplyMPDTranslationPreservesSegmentBoundaryWhitespace (0.00s)
+=== RUN   TestExtractMPDUsesOneReorderableSentenceAroundInlineCode
+--- PASS: TestExtractMPDUsesOneReorderableSentenceAroundInlineCode (0.00s)
+=== RUN   TestExtractMPDHeadingContextIsPlainText
+--- PASS: TestExtractMPDHeadingContextIsPlainText (0.00s)
+=== RUN   TestExtractMPDFiletreeTranslatesDescriptionsOnly
+--- PASS: TestExtractMPDFiletreeTranslatesDescriptionsOnly (0.00s)
+=== RUN   TestExtractMPDExplainedTranslatesAnnotationsOnly
+--- PASS: TestExtractMPDExplainedTranslatesAnnotationsOnly (0.00s)
+=== RUN   TestMPDAttributeTranslationEscapesJSON
+--- PASS: TestMPDAttributeTranslationEscapesJSON (0.00s)
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/blocks/all.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/components/code.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/components/content.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/components/data.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/components/interactive.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/components/layout.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/components/media.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/document/metadata-reference.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/document/minimal.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/document/structure.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/footnotes/all.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/imports/all.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/links/all.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/lists/all.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/audience-note.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/conditional-note.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/container-terminal.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/details-note.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/layout-deep.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/note-details.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/steps-content.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/tabs-rich.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/tutorial-note.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/tables/all.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/tables/interactive.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/text/blocks.mpd
+=== RUN   TestEveryMPDFixtureSurvivesStructuralTranslation/text/inline.mpd
+--- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation (0.12s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/blocks/all.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/components/code.mpd (0.02s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/components/content.mpd (0.01s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/components/data.mpd (0.02s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/components/interactive.mpd (0.01s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/components/layout.mpd (0.02s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/components/media.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/document/metadata-reference.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/document/minimal.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/document/structure.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/footnotes/all.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/imports/all.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/links/all.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/lists/all.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/audience-note.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/conditional-note.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/container-terminal.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/details-note.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/layout-deep.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/note-details.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/steps-content.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/tabs-rich.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/nesting/tutorial-note.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/tables/all.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/tables/interactive.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/text/blocks.mpd (0.00s)
+    --- PASS: TestEveryMPDFixtureSurvivesStructuralTranslation/text/inline.mpd (0.00s)
+=== RUN   TestAuditPairBatchesKeepEveryPairInOrder
+--- PASS: TestAuditPairBatchesKeepEveryPairInOrder (0.00s)
+=== RUN   TestEngineTranslatesAndTracksState
+--- PASS: TestEngineTranslatesAndTracksState (0.02s)
+=== RUN   TestAuditFindsUntranslatedMPDProseAndWeakenedFrenchRequirement
+--- PASS: TestAuditFindsUntranslatedMPDProseAndWeakenedFrenchRequirement (0.00s)
+=== RUN   TestAuditWithReviewerMergesIndependentFindings
+--- PASS: TestAuditWithReviewerMergesIndependentFindings (0.00s)
+=== RUN   TestRefinementRepairsOnlyFlaggedSegmentsAndKeepsStateCurrent
+--- PASS: TestRefinementRepairsOnlyFlaggedSegmentsAndKeepsStateCurrent (0.01s)
+=== RUN   TestAuditAndRefinementRepairDamagedProtectedContent
+--- PASS: TestAuditAndRefinementRepairDamagedProtectedContent (0.02s)
+=== RUN   TestLocaleGuidanceCoversFrenchAndCJK
+--- PASS: TestLocaleGuidanceCoversFrenchAndCJK (0.00s)
+=== RUN   TestUnchangedProseDistinguishesSentencesLabelsAndCode
+--- PASS: TestUnchangedProseDistinguishesSentencesLabelsAndCode (0.00s)
+=== RUN   TestPrepareExistingRestoresRepeatedFormattingDelimiters
+--- PASS: TestPrepareExistingRestoresRepeatedFormattingDelimiters (0.00s)
+=== RUN   TestTranslateBatchBisectsAContaminatedProviderBatch
+--- PASS: TestTranslateBatchBisectsAContaminatedProviderBatch (0.00s)
+=== RUN   TestEngineRetriesStructurallyInvalidProviderOutput
+--- PASS: TestEngineRetriesStructurallyInvalidProviderOutput (0.02s)
+=== RUN   TestEnginePreservesManualEditsAndRetranslatesStaleText
+--- PASS: TestEnginePreservesManualEditsAndRetranslatesStaleText (0.03s)
+=== RUN   TestMarkReviewedTracksLaterEdits
+--- PASS: TestMarkReviewedTracksLaterEdits (0.03s)
+=== RUN   TestEngineDryRunDoesNotNeedProvider
+--- PASS: TestEngineDryRunDoesNotNeedProvider (0.00s)
+=== RUN   TestTranslationKeyFollowsRenamedPage
+--- PASS: TestTranslationKeyFollowsRenamedPage (0.04s)
+=== RUN   TestEngineTranslatesNativeMPDAndOutputRenders
+--- PASS: TestEngineTranslatesNativeMPDAndOutputRenders (0.01s)
+=== RUN   TestTranslationReusesLocalizedMPDLinksWithoutChangingCode
+--- PASS: TestTranslationReusesLocalizedMPDLinksWithoutChangingCode (0.02s)
+=== RUN   TestChangedMPDHeadingStructureRequiresExplicitRetranslation
+--- PASS: TestChangedMPDHeadingStructureRequiresExplicitRetranslation (0.02s)
+=== RUN   TestMarkdownBlockTranslations
+=== RUN   TestMarkdownBlockTranslations/reordered
+=== RUN   TestMarkdownBlockTranslations/command
+=== RUN   TestMarkdownBlockTranslations/link
+=== RUN   TestMarkdownBlockTranslations/removed
+=== RUN   TestMarkdownBlockTranslations/added
+=== RUN   TestMarkdownBlockTranslations/added_command
+--- PASS: TestMarkdownBlockTranslations (0.01s)
+    --- PASS: TestMarkdownBlockTranslations/reordered (0.00s)
+    --- PASS: TestMarkdownBlockTranslations/command (0.00s)
+    --- PASS: TestMarkdownBlockTranslations/link (0.00s)
+    --- PASS: TestMarkdownBlockTranslations/removed (0.00s)
+    --- PASS: TestMarkdownBlockTranslations/added (0.00s)
+    --- PASS: TestMarkdownBlockTranslations/added_command (0.00s)
+=== RUN   TestMarkdownCJKEmphasisAndInlineCode
+--- PASS: TestMarkdownCJKEmphasisAndInlineCode (0.01s)
+=== RUN   TestMarkdownURLProtectionAcrossPunctuation
+--- PASS: TestMarkdownURLProtectionAcrossPunctuation (0.01s)
+=== RUN   TestMarkdownMetadataEscapingAndNestedCoverage
+--- PASS: TestMarkdownMetadataEscapingAndNestedCoverage (0.01s)
+=== RUN   TestMarkdownFragmentRewritesLeaveExamplesAlone
+--- PASS: TestMarkdownFragmentRewritesLeaveExamplesAlone (0.00s)
+=== RUN   TestMarkdownFragmentRewritesWithLocalizedComponents
+--- PASS: TestMarkdownFragmentRewritesWithLocalizedComponents (0.02s)
+=== RUN   TestMarkdownVisibleContentAndOpaqueCode
+--- PASS: TestMarkdownVisibleContentAndOpaqueCode (0.01s)
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nested_strong
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nested_simplified_Chinese
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nested_traditional_Chinese
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget/literal_code_font
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget/true_code_font
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nil_code_font
+=== RUN   TestMarkdownEquivalentFormattingPreservesAuthoredTarget/null_code_font
+--- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget (0.04s)
+    --- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nested_strong (0.01s)
+    --- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nested_simplified_Chinese (0.01s)
+    --- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nested_traditional_Chinese (0.01s)
+    --- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget/literal_code_font (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget/true_code_font (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget/nil_code_font (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingPreservesAuthoredTarget/null_code_font (0.00s)
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/removed_emphasis
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/literal_stars
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/changed_command
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/changed_URL
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/changed_boolean
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/not_a_word
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/duplicate_boolean
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/code_is_not_prose
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/URL_is_not_prose
+=== RUN   TestMarkdownEquivalentFormattingRejectsProtectedChanges/new_command_font
+--- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges (0.02s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/removed_emphasis (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/literal_stars (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/changed_command (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/changed_URL (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/changed_boolean (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/not_a_word (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/duplicate_boolean (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/code_is_not_prose (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/URL_is_not_prose (0.00s)
+    --- PASS: TestMarkdownEquivalentFormattingRejectsProtectedChanges/new_command_font (0.00s)
+=== RUN   TestMarkdownRefinementKeepsEnglishSourceAndUnselectedFormatting
+--- PASS: TestMarkdownRefinementKeepsEnglishSourceAndUnselectedFormatting (0.00s)
+=== RUN   TestMigrationPreservesVerifiedParagraphsAcrossInsertion
+=== RUN   TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.mpd
+=== RUN   TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.md
+--- PASS: TestMigrationPreservesVerifiedParagraphsAcrossInsertion (0.02s)
+    --- PASS: TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.mpd (0.01s)
+    --- PASS: TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.md (0.01s)
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/start
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/end
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/target_disambiguates_repeated_source
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/duplicate_pair
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/changed_target
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/changed_source
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/different_insertion_positions
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/added_heading
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/added_list
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/deleted_prose
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/multiple_insertions
+=== RUN   TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/changed_code
+--- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence (0.02s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/start (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/end (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/target_disambiguates_repeated_source (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/duplicate_pair (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/changed_target (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/changed_source (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/different_insertion_positions (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/added_heading (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/added_list (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/deleted_prose (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/multiple_insertions (0.00s)
+    --- PASS: TestParagraphInsertionAlignmentRequiresUnambiguousPairedEvidence/changed_code (0.00s)
+=== RUN   TestTranslationStateMigration
+=== RUN   TestTranslationStateMigration/legacy-markdown
+=== RUN   TestTranslationStateMigration/mpd
+=== RUN   TestTranslationStateMigration/mpd-code-punctuation
+--- PASS: TestTranslationStateMigration (0.11s)
+    --- PASS: TestTranslationStateMigration/legacy-markdown (0.04s)
+    --- PASS: TestTranslationStateMigration/mpd (0.04s)
+    --- PASS: TestTranslationStateMigration/mpd-code-punctuation (0.02s)
+=== RUN   TestMigrateSegmentRefusesStaleAndDowngradesChangedApproval
+--- PASS: TestMigrateSegmentRefusesStaleAndDowngradesChangedApproval (0.00s)
+=== RUN   TestIncompatibleSidecarBlocksProviderAndReportsMigration
+--- PASS: TestIncompatibleSidecarBlocksProviderAndReportsMigration (0.05s)
+=== RUN   TestModelSelectionTruthTable
+=== RUN   TestModelSelectionTruthTable/bulk_uses_subscription
+=== RUN   TestModelSelectionTruthTable/French_refinement_uses_measured_winner
+=== RUN   TestModelSelectionTruthTable/audit_differs_from_OpenRouter_refinement
+=== RUN   TestModelSelectionTruthTable/audit_differs_from_Codex_draft
+=== RUN   TestModelSelectionTruthTable/Codex-only_refinement
+=== RUN   TestModelSelectionTruthTable/OpenRouter-only_draft
+=== RUN   TestModelSelectionTruthTable/Claude-only_draft
+=== RUN   TestModelSelectionTruthTable/OpenAI-only_fallback
+=== RUN   TestModelSelectionTruthTable/single_provider_may_audit_itself
+--- PASS: TestModelSelectionTruthTable (0.00s)
+    --- PASS: TestModelSelectionTruthTable/bulk_uses_subscription (0.00s)
+    --- PASS: TestModelSelectionTruthTable/French_refinement_uses_measured_winner (0.00s)
+    --- PASS: TestModelSelectionTruthTable/audit_differs_from_OpenRouter_refinement (0.00s)
+    --- PASS: TestModelSelectionTruthTable/audit_differs_from_Codex_draft (0.00s)
+    --- PASS: TestModelSelectionTruthTable/Codex-only_refinement (0.00s)
+    --- PASS: TestModelSelectionTruthTable/OpenRouter-only_draft (0.00s)
+    --- PASS: TestModelSelectionTruthTable/Claude-only_draft (0.00s)
+    --- PASS: TestModelSelectionTruthTable/OpenAI-only_fallback (0.00s)
+    --- PASS: TestModelSelectionTruthTable/single_provider_may_audit_itself (0.00s)
+=== RUN   TestModelSelectionReturnsFalseWithoutAuthenticatedOptions
+--- PASS: TestModelSelectionReturnsFalseWithoutAuthenticatedOptions (0.00s)
+=== RUN   TestEveryTaskHasEveryCapabilityFallback
+--- PASS: TestEveryTaskHasEveryCapabilityFallback (0.00s)
+=== RUN   TestTruthTableCoversEveryCapabilityCombination
+--- PASS: TestTruthTableCoversEveryCapabilityCombination (0.00s)
+=== RUN   TestIncrementalUpdatePreservesProvenanceAndStaleBaseline
+--- PASS: TestIncrementalUpdatePreservesProvenanceAndStaleBaseline (0.02s)
+=== RUN   TestLanguageModelIsRecordedInState
+--- PASS: TestLanguageModelIsRecordedInState (0.01s)
+=== RUN   TestOpenAICompatibleProviderUsesStructuredOutputAndOpenRouterPolicy
+--- PASS: TestOpenAICompatibleProviderUsesStructuredOutputAndOpenRouterPolicy (0.00s)
+=== RUN   TestConfiguredProviderUsesLanguageSpecificModel
+--- PASS: TestConfiguredProviderUsesLanguageSpecificModel (0.00s)
+=== RUN   TestOpenAICompatibleProviderReviewsKnownSegmentsWithStructuredOutput
+--- PASS: TestOpenAICompatibleProviderReviewsKnownSegmentsWithStructuredOutput (0.00s)
+=== RUN   TestProviderRejectsIncompleteResponse
+--- PASS: TestProviderRejectsIncompleteResponse (3.01s)
+=== RUN   TestProviderRetriesInvalidSegmentIDs
+--- PASS: TestProviderRetriesInvalidSegmentIDs (1.00s)
+=== RUN   TestProviderRetriesEmptyTranslation
+--- PASS: TestProviderRetriesEmptyTranslation (1.00s)
+=== RUN   TestProviderRetriesCollapsedTranslationAndIntroducedMarker
+=== RUN   TestProviderRetriesCollapsedTranslationAndIntroducedMarker/collapsed
+=== RUN   TestProviderRetriesCollapsedTranslationAndIntroducedMarker/numbered_marker
+=== RUN   TestProviderRetriesCollapsedTranslationAndIntroducedMarker/extra_delimiter
+--- PASS: TestProviderRetriesCollapsedTranslationAndIntroducedMarker (3.01s)
+    --- PASS: TestProviderRetriesCollapsedTranslationAndIntroducedMarker/collapsed (1.01s)
+    --- PASS: TestProviderRetriesCollapsedTranslationAndIntroducedMarker/numbered_marker (1.00s)
+    --- PASS: TestProviderRetriesCollapsedTranslationAndIntroducedMarker/extra_delimiter (1.00s)
+=== RUN   TestLocalProviderUsesConfiguredAgentCommand
+=== RUN   TestLocalProviderUsesConfiguredAgentCommand/codex
+=== RUN   TestLocalProviderUsesConfiguredAgentCommand/claude
+--- PASS: TestLocalProviderUsesConfiguredAgentCommand (0.01s)
+    --- PASS: TestLocalProviderUsesConfiguredAgentCommand/codex (0.01s)
+    --- PASS: TestLocalProviderUsesConfiguredAgentCommand/claude (0.00s)
+=== RUN   TestMPDTranslationMayReflowParagraphLines
+--- PASS: TestMPDTranslationMayReflowParagraphLines (0.00s)
+=== RUN   TestTranslationPromptUsesQualityHierarchy
+--- PASS: TestTranslationPromptUsesQualityHierarchy (0.00s)
+=== RUN   TestTranslationPromptVersionChangesWithEditorialPolicy
+--- PASS: TestTranslationPromptVersionChangesWithEditorialPolicy (0.00s)
+=== RUN   TestParseLocalTranslationReadsCodexAgentMessageEvent
+--- PASS: TestParseLocalTranslationReadsCodexAgentMessageEvent (0.00s)
+=== RUN   TestParseAuditFindingsAcceptsDirectAndNestedJSON
+--- PASS: TestParseAuditFindingsAcceptsDirectAndNestedJSON (0.00s)
+=== RUN   TestTranslationReusesTargetsAfterStructuralEdits
+=== RUN   TestTranslationReusesTargetsAfterStructuralEdits/source_only
+=== RUN   TestTranslationReusesTargetsAfterStructuralEdits/source_and_target
+--- PASS: TestTranslationReusesTargetsAfterStructuralEdits (0.01s)
+    --- PASS: TestTranslationReusesTargetsAfterStructuralEdits/source_only (0.01s)
+    --- PASS: TestTranslationReusesTargetsAfterStructuralEdits/source_and_target (0.00s)
+=== RUN   TestMarkReorderedTranslationsKeepsEveryState
+--- PASS: TestMarkReorderedTranslationsKeepsEveryState (0.01s)
+=== RUN   TestRelocationPreservesManualTargetEdits
+=== RUN   TestRelocationPreservesManualTargetEdits/source_only
+=== RUN   TestRelocationPreservesManualTargetEdits/source_and_target
+--- PASS: TestRelocationPreservesManualTargetEdits (0.02s)
+    --- PASS: TestRelocationPreservesManualTargetEdits/source_only (0.01s)
+    --- PASS: TestRelocationPreservesManualTargetEdits/source_and_target (0.01s)
+=== RUN   TestMarkRelocatedManualTranslation
+--- PASS: TestMarkRelocatedManualTranslation (0.01s)
+=== RUN   TestAmbiguousRelocationDoesNotOverwriteManualWork
+--- PASS: TestAmbiguousRelocationDoesNotOverwriteManualWork (0.01s)
+=== RUN   TestReviewedMPDLinksRemainFinalUntilEdited
+--- PASS: TestReviewedMPDLinksRemainFinalUntilEdited (0.02s)
+=== RUN   TestBorrowedTranslationRootDoesNotEscapeToEngine
+--- PASS: TestBorrowedTranslationRootDoesNotEscapeToEngine (0.02s)
+=== RUN   TestRootedTranslationInputsRetainInternalAliases
+--- PASS: TestRootedTranslationInputsRetainInternalAliases (0.00s)
+=== RUN   TestRootedTranslationInputRetainsBounds
+--- PASS: TestRootedTranslationInputRetainsBounds (0.00s)
+=== RUN   TestMissingTargetIsNotHiddenByCachedMachineText
+--- PASS: TestMissingTargetIsNotHiddenByCachedMachineText (0.03s)
+=== RUN   TestExistingTranslationWithoutStateRequiresExplicitReplacement
+--- PASS: TestExistingTranslationWithoutStateRequiresExplicitReplacement (0.02s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/translate	10.814s

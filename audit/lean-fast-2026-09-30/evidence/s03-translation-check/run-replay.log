@@ -1,0 +1,63 @@
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/source
+    translation_plan_confinement_test.go:21: translation plan read external source with HTTP 200
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/target
+    translation_plan_confinement_test.go:21: translation plan read external target with HTTP 200
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/state-file
+    translation_plan_confinement_test.go:21: translation plan read external state-file with HTTP 200
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/state-parent
+    translation_plan_confinement_test.go:21: translation plan read external state-parent with HTTP 200
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/state-discovery
+    translation_plan_confinement_test.go:21: translation plan read external state-discovery with HTTP 200
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/style-guide
+    translation_plan_confinement_test.go:21: translation plan read external style-guide with HTTP 200
+=== RUN   TestAuthoringTranslationPlanRejectsExternalFiles/glossary
+    translation_plan_confinement_test.go:21: translation plan read external glossary with HTTP 200
+--- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles (0.11s)
+    --- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles/source (0.01s)
+    --- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles/target (0.01s)
+    --- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles/state-file (0.02s)
+    --- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles/state-parent (0.02s)
+    --- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles/state-discovery (0.02s)
+    --- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles/style-guide (0.02s)
+    --- FAIL: TestAuthoringTranslationPlanRejectsExternalFiles/glossary (0.02s)
+=== RUN   TestTranslationRunRejectsParentsRearrangedDuringProvider
+=== RUN   TestTranslationRunRejectsParentsRearrangedDuringProvider/target
+    translation_plan_confinement_test.go:61: provider rearrangement escaped boundary: calls=1 error=<nil>
+    translation_plan_confinement_test.go:63: sentinel index.md changed (127 bytes, error <nil>)
+=== RUN   TestTranslationRunRejectsParentsRearrangedDuringProvider/state-file
+    translation_plan_confinement_test.go:61: provider rearrangement escaped boundary: calls=1 error=<nil>
+    translation_plan_confinement_test.go:63: sentinel index.json changed (1892 bytes, error <nil>)
+--- FAIL: TestTranslationRunRejectsParentsRearrangedDuringProvider (0.02s)
+    --- FAIL: TestTranslationRunRejectsParentsRearrangedDuringProvider/target (0.01s)
+    --- FAIL: TestTranslationRunRejectsParentsRearrangedDuringProvider/state-file (0.01s)
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/source
+    translation_plan_confinement_test.go:101: unsafe run reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/target
+    translation_plan_confinement_test.go:101: unsafe run reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/state-file
+    translation_plan_confinement_test.go:101: unsafe run reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/state-parent
+    translation_plan_confinement_test.go:101: unsafe run reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRunRejectsExternalFilesBeforeProvider/state-discovery
+    translation_plan_confinement_test.go:101: unsafe run reached provider: calls=1 error=<nil>
+--- FAIL: TestTranslationRunRejectsExternalFilesBeforeProvider (0.06s)
+    --- FAIL: TestTranslationRunRejectsExternalFilesBeforeProvider/source (0.01s)
+    --- FAIL: TestTranslationRunRejectsExternalFilesBeforeProvider/target (0.01s)
+    --- FAIL: TestTranslationRunRejectsExternalFilesBeforeProvider/state-file (0.01s)
+    --- FAIL: TestTranslationRunRejectsExternalFilesBeforeProvider/state-parent (0.01s)
+    --- FAIL: TestTranslationRunRejectsExternalFilesBeforeProvider/state-discovery (0.02s)
+=== RUN   TestTranslationRunRetainsInternalAliases
+=== RUN   TestTranslationRunRetainsInternalAliases/source
+=== RUN   TestTranslationRunRetainsInternalAliases/target
+=== RUN   TestTranslationRunRetainsInternalAliases/state-file
+=== RUN   TestTranslationRunRetainsInternalAliases/state-parent
+--- PASS: TestTranslationRunRetainsInternalAliases (0.06s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/source (0.02s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/target (0.01s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/state-file (0.01s)
+    --- PASS: TestTranslationRunRetainsInternalAliases/state-parent (0.02s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.340s
+FAIL
