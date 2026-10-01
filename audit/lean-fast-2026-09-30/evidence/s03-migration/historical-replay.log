@@ -1,0 +1,123 @@
+Baseline replay: direct
+Rebuilt 1 pages in 5ms
+Rebuilt 2 pages in 2ms
+Rebuilt 2 pages in 4ms
+--- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites (0.07s)
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/parent/authoring (0.02s)
+        confinement_test.go:51: external path accepted with HTTP 200
+        confinement_test.go:62: external path accepted with HTTP 200
+        confinement_test.go:62: external path accepted with HTTP 200
+        confinement_test.go:64: sentinel external.md changed (10 bytes, error <nil>)
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/parent/read-only (0.01s)
+        confinement_test.go:51: external path accepted with HTTP 200
+        confinement_test.go:62: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/final/authoring (0.01s)
+        confinement_test.go:51: external path accepted with HTTP 200
+        confinement_test.go:62: external path accepted with HTTP 200
+        confinement_test.go:62: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/final/read-only (0.01s)
+        confinement_test.go:51: external path accepted with HTTP 200
+        confinement_test.go:62: external path accepted with HTTP 200
+    --- FAIL: TestAuthoringRESTRejectsExternalSymlinkReadsAndWrites/dangling/authoring (0.01s)
+        confinement_test.go:62: external path accepted with HTTP 200
+        confinement_test.go:62: external path accepted with HTTP 200
+Rebuilt 1 pages in 5ms
+--- FAIL: TestAuthoringMCPRejectsExternalSymlinkPaths (0.03s)
+    --- FAIL: TestAuthoringMCPRejectsExternalSymlinkPaths/read-only (0.01s)
+        confinement_test.go:102: MCP read_file accepted external path
+    --- FAIL: TestAuthoringMCPRejectsExternalSymlinkPaths/authoring (0.02s)
+        confinement_test.go:102: MCP read_file accepted external path
+        confinement_test.go:102: MCP write_file accepted external path
+        confinement_test.go:109: sentinel external.md changed (10 bytes, error <nil>)
+rebuild: content directory not found: /tmp/TestAuthoringUploadRejectsExternalStaticAndContentParentsimport3159654985/001/content
+--- FAIL: TestAuthoringUploadRejectsExternalStaticAndContentParents (0.02s)
+    --- FAIL: TestAuthoringUploadRejectsExternalStaticAndContentParents/brand (0.01s)
+        confinement_test.go:162: external path accepted with HTTP 200
+        confinement_test.go:165: upload wrote outside project
+    --- FAIL: TestAuthoringUploadRejectsExternalStaticAndContentParents/import (0.01s)
+        confinement_test.go:162: external path accepted with HTTP 201
+        confinement_test.go:165: upload wrote outside project
+--- FAIL: TestAuthoringBackupsRejectExternalParentWithoutChangingSource (0.01s)
+    confinement_test.go:188: backup escaped project
+    confinement_test.go:190: sentinel content/index.md changed (10 bytes, error <nil>)
+    confinement_test.go:193: external backup created
+--- FAIL: TestNewServerPreservesUnsafePreviewPools (0.13s)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/external-parent (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:247: sentinel live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsexternal-parent1412840726/002/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/external-final (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:251: external pool link removed
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/content (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolscontent3101836887/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/nested-content (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsnested-content2759512085/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/static (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsstatic4211550434/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/translation-state (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolstranslation-state318670495/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/version-store (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsversion-store4142262255/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/published-output (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolspublished-output2407003422/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/navigation (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsnavigation2891385485/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/glossary (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsglossary2683014135/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/style-guide (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolsstyle-guide600137729/001/.mpress/live-preview/sentinel: no such file or directory)
+    --- FAIL: TestNewServerPreservesUnsafePreviewPools/contributor-guide (0.01s)
+        confinement_test.go:244: unsafe preview pool accepted
+        confinement_test.go:254: sentinel .mpress/live-preview/sentinel changed (0 bytes, error open /tmp/TestNewServerPreservesUnsafePreviewPoolscontributor-guide4109890776/001/.mpress/live-preview/sentinel: no such file or directory)
+--- FAIL: TestAuthoringConfigurationAndTreeDoNotFollowExternalLinks (0.02s)
+    confinement_test.go:278: tree exposed external filenames
+    confinement_test.go:293: external path accepted with HTTP 200
+    confinement_test.go:295: startup read external configuration
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.346s
+FAIL
+Baseline replay: delegated
+Rebuilt 1 pages in 5ms
+--- FAIL: TestAuthoringRebuildDoesNotWriteCacheThroughExternalParent (0.02s)
+    confinement_test.go:435: authoring rebuild wrote cache outside project
+--- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs (0.08s)
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/content (0.02s)
+        confinement_test.go:486: preview published an external input
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/static (0.02s)
+        confinement_test.go:486: preview published an external input
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/navigation (0.02s)
+        confinement_test.go:486: preview published an external input
+    --- FAIL: TestAuthoringPreviewRejectsOtherExternalInputs/custom-css (0.02s)
+        confinement_test.go:486: preview published an external input
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.160s
+FAIL
+Baseline replay: output
+--- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors (0.00s)
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/navigation_outside_content (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorsnavigation_ou1220555452/001/preview/nav.yaml: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/localized_navigation_outside_content (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorslocalized_nav2903828653/001/preview/nav.yaml: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/translation_glossary (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorstranslation_g1569276789/001/preview/glossary.yaml: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/translation_style_guide (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorstranslation_s1121665263/001/preview/style.md: no such file or directory
+    --- FAIL: TestRemoveOutputProtectsConfiguredDataAndAncestors/contributor_guide (0.00s)
+        output_test.go:35: expected unsafe output rejection, got <nil>
+        output_test.go:37: protected file changed: "", open /tmp/TestRemoveOutputProtectsConfiguredDataAndAncestorscontributor_g3030311546/001/preview/guide.md: no such file or directory
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/config	0.007s
+FAIL

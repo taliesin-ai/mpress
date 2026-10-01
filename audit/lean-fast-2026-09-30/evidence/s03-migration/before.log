@@ -1,0 +1,51 @@
+=== RUN   TestMigrationRejectsExternalTripletBoundaries
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-config
+    migration_confinement_test.go:104: migration accepted external old-config: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-source
+    migration_confinement_test.go:104: migration accepted external old-source: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-target
+    migration_confinement_test.go:104: migration accepted external old-target: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-state-file
+    migration_confinement_test.go:104: migration accepted external old-state-file: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-state-parent
+    migration_confinement_test.go:104: migration accepted external old-state-parent: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-source
+    migration_confinement_test.go:104: migration accepted external current-source: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-target
+    migration_confinement_test.go:104: migration accepted external current-target: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-state-file
+    migration_confinement_test.go:104: migration accepted external current-state-file: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-state-parent
+    migration_confinement_test.go:104: migration accepted external current-state-parent: {Files:[{File:index.mpd Language:fr Segments:1 Conflicts:0 Unchanged:false ReviewReasons:map[]}] Written:1}
+    migration_confinement_test.go:108: external migration sentinel changed: <nil>
+--- FAIL: TestMigrationRejectsExternalTripletBoundaries (0.02s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/old-config (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/old-source (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/old-target (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/old-state-file (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/old-state-parent (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/current-source (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/current-target (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/current-state-file (0.00s)
+    --- FAIL: TestMigrationRejectsExternalTripletBoundaries/current-state-parent (0.00s)
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-config
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-source
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-target
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-state-parent
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-source
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-target
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-state-parent
+--- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot (0.02s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-config (0.00s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-source (0.00s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-target (0.00s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-state-parent (0.00s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-source (0.00s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-target (0.00s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-state-parent (0.00s)
+=== RUN   TestMigrationBorrowedRootRetainsOwnership
+--- PASS: TestMigrationBorrowedRootRetainsOwnership (0.00s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/translate	0.100s
+FAIL

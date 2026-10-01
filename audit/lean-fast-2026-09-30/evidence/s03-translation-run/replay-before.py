@@ -13,7 +13,7 @@ with tempfile.TemporaryDirectory(prefix="mpress-translation-run-") as work:
     for name in ["internal/dev/server.go", "internal/translate/engine.go", "internal/translate/state.go", "internal/translate/audit.go", "internal/translate/refine.go",
                  "internal/translate/comparison.go", "internal/dev/translation_models.go",
                  "internal/translate/check.go", "internal/translate/conversion.go",
-                 "internal/projectconvert/convert.go"]:
+                 "internal/projectconvert/convert.go", "internal/translate/migration.go"]:
         original = temp / name.replace("/", "-")
         data = subprocess.check_output(["git", "show", "227c049:" + name], cwd=root)
         if name.endswith("engine.go"):

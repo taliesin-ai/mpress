@@ -1,0 +1,58 @@
+=== RUN   TestMigrationPreservesVerifiedParagraphsAcrossInsertion
+=== RUN   TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.mpd
+=== RUN   TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.md
+--- PASS: TestMigrationPreservesVerifiedParagraphsAcrossInsertion (0.03s)
+    --- PASS: TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.mpd (0.02s)
+    --- PASS: TestMigrationPreservesVerifiedParagraphsAcrossInsertion/guide.md (0.01s)
+=== RUN   TestMigrationRejectsExternalTripletBoundaries
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-config
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-source
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-target
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-state-file
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/old-state-parent
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-source
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-target
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-state-file
+=== RUN   TestMigrationRejectsExternalTripletBoundaries/current-state-parent
+--- PASS: TestMigrationRejectsExternalTripletBoundaries (0.07s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/old-config (0.00s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/old-source (0.01s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/old-target (0.01s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/old-state-file (0.01s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/old-state-parent (0.01s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/current-source (0.01s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/current-target (0.01s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/current-state-file (0.01s)
+    --- PASS: TestMigrationRejectsExternalTripletBoundaries/current-state-parent (0.01s)
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-config
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-source
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-target
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-state-file
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-state-parent
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-source
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-target
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-state-file
+=== RUN   TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-state-parent
+--- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot (0.08s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-config (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-source (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-target (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-state-file (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/old-state-parent (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-source (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-target (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-state-file (0.01s)
+    --- PASS: TestMigrationRetainsInternalAliasesAndSeparateSnapshot/current-state-parent (0.01s)
+=== RUN   TestMigrationBorrowedRootRetainsOwnership
+--- PASS: TestMigrationBorrowedRootRetainsOwnership (0.01s)
+=== RUN   TestTranslationStateMigration
+=== RUN   TestTranslationStateMigration/legacy-markdown
+=== RUN   TestTranslationStateMigration/mpd
+=== RUN   TestTranslationStateMigration/mpd-code-punctuation
+--- PASS: TestTranslationStateMigration (0.11s)
+    --- PASS: TestTranslationStateMigration/legacy-markdown (0.05s)
+    --- PASS: TestTranslationStateMigration/mpd (0.03s)
+    --- PASS: TestTranslationStateMigration/mpd-code-punctuation (0.03s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/translate	1.949s

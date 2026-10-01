@@ -1,0 +1,67 @@
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles/source
+    translation_audit_confinement_test.go:31: translation audit read external source: HTTP 200
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles/target
+    translation_audit_confinement_test.go:31: translation audit read external target: HTTP 200
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles/glossary
+    translation_audit_confinement_test.go:31: translation audit read external glossary: HTTP 200
+--- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles (0.04s)
+    --- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles/source (0.01s)
+    --- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles/target (0.02s)
+    --- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles/glossary (0.01s)
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/source
+    translation_plan_confinement_test.go:101: unsafe audit reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/target
+    translation_plan_confinement_test.go:101: unsafe audit reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/style-guide
+    translation_plan_confinement_test.go:101: unsafe audit reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/glossary
+    translation_plan_confinement_test.go:101: unsafe audit reached provider: calls=1 error=<nil>
+--- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer (0.05s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/source (0.01s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/target (0.01s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/style-guide (0.01s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/glossary (0.02s)
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/source
+    translation_plan_confinement_test.go:101: unsafe refine reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/target
+    translation_plan_confinement_test.go:101: unsafe refine reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-file
+    translation_plan_confinement_test.go:101: unsafe refine reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-parent
+    translation_plan_confinement_test.go:101: unsafe refine reached provider: calls=1 error=<nil>
+    translation_plan_confinement_test.go:103: sentinel index.json changed (1889 bytes, error <nil>)
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/style-guide
+    translation_plan_confinement_test.go:101: unsafe refine reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/glossary
+    translation_plan_confinement_test.go:101: unsafe refine reached provider: calls=1 error=<nil>
+--- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider (0.10s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/source (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/target (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-file (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-parent (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/style-guide (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/glossary (0.02s)
+=== RUN   TestTranslationRefinementRejectsParentsRearrangedDuringProvider
+=== RUN   TestTranslationRefinementRejectsParentsRearrangedDuringProvider/target
+    translation_audit_confinement_test.go:58: refinement parent swap escaped boundary: calls=1 error=<nil>
+    translation_audit_confinement_test.go:60: sentinel index.md changed (127 bytes, error <nil>)
+=== RUN   TestTranslationRefinementRejectsParentsRearrangedDuringProvider/state-file
+    translation_audit_confinement_test.go:58: refinement parent swap escaped boundary: calls=1 error=<nil>
+    translation_audit_confinement_test.go:60: sentinel index.json changed (1889 bytes, error <nil>)
+--- FAIL: TestTranslationRefinementRejectsParentsRearrangedDuringProvider (0.04s)
+    --- FAIL: TestTranslationRefinementRejectsParentsRearrangedDuringProvider/target (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsParentsRearrangedDuringProvider/state-file (0.02s)
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases/source
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases/target
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases/state-parent
+--- PASS: TestTranslationAuditRefinementRetainInternalAliases (0.05s)
+    --- PASS: TestTranslationAuditRefinementRetainInternalAliases/source (0.02s)
+    --- PASS: TestTranslationAuditRefinementRetainInternalAliases/target (0.02s)
+    --- PASS: TestTranslationAuditRefinementRetainInternalAliases/state-parent (0.02s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.346s
+FAIL

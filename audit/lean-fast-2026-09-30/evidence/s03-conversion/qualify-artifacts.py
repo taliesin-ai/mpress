@@ -13,6 +13,7 @@ parser.add_argument("after")
 parser.add_argument("evidence")
 parser.add_argument("self_corpus")
 parser.add_argument("wails_corpus")
+parser.add_argument("--baseline", default="e8eac75 production")
 args = parser.parse_args()
 evidence = pathlib.Path(args.evidence)
 evidence.mkdir(parents=True, exist_ok=True)
@@ -26,7 +27,7 @@ def hashes(directory):
 def compare(label, before, after):
     changed = sorted(name for name in before.keys() | after.keys()
                      if before.get(name) != after.get(name))
-    result = {"baseline": "e8eac75 production", "files": len(after), "changed": changed,
+    result = {"baseline": args.baseline, "files": len(after), "changed": changed,
               "sameSourceAndPath": True, "allBytesIdentical": not changed}
     (evidence / (label + "-equivalence.json")).write_text(json.dumps(result, indent=2) + "\n")
     if changed:
