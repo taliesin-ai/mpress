@@ -1,0 +1,76 @@
+=== RUN   TestKnowledgeArtifactByteLimits
+=== RUN   TestKnowledgeArtifactByteLimits/false
+    limits_test.go:40: oversized payload accepted: <nil>
+=== RUN   TestKnowledgeArtifactByteLimits/true
+    limits_test.go:40: oversized payload accepted: <nil>
+--- FAIL: TestKnowledgeArtifactByteLimits (0.00s)
+    --- FAIL: TestKnowledgeArtifactByteLimits/false (0.00s)
+    --- FAIL: TestKnowledgeArtifactByteLimits/true (0.00s)
+=== RUN   TestKnowledgePlainReadSizeChanges
+=== RUN   TestKnowledgePlainReadSizeChanges/unchanged
+=== RUN   TestKnowledgePlainReadSizeChanges/shrunk
+=== RUN   TestKnowledgePlainReadSizeChanges/grown-within-budget
+=== RUN   TestKnowledgePlainReadSizeChanges/grown-outside-budget
+    limits_test.go:62: growth escaped budget: <nil>
+--- FAIL: TestKnowledgePlainReadSizeChanges (0.00s)
+    --- PASS: TestKnowledgePlainReadSizeChanges/unchanged (0.00s)
+    --- PASS: TestKnowledgePlainReadSizeChanges/shrunk (0.00s)
+    --- PASS: TestKnowledgePlainReadSizeChanges/grown-within-budget (0.00s)
+    --- FAIL: TestKnowledgePlainReadSizeChanges/grown-outside-budget (0.00s)
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/truncated-header
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/truncated-trailer
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/bad-checksum
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/expansion
+    limits_test.go:120: invalid or oversized stream accepted: <nil>
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/combined-members
+    limits_test.go:120: invalid or oversized stream accepted: <nil>
+--- FAIL: TestKnowledgeGzipIntegrityAndExpansion (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/truncated-header (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/truncated-trailer (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/bad-checksum (0.00s)
+    --- FAIL: TestKnowledgeGzipIntegrityAndExpansion/expansion (0.00s)
+    --- FAIL: TestKnowledgeGzipIntegrityAndExpansion/combined-members (0.00s)
+=== RUN   TestKnowledgeBundleBudgets
+=== RUN   TestKnowledgeBundleBudgets/exact
+=== RUN   TestKnowledgeBundleBudgets/manifest
+    limits_test.go:166: manifest budget not enforced: <nil>
+=== RUN   TestKnowledgeBundleBudgets/artifact
+    limits_test.go:166: artifact budget not enforced: <nil>
+=== RUN   TestKnowledgeBundleBudgets/bundle
+    limits_test.go:166: bundle budget not enforced: <nil>
+=== RUN   TestKnowledgeBundleBudgets/aggregate
+    limits_test.go:166: aggregate budget not enforced: <nil>
+--- FAIL: TestKnowledgeBundleBudgets (0.00s)
+    --- PASS: TestKnowledgeBundleBudgets/exact (0.00s)
+    --- FAIL: TestKnowledgeBundleBudgets/manifest (0.00s)
+    --- FAIL: TestKnowledgeBundleBudgets/artifact (0.00s)
+    --- FAIL: TestKnowledgeBundleBudgets/bundle (0.00s)
+    --- FAIL: TestKnowledgeBundleBudgets/aggregate (0.00s)
+=== RUN   TestKnowledgeMountedBudgets
+=== RUN   TestKnowledgeMountedBudgets/exact
+=== RUN   TestKnowledgeMountedBudgets/aggregate
+    limits_test.go:209: aggregate budget not enforced: <nil>
+=== RUN   TestKnowledgeMountedBudgets/versions
+    limits_test.go:209: versions budget not enforced: <nil>
+=== RUN   TestKnowledgeMountedBudgets/entries
+    limits_test.go:209: entries budget not enforced: <nil>
+--- FAIL: TestKnowledgeMountedBudgets (0.00s)
+    --- PASS: TestKnowledgeMountedBudgets/exact (0.00s)
+    --- FAIL: TestKnowledgeMountedBudgets/aggregate (0.00s)
+    --- FAIL: TestKnowledgeMountedBudgets/versions (0.00s)
+    --- FAIL: TestKnowledgeMountedBudgets/entries (0.00s)
+=== RUN   TestKnowledgeUnsupportedSchemas
+=== RUN   TestKnowledgeUnsupportedSchemas/manifest
+=== RUN   TestKnowledgeUnsupportedSchemas/index
+    limits_test.go:240: unsupported index schema not rejected: <nil>
+--- FAIL: TestKnowledgeUnsupportedSchemas (0.00s)
+    --- PASS: TestKnowledgeUnsupportedSchemas/manifest (0.00s)
+    --- FAIL: TestKnowledgeUnsupportedSchemas/index (0.00s)
+=== RUN   TestKnowledgeArtifactReplacement
+--- PASS: TestKnowledgeArtifactReplacement (0.01s)
+=== RUN   TestCompressedKnowledgeRoundTrip
+--- PASS: TestCompressedKnowledgeRoundTrip (0.00s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/knowledge	0.074s
+FAIL

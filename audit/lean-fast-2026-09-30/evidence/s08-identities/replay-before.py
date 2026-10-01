@@ -14,6 +14,9 @@ with tempfile.TemporaryDirectory(prefix="mpress-knowledge-identity-") as work:
         original = temp / name.replace("/", "-")
         original.write_bytes(subprocess.check_output(["git", "show", "c4b8ddf:" + name], cwd=root))
         replacements[str(root / name)] = str(original)
+    empty = temp / "future-budget-tests.go"
+    empty.write_text("package knowledge\n")
+    replacements[str(root / "internal/knowledge/limits_test.go")] = str(empty)
     overlay = temp / "overlay.json"
     overlay.write_text(json.dumps({"Replace": replacements}))
     result = subprocess.run(["go", "test", "-overlay=" + str(overlay), "./internal/knowledge",

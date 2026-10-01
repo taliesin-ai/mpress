@@ -11,3 +11,5 @@ resource/search assertions. Artifact read-error checks were shared in the legacy
 round-trip test. Final metrics report no gating findings or new complexity/length
 regressions. Remaining test/benchmark-entry dead-code heuristics concern entry
 points executed by the recorded Go runs. No acknowledgements were added.
+
+Committed-tree review also flags the timing JSON samples array as a long symbol. It is retained measurement data, not an executable routine; no acknowledgement is added.

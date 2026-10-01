@@ -15,6 +15,10 @@ with tempfile.TemporaryDirectory(prefix="mpress-knowledge-replay-") as work:
         original = temp / name.replace("/", "-")
         original.write_bytes(subprocess.check_output(["git", "show", "be3685d:" + name], cwd=root))
         replacements[str(root / name)] = str(original)
+    empty = temp / "future-budget-tests.go"
+    empty.write_text("package knowledge\n")
+    replacements[str(root / "internal/knowledge/limits_test.go")] = str(empty)
+    replacements[str(root / "internal/knowledge/limits.go")] = str(empty)
     overlay = temp / "overlay.json"
     overlay.write_text(json.dumps({"Replace": replacements}))
     pattern = "^(TestAuthoringKnowledgeRejectsExternalBundles|TestKnowledgeRejectsNonportableArtifactNames|TestKnowledgeRejectsArtifactsOutsideBundleWithinSite|TestKnowledgeRetainsInternalArtifactAliases|TestKnowledgeMountedMissingArtifactsRemainFatal)$"

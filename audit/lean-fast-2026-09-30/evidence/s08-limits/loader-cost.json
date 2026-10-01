@@ -1,0 +1,89 @@
+{
+  "baseline": "f396e7e identity implementation",
+  "sameCorrectedWailsInput": true,
+  "alternatingRuns": 3,
+  "cpuAndMemoryProfilingDuringTiming": false,
+  "memoryMetric": "Total Go allocation bytes/op, not peak RSS",
+  "samples": [
+    {
+      "candidate": "baseline",
+      "iteration": 0,
+      "ns": 2422320070,
+      "allocatedBytes": 736287664,
+      "allocations": 2558428
+    },
+    {
+      "candidate": "initial",
+      "iteration": 0,
+      "ns": 2398930489,
+      "allocatedBytes": 756971136,
+      "allocations": 2558563
+    },
+    {
+      "candidate": "final",
+      "iteration": 0,
+      "ns": 2441806106,
+      "allocatedBytes": 736260520,
+      "allocations": 2558403
+    },
+    {
+      "candidate": "baseline",
+      "iteration": 1,
+      "ns": 2535776285,
+      "allocatedBytes": 736315672,
+      "allocations": 2558465
+    },
+    {
+      "candidate": "initial",
+      "iteration": 1,
+      "ns": 2503873390,
+      "allocatedBytes": 756898520,
+      "allocations": 2558471
+    },
+    {
+      "candidate": "final",
+      "iteration": 1,
+      "ns": 2449936041,
+      "allocatedBytes": 736299168,
+      "allocations": 2558449
+    },
+    {
+      "candidate": "baseline",
+      "iteration": 2,
+      "ns": 2372229689,
+      "allocatedBytes": 736331824,
+      "allocations": 2558482
+    },
+    {
+      "candidate": "initial",
+      "iteration": 2,
+      "ns": 2427754748,
+      "allocatedBytes": 756898952,
+      "allocations": 2558473
+    },
+    {
+      "candidate": "final",
+      "iteration": 2,
+      "ns": 2485672208,
+      "allocatedBytes": 736326952,
+      "allocations": 2558484
+    }
+  ],
+  "medians": {
+    "baseline": {
+      "ns": 2422320070,
+      "allocatedBytes": 736315672,
+      "allocations": 2558465
+    },
+    "initial": {
+      "ns": 2427754748,
+      "allocatedBytes": 756898952,
+      "allocations": 2558473
+    },
+    "final": {
+      "ns": 2449936041,
+      "allocatedBytes": 736299168,
+      "allocations": 2558449
+    }
+  }
+}

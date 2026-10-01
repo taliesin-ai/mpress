@@ -1,0 +1,13 @@
+{
+  "baselineFailures": 3,
+  "candidateFailures": 3,
+  "sameFailingTests": true,
+  "sameRemainingAssertionMessages": true,
+  "remainingAssertions": 6,
+  "fixtureCommit": "300cd5e",
+  "explicitSourceAndBinary": true,
+  "axeExecuted": true,
+  "privateWailsGate": "Unavailable; public pinned corpus qualified separately",
+  "rawLogs": "Outside public repository",
+  "comparison": "Same failed tests/assertions after normalizing fixture directories and ephemeral ports; unavailable Wails skip excluded"
+}

@@ -6,6 +6,8 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Fixed — 2026-10-01
 
+- Knowledge loading now bounds manifest/artifact bytes, gzip expansion, each bundle, the combined mounted corpus and version enumeration. Truncated/checksum-invalid streams and unsupported index schemas fail; concurrent replacement/recovery is qualified. Full current and mounted Wails bundles remain supported, with generated files unchanged and loading cost measured. Beads `mp-b52.1.8`; limits are documented in `docs/knowledge.md`.
+
 - Knowledge sections now have distinct deterministic identities for repeated or unnamed headings. Legacy bundles are repaired in memory after digest verification; duplicate page/term IDs fail explicitly. Mounted resources remain distinct from a current release with the same version and stable across release changes. Legacy reindexing cost is measured in `S08.md`; resource budgets remain open. Beads `mp-b52.1.8`.
 
 - Knowledge reads now pin project/site/version/bundle boundaries and validate all artifact filenames before reading, rejecting external links and traversal from the authenticated authoring endpoint. Internal aliases, compressed digests and version-resource behavior remain supported; generated docs are byte-identical. Beads `mp-b52.1.3`/`mp-b52.1.8`; resource and identity qualification remain open in `audit/lean-fast-2026-09-30/S08.md`.

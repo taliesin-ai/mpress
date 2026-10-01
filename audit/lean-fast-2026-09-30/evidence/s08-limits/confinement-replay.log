@@ -1,0 +1,71 @@
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/output
+    knowledge_confinement_test.go:81: authoring read knowledge outside project: {Ready:true Error:}
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/bundle
+    knowledge_confinement_test.go:81: authoring read knowledge outside project: {Ready:true Error:}
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/manifest
+    knowledge_confinement_test.go:81: authoring read knowledge outside project: {Ready:true Error:}
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/artifacts
+    knowledge_confinement_test.go:81: authoring read knowledge outside project: {Ready:true Error:}
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/traversal
+    knowledge_confinement_test.go:81: authoring read knowledge outside project: {Ready:true Error:}
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/versions
+    knowledge_confinement_test.go:81: authoring read knowledge outside project: {Ready:true Error:}
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/version-bundle
+    knowledge_confinement_test.go:81: authoring read knowledge outside project: {Ready:true Error:}
+--- FAIL: TestAuthoringKnowledgeRejectsExternalBundles (0.08s)
+    --- FAIL: TestAuthoringKnowledgeRejectsExternalBundles/output (0.01s)
+    --- FAIL: TestAuthoringKnowledgeRejectsExternalBundles/bundle (0.01s)
+    --- FAIL: TestAuthoringKnowledgeRejectsExternalBundles/manifest (0.01s)
+    --- FAIL: TestAuthoringKnowledgeRejectsExternalBundles/artifacts (0.01s)
+    --- FAIL: TestAuthoringKnowledgeRejectsExternalBundles/traversal (0.01s)
+    --- FAIL: TestAuthoringKnowledgeRejectsExternalBundles/versions (0.01s)
+    --- FAIL: TestAuthoringKnowledgeRejectsExternalBundles/version-bundle (0.01s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.137s
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/traversal
+    confinement_test.go:51: manifest name "../pages.json" was not rejected before artifact IO: open /tmp/TestKnowledgeRejectsNonportableArtifactNamestraversal189089046/001/pages.json: no such file or directory
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/noncanonical
+    confinement_test.go:51: manifest name "nested/../pages.json" was not rejected before artifact IO: <nil>
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/absolute
+    confinement_test.go:51: manifest name "/pages.json" was not rejected before artifact IO: <nil>
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/volume
+    confinement_test.go:51: manifest name "C:/pages.json" was not rejected before artifact IO: open /tmp/TestKnowledgeRejectsNonportableArtifactNamesvolume3076743558/001/knowledge/C:/pages.json: no such file or directory
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/backslash
+    confinement_test.go:51: manifest name "nested\\pages.json" was not rejected before artifact IO: open /tmp/TestKnowledgeRejectsNonportableArtifactNamesbackslash2509390603/001/knowledge/nested\pages.json: no such file or directory
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/repeated-slash
+    confinement_test.go:51: manifest name "nested//pages.json" was not rejected before artifact IO: open /tmp/TestKnowledgeRejectsNonportableArtifactNamesrepeated-slash171602356/001/knowledge/nested/pages.json: no such file or directory
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/empty
+    confinement_test.go:51: manifest name "" was not rejected before artifact IO: read /tmp/TestKnowledgeRejectsNonportableArtifactNamesempty444821701/001/knowledge: is a directory
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/device
+    confinement_test.go:51: manifest name "NUL.json" was not rejected before artifact IO: open /tmp/TestKnowledgeRejectsNonportableArtifactNamesdevice1745614068/001/knowledge/NUL.json: no such file or directory
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/trailing-dot
+    confinement_test.go:51: manifest name "pages.json." was not rejected before artifact IO: open /tmp/TestKnowledgeRejectsNonportableArtifactNamestrailing-dot1002192654/001/knowledge/pages.json.: no such file or directory
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/trailing-space
+    confinement_test.go:51: manifest name "pages.json " was not rejected before artifact IO: open /tmp/TestKnowledgeRejectsNonportableArtifactNamestrailing-space3812001584/001/knowledge/pages.json : no such file or directory
+--- FAIL: TestKnowledgeRejectsNonportableArtifactNames (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/traversal (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/noncanonical (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/absolute (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/volume (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/backslash (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/repeated-slash (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/empty (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/device (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/trailing-dot (0.00s)
+    --- FAIL: TestKnowledgeRejectsNonportableArtifactNames/trailing-space (0.00s)
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases/relative
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases/absolute
+--- PASS: TestKnowledgeRetainsInternalArtifactAliases (0.00s)
+    --- PASS: TestKnowledgeRetainsInternalArtifactAliases/relative (0.00s)
+    --- PASS: TestKnowledgeRetainsInternalArtifactAliases/absolute (0.00s)
+=== RUN   TestKnowledgeRejectsArtifactsOutsideBundleWithinSite
+    confinement_test.go:91: artifact read escaped its bundle: <nil>
+--- FAIL: TestKnowledgeRejectsArtifactsOutsideBundleWithinSite (0.00s)
+=== RUN   TestKnowledgeMountedMissingArtifactsRemainFatal
+--- PASS: TestKnowledgeMountedMissingArtifactsRemainFatal (0.00s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/knowledge	0.061s
+FAIL

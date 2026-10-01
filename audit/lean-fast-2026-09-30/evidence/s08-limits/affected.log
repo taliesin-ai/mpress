@@ -1,0 +1,133 @@
+=== RUN   TestGenerateLoadAndSearchKnowledgeArtifact
+--- PASS: TestGenerateLoadAndSearchKnowledgeArtifact (0.00s)
+=== RUN   TestLoadRejectsTamperedArtifact
+--- PASS: TestLoadRejectsTamperedArtifact (0.00s)
+=== RUN   TestTokensNormaliseEnglishPluralsAndChinesePhrases
+--- PASS: TestTokensNormaliseEnglishPluralsAndChinesePhrases (0.00s)
+=== RUN   TestLoadAllIncludesMountedVersionsWithDistinctResources
+--- PASS: TestLoadAllIncludesMountedVersionsWithDistinctResources (0.00s)
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/traversal
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/noncanonical
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/absolute
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/volume
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/backslash
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/repeated-slash
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/empty
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/device
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/trailing-dot
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/trailing-space
+--- PASS: TestKnowledgeRejectsNonportableArtifactNames (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/traversal (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/noncanonical (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/absolute (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/volume (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/backslash (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/repeated-slash (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/empty (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/device (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/trailing-dot (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/trailing-space (0.00s)
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases/relative
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases/absolute
+--- PASS: TestKnowledgeRetainsInternalArtifactAliases (0.00s)
+    --- PASS: TestKnowledgeRetainsInternalArtifactAliases/relative (0.00s)
+    --- PASS: TestKnowledgeRetainsInternalArtifactAliases/absolute (0.00s)
+=== RUN   TestKnowledgeRejectsArtifactsOutsideBundleWithinSite
+--- PASS: TestKnowledgeRejectsArtifactsOutsideBundleWithinSite (0.00s)
+=== RUN   TestKnowledgeMountedMissingArtifactsRemainFatal
+--- PASS: TestKnowledgeMountedMissingArtifactsRemainFatal (0.00s)
+=== RUN   TestExplicitKnowledgeCorpus
+    confinement_test.go:130: set MPRESS_KNOWLEDGE_CORPUS to a built pinned corpus
+--- SKIP: TestExplicitKnowledgeCorpus (0.00s)
+=== RUN   TestEvaluateReportsRankAndCitationMetrics
+--- PASS: TestEvaluateReportsRankAndCitationMetrics (0.00s)
+=== RUN   TestEvaluationSuiteValidation
+--- PASS: TestEvaluationSuiteValidation (0.00s)
+=== RUN   TestKnowledgeRejectsDuplicateArtifactIdentities
+=== RUN   TestKnowledgeRejectsDuplicateArtifactIdentities/page
+=== RUN   TestKnowledgeRejectsDuplicateArtifactIdentities/term
+--- PASS: TestKnowledgeRejectsDuplicateArtifactIdentities (0.00s)
+    --- PASS: TestKnowledgeRejectsDuplicateArtifactIdentities/page (0.00s)
+    --- PASS: TestKnowledgeRejectsDuplicateArtifactIdentities/term (0.00s)
+=== RUN   TestKnowledgeSnapshotMatchingCurrentVersionHasDistinctResources
+--- PASS: TestKnowledgeSnapshotMatchingCurrentVersionHasDistinctResources (0.00s)
+=== RUN   TestKnowledgeLegacyDuplicateChunkIDsRemainReadable
+=== RUN   TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/1
+=== RUN   TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/20971520
+--- PASS: TestKnowledgeLegacyDuplicateChunkIDsRemainReadable (0.01s)
+    --- PASS: TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/1 (0.00s)
+    --- PASS: TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/20971520 (0.00s)
+=== RUN   TestGeneratedRepeatedAndUnnamedSectionsHaveDistinctChunkIDs
+--- PASS: TestGeneratedRepeatedAndUnnamedSectionsHaveDistinctChunkIDs (0.00s)
+=== RUN   TestKnowledgeArtifactByteLimits
+=== RUN   TestKnowledgeArtifactByteLimits/false
+=== RUN   TestKnowledgeArtifactByteLimits/true
+--- PASS: TestKnowledgeArtifactByteLimits (0.00s)
+    --- PASS: TestKnowledgeArtifactByteLimits/false (0.00s)
+    --- PASS: TestKnowledgeArtifactByteLimits/true (0.00s)
+=== RUN   TestKnowledgePlainReadSizeChanges
+=== RUN   TestKnowledgePlainReadSizeChanges/unchanged
+=== RUN   TestKnowledgePlainReadSizeChanges/shrunk
+=== RUN   TestKnowledgePlainReadSizeChanges/grown-within-budget
+=== RUN   TestKnowledgePlainReadSizeChanges/grown-outside-budget
+--- PASS: TestKnowledgePlainReadSizeChanges (0.00s)
+    --- PASS: TestKnowledgePlainReadSizeChanges/unchanged (0.00s)
+    --- PASS: TestKnowledgePlainReadSizeChanges/shrunk (0.00s)
+    --- PASS: TestKnowledgePlainReadSizeChanges/grown-within-budget (0.00s)
+    --- PASS: TestKnowledgePlainReadSizeChanges/grown-outside-budget (0.00s)
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/truncated-header
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/truncated-trailer
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/bad-checksum
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/expansion
+=== RUN   TestKnowledgeGzipIntegrityAndExpansion/combined-members
+--- PASS: TestKnowledgeGzipIntegrityAndExpansion (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/truncated-header (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/truncated-trailer (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/bad-checksum (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/expansion (0.00s)
+    --- PASS: TestKnowledgeGzipIntegrityAndExpansion/combined-members (0.00s)
+=== RUN   TestKnowledgeBundleBudgets
+=== RUN   TestKnowledgeBundleBudgets/exact
+=== RUN   TestKnowledgeBundleBudgets/manifest
+=== RUN   TestKnowledgeBundleBudgets/artifact
+=== RUN   TestKnowledgeBundleBudgets/bundle
+=== RUN   TestKnowledgeBundleBudgets/aggregate
+--- PASS: TestKnowledgeBundleBudgets (0.00s)
+    --- PASS: TestKnowledgeBundleBudgets/exact (0.00s)
+    --- PASS: TestKnowledgeBundleBudgets/manifest (0.00s)
+    --- PASS: TestKnowledgeBundleBudgets/artifact (0.00s)
+    --- PASS: TestKnowledgeBundleBudgets/bundle (0.00s)
+    --- PASS: TestKnowledgeBundleBudgets/aggregate (0.00s)
+=== RUN   TestKnowledgeMountedBudgets
+=== RUN   TestKnowledgeMountedBudgets/exact
+=== RUN   TestKnowledgeMountedBudgets/aggregate
+=== RUN   TestKnowledgeMountedBudgets/versions
+=== RUN   TestKnowledgeMountedBudgets/entries
+--- PASS: TestKnowledgeMountedBudgets (0.00s)
+    --- PASS: TestKnowledgeMountedBudgets/exact (0.00s)
+    --- PASS: TestKnowledgeMountedBudgets/aggregate (0.00s)
+    --- PASS: TestKnowledgeMountedBudgets/versions (0.00s)
+    --- PASS: TestKnowledgeMountedBudgets/entries (0.00s)
+=== RUN   TestKnowledgeUnsupportedSchemas
+=== RUN   TestKnowledgeUnsupportedSchemas/manifest
+=== RUN   TestKnowledgeUnsupportedSchemas/index
+--- PASS: TestKnowledgeUnsupportedSchemas (0.00s)
+    --- PASS: TestKnowledgeUnsupportedSchemas/manifest (0.00s)
+    --- PASS: TestKnowledgeUnsupportedSchemas/index (0.00s)
+=== RUN   TestKnowledgeArtifactReplacement
+--- PASS: TestKnowledgeArtifactReplacement (0.01s)
+=== RUN   TestKnowledgeMCPIsReadOnlySearchableAndCitable
+--- PASS: TestKnowledgeMCPIsReadOnlySearchableAndCitable (0.00s)
+=== RUN   TestKnowledgeMCPStreamableHTTPTransport
+--- PASS: TestKnowledgeMCPStreamableHTTPTransport (0.00s)
+=== RUN   TestCompressedKnowledgeRoundTrip
+--- PASS: TestCompressedKnowledgeRoundTrip (0.00s)
+=== RUN   TestKnowledgeCompressionThreshold
+--- PASS: TestKnowledgeCompressionThreshold (0.00s)
+=== RUN   TestRegenerationRemovesObsoleteArtifactEncoding
+--- PASS: TestRegenerationRemovesObsoleteArtifactEncoding (0.00s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/knowledge	0.108s

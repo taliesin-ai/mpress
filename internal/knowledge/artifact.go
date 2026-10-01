@@ -558,35 +558,32 @@ func Load(output string) (*Store, error) {
 }
 
 func loadSite(site *projectfs.FS) (*Store, error) {
+	return loadSiteBudget(site, newLoadBudget(defaultLoadLimits()))
+}
+
+func loadSiteBudget(site *projectfs.FS, budget *loadBudget) (*Store, error) {
 	files, err := site.Sub(Directory)
 	if err != nil {
 		return nil, err
 	}
 	defer files.Close()
-	var manifest Manifest
-	if err := readJSON(files, ManifestFile, &manifest); err != nil {
+	bundle := int64(0)
+	manifest, err := readLoadManifest(files, budget, &bundle)
+	if err != nil {
 		return nil, err
-	}
-	if manifest.Schema != 1 && manifest.Schema != Schema {
-		return nil, fmt.Errorf("knowledge schema %d is not supported", manifest.Schema)
-	}
-	for _, name := range []string{manifest.Artifacts.Pages, manifest.Artifacts.Chunks, manifest.Artifacts.Index} {
-		if err := routes.Output(name); err != nil {
-			return nil, fmt.Errorf("knowledge artifact filename %q: %w", name, err)
-		}
 	}
 	var pages []Page
 	var chunks []Chunk
 	var index Index
-	pageData, err := readArtifact(files, manifest.Artifacts.Pages)
+	pageData, err := budget.read(files, manifest.Artifacts.Pages, budget.limits.artifact, &bundle)
 	if err != nil {
 		return nil, err
 	}
-	chunkData, err := readArtifact(files, manifest.Artifacts.Chunks)
+	chunkData, err := budget.read(files, manifest.Artifacts.Chunks, budget.limits.artifact, &bundle)
 	if err != nil {
 		return nil, err
 	}
-	indexData, err := readArtifact(files, manifest.Artifacts.Index)
+	indexData, err := budget.read(files, manifest.Artifacts.Index, budget.limits.artifact, &bundle)
 	if err != nil {
 		return nil, err
 	}
@@ -599,6 +596,9 @@ func loadSite(site *projectfs.FS) (*Store, error) {
 	if err := json.Unmarshal(indexData, &index); err != nil {
 		return nil, err
 	}
+	if index.Schema != 1 {
+		return nil, fmt.Errorf("knowledge index schema %d is not supported", index.Schema)
+	}
 	digestHash := sha256.New()
 	_, _ = digestHash.Write(pageData)
 	_, _ = digestHash.Write(chunkData)
@@ -607,6 +607,26 @@ func loadSite(site *projectfs.FS) (*Store, error) {
 		return nil, errors.New("knowledge artifact digest does not match manifest")
 	}
 	return checkedStore(manifest, pages, chunks, index)
+}
+
+func readLoadManifest(files *projectfs.FS, budget *loadBudget, bundle *int64) (Manifest, error) {
+	var manifest Manifest
+	manifestData, err := budget.read(files, ManifestFile, budget.limits.manifest, bundle)
+	if err != nil {
+		return Manifest{}, err
+	}
+	if err := json.Unmarshal(manifestData, &manifest); err != nil {
+		return Manifest{}, err
+	}
+	if manifest.Schema != 1 && manifest.Schema != Schema {
+		return Manifest{}, fmt.Errorf("knowledge schema %d is not supported", manifest.Schema)
+	}
+	for _, name := range []string{manifest.Artifacts.Pages, manifest.Artifacts.Chunks, manifest.Artifacts.Index} {
+		if err := routes.Output(name); err != nil {
+			return Manifest{}, fmt.Errorf("knowledge artifact filename %q: %w", name, err)
+		}
+	}
+	return manifest, nil
 }
 
 // LoadAll loads the current artifact and any captured version artifacts mounted
@@ -625,7 +645,11 @@ func LoadAll(output string) (*Store, error) {
 // LoadAllRoot reads a bundle through an already pinned site boundary. The caller
 // retains ownership of site, allowing authoring to pin it from the project root.
 func LoadAllRoot(site *projectfs.FS) (*Store, error) {
-	current, err := loadSite(site)
+	return loadAllBudget(site, newLoadBudget(defaultLoadLimits()))
+}
+
+func loadAllBudget(site *projectfs.FS, budget *loadBudget) (*Store, error) {
+	current, err := loadSiteBudget(site, budget)
 	if err != nil {
 		return nil, err
 	}
@@ -637,7 +661,7 @@ func LoadAllRoot(site *projectfs.FS) (*Store, error) {
 		return nil, err
 	}
 	defer versions.Close()
-	entries, err := versions.ReadDir(".")
+	entries, err := boundedVersionEntries(versions, budget.limits)
 	if os.IsNotExist(err) {
 		return current, nil
 	}
@@ -650,7 +674,7 @@ func LoadAllRoot(site *projectfs.FS) (*Store, error) {
 		if !entry.IsDir() {
 			continue
 		}
-		snapshot, loadErr := loadVersionSite(versions, entry.Name())
+		snapshot, loadErr := loadVersionSite(versions, entry.Name(), budget)
 		if loadErr != nil {
 			return nil, fmt.Errorf("load knowledge version %s: %w", entry.Name(), loadErr)
 		}
@@ -689,7 +713,7 @@ func sortedVersionStore(manifest Manifest, pages []Page, chunks []Chunk) (*Store
 	return checkedStore(manifest, pages, chunks, makeIndex(chunks))
 }
 
-func loadVersionSite(versions *projectfs.FS, name string) (*Store, error) {
+func loadVersionSite(versions *projectfs.FS, name string, budget *loadBudget) (*Store, error) {
 	site, err := versions.Sub(name)
 	if os.IsNotExist(err) {
 		return nil, nil
@@ -704,7 +728,7 @@ func loadVersionSite(versions *projectfs.FS, name string) (*Store, error) {
 		}
 		return nil, err
 	}
-	return loadSite(site)
+	return loadSiteBudget(site, budget)
 }
 
 func relabelVersion(pages []Page, chunks []Chunk, version, baseURL string) ([]Page, []Chunk) {
@@ -741,12 +765,4 @@ func relabelVersion(pages []Page, chunks []Chunk, version, baseURL string) ([]Pa
 		relabelledChunks[index] = chunk
 	}
 	return relabelledPages, relabelledChunks
-}
-
-func readJSON(files *projectfs.FS, name string, target any) error {
-	data, err := files.ReadFile(name)
-	if err != nil {
-		return err
-	}
-	return json.Unmarshal(data, target)
 }

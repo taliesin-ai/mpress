@@ -1,0 +1,23 @@
+File: initial-knowledge.test
+Build ID: c94770d2644723260367a94bc35f48bae254dbc4
+Type: alloc_space
+Time: 2026-10-01 22:53:42 AEST
+Showing nodes accounting for 744.32MB, 98.63% of 754.63MB total
+Dropped 69 nodes (cum <= 3.77MB)
+Showing top 15 nodes out of 40
+      flat  flat%   sum%        cum   cum%
+  327.20MB 43.36% 43.36%   327.20MB 43.36%  reflect.growslice
+  285.14MB 37.79% 81.14%   289.14MB 38.32%  io.ReadAll
+   80.46MB 10.66% 91.81%   107.32MB 14.22%  encoding/json.(*decodeState).literalStore
+   26.87MB  3.56% 95.37%    26.87MB  3.56%  encoding/json.unquoteBytes
+   14.63MB  1.94% 97.31%    14.63MB  1.94%  github.com/leaanthony/mpress/internal/knowledge.newStore
+    6.02MB   0.8% 98.10%     6.02MB   0.8%  runtime.mallocgc
+       4MB  0.53% 98.63%        4MB  0.53%  compress/flate.(*huffmanDecoder).init
+         0     0% 98.63%        4MB  0.53%  compress/flate.(*decompressor).Read
+         0     0% 98.63%        4MB  0.53%  compress/flate.(*decompressor).nextBlock
+         0     0% 98.63%        4MB  0.53%  compress/flate.(*decompressor).readHuffman
+         0     0% 98.63%        4MB  0.53%  compress/gzip.(*Reader).Read
+         0     0% 98.63%   434.52MB 57.58%  encoding/json.(*decodeState).array
+         0     0% 98.63%   400.97MB 53.14%  encoding/json.(*decodeState).object
+         0     0% 98.63%   434.52MB 57.58%  encoding/json.(*decodeState).unmarshal
+         0     0% 98.63%   434.52MB 57.58%  encoding/json.(*decodeState).value

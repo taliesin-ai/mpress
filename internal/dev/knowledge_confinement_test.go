@@ -6,12 +6,51 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/leaanthony/mpress/internal/config"
 	"github.com/leaanthony/mpress/internal/content"
 	"github.com/leaanthony/mpress/internal/knowledge"
 )
+
+func TestAuthoringKnowledgeRejectsOversizedManifest(t *testing.T) {
+	root := authoringFixture(t)
+	server, err := NewServer(root, Options{Host: "0.0.0.0", Authoring: true, Token: "knowledge-budget"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() { _ = server.Close() })
+	server.cfg.Knowledge.Enabled = true
+	output := server.cfg.OutputPath(root)
+	fixtureKnowledge(t, output, "Current site")
+	file, err := os.OpenFile(filepath.Join(output, knowledge.Directory, knowledge.ManifestFile), os.O_WRONLY, 0600)
+	if err != nil {
+		t.Fatal(err)
+	}
+	err = file.Truncate((16 << 20) + 1)
+	closeErr := file.Close()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if closeErr != nil {
+		t.Fatal(closeErr)
+	}
+	host := httptest.NewServer(server.Handler())
+	defer host.Close()
+	response := requestJSON(t, http.MethodGet, host.URL+"/__mpress/api/knowledge", nil, "knowledge-budget")
+	defer response.Body.Close()
+	var status struct {
+		Ready bool
+		Error string
+	}
+	if err := json.NewDecoder(response.Body).Decode(&status); err != nil {
+		t.Fatal(err)
+	}
+	if status.Ready || !strings.Contains(status.Error, "knowledge resource limit exceeded") {
+		t.Fatalf("oversized manifest reached authoring: %+v", status)
+	}
+}
 
 func TestAuthoringKnowledgeRejectsExternalBundles(t *testing.T) {
 	for _, boundary := range []string{"output", "bundle", "manifest", "artifacts", "traversal", "versions", "version-bundle"} {
