@@ -18,6 +18,7 @@ import (
 	"github.com/leaanthony/mpress/internal/config"
 	"github.com/leaanthony/mpress/internal/content"
 	"github.com/leaanthony/mpress/internal/mpd"
+	"github.com/leaanthony/mpress/internal/projectfs"
 	"gopkg.in/yaml.v3"
 )
 
@@ -76,84 +77,150 @@ func (estimate *UsageEstimate) add(other UsageEstimate) {
 }
 
 func (e *Engine) Mark(language, sourceFile, status string) (FileReport, error) {
+	files, err := projectfs.Open(e.Project)
+	if err != nil {
+		return FileReport{}, err
+	}
+	defer files.Close()
+	return e.MarkRoot(files, language, sourceFile, status)
+}
+
+// MarkRoot reviews a translation through the caller's pinned project boundary.
+// The caller retains ownership of files.
+func (e *Engine) MarkRoot(files *projectfs.FS, language, sourceFile, status string) (FileReport, error) {
 	if status != "reviewed" && status != "final" {
 		return FileReport{}, errors.New("translation review status must be reviewed or final")
 	}
+	sourceFile, err := e.selectReviewFile(files, language, sourceFile)
+	if err != nil {
+		return FileReport{}, err
+	}
+	input, err := e.loadReviewFiles(files, language, sourceFile)
+	if err != nil {
+		return FileReport{}, err
+	}
+	reviewed, err := reviewSegments(input, status)
+	if err != nil {
+		return FileReport{}, err
+	}
+	input.state.Segments = reviewed
+	input.state.SourceFile = filepath.ToSlash(sourceFile)
+	input.state.PageKey = newFileState(sourceFile, e.Config.Translation.SourceLanguage, language, input.source.TranslationKey).PageKey
+	if err := saveStateRoot(files, input.stateFile, input.state); err != nil {
+		return FileReport{}, err
+	}
+	if input.loadedState != input.stateFile {
+		if err := files.Remove(input.loadedState); err != nil {
+			return FileReport{}, err
+		}
+	}
+	return FileReport{SourceFile: sourceFile, TargetFile: filepath.ToSlash(filepath.Join(language, sourceFile)), TargetLanguage: language, Segments: len(input.source.Segments), States: map[string]int{status: len(input.source.Segments)}}, nil
+}
+
+type reviewFiles struct {
+	source, target         *Document
+	state                  *FileState
+	stateFile, loadedState string
+}
+
+func (e *Engine) selectReviewFile(files *projectfs.FS, language, sourceFile string) (string, error) {
 	languages, err := e.targetLanguages(language)
 	if err != nil {
-		return FileReport{}, err
+		return "", err
 	}
 	if len(languages) != 1 {
-		return FileReport{}, errors.New("one target language is required")
+		return "", errors.New("one target language is required")
 	}
-	files, err := e.sourceFiles(sourceFile)
+	selected, err := e.sourceFilesWithRoot(files, sourceFile)
 	if err != nil {
-		return FileReport{}, err
+		return "", err
 	}
-	if len(files) != 1 {
-		return FileReport{}, errors.New("one source page is required")
+	if len(selected) != 1 {
+		return "", errors.New("one source page is required")
 	}
-	sourceFile = files[0]
+	return selected[0], nil
+
+}
+
+func (e *Engine) loadReviewFiles(files *projectfs.FS, language, sourceFile string) (*reviewFiles, error) {
 	contentDir := e.Config.ContentPath(e.Project)
-	sourceBytes, err := os.ReadFile(filepath.Join(contentDir, filepath.FromSlash(sourceFile)))
+	sourceBytes, err := files.ReadFile(filepath.Join(contentDir, filepath.FromSlash(sourceFile)))
 	if err != nil {
-		return FileReport{}, err
+		return nil, err
 	}
 	sourceDoc, err := extractFile(sourceFile, e.Config.Build.NavFile, sourceBytes)
 	if err != nil {
-		return FileReport{}, err
+		return nil, err
 	}
+
+	state, stateFile, statePathToLoad, err := e.readReviewState(files, language, sourceFile, sourceDoc)
+	if err != nil {
+		return nil, err
+	}
+	targetBytes, err := files.ReadFile(filepath.Join(contentDir, filepath.FromSlash(language), filepath.FromSlash(sourceFile)))
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, errors.New("translate the page before marking its review state")
+		}
+		return nil, fmt.Errorf("read translation target: %w", err)
+	}
+	targetDoc, err := extractTargetFile(sourceFile, e.Config.Build.NavFile, sourceBytes, targetBytes)
+	if err != nil {
+		return nil, err
+	}
+	if err := checkStateExtractor(state, sourceFile); err != nil {
+		return nil, err
+	}
+	if err := validateFile(sourceFile, e.Config.Build.NavFile, sourceDoc, targetBytes); err != nil {
+		return nil, err
+	}
+
+	return &reviewFiles{source: sourceDoc, target: targetDoc, state: state, stateFile: stateFile, loadedState: statePathToLoad}, nil
+}
+
+func (e *Engine) readReviewState(files *projectfs.FS, language, sourceFile string, sourceDoc *Document) (*FileState, string, string, error) {
 	stateFile, err := statePath(e.Project, e.Config.Translation.StateDir, language, sourceFile)
 	if err != nil {
-		return FileReport{}, err
+		return nil, "", "", err
 	}
 	statePathToLoad := stateFile
 	if sourceDoc.TranslationKey != "" {
-		if found, findErr := findStateByPageKey(filepath.Join(e.Project, filepath.FromSlash(e.Config.Translation.StateDir), language), sourceDoc.TranslationKey); findErr != nil {
-			return FileReport{}, findErr
+		if found, findErr := findStateByPageKeyRoot(files, filepath.Join(e.Project, filepath.FromSlash(e.Config.Translation.StateDir), language), sourceDoc.TranslationKey); findErr != nil {
+			return nil, "", "", findErr
 		} else if found != "" {
 			statePathToLoad = found
 		}
 	}
-	state, err := loadState(statePathToLoad, sourceFile, e.Config.Translation.SourceLanguage, language, sourceDoc.TranslationKey)
+	state, err := loadStateRoot(files, statePathToLoad, sourceFile, e.Config.Translation.SourceLanguage, language, sourceDoc.TranslationKey)
 	if err != nil {
-		return FileReport{}, err
+		return nil, "", "", err
 	}
-	targetBytes, err := os.ReadFile(filepath.Join(contentDir, filepath.FromSlash(language), filepath.FromSlash(sourceFile)))
-	if err != nil {
-		return FileReport{}, errors.New("translate the page before marking its review state")
-	}
-	targetDoc, err := extractTargetFile(sourceFile, e.Config.Build.NavFile, sourceBytes, targetBytes)
-	if err != nil {
-		return FileReport{}, err
-	}
-	if err := checkStateExtractor(state, sourceFile); err != nil {
-		return FileReport{}, err
-	}
-	if err := validateFile(sourceFile, e.Config.Build.NavFile, sourceDoc, targetBytes); err != nil {
-		return FileReport{}, err
-	}
+
+	return state, stateFile, statePathToLoad, nil
+}
+
+func reviewSegments(input *reviewFiles, status string) (map[string]SegmentState, error) {
 	targetByID := map[string]Segment{}
-	for _, segment := range targetDoc.Segments {
+	for _, segment := range input.target.Segments {
 		targetByID[segment.ID] = segment
 	}
-	matches := matchSegments(sourceDoc.Segments, state.Segments)
-	layout := inferTargetLayout(matches, state.Segments, targetByID)
-	reviewed := make(map[string]SegmentState, len(sourceDoc.Segments))
-	report := FileReport{SourceFile: sourceFile, TargetFile: filepath.ToSlash(filepath.Join(language, sourceFile)), TargetLanguage: language, Segments: len(sourceDoc.Segments), States: map[string]int{status: len(sourceDoc.Segments)}}
-	for _, segment := range sourceDoc.Segments {
+	matches := matchSegments(input.source.Segments, input.state.Segments)
+	layout := inferTargetLayout(matches, input.state.Segments, targetByID)
+	reviewed := make(map[string]SegmentState, len(input.source.Segments))
+
+	for _, segment := range input.source.Segments {
 		oldID := matches[segment.ID]
-		old, ok := state.Segments[oldID]
+		old, ok := input.state.Segments[oldID]
 		target, err := reusableTarget(segment.ID, oldID, old, targetByID, layout)
 		if err != nil {
-			return FileReport{}, err
+			return nil, err
 		}
 		targetText := target.Original
 		if !ok || targetText == "" {
-			return FileReport{}, fmt.Errorf("segment %s has not been translated", segment.ID)
+			return nil, fmt.Errorf("segment %s has not been translated", segment.ID)
 		}
 		if old.SourceHash != segment.SourceHash {
-			return FileReport{}, fmt.Errorf("segment %s is stale and cannot be marked %s", segment.ID, status)
+			return nil, fmt.Errorf("segment %s is stale and cannot be marked %s", segment.ID, status)
 		}
 		old.Status = status
 		old.TargetHash = Hash(targetText)
@@ -161,16 +228,8 @@ func (e *Engine) Mark(language, sourceFile, status string) (FileReport, error) {
 		old.UpdatedAt = nowString()
 		reviewed[segment.ID] = old
 	}
-	state.Segments = reviewed
-	state.SourceFile = filepath.ToSlash(sourceFile)
-	state.PageKey = newFileState(sourceFile, e.Config.Translation.SourceLanguage, language, sourceDoc.TranslationKey).PageKey
-	if err := saveState(stateFile, state); err != nil {
-		return FileReport{}, err
-	}
-	if statePathToLoad != stateFile {
-		_ = os.Remove(statePathToLoad)
-	}
-	return report, nil
+
+	return reviewed, nil
 }
 
 type Engine struct {
@@ -390,15 +449,29 @@ func (e *Engine) targetLanguages(requested string) ([]string, error) {
 }
 
 func (e *Engine) sourceFiles(requested string) ([]string, error) {
-	discovered, err := content.Discover(e.Config.ContentPath(e.Project), e.Config.Site.Languages, e.Config.Site.DefaultLanguage)
+	files, err := projectfs.Open(e.Project)
 	if err != nil {
 		return nil, err
 	}
-	files := discovered[e.Config.Site.DefaultLanguage]
-	navFile := filepath.ToSlash(e.Config.Build.NavFile)
-	if _, statErr := os.Stat(filepath.Join(e.Config.ContentPath(e.Project), filepath.FromSlash(navFile))); statErr == nil {
-		files = append(files, navFile)
+	defer files.Close()
+	return e.sourceFilesWithRoot(files, requested)
+}
+
+func (e *Engine) sourceFilesWithRoot(files *projectfs.FS, requested string) ([]string, error) {
+	discovered, err := content.DiscoverRoot(files, e.Config.ContentPath(e.Project), e.Config.Site.Languages, e.Config.Site.DefaultLanguage)
+	if err != nil {
+		return nil, err
 	}
+	navFile := filepath.ToSlash(e.Config.Build.NavFile)
+	if _, err := files.Stat(filepath.Join(e.Config.ContentPath(e.Project), filepath.FromSlash(navFile))); err == nil {
+		discovered[e.Config.Site.DefaultLanguage] = append(discovered[e.Config.Site.DefaultLanguage], navFile)
+	} else if !os.IsNotExist(err) {
+		return nil, err
+	}
+	return e.selectSourceFiles(discovered[e.Config.Site.DefaultLanguage], requested)
+}
+
+func (e *Engine) selectSourceFiles(files []string, requested string) ([]string, error) {
 	if requested == "" {
 		sort.Strings(files)
 		return files, nil

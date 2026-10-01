@@ -4,10 +4,13 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/leaanthony/mpress/internal/projectfs"
 )
 
 const stateSchemaVersion = 2
@@ -60,6 +63,16 @@ func newFileState(sourceFile, sourceLanguage, targetLanguage, pageKey string) *F
 
 func loadState(path, sourceFile, sourceLanguage, targetLanguage, pageKey string) (*FileState, error) {
 	data, err := os.ReadFile(path)
+
+	return decodeState(path, data, err, sourceFile, sourceLanguage, targetLanguage, pageKey)
+}
+
+func loadStateRoot(files *projectfs.FS, path, sourceFile, sourceLanguage, targetLanguage, pageKey string) (*FileState, error) {
+	data, err := files.ReadFile(path)
+	return decodeState(path, data, err, sourceFile, sourceLanguage, targetLanguage, pageKey)
+}
+
+func decodeState(path string, data []byte, err error, sourceFile, sourceLanguage, targetLanguage, pageKey string) (*FileState, error) {
 	if errors.Is(err, os.ErrNotExist) {
 		return newFileState(sourceFile, sourceLanguage, targetLanguage, pageKey), nil
 	}
@@ -150,12 +163,30 @@ func saveState(path string, state *FileState) error {
 	return os.Rename(tmpName, path)
 }
 
+func saveStateRoot(files *projectfs.FS, path string, state *FileState) error {
+	state.SchemaVersion = stateSchemaVersion
+	data, err := json.MarshalIndent(state, "", "  ")
+	if err != nil {
+		return err
+	}
+	return files.WriteAtomic(path, append(data, '\n'))
+}
+
+func findStateByPageKeyRoot(files *projectfs.FS, root, pageKey string) (string, error) {
+	return findStateWithIO(root, pageKey, files.WalkDir, files.ReadFile)
+}
+
 func findStateByPageKey(root, pageKey string) (string, error) {
+	return findStateWithIO(root, pageKey, filepath.WalkDir, os.ReadFile)
+}
+
+func findStateWithIO(root, pageKey string, walk func(string, fs.WalkDirFunc) error, read func(string) ([]byte, error)) (string, error) {
+
 	if pageKey == "" {
 		return "", nil
 	}
 	var match string
-	err := filepath.WalkDir(root, func(path string, entry os.DirEntry, err error) error {
+	err := walk(root, func(path string, entry os.DirEntry, err error) error {
 		if errors.Is(err, os.ErrNotExist) {
 			return nil
 		}
@@ -165,7 +196,7 @@ func findStateByPageKey(root, pageKey string) (string, error) {
 		if entry.IsDir() || strings.ToLower(filepath.Ext(path)) != ".json" {
 			return nil
 		}
-		data, readErr := os.ReadFile(path)
+		data, readErr := read(path)
 		if readErr != nil {
 			return readErr
 		}

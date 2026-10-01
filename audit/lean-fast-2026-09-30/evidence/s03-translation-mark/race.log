@@ -1,0 +1,29 @@
+?   	github.com/leaanthony/mpress/cmd/mpd-corpus	[no test files]
+?   	github.com/leaanthony/mpress/cmd/mpd-fixtures	[no test files]
+ok  	github.com/leaanthony/mpress/cmd/mpress	7.506s
+?   	github.com/leaanthony/mpress/devserver	[no test files]
+ok  	github.com/leaanthony/mpress/internal/check	(cached)
+ok  	github.com/leaanthony/mpress/internal/components	(cached)
+ok  	github.com/leaanthony/mpress/internal/config	(cached)
+ok  	github.com/leaanthony/mpress/internal/content	8.671s
+ok  	github.com/leaanthony/mpress/internal/contribute	1.676s
+ok  	github.com/leaanthony/mpress/internal/deploy	(cached)
+ok  	github.com/leaanthony/mpress/internal/dev	11.079s
+ok  	github.com/leaanthony/mpress/internal/exportzip	2.693s
+ok  	github.com/leaanthony/mpress/internal/highlight	(cached)
+ok  	github.com/leaanthony/mpress/internal/icons	(cached)
+ok  	github.com/leaanthony/mpress/internal/importer	2.144s
+ok  	github.com/leaanthony/mpress/internal/knowledge	1.885s
+ok  	github.com/leaanthony/mpress/internal/lighthouse	(cached)
+ok  	github.com/leaanthony/mpress/internal/mpd	1.927s
+ok  	github.com/leaanthony/mpress/internal/mpdconformance	2.149s
+ok  	github.com/leaanthony/mpress/internal/mpdcorpus	(cached)
+?   	github.com/leaanthony/mpress/internal/navigation	[no test files]
+ok  	github.com/leaanthony/mpress/internal/operations	2.002s
+ok  	github.com/leaanthony/mpress/internal/projectconvert	1.708s
+ok  	github.com/leaanthony/mpress/internal/projectfs	(cached)
+ok  	github.com/leaanthony/mpress/internal/quickedit	1.737s
+?   	github.com/leaanthony/mpress/internal/routes	[no test files]
+ok  	github.com/leaanthony/mpress/internal/site	10.277s
+ok  	github.com/leaanthony/mpress/internal/translate	10.779s
+ok  	github.com/leaanthony/mpress/internal/version	(cached)

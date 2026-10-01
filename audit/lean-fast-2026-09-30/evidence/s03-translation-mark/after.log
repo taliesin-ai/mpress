@@ -1,0 +1,34 @@
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/source
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/target
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/state-file
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/state-parent
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/state-discovery
+--- PASS: TestAuthoringTranslationReviewRejectsExternalFiles (0.08s)
+    --- PASS: TestAuthoringTranslationReviewRejectsExternalFiles/source (0.01s)
+    --- PASS: TestAuthoringTranslationReviewRejectsExternalFiles/target (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRejectsExternalFiles/state-file (0.01s)
+    --- PASS: TestAuthoringTranslationReviewRejectsExternalFiles/state-parent (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRejectsExternalFiles/state-discovery (0.02s)
+=== RUN   TestAuthoringTranslationReviewRetainsInternalStateAliases
+=== RUN   TestAuthoringTranslationReviewRetainsInternalStateAliases/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalStateAliases/absolute
+--- PASS: TestAuthoringTranslationReviewRetainsInternalStateAliases (0.03s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalStateAliases/relative (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalStateAliases/absolute (0.02s)
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/source/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/source/absolute
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/target/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/target/absolute
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/absolute
+--- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases (0.10s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/source/relative (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/source/absolute (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/target/relative (0.01s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/target/absolute (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/relative (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/absolute (0.02s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/dev	0.272s

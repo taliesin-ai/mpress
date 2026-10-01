@@ -492,7 +492,7 @@ func (s *Server) handleTranslations(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		if input.Action == "mark" {
-			report, markErr := translate.NewEngine(s.project, s.cfg, nil).Mark(input.Language, input.File, input.Status)
+			report, markErr := translate.NewEngine(s.project, s.cfg, nil).MarkRoot(s.files, input.Language, input.File, input.Status)
 			if markErr != nil {
 				writeAPIError(w, http.StatusBadRequest, markErr)
 				return

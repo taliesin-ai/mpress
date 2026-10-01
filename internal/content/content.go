@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	stdhtml "html"
+	"io/fs"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -16,6 +17,7 @@ import (
 	legacycomponents "github.com/leaanthony/mpress/internal/components"
 	"github.com/leaanthony/mpress/internal/highlight"
 	"github.com/leaanthony/mpress/internal/icons"
+	"github.com/leaanthony/mpress/internal/projectfs"
 	"github.com/leaanthony/mpress/internal/routes"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
@@ -692,12 +694,21 @@ func splitFrontmatter(source string) (Frontmatter, string, error) {
 }
 
 func Discover(contentDir string, languages []string, defaultLanguage string) (map[string][]string, error) {
+	return discoverWithWalk(contentDir, languages, defaultLanguage, filepath.WalkDir)
+}
+
+// DiscoverRoot enumerates logical content paths through a borrowed project root.
+func DiscoverRoot(files *projectfs.FS, contentDir string, languages []string, defaultLanguage string) (map[string][]string, error) {
+	return discoverWithWalk(contentDir, languages, defaultLanguage, files.WalkDir)
+}
+
+func discoverWithWalk(contentDir string, languages []string, defaultLanguage string, walk func(string, fs.WalkDirFunc) error) (map[string][]string, error) {
 	result := make(map[string][]string, len(languages))
 	langSet := map[string]bool{}
 	for _, l := range languages {
 		langSet[l] = true
 	}
-	err := filepath.WalkDir(contentDir, func(path string, entry os.DirEntry, err error) error {
+	err := walk(contentDir, func(path string, entry os.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
