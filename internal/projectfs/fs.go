@@ -8,6 +8,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 var ErrOutside = errors.New("path leaves the project")
@@ -103,6 +104,29 @@ func (f *FS) MkdirAll(name string, mode fs.FileMode) error {
 		return err
 	}
 	return f.root.MkdirAll(rel, mode)
+}
+
+// MkdirTemp exclusively allocates a private directory through the project root.
+func (f *FS) MkdirTemp(parent, prefix string) (string, error) {
+	if strings.ContainsAny(prefix, `/\`) {
+		return "", errors.New("temporary directory prefix must not contain a separator")
+	}
+	rel, err := f.Relative(parent)
+	if err != nil {
+		return "", err
+	}
+	if err := f.root.MkdirAll(rel, 0755); err != nil {
+		return "", err
+	}
+	for range 100 {
+		name := filepath.Join(rel, prefix+rand.Text())
+		if err := f.root.Mkdir(name, 0700); err == nil {
+			return filepath.Join(f.project, name), nil
+		} else if !errors.Is(err, os.ErrExist) {
+			return "", err
+		}
+	}
+	return "", errors.New("cannot allocate a unique project temporary directory")
 }
 
 // WalkDir enumerates through the pinned project root, retaining logical names.

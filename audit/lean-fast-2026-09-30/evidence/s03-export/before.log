@@ -1,0 +1,5 @@
+--- FAIL: TestAuthoringExportDoesNotCreateExternalWorkspace (0.01s)
+    export_confinement_test.go:40: export created/removed a workspace outside the project before rejecting it
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.070s
+FAIL

@@ -1,0 +1,9 @@
+{
+  "baselineFailures": 4,
+  "candidateFailures": 4,
+  "sameFailingTests": true,
+  "sameAssertionMessages": true,
+  "fixtureCommit": "58f54a3",
+  "normalization": "Temporary directories/local HTTP ports; assertion line numbers ignored",
+  "rawLogs": "Outside public repository"
+}

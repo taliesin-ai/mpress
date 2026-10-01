@@ -1,0 +1,8 @@
+{
+  "baseline": "2e59a14 production source",
+  "beforeEntries": 2165,
+  "afterEntries": 2165,
+  "identicalEntryContent": true,
+  "changedEntries": [],
+  "comparison": "Per-entry uncompressed SHA256; ZIP filesystem timestamps are intentionally excluded."
+}

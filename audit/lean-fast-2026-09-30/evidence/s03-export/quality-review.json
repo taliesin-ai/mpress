@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "baseline": "git-HEAD",
+    "regressions": "7",
+    "minor": "1",
+    "acked": "0",
+    "stale": "0",
+    "preexisting-worse": "2",
+    "new-symbol": "5",
+    "gating": "1",
+    "register-macro-excluded": "0",
+    "at": "2e59a14c1+dirty",
+    "renames": "0",
+    "rename_window_commits": "40",
+    "acked_by_rename": "0",
+    "acked_by_content": "0"
+  },
+  "review": "The only major heuristic regression is an alias/sentinel fixture clone with the existing site output-link test. They exercise distinct packages and observable contracts; sharing them through production code would add coupling. New allocator concurrency test complexity is explicit filesystem/error/uniqueness verification. Create grows by one logical line. No blanket acknowledgements or zero-debt claim."
+}
