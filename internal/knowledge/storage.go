@@ -3,6 +3,7 @@ package knowledge
 import (
 	"bytes"
 	"compress/gzip"
+	"github.com/leaanthony/mpress/internal/projectfs"
 	"io"
 	"os"
 	"path/filepath"
@@ -40,11 +41,11 @@ func encodeArtifacts(pages, chunks, index []byte, threshold int) (map[string][]b
 	return files, artifacts, schema, nil
 }
 
-func readArtifact(path string) ([]byte, error) {
+func readArtifact(files *projectfs.FS, path string) ([]byte, error) {
 	if !strings.HasSuffix(path, ".gz") {
-		return os.ReadFile(path)
+		return files.ReadFile(path)
 	}
-	file, err := os.Open(path)
+	file, err := files.Open(path)
 	if err != nil {
 		return nil, err
 	}

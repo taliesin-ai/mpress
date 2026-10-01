@@ -1,0 +1,52 @@
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/output
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/bundle
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/manifest
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/artifacts
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/traversal
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/versions
+=== RUN   TestAuthoringKnowledgeRejectsExternalBundles/version-bundle
+--- PASS: TestAuthoringKnowledgeRejectsExternalBundles (0.52s)
+    --- PASS: TestAuthoringKnowledgeRejectsExternalBundles/output (0.09s)
+    --- PASS: TestAuthoringKnowledgeRejectsExternalBundles/bundle (0.07s)
+    --- PASS: TestAuthoringKnowledgeRejectsExternalBundles/manifest (0.06s)
+    --- PASS: TestAuthoringKnowledgeRejectsExternalBundles/artifacts (0.09s)
+    --- PASS: TestAuthoringKnowledgeRejectsExternalBundles/traversal (0.07s)
+    --- PASS: TestAuthoringKnowledgeRejectsExternalBundles/versions (0.07s)
+    --- PASS: TestAuthoringKnowledgeRejectsExternalBundles/version-bundle (0.07s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/dev	2.246s
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/traversal
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/noncanonical
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/absolute
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/volume
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/backslash
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/repeated-slash
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/empty
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/device
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/trailing-dot
+=== RUN   TestKnowledgeRejectsNonportableArtifactNames/trailing-space
+--- PASS: TestKnowledgeRejectsNonportableArtifactNames (0.01s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/traversal (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/noncanonical (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/absolute (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/volume (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/backslash (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/repeated-slash (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/empty (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/device (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/trailing-dot (0.00s)
+    --- PASS: TestKnowledgeRejectsNonportableArtifactNames/trailing-space (0.00s)
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases/relative
+=== RUN   TestKnowledgeRetainsInternalArtifactAliases/absolute
+--- PASS: TestKnowledgeRetainsInternalArtifactAliases (0.00s)
+    --- PASS: TestKnowledgeRetainsInternalArtifactAliases/relative (0.00s)
+    --- PASS: TestKnowledgeRetainsInternalArtifactAliases/absolute (0.00s)
+=== RUN   TestKnowledgeRejectsArtifactsOutsideBundleWithinSite
+--- PASS: TestKnowledgeRejectsArtifactsOutsideBundleWithinSite (0.00s)
+=== RUN   TestKnowledgeMountedMissingArtifactsRemainFatal
+--- PASS: TestKnowledgeMountedMissingArtifactsRemainFatal (0.00s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/knowledge	1.680s

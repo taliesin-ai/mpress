@@ -288,7 +288,7 @@ func (s *Server) handleKnowledge(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, map[string]any{"enabled": false, "ready": false})
 		return
 	}
-	store, err := knowledge.LoadAll(s.cfg.OutputPath(s.project))
+	store, err := s.loadKnowledge()
 	if err != nil {
 		writeJSON(w, http.StatusOK, map[string]any{"enabled": true, "ready": false, "error": err.Error()})
 		return
@@ -307,6 +307,15 @@ func (s *Server) handleKnowledge(w http.ResponseWriter, r *http.Request) {
 		"digest": store.Manifest.Digest, "pages": len(store.Pages), "sections": len(store.Chunks),
 		"languages": store.Manifest.Languages, "versions": len(versions), "query": query, "results": results,
 	})
+}
+
+func (s *Server) loadKnowledge() (*knowledge.Store, error) {
+	site, err := s.files.Sub(s.cfg.OutputPath(s.project))
+	if err != nil {
+		return nil, err
+	}
+	defer site.Close()
+	return knowledge.LoadAllRoot(site)
 }
 
 func (s *Server) handleTranslations(w http.ResponseWriter, r *http.Request) {

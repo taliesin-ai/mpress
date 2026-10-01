@@ -1,0 +1,5 @@
+{
+  "nativeExecution": "Linux amd64",
+  "knowledgeTestsCompiledOnly": ["windows/amd64", "darwin/arm64"],
+  "nativeWindowsOrMacOS": "Not qualified"
+}

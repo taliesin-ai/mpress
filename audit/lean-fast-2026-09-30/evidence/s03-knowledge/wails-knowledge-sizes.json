@@ -1,0 +1,18 @@
+{
+  "chunks.json.gz": {
+    "storedBytes": 6476477,
+    "decodedBytes": 30706717
+  },
+  "pages.json": {
+    "storedBytes": 17514378,
+    "decodedBytes": 17514378
+  },
+  "manifest.json": {
+    "storedBytes": 990633,
+    "decodedBytes": 990633
+  },
+  "index.json.gz": {
+    "storedBytes": 21776080,
+    "decodedBytes": 84669816
+  }
+}
