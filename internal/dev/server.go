@@ -504,7 +504,11 @@ func (s *Server) handleTranslations(w http.ResponseWriter, r *http.Request) {
 			capabilities := translate.DetectModelCapabilities(s.cfg)
 			draft, _ := translate.SelectBestTranslationModel(translate.ModelSelectionRequest{Task: translate.TaskDraft, TargetLanguage: input.Language, Capabilities: capabilities})
 			auditSelection, hasAudit := translate.SelectBestTranslationModel(translate.ModelSelectionRequest{Task: translate.TaskAudit, TargetLanguage: input.Language, PreviousProvider: draft.Provider, Capabilities: capabilities})
-			engine := translate.NewEngine(s.project, s.cfg, nil)
+			engine, rootErr := translate.NewEngine(s.project, s.cfg, nil).BorrowRoot(s.files)
+			if rootErr != nil {
+				writeAPIError(w, http.StatusBadRequest, rootErr)
+				return
+			}
 			var report translate.AuditReport
 			var auditErr error
 			if hasAudit {

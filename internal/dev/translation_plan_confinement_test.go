@@ -15,25 +15,7 @@ func TestAuthoringTranslationPlanRejectsExternalFiles(t *testing.T) {
 	for _, boundary := range []string{"source", "target", "state-file", "state-parent", "state-discovery", "style-guide", "glossary"} {
 		t.Run(boundary, func(t *testing.T) {
 			server := translationReviewFixture(t)
-			var sentinel string
-			var original []byte
-			if boundary == "style-guide" || boundary == "glossary" {
-				name, data := "style.txt", "Use the configured writing style.\n"
-				if boundary == "glossary" {
-					name, data = "glossary.yaml", "terms:\n  - source: compiler\n    translations:\n      fr: compilateur\n"
-					server.cfg.Translation.Glossary = name
-				} else {
-					server.cfg.Translation.StyleGuide = name
-				}
-				sentinel = filepath.Join(t.TempDir(), name)
-				original = []byte(data)
-				if err := os.WriteFile(sentinel, original, 0600); err != nil {
-					t.Fatal(err)
-				}
-				devSymlink(t, sentinel, filepath.Join(server.project, name))
-			} else {
-				sentinel, original = installTranslationReviewBoundary(t, server, boundary)
-			}
+			sentinel, original := installTranslationInputBoundary(t, server, boundary)
 			host := httptest.NewServer(server.Handler())
 			defer host.Close()
 			response := requestJSON(t, http.MethodGet, host.URL+"/__mpress/api/translations?lang=fr&file=index.md", nil, "translation-boundary")
@@ -76,44 +58,50 @@ func TestTranslationRunRejectsParentsRearrangedDuringProvider(t *testing.T) {
 	for _, boundary := range []string{"target", "state-file"} {
 		t.Run(boundary, func(t *testing.T) {
 			server := translationReviewFixture(t)
-			path := translationReviewPath(server, boundary)
-			parent := filepath.Dir(path)
-			outside := t.TempDir()
-			sentinel := filepath.Join(outside, filepath.Base(path))
-			if err := os.WriteFile(sentinel, []byte("outside must survive"), 0600); err != nil {
-				t.Fatal(err)
-			}
-			// Probe native support before the worker callback; later fixture
-			// creation failures are returned and must fail this case.
-			probe := filepath.Join(outside, "probe")
-			devSymlink(t, "missing", probe)
-			if err := os.Remove(probe); err != nil {
-				t.Fatal(err)
-			}
-			provider := &rearrangingBoundaryProvider{hook: func() error {
-				if err := os.Rename(parent, parent+".owned"); err != nil {
-					return err
-				}
-				return os.Symlink(outside, parent)
-			}}
+			provider, sentinel := translationParentSwap(t, server, boundary)
 			_, err := translate.NewEngine(server.project, server.cfg, provider).RunRoot(context.Background(), server.files, translate.Options{Language: "fr", File: "index.md", Scope: "all", Force: true})
 			if err == nil || provider.calls != 1 {
 				t.Errorf("provider rearrangement escaped boundary: calls=%d error=%v", provider.calls, err)
 			}
-			assertDevFileUnchanged(t, outside, filepath.Base(sentinel), "outside must survive")
+			assertDevFileUnchanged(t, filepath.Dir(sentinel), filepath.Base(sentinel), "outside must survive")
 		})
 	}
 }
 
 func TestTranslationRunRejectsExternalFilesBeforeProvider(t *testing.T) {
-	for _, boundary := range []string{"source", "target", "state-file", "state-parent", "state-discovery"} {
+	testTranslationInputBoundaries(t, []string{"source", "target", "state-file", "state-parent", "state-discovery"}, "run")
+}
+
+func testTranslationInputBoundaries(t *testing.T, boundaries []string, operation string) {
+	t.Helper()
+	for _, boundary := range boundaries {
 		t.Run(boundary, func(t *testing.T) {
 			server := translationReviewFixture(t)
-			sentinel, original := installTranslationReviewBoundary(t, server, boundary)
+			var findings []translate.AuditFinding
+			if operation == "refine" {
+				findings = refinementBoundaryFinding(t, server)
+			}
+			sentinel, original := installTranslationInputBoundary(t, server, boundary)
 			provider := &countedBoundaryProvider{}
-			_, err := translate.NewEngine(server.project, server.cfg, provider).RunRoot(context.Background(), server.files, translate.Options{Language: "fr", File: "index.md", Scope: "all", Force: true})
-			if err == nil || provider.calls != 0 {
-				t.Errorf("unsafe run reached provider: calls=%d error=%v", provider.calls, err)
+			reviewer := &boundaryAuditReviewer{}
+			engine := translate.NewEngine(server.project, server.cfg, provider)
+			var err error
+			var calls int
+			switch operation {
+			case "run":
+				_, err = engine.RunRoot(context.Background(), server.files, translate.Options{Language: "fr", File: "index.md", Scope: "all", Force: true})
+				calls = provider.calls
+			case "audit":
+				_, err = engine.AuditWithReviewer(context.Background(), "fr", "index.md", reviewer)
+				calls = reviewer.calls
+			case "refine":
+				_, err = engine.RefineWithProvider(context.Background(), "fr", "index.md", findings, provider)
+				calls = provider.calls
+			default:
+				t.Fatalf("unknown boundary operation %q", operation)
+			}
+			if err == nil || calls != 0 {
+				t.Errorf("unsafe %s reached provider: calls=%d error=%v", operation, calls, err)
 			}
 			assertDevFileUnchanged(t, filepath.Dir(sentinel), filepath.Base(sentinel), string(original))
 		})
@@ -146,4 +134,51 @@ func TestTranslationRunRetainsInternalAliases(t *testing.T) {
 			assertReviewedTranslationState(t, translationReviewPath(server, "state-file"))
 		})
 	}
+}
+
+func translationParentSwap(t *testing.T, server *Server, boundary string) (*rearrangingBoundaryProvider, string) {
+	t.Helper()
+	path := translationReviewPath(server, boundary)
+	parent := filepath.Dir(path)
+	outside := t.TempDir()
+	sentinel := filepath.Join(outside, filepath.Base(path))
+	if err := os.WriteFile(sentinel, []byte("outside must survive"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	// Probe native support before the worker callback; later fixture
+	// creation failures are returned and must fail this case.
+	probe := filepath.Join(outside, "probe")
+	devSymlink(t, "missing", probe)
+	if err := os.Remove(probe); err != nil {
+		t.Fatal(err)
+	}
+	provider := &rearrangingBoundaryProvider{hook: func() error {
+		if err := os.Rename(parent, parent+".owned"); err != nil {
+			return err
+		}
+		return os.Symlink(outside, parent)
+	}}
+	return provider, sentinel
+}
+
+type boundaryAuditReviewer struct{ calls int }
+
+func (r *boundaryAuditReviewer) Review(_ context.Context, request translate.AuditRequest) ([]translate.AuditFinding, error) {
+	r.calls++
+	return nil, nil
+}
+
+func refinementBoundaryFinding(t *testing.T, server *Server) []translate.AuditFinding {
+	t.Helper()
+	document, err := translate.ExtractMarkdown(readTranslationFixture(t, translationReviewPath(server, "source")))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, segment := range document.Segments {
+		if !segment.Protected && segment.Kind != "frontmatter" {
+			return []translate.AuditFinding{{Severity: "warning", File: "index.md", Segment: segment.ID, Message: "Improve grammar"}}
+		}
+	}
+	t.Fatal("fixture has no refinable segment")
+	return nil
 }

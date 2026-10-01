@@ -1,0 +1,57 @@
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles/source
+    translation_audit_confinement_test.go:34: translation audit read external source: HTTP 200
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles/target
+    translation_audit_confinement_test.go:34: translation audit read external target: HTTP 200
+=== RUN   TestAuthoringTranslationAuditRejectsExternalFiles/glossary
+    translation_audit_confinement_test.go:34: translation audit read external glossary: HTTP 200
+--- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles (0.04s)
+    --- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles/source (0.02s)
+    --- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles/target (0.01s)
+    --- FAIL: TestAuthoringTranslationAuditRejectsExternalFiles/glossary (0.01s)
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/source
+    translation_audit_confinement_test.go:76: unsafe audit reached reviewer: calls=1 error=<nil>
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/target
+    translation_audit_confinement_test.go:76: unsafe audit reached reviewer: calls=1 error=<nil>
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/style-guide
+    translation_audit_confinement_test.go:76: unsafe audit reached reviewer: calls=1 error=<nil>
+=== RUN   TestTranslationAuditRejectsExternalFilesBeforeReviewer/glossary
+    translation_audit_confinement_test.go:76: unsafe audit reached reviewer: calls=1 error=<nil>
+--- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer (0.05s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/source (0.01s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/target (0.01s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/style-guide (0.01s)
+    --- FAIL: TestTranslationAuditRejectsExternalFilesBeforeReviewer/glossary (0.02s)
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/source
+    translation_audit_confinement_test.go:107: unsafe refinement reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/target
+    translation_audit_confinement_test.go:107: unsafe refinement reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-file
+    translation_audit_confinement_test.go:107: unsafe refinement reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-parent
+    translation_audit_confinement_test.go:107: unsafe refinement reached provider: calls=1 error=<nil>
+    translation_audit_confinement_test.go:109: sentinel index.json changed (1889 bytes, error <nil>)
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/style-guide
+    translation_audit_confinement_test.go:107: unsafe refinement reached provider: calls=1 error=<nil>
+=== RUN   TestTranslationRefinementRejectsExternalFilesBeforeProvider/glossary
+    translation_audit_confinement_test.go:107: unsafe refinement reached provider: calls=1 error=<nil>
+--- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider (0.09s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/source (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/target (0.01s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-file (0.01s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/state-parent (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/style-guide (0.02s)
+    --- FAIL: TestTranslationRefinementRejectsExternalFilesBeforeProvider/glossary (0.02s)
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases/source
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases/target
+=== RUN   TestTranslationAuditRefinementRetainInternalAliases/state-parent
+--- PASS: TestTranslationAuditRefinementRetainInternalAliases (0.05s)
+    --- PASS: TestTranslationAuditRefinementRetainInternalAliases/source (0.02s)
+    --- PASS: TestTranslationAuditRefinementRetainInternalAliases/target (0.02s)
+    --- PASS: TestTranslationAuditRefinementRetainInternalAliases/state-parent (0.02s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.298s
+FAIL

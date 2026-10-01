@@ -234,10 +234,10 @@ func reviewSegments(input *reviewFiles, status string) (map[string]SegmentState,
 }
 
 type Engine struct {
-	runRoot  *projectfs.FS // Borrowed only by a RunRoot clone.
-	Project  string
-	Config   config.Config
-	Provider Provider
+	projectRoot *projectfs.FS // Borrowed only by a rooted-operation clone.
+	Project     string
+	Config      config.Config
+	Provider    Provider
 	// Supplied by CLI/project conversion to keep the translation core independent of importers.
 	MarkdownToMPD func(string) (string, error)
 }
@@ -310,17 +310,27 @@ func (p *configuredProvider) Translate(ctx context.Context, request TranslationR
 // RunRoot shares one borrowed project boundary across planning and workers.
 // The caller retains ownership; all workers finish before this method returns.
 func (e *Engine) RunRoot(ctx context.Context, root *projectfs.FS, options Options) (Report, error) {
-	if root == nil {
-		return Report{}, errors.New("translation project root is required")
+	borrowed, err := e.BorrowRoot(root)
+	if err != nil {
+		return Report{}, err
 	}
-	borrowed := *e
-	borrowed.runRoot = root
 	return borrowed.Run(ctx, options)
 }
 
-func (e *Engine) runFiles() (*projectfs.FS, func() error, error) {
-	if e.runRoot != nil {
-		return e.runRoot, func() error { return nil }, nil
+// BorrowRoot returns a copy whose Run, Audit and RefineWithProvider operations
+// borrow root. The caller owns its lifetime; the original Engine is unchanged.
+func (e *Engine) BorrowRoot(root *projectfs.FS) (*Engine, error) {
+	if root == nil {
+		return nil, errors.New("translation project root is required")
+	}
+	borrowed := *e
+	borrowed.projectRoot = root
+	return &borrowed, nil
+}
+
+func (e *Engine) projectFiles() (*projectfs.FS, func() error, error) {
+	if e.projectRoot != nil {
+		return e.projectRoot, func() error { return nil }, nil
 	}
 	files, err := projectfs.Open(e.Project)
 	if err != nil {
@@ -340,7 +350,7 @@ func (e *Engine) Run(ctx context.Context, options Options) (Report, error) {
 	if err != nil {
 		return Report{}, err
 	}
-	root, closeFiles, err := e.runFiles()
+	root, closeFiles, err := e.projectFiles()
 	if err != nil {
 		return Report{}, err
 	}
@@ -1459,31 +1469,6 @@ var mpdSkeletonText = regexp.MustCompile(`(?:⟪TEXT_[^⟫]+⟫)+`)
 
 func applyRaw(document *Document, values map[string]string) ([]byte, error) {
 	return applyDocumentValues(document, values, false)
-}
-
-func writeAtomic(path string, data []byte) error {
-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-		return err
-	}
-	tmp, err := os.CreateTemp(filepath.Dir(path), ".mpress-translate-*")
-	if err != nil {
-		return err
-	}
-	name := tmp.Name()
-	defer os.Remove(name)
-	if _, err = tmp.Write(data); err == nil {
-		err = tmp.Sync()
-	}
-	if closeErr := tmp.Close(); err == nil {
-		err = closeErr
-	}
-	if err != nil {
-		return err
-	}
-	if err := os.Chmod(name, 0o644); err != nil {
-		return err
-	}
-	return os.Rename(name, path)
 }
 
 type glossaryFile struct {

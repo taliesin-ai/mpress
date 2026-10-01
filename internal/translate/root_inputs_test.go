@@ -30,13 +30,30 @@ func TestBorrowedTranslationRootDoesNotEscapeToEngine(t *testing.T) {
 		t.Fatal(err)
 	}
 	_, runErr := engine.RunRoot(context.Background(), files, Options{Language: "fr", DryRun: true})
+	borrowed, err := engine.BorrowRoot(files)
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, auditErr := borrowed.Audit("fr", "index.mpd")
+	document, err := ExtractMPD("index.mpd", []byte("# Home\n\nBuild the compiler.\n"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	findings := []AuditFinding{{Severity: "warning", File: "index.mpd", Segment: document.Segments[1].ID, Message: "Improve grammar"}}
+	_, refineErr := borrowed.RefineWithProvider(context.Background(), "fr", "index.mpd", findings, &fakeRefinementProvider{})
 	_, statErr := files.Stat("content/index.mpd")
 	closeErr := files.Close()
-	if runErr != nil || statErr != nil || closeErr != nil {
-		t.Fatalf("borrowed-root ownership lost: run=%v stat=%v close=%v", runErr, statErr, closeErr)
+	if runErr != nil || auditErr != nil || refineErr != nil || statErr != nil || closeErr != nil {
+		t.Fatalf("borrowed-root ownership lost: run=%v audit=%v refine=%v stat=%v close=%v", runErr, auditErr, refineErr, statErr, closeErr)
 	}
 	if _, err := engine.Run(context.Background(), Options{Language: "fr", DryRun: true}); err != nil {
 		t.Fatalf("engine retained a closed borrowed root: %v", err)
+	}
+	if _, err := engine.Audit("fr", "index.mpd"); err != nil {
+		t.Fatalf("audit retained a closed borrowed root: %v", err)
+	}
+	if _, err := engine.RefineWithProvider(context.Background(), "fr", "index.mpd", findings, &fakeRefinementProvider{}); err != nil {
+		t.Fatalf("refinement retained a closed borrowed root: %v", err)
 	}
 }
 

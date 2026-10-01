@@ -185,3 +185,23 @@ func installTranslationReviewBoundary(t *testing.T, server *Server, boundary str
 	}
 	return sentinel, original
 }
+
+func installTranslationInputBoundary(t *testing.T, server *Server, boundary string) (string, []byte) {
+	t.Helper()
+	if boundary != "style-guide" && boundary != "glossary" {
+		return installTranslationReviewBoundary(t, server, boundary)
+	}
+	name, data := "style.txt", "Follow the project's writing style.\n"
+	if boundary == "glossary" {
+		name, data = "glossary.yaml", "terms:\n  - source: compiler\n    translations:\n      fr: compilateur\n"
+		server.cfg.Translation.Glossary = name
+	} else {
+		server.cfg.Translation.StyleGuide = name
+	}
+	sentinel := filepath.Join(t.TempDir(), name)
+	if err := os.WriteFile(sentinel, []byte(data), 0600); err != nil {
+		t.Fatal(err)
+	}
+	devSymlink(t, sentinel, filepath.Join(server.project, name))
+	return sentinel, []byte(data)
+}
