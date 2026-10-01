@@ -1,0 +1,4 @@
+{
+  "gating_findings": 4,
+  "review": "No blanket acknowledgements. Repeated protected-input sentinel tests cover different entry points. loadVersionProject composes loadProjectConfig and adds its version-store guard; mounting must preserve disabled-version behavior before that guard. List/Verify churn adds writer coordination. verifyPinnedSnapshot retains the prior verification algorithm and cognitive complexity 21. Reader/permission test complexity represents observable OS locking and error cases, not production complexity. All findings retained."
+}

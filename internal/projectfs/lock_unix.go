@@ -7,9 +7,13 @@ import (
 	"syscall"
 )
 
-func lockFile(file *os.File) error {
+func lockFile(file *os.File, exclusive bool) error {
+	operation := syscall.LOCK_SH
+	if exclusive {
+		operation = syscall.LOCK_EX
+	}
 	for {
-		err := syscall.Flock(int(file.Fd()), syscall.LOCK_EX)
+		err := syscall.Flock(int(file.Fd()), operation)
 		if err != syscall.EINTR {
 			return err
 		}

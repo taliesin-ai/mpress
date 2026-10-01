@@ -6,6 +6,10 @@ import (
 	"golang.org/x/sys/windows"
 )
 
-func lockFile(file *os.File) error {
-	return windows.LockFileEx(windows.Handle(file.Fd()), windows.LOCKFILE_EXCLUSIVE_LOCK, 0, ^uint32(0), ^uint32(0), &windows.Overlapped{})
+func lockFile(file *os.File, exclusive bool) error {
+	var flags uint32
+	if exclusive {
+		flags = windows.LOCKFILE_EXCLUSIVE_LOCK
+	}
+	return windows.LockFileEx(windows.Handle(file.Fd()), flags, 0, ^uint32(0), ^uint32(0), &windows.Overlapped{})
 }

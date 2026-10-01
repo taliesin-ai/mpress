@@ -65,7 +65,7 @@ func TestCapturePromotionFailurePreservesPreviousSnapshot(t *testing.T) {
 				t.Fatalf("previous snapshot lost: %v", err)
 			}
 			defer snapshot.Close()
-			if err := verifySnapshot(snapshot, "v1"); err != nil {
+			if err := verifyPinnedSnapshot(snapshot, "v1"); err != nil {
 				t.Fatal(err)
 			}
 			data, err := snapshot.ReadFile("index.html")

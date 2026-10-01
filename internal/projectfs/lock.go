@@ -10,6 +10,16 @@ import (
 // The stable lock file is never truncated or removed; replacing it could let
 // separate processes acquire locks on different inodes for the same store.
 func (f *FS) Lock(name string) (*os.File, error) {
+	return f.lock(name, true)
+}
+
+// LockShared coordinates readers with an exclusive writer. Multiple readers
+// may hold the stable lock at once; closing the returned file releases it.
+func (f *FS) LockShared(name string) (*os.File, error) {
+	return f.lock(name, false)
+}
+
+func (f *FS) lock(name string, exclusive bool) (*os.File, error) {
 	parent, leaf, err := f.destination(name)
 	if err != nil {
 		return nil, err
@@ -19,7 +29,7 @@ func (f *FS) Lock(name string) (*os.File, error) {
 	if err != nil {
 		return nil, err
 	}
-	if err := lockFile(file); err != nil {
+	if err := lockFile(file, exclusive); err != nil {
 		file.Close()
 		return nil, err
 	}

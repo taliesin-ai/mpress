@@ -18,7 +18,7 @@ with tempfile.TemporaryDirectory(prefix="mpress-version-replay-") as work:
         str(root / "internal/version/version.go"): str(original)
     }}))
     cases = [
-        ("package", "./internal/version", "^TestVersion", 9),
+        ("package", "./internal/version", "^TestVersion(RemoveRejectsExternalArtifactParent|RemovePreservesProjectInputs|ListAndVerifyRejectExternalLinks|VerifyRejectsTraversalLabel|VerifyConfinesManifestToSnapshot|VerifyRejectsUnsupportedSchema|OperationsSharePortableLabels|VerifyRejectsNoncanonicalManifestPaths|RemoveRejectsSnapshotAliasToSource)$", 9),
         ("HTTP/MCP", "./internal/dev", "^TestAuthoringVersionsRejectExternalStore$", 1),
     ]
     for name, package, pattern, expected in cases:

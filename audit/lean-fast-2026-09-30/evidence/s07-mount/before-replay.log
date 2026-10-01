@@ -1,0 +1,51 @@
+--- FAIL: TestMountPreservesInputsBehindNestedLinks (0.01s)
+    --- FAIL: TestMountPreservesInputsBehindNestedLinks/snapshot (0.01s)
+        mount_confinement_test.go:38: metadata link out of output boundary accepted
+        mount_confinement_test.go:41: private source changed
+    --- FAIL: TestMountPreservesInputsBehindNestedLinks/missing-store (0.00s)
+        mount_confinement_test.go:38: metadata link out of output boundary accepted
+        mount_confinement_test.go:41: private source changed
+--- FAIL: TestMountRetainsNavigationAssetsAndSafeAliases (0.01s)
+    mount_confinement_test.go:75: nested manifest-named asset missing
+--- FAIL: TestVersionReadersWaitForReplacement (0.01s)
+    --- FAIL: TestVersionReadersWaitForReplacement/list (0.00s)
+        mount_confinement_test.go:128: reader observed unfinished replacement: file does not exist
+    --- FAIL: TestVersionReadersWaitForReplacement/verify (0.00s)
+        mount_confinement_test.go:128: reader observed unfinished replacement: openat v1: no such file or directory
+    --- FAIL: TestVersionReadersWaitForReplacement/mount (0.00s)
+        mount_confinement_test.go:128: reader observed unfinished replacement: <nil>
+--- FAIL: TestMountRejectsExternalDestinations (0.02s)
+    --- FAIL: TestMountRejectsExternalDestinations/output (0.00s)
+        mount_confinement_test.go:239: external mounting destination accepted
+        mount_confinement_test.go:246: mounting created external files or directories
+    --- FAIL: TestMountRejectsExternalDestinations/versions (0.00s)
+        mount_confinement_test.go:239: external mounting destination accepted
+        mount_confinement_test.go:246: mounting created external files or directories
+    --- FAIL: TestMountRejectsExternalDestinations/snapshot (0.01s)
+        mount_confinement_test.go:239: external mounting destination accepted
+        mount_confinement_test.go:242: mounting overwrote external sentinel
+    --- FAIL: TestMountRejectsExternalDestinations/metadata (0.00s)
+        mount_confinement_test.go:239: external mounting destination accepted
+        mount_confinement_test.go:242: mounting overwrote external sentinel
+--- FAIL: TestMountPreservesProjectInputs (0.03s)
+    --- FAIL: TestMountPreservesProjectInputs/. (0.00s)
+        mount_confinement_test.go:260: mounting into protected project inputs accepted
+        mount_confinement_test.go:263: project input changed
+    --- FAIL: TestMountPreservesProjectInputs/content (0.00s)
+        mount_confinement_test.go:260: mounting into protected project inputs accepted
+        mount_confinement_test.go:263: project input changed
+    --- FAIL: TestMountPreservesProjectInputs/static (0.00s)
+        mount_confinement_test.go:260: mounting into protected project inputs accepted
+        mount_confinement_test.go:263: project input changed
+    --- FAIL: TestMountPreservesProjectInputs/.git (0.01s)
+        mount_confinement_test.go:260: mounting into protected project inputs accepted
+        mount_confinement_test.go:263: project input changed
+    --- FAIL: TestMountPreservesProjectInputs/.mpress/cache (0.00s)
+        mount_confinement_test.go:260: mounting into protected project inputs accepted
+        mount_confinement_test.go:263: project input changed
+    --- FAIL: TestMountPreservesProjectInputs/.mpress/versions (0.00s)
+        mount_confinement_test.go:260: mounting into protected project inputs accepted
+        mount_confinement_test.go:263: project input changed
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/version	0.122s
+FAIL

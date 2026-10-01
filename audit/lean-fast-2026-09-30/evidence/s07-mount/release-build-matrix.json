@@ -1,0 +1,38 @@
+[
+  {
+    "goos": "linux",
+    "goarch": "amd64",
+    "compiled": true,
+    "native_execution": true
+  },
+  {
+    "goos": "linux",
+    "goarch": "arm64",
+    "compiled": true,
+    "native_execution": false
+  },
+  {
+    "goos": "darwin",
+    "goarch": "amd64",
+    "compiled": true,
+    "native_execution": false
+  },
+  {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "compiled": true,
+    "native_execution": false
+  },
+  {
+    "goos": "windows",
+    "goarch": "amd64",
+    "compiled": true,
+    "native_execution": false
+  },
+  {
+    "goos": "windows",
+    "goarch": "arm64",
+    "compiled": true,
+    "native_execution": false
+  }
+]

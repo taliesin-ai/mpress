@@ -1,0 +1,21 @@
+--- FAIL: TestCapturePreservesTmpNamedSnapshot (0.00s)
+    capture_confinement_test.go:21: capture destroyed the existing tmp-named snapshot: openat v1.tmp: no such file or directory
+--- FAIL: TestCaptureRejectsExternalPaths (0.00s)
+    --- FAIL: TestCaptureRejectsExternalPaths/store (0.00s)
+        capture_confinement_test.go:66: capture accepted an external path
+        capture_confinement_test.go:75: outside snapshot overwritten
+    --- FAIL: TestCaptureRejectsExternalPaths/output (0.00s)
+        capture_confinement_test.go:66: capture accepted an external path
+    --- FAIL: TestCaptureRejectsExternalPaths/file (0.00s)
+        capture_confinement_test.go:66: capture accepted an external path
+--- FAIL: TestCaptureIndexesNestedManifestNamedAsset (0.00s)
+    capture_recovery_test.go:126: nested ordinary asset missing from manifest: unexpected file: data/mpress-version.json
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/version	0.044s
+FAIL
+--- FAIL: TestAuthoringMCPCapturePreservesExternalStore (0.04s)
+    capture_confinement_test.go:39: sentinel v1/index.html changed (15292 bytes, error <nil>)
+    capture_confinement_test.go:40: sentinel v1/mpress-version.json changed (1285 bytes, error <nil>)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.108s
+FAIL

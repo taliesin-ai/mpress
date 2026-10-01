@@ -7,6 +7,6 @@ import (
 	"os"
 )
 
-func lockFile(*os.File) error {
+func lockFile(*os.File, bool) error {
 	return errors.New("snapshot process locking is unavailable on this platform")
 }
