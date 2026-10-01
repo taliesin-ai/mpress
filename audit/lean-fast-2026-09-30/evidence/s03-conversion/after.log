@@ -1,0 +1,48 @@
+=== RUN   TestAuthoringConversionRetainsInternalAliases
+=== RUN   TestAuthoringConversionRetainsInternalAliases/source
+Rebuilt 2 pages in 17ms
+=== RUN   TestAuthoringConversionRetainsInternalAliases/state-parent
+Rebuilt 2 pages in 16ms
+--- PASS: TestAuthoringConversionRetainsInternalAliases (0.24s)
+    --- PASS: TestAuthoringConversionRetainsInternalAliases/source (0.11s)
+    --- PASS: TestAuthoringConversionRetainsInternalAliases/state-parent (0.12s)
+=== RUN   TestAuthoringConversionRejectsExternalInputs
+=== RUN   TestAuthoringConversionRejectsExternalInputs/source
+=== RUN   TestAuthoringConversionRejectsExternalInputs/state-file
+=== RUN   TestAuthoringConversionRejectsExternalInputs/state-parent
+--- PASS: TestAuthoringConversionRejectsExternalInputs (0.30s)
+    --- PASS: TestAuthoringConversionRejectsExternalInputs/source (0.09s)
+    --- PASS: TestAuthoringConversionRejectsExternalInputs/state-file (0.11s)
+    --- PASS: TestAuthoringConversionRejectsExternalInputs/state-parent (0.10s)
+=== RUN   TestAuthoringConversionPreservesTemporarySentinels
+=== RUN   TestAuthoringConversionPreservesTemporarySentinels/owned-file
+Rebuilt 2 pages in 16ms
+=== RUN   TestAuthoringConversionPreservesTemporarySentinels/external-link
+Rebuilt 2 pages in 16ms
+--- PASS: TestAuthoringConversionPreservesTemporarySentinels (0.24s)
+    --- PASS: TestAuthoringConversionPreservesTemporarySentinels/owned-file (0.12s)
+    --- PASS: TestAuthoringConversionPreservesTemporarySentinels/external-link (0.12s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/dev	2.472s
+=== RUN   TestConversionRetainsExplicitDirectoryScopeAndPermissions
+--- PASS: TestConversionRetainsExplicitDirectoryScopeAndPermissions (0.00s)
+=== RUN   TestBorrowedConversionRootRetainsOwnership
+--- PASS: TestBorrowedConversionRootRetainsOwnership (0.00s)
+=== RUN   TestConversionUpdatesWritingGuideConfiguration
+--- PASS: TestConversionUpdatesWritingGuideConfiguration (0.01s)
+=== RUN   TestConversionMigratesTranslationTripletsBeforeRemovingSources
+=== RUN   TestConversionMigratesTranslationTripletsBeforeRemovingSources/verified
+=== RUN   TestConversionMigratesTranslationTripletsBeforeRemovingSources/unknown_extractor
+--- PASS: TestConversionMigratesTranslationTripletsBeforeRemovingSources (0.01s)
+    --- PASS: TestConversionMigratesTranslationTripletsBeforeRemovingSources/verified (0.01s)
+    --- PASS: TestConversionMigratesTranslationTripletsBeforeRemovingSources/unknown_extractor (0.00s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/projectconvert	1.651s
+=== RUN   TestAtomicWriteRetainsRequestedPermissions
+--- PASS: TestAtomicWriteRetainsRequestedPermissions (0.00s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/projectfs	1.017s
+=== RUN   TestRootedConfigSaveRetainsSerialization
+--- PASS: TestRootedConfigSaveRetainsSerialization (0.00s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/config	1.019s

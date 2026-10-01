@@ -1,0 +1,9 @@
+{
+  "exitCodes": [
+    1,
+    1
+  ],
+  "sameDiagnostic": true,
+  "rejectedConversionPreservesInputs": true,
+  "successfulFullCorpusConversion": false
+}

@@ -7,6 +7,7 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 ### Fixed — 2026-10-02
 
 - Translation checks now share one pinned root across discovery, coverage, audit and hash-pinned exceptions. Coverage and exception readers reject external files while preserving internal aliases and reviewed hashes. Borrowed handles remain owned by callers. Beads `mp-b52.1.3`; migration/conversion, deployment and metadata qualification continues.
+- Authoring conversion now confines document and translation-state IO, deletion and configuration saves to its pinned project root. Exclusive temporary writes preserve permissions and unrelated `.tmp` files; explicit CLI directory selection remains supported. Five authenticated regressions reproduce external reads/overwrites and temporary-file loss. Beads `mp-b52.1.3`/`mp-b52.1.6`; whole-conversion rollback remains open.
 
 - Model comparison and workload estimation now share the pinned project filesystem for source and provider inputs. Five authenticated failing-before cases include comparison sending external content to both local test providers; safe aliases, read-only sampling and workload estimates remain supported. Removed obsolete ambient input readers from production. Beads `mp-b52.1.3` remains open for check, migration/conversion, deploy and metadata delegates.
 

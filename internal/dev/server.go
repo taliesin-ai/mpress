@@ -421,7 +421,7 @@ func (s *Server) handleTranslations(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		if input.Action == "convert-mpd" {
-			result, convertErr := projectconvert.Run(s.project, &s.cfg, "", "mpd")
+			result, convertErr := projectconvert.RunRoot(s.project, s.files, &s.cfg, "", "mpd")
 			if convertErr != nil {
 				writeAPIError(w, http.StatusBadRequest, convertErr)
 				return

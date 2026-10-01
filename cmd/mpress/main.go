@@ -1124,11 +1124,6 @@ func convertSite(args []string) error {
 		return err
 	}
 	directory := strings.TrimSpace(*contentDirectory)
-	if directory == "" {
-		directory = cfg.ContentPath(root)
-	} else if !filepath.IsAbs(directory) {
-		directory = filepath.Join(root, filepath.FromSlash(directory))
-	}
 	result, err := projectconvert.Run(root, &cfg, directory, format)
 	if err != nil {
 		return err

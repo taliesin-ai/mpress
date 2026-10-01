@@ -1,0 +1,41 @@
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/source
+    translation_confinement_test.go:24: translation review read/wrote external source: 200 {"report":{"files":[{"sourceFile":"index.md","targetFile":"fr/index.md","targetLanguage":"fr","segments":3,"needsTranslation":0,"translated":0,"states":{"reviewed":3},"written":false,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}}],"segments":3,"pending":0,"written":0,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}},"state":{"status":"starting","pages":0,"files":0,"durationMs":0,"builtAt":"0001-01-01T00:00:00Z","revision":0}}
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/target
+    translation_confinement_test.go:24: translation review read/wrote external target: 200 {"report":{"files":[{"sourceFile":"index.md","targetFile":"fr/index.md","targetLanguage":"fr","segments":3,"needsTranslation":0,"translated":0,"states":{"reviewed":3},"written":false,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}}],"segments":3,"pending":0,"written":0,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}},"state":{"status":"starting","pages":0,"files":0,"durationMs":0,"builtAt":"0001-01-01T00:00:00Z","revision":0}}
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/state-file
+    translation_confinement_test.go:24: translation review read/wrote external state-file: 200 {"report":{"files":[{"sourceFile":"index.md","targetFile":"fr/index.md","targetLanguage":"fr","segments":3,"needsTranslation":0,"translated":0,"states":{"reviewed":3},"written":false,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}}],"segments":3,"pending":0,"written":0,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}},"state":{"status":"starting","pages":0,"files":0,"durationMs":0,"builtAt":"0001-01-01T00:00:00Z","revision":0}}
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/state-parent
+    translation_confinement_test.go:24: translation review read/wrote external state-parent: 200 {"report":{"files":[{"sourceFile":"index.md","targetFile":"fr/index.md","targetLanguage":"fr","segments":3,"needsTranslation":0,"translated":0,"states":{"reviewed":3},"written":false,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}}],"segments":3,"pending":0,"written":0,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}},"state":{"status":"starting","pages":0,"files":0,"durationMs":0,"builtAt":"0001-01-01T00:00:00Z","revision":0}}
+    translation_confinement_test.go:26: sentinel index.json changed (1862 bytes, error <nil>)
+=== RUN   TestAuthoringTranslationReviewRejectsExternalFiles/state-discovery
+    translation_confinement_test.go:24: translation review read/wrote external state-discovery: 200 {"report":{"files":[{"sourceFile":"index.md","targetFile":"fr/index.md","targetLanguage":"fr","segments":3,"needsTranslation":0,"translated":0,"states":{"reviewed":3},"written":false,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}}],"segments":3,"pending":0,"written":0,"estimate":{"requests":0,"sourceCharacters":0,"inputTokens":0,"outputTokens":0,"pricingConfigured":false}},"state":{"status":"starting","pages":0,"files":0,"durationMs":0,"builtAt":"0001-01-01T00:00:00Z","revision":0}}
+--- FAIL: TestAuthoringTranslationReviewRejectsExternalFiles (0.07s)
+    --- FAIL: TestAuthoringTranslationReviewRejectsExternalFiles/source (0.01s)
+    --- FAIL: TestAuthoringTranslationReviewRejectsExternalFiles/target (0.02s)
+    --- FAIL: TestAuthoringTranslationReviewRejectsExternalFiles/state-file (0.01s)
+    --- FAIL: TestAuthoringTranslationReviewRejectsExternalFiles/state-parent (0.01s)
+    --- FAIL: TestAuthoringTranslationReviewRejectsExternalFiles/state-discovery (0.02s)
+=== RUN   TestAuthoringTranslationReviewRetainsInternalStateAliases
+=== RUN   TestAuthoringTranslationReviewRetainsInternalStateAliases/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalStateAliases/absolute
+--- PASS: TestAuthoringTranslationReviewRetainsInternalStateAliases (0.03s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalStateAliases/relative (0.01s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalStateAliases/absolute (0.02s)
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/source/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/source/absolute
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/target/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/target/absolute
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/relative
+=== RUN   TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/absolute
+--- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases (0.10s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/source/relative (0.01s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/source/absolute (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/target/relative (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/target/absolute (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/relative (0.02s)
+    --- PASS: TestAuthoringTranslationReviewRetainsInternalFileAliases/state-file/absolute (0.02s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.262s
+FAIL

@@ -216,7 +216,12 @@ func (f *FS) Rename(old, new string) error {
 // WriteAtomic uses a pinned parent and an exclusively created temporary file.
 // Neither directory creation, temporary writes nor promotion use ambient paths.
 func (f *FS) WriteAtomic(name string, data []byte) error {
-	return f.writeAtomic(name, func(file *os.File) error { _, err := file.Write(data); return err }, 0644, true)
+	return f.WriteAtomicMode(name, data, 0644)
+}
+
+// WriteAtomicMode preserves the requested permissions before promotion.
+func (f *FS) WriteAtomicMode(name string, data []byte, mode fs.FileMode) error {
+	return f.writeAtomic(name, func(file *os.File) error { _, err := file.Write(data); return err }, mode.Perm(), true)
 }
 
 // WriteCache atomically replaces recomputable data without a durability sync.

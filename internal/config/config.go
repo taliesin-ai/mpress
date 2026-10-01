@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/leaanthony/mpress/internal/projectfs"
 	"github.com/leaanthony/mpress/internal/routes"
 	"gopkg.in/yaml.v3"
 )
@@ -331,10 +332,7 @@ func Parse(data []byte) (Config, error) {
 }
 
 func Save(projectDir string, cfg Config) error {
-	if err := cfg.Validate(); err != nil {
-		return err
-	}
-	data, err := yaml.Marshal(cfg)
+	data, err := marshalConfiguration(cfg)
 	if err != nil {
 		return err
 	}
@@ -358,6 +356,25 @@ func Save(projectDir string, cfg Config) error {
 		return err
 	}
 	return os.Rename(tmpName, path)
+}
+
+// SaveRoot persists configuration through the caller's pinned project root.
+func SaveRoot(files *projectfs.FS, cfg Config) error {
+	if files == nil {
+		return errors.New("configuration project root is required")
+	}
+	data, err := marshalConfiguration(cfg)
+	if err != nil {
+		return err
+	}
+	return files.WriteAtomic(Filename, data)
+}
+
+func marshalConfiguration(cfg Config) ([]byte, error) {
+	if err := cfg.Validate(); err != nil {
+		return nil, err
+	}
+	return yaml.Marshal(cfg)
 }
 
 func (c *Config) Validate() error {

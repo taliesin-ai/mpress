@@ -1,0 +1,41 @@
+=== RUN   TestAuthoringConversionRetainsInternalAliases
+=== RUN   TestAuthoringConversionRetainsInternalAliases/source
+Rebuilt 2 pages in 8ms
+=== RUN   TestAuthoringConversionRetainsInternalAliases/state-parent
+Rebuilt 2 pages in 6ms
+--- PASS: TestAuthoringConversionRetainsInternalAliases (0.05s)
+    --- PASS: TestAuthoringConversionRetainsInternalAliases/source (0.02s)
+    --- PASS: TestAuthoringConversionRetainsInternalAliases/state-parent (0.02s)
+=== RUN   TestAuthoringConversionRejectsExternalInputs
+=== RUN   TestAuthoringConversionRejectsExternalInputs/source
+Rebuilt 2 pages in 5ms
+    conversion_confinement_test.go:59: conversion accepted external source: HTTP 200
+    conversion_confinement_test.go:63: unsafe conversion published a target: <nil>
+=== RUN   TestAuthoringConversionRejectsExternalInputs/state-file
+Rebuilt 2 pages in 3ms
+    conversion_confinement_test.go:59: conversion accepted external state-file: HTTP 200
+    conversion_confinement_test.go:63: unsafe conversion published a target: <nil>
+=== RUN   TestAuthoringConversionRejectsExternalInputs/state-parent
+Rebuilt 2 pages in 4ms
+    conversion_confinement_test.go:59: conversion accepted external state-parent: HTTP 200
+    conversion_confinement_test.go:61: sentinel index.json changed (3947 bytes, error <nil>)
+    conversion_confinement_test.go:63: unsafe conversion published a target: <nil>
+--- FAIL: TestAuthoringConversionRejectsExternalInputs (0.06s)
+    --- FAIL: TestAuthoringConversionRejectsExternalInputs/source (0.02s)
+    --- FAIL: TestAuthoringConversionRejectsExternalInputs/state-file (0.02s)
+    --- FAIL: TestAuthoringConversionRejectsExternalInputs/state-parent (0.02s)
+=== RUN   TestAuthoringConversionPreservesTemporarySentinels
+=== RUN   TestAuthoringConversionPreservesTemporarySentinels/owned-file
+Rebuilt 2 pages in 3ms
+    conversion_confinement_test.go:89: sentinel index.mpd.tmp changed (0 bytes, error open /tmp/TestAuthoringConversionPreservesTemporarySentinelsowned-file2800106237/001/content/index.mpd.tmp: no such file or directory)
+    conversion_confinement_test.go:91: conversion consumed unrelated temporary entry: lstat /tmp/TestAuthoringConversionPreservesTemporarySentinelsowned-file2800106237/001/content/index.mpd.tmp: no such file or directory
+=== RUN   TestAuthoringConversionPreservesTemporarySentinels/external-link
+rebuild: unsafe source paths or duplicate page routes; output was not replaced
+    conversion_confinement_test.go:89: sentinel must-survive changed (132 bytes, error <nil>)
+    conversion_confinement_test.go:91: conversion consumed unrelated temporary entry: lstat /tmp/TestAuthoringConversionPreservesTemporarySentinelsexternal-link3419128161/001/content/index.mpd.tmp: no such file or directory
+--- FAIL: TestAuthoringConversionPreservesTemporarySentinels (0.02s)
+    --- FAIL: TestAuthoringConversionPreservesTemporarySentinels/owned-file (0.01s)
+    --- FAIL: TestAuthoringConversionPreservesTemporarySentinels/external-link (0.01s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.189s
+FAIL
