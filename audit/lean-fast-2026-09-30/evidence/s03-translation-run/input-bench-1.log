@@ -1,7 +1,7 @@
 goos: linux
 goarch: amd64
 pkg: github.com/leaanthony/mpress/internal/translate
-cpu: AMD Ryzen 9 3950X 16-Core Processor            
+cpu: AMD Ryzen 9 3950X 16-Core Processor
 BenchmarkOversizedTranslationInput/ambient-32         	      10	   6758213 ns/op	16788982 B/op	      12 allocs/op
 BenchmarkOversizedTranslationInput/rooted-32          	      10	     51856 ns/op	    2920 B/op	      30 allocs/op
 PASS
