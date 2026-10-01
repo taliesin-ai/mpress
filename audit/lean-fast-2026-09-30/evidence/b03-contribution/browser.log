@@ -1,0 +1,122 @@
+=== RUN   TestAccessibilityViewportReachability
+=== RUN   TestAccessibilityViewportReachability/375x667-text1-light
+2026/10/01 21:02:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:41 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 375x667, text 100%, light: preferences/reset/close reachable; panel scroll 168px
+=== RUN   TestAccessibilityViewportReachability/667x375-text1-dark
+2026/10/01 21:02:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:45 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 667x375, text 100%, dark: preferences/reset/close reachable; panel scroll 364px
+=== RUN   TestAccessibilityViewportReachability/375x375-text1-light
+2026/10/01 21:02:53 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:53 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 375x375, text 100%, light: preferences/reset/close reachable; panel scroll 460px
+=== RUN   TestAccessibilityViewportReachability/320x320-text2-dark
+2026/10/01 21:03:03 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:03:03 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 320x320, text 200%, dark: preferences/reset/close reachable; panel scroll 1338px
+=== RUN   TestAccessibilityViewportReachability/667x375-text2-light
+2026/10/01 21:03:38 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:03:38 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 667x375, text 200%, light: preferences/reset/close reachable; panel scroll 910px
+=== RUN   TestAccessibilityViewportReachability/1024x375-text2-dark
+2026/10/01 21:04:00 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:00 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 1024x375, text 200%, dark: preferences/reset/close reachable; panel scroll 910px
+=== RUN   TestAccessibilityViewportReachability/1280x900-text1-dark
+2026/10/01 21:04:21 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:21 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 1280x900, text 100%, dark: preferences/reset/close reachable; panel scroll 0px
+=== RUN   TestAccessibilityViewportReachability/375x667-text2-light
+2026/10/01 21:04:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:25 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 375x667, text 200%, light: preferences/reset/close reachable; panel scroll 752px
+=== RUN   TestAccessibilityViewportReachability/761x601-text2-light
+2026/10/01 21:04:36 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:36 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 761x601, text 200%, light: preferences/reset/close reachable; panel scroll 0px
+=== RUN   TestAccessibilityViewportReachability/1280x900-text2-dark
+2026/10/01 21:04:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    accessibility_test.go:69: 1280x900, text 200%, dark: preferences/reset/close reachable; panel scroll 0px
+--- PASS: TestAccessibilityViewportReachability (131.79s)
+    --- PASS: TestAccessibilityViewportReachability/375x667-text1-light (4.47s)
+    --- PASS: TestAccessibilityViewportReachability/667x375-text1-dark (7.93s)
+    --- PASS: TestAccessibilityViewportReachability/375x375-text1-light (9.83s)
+    --- PASS: TestAccessibilityViewportReachability/320x320-text2-dark (35.10s)
+    --- PASS: TestAccessibilityViewportReachability/667x375-text2-light (21.48s)
+    --- PASS: TestAccessibilityViewportReachability/1024x375-text2-dark (21.25s)
+    --- PASS: TestAccessibilityViewportReachability/1280x900-text1-dark (4.20s)
+    --- PASS: TestAccessibilityViewportReachability/375x667-text2-light (11.07s)
+    --- PASS: TestAccessibilityViewportReachability/761x601-text2-light (10.15s)
+    --- PASS: TestAccessibilityViewportReachability/1280x900-text2-dark (6.22s)
+=== RUN   TestContributionDialogPhoneReachability
+=== RUN   TestContributionDialogPhoneReachability/320x568
+2026/10/01 21:04:53 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:53 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:78: 320x568: choices/setup/explanation/copy/close/focus pass; dialog scroll 389px
+=== RUN   TestContributionDialogPhoneReachability/375x667
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:55 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:78: 375x667: choices/setup/explanation/copy/close/focus pass; dialog scroll 292px
+=== RUN   TestContributionDialogPhoneReachability/375x375
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:04:57 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:78: 375x375: choices/setup/explanation/copy/close/focus pass; dialog scroll 584px
+=== RUN   TestContributionDialogPhoneReachability/667x375
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:01 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:04 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:04 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:04 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:04 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:05 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:05 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:78: 667x375: choices/setup/explanation/copy/close/focus pass; dialog scroll 326px
+=== RUN   TestContributionDialogPhoneReachability/320x320
+2026/10/01 21:05:05 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:05 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:09 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:09 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:09 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:09 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:11 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:11 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:78: 320x320: choices/setup/explanation/copy/close/focus pass; dialog scroll 626px
+=== RUN   TestContributionDialogPhoneReachability/1024x375
+2026/10/01 21:05:11 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:11 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:13 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:13 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:13 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:13 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:13 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:05:13 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:78: 1024x375: choices/setup/explanation/copy/close/focus pass; dialog scroll 315px
+--- PASS: TestContributionDialogPhoneReachability (21.00s)
+    --- PASS: TestContributionDialogPhoneReachability/320x568 (2.76s)
+    --- PASS: TestContributionDialogPhoneReachability/375x667 (1.58s)
+    --- PASS: TestContributionDialogPhoneReachability/375x375 (4.40s)
+    --- PASS: TestContributionDialogPhoneReachability/667x375 (3.37s)
+    --- PASS: TestContributionDialogPhoneReachability/320x320 (6.30s)
+    --- PASS: TestContributionDialogPhoneReachability/1024x375 (2.55s)
+PASS
+ok  	github.com/leaanthony/mpress/audit/lean-fast-tools	152.793s

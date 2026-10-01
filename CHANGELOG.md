@@ -6,6 +6,8 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Fixed — 2026-10-01
 
+- Contribution dialogs now scroll on phones and short windows, containing touch gestures while expanded setup and instructions remain reachable. Six native touch cases qualify commands, translation, copy and Escape/close focus; embedded viewer assets were regenerated. Beads `mp-b52.2.3`; see `audit/lean-fast-2026-09-30/B03.md`.
+
 - Accessibility settings now use one scrollable panel on phones and short windows. The body can shrink at other sizes; focus scroll padding keeps controls clear of clipping edges. Real touch/keyboard checks cover all settings, colour options, width/font preferences, reset and close across ten viewport/text/theme cases, including 200% text simulation. Beads `mp-b52.2.2`; see `audit/lean-fast-2026-09-30/B02.md`.
 
 - Snapshot mounting now pins the verified snapshot and output boundaries, rejecting linked destinations that overwrite external or protected files. Shared reader locks coordinate list/verify/mount with capture/removal. Legacy read-only stores, version navigation and safe aliases remain supported; nested manifest-named assets are published. Ordinary and mounted docs remain byte-identical. Beads `mp-b52.1.7`; recovery/platform and build-wide coordination qualification remains open.

@@ -1,0 +1,35 @@
+=== RUN   TestContributionDialogPhoneReachability
+=== RUN   TestContributionDialogPhoneReachability/320x568
+2026/10/01 21:02:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:42 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:142: dialog swipe moved page 0 -> 308
+=== RUN   TestContributionDialogPhoneReachability/375x667
+2026/10/01 21:02:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:43 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:142: dialog swipe moved page 0 -> 376
+=== RUN   TestContributionDialogPhoneReachability/375x375
+2026/10/01 21:02:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:44 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:142: dialog swipe moved page 0 -> 182
+=== RUN   TestContributionDialogPhoneReachability/667x375
+2026/10/01 21:02:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:46 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:142: dialog swipe moved page 0 -> 182
+=== RUN   TestContributionDialogPhoneReachability/320x320
+2026/10/01 21:02:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:47 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:142: dialog swipe moved page 0 -> 149
+=== RUN   TestContributionDialogPhoneReachability/1024x375
+2026/10/01 21:02:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+2026/10/01 21:02:48 ERROR: unhandled node event *dom.EventTopLayerElementsUpdated
+    contribution_test.go:142: dialog swipe moved page 0 -> 169
+--- FAIL: TestContributionDialogPhoneReachability (8.19s)
+    --- FAIL: TestContributionDialogPhoneReachability/320x568 (1.62s)
+    --- FAIL: TestContributionDialogPhoneReachability/375x667 (1.40s)
+    --- FAIL: TestContributionDialogPhoneReachability/375x375 (1.27s)
+    --- FAIL: TestContributionDialogPhoneReachability/667x375 (1.28s)
+    --- FAIL: TestContributionDialogPhoneReachability/320x320 (1.28s)
+    --- FAIL: TestContributionDialogPhoneReachability/1024x375 (1.30s)
+FAIL
+exit status 1
+FAIL	github.com/leaanthony/mpress/audit/lean-fast-tools	8.193s

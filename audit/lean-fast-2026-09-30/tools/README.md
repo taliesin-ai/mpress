@@ -78,3 +78,19 @@ stable height at desktop/mobile widths. Missing site environment variables skip
 the test; a skip does not qualify the change. See `../LCP.md` for pinned build
 sources and measurement evidence. Browser dependencies remain outside M-Press's
 production module.
+
+Accessibility and contribution scrolling regressions also use production builds:
+
+```sh
+MPRESS_A11Y_SITE=/absolute/path/to/generated/site go test -count=1 -run '^TestAccessibilityViewportReachability$' -v .
+MPRESS_CONTRIBUTE_SITE=/absolute/path/to/generated/site go test -count=1 -run '^TestContributionDialogPhoneReachability$' -v .
+```
+
+Both require the complete public documentation fixture with `/configuration/`.
+The contribution fixture must have contributions enabled with this repository
+configured, so its script/source-path assertions verify the actual site handoff.
+They exercise native touch gestures and keyboard input, share clipping/gesture
+primitives, and enforce independent scroll-owner checks. Missing environment
+variables skip these checks. Optional `MPRESS_A11Y_REPORT` and
+`MPRESS_CONTRIBUTE_REPORT` paths save JSON evidence. See `../B02.md` and `../B03.md`
+for viewport coverage, original-CSS replay and test limitations.

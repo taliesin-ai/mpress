@@ -1,0 +1,38 @@
+[
+  {
+    "height": 568,
+    "local_setup_explanation_translation_focus": "pass",
+    "maxDialogScroll": 389,
+    "width": 320
+  },
+  {
+    "height": 667,
+    "local_setup_explanation_translation_focus": "pass",
+    "maxDialogScroll": 292,
+    "width": 375
+  },
+  {
+    "height": 375,
+    "local_setup_explanation_translation_focus": "pass",
+    "maxDialogScroll": 584,
+    "width": 375
+  },
+  {
+    "height": 375,
+    "local_setup_explanation_translation_focus": "pass",
+    "maxDialogScroll": 326,
+    "width": 667
+  },
+  {
+    "height": 320,
+    "local_setup_explanation_translation_focus": "pass",
+    "maxDialogScroll": 626,
+    "width": 320
+  },
+  {
+    "height": 375,
+    "local_setup_explanation_translation_focus": "pass",
+    "maxDialogScroll": 315,
+    "width": 1024
+  }
+]

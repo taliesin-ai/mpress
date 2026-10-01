@@ -1,0 +1,12 @@
+{
+  "baselineFailures": 4,
+  "candidateFailures": 4,
+  "sameFailingTests": true,
+  "sameAssertionMessages": true,
+  "baselineAssertions": 7,
+  "candidateAssertions": 7,
+  "fixtureCommit": "58f54a3",
+  "source": "Explicit MPRESS_SOURCE audit worktree for both runs",
+  "normalization": "Temporary paths/local HTTP ports and assertion line numbers",
+  "rawLogs": "Outside public repository"
+}

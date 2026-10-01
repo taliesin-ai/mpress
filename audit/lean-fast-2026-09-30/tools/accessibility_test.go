@@ -11,7 +11,6 @@ import (
 	"time"
 
 	"github.com/chromedp/cdproto/emulation"
-	"github.com/chromedp/cdproto/input"
 	"github.com/chromedp/chromedp"
 	"github.com/chromedp/chromedp/kb"
 )
@@ -22,23 +21,10 @@ type accessibilityViewport struct {
 	theme         string
 }
 type accessibilityBrowser struct {
-	t                             *testing.T
-	ctx                           context.Context
+	browserActions
 	constrained                   bool
 	maxPanelScroll, maxBodyScroll float64
 }
-
-func (b *accessibilityBrowser) run(actions ...chromedp.Action) {
-	b.t.Helper()
-	if err := chromedp.Run(b.ctx, actions...); err != nil {
-		b.t.Fatal(err)
-	}
-}
-func (b *accessibilityBrowser) js(script string, result any) {
-	b.t.Helper()
-	b.run(chromedp.Evaluate(script, result))
-}
-func accessibilityQuote(s string) string { data, _ := json.Marshal(s); return string(data) }
 
 // Production output, real CDP touch/keyboard input, and explicit 200% text
 // simulation. Font sizing does not alter overflow/positioning rules under test.
@@ -65,7 +51,7 @@ func TestAccessibilityViewportReachability(t *testing.T) {
 	}
 	for _, c := range cases {
 		t.Run(fmt.Sprintf("%dx%d-text%d-%s", c.width, c.height, c.scale, c.theme), func(t *testing.T) {
-			b := &accessibilityBrowser{t: t, ctx: ctx, constrained: c.width <= 760 || c.height <= 600}
+			b := &accessibilityBrowser{browserActions: browserActions{t: t, ctx: ctx}, constrained: c.width <= 760 || c.height <= 600}
 			record := b.prepare(server.URL, c)
 			records = append(records, record)
 			b.checkGeometry(record["initial"].(map[string]float64), c)
@@ -110,7 +96,7 @@ func (b *accessibilityBrowser) prepare(url string, c accessibilityViewport) map[
 		options = append(options, chromedp.EmulateLandscape)
 	}
 	b.run(chromedp.EmulateViewport(c.width, c.height, options...), emulation.SetTouchEmulationEnabled(true), chromedp.Navigate(url+"/configuration/"), chromedp.WaitReady("body"))
-	b.js(`document.querySelector('[data-a11y-reset]').click();document.documentElement.dataset.theme=`+accessibilityQuote(c.theme), nil)
+	b.js(`document.querySelector('[data-a11y-reset]').click();document.documentElement.dataset.theme=`+browserQuote(c.theme), nil)
 	if c.scale == 2 {
 		b.js(`(() => {const sizes=[...document.querySelectorAll('#mpress-accessibility-panel :is(h2,h3,p,span,label,button,small,output,strong)')].map(e=>[e,parseFloat(getComputedStyle(e).fontSize)]);sizes.forEach(([e,size])=>e.style.fontSize=(size*2)+'px');})()`, nil)
 	}
@@ -132,36 +118,20 @@ func (b *accessibilityBrowser) checkGeometry(g map[string]float64, c accessibili
 }
 func (b *accessibilityBrowser) touch(selector string) {
 	b.t.Helper()
-	for attempt := 0; attempt < 24; attempt++ {
+	box := b.reachByTouch(selector, func() browserTouchTarget {
 		var box struct {
-			X, Y, Top, Bottom, PanelTop, PanelBottom, SwipeX, PanelScroll, BodyScroll, PageScroll float64
-			Ready                                                                                 bool
+			browserTouchTarget
+			PanelScroll, BodyScroll, PageScroll float64
 		}
-		b.js(`(() => {const e=document.querySelector(`+accessibilityQuote(selector)+`),p=document.getElementById('mpress-accessibility-panel');if(!e||e.disabled)throw Error('missing or disabled control');const r=e.getBoundingClientRect(),pr=p.getBoundingClientRect(),clip=(`+accessibilityClipFunction+`)(e,p),x=r.x+r.width/2,y=r.y+r.height/2;return {X:x,Y:y,Top:r.top,Bottom:r.bottom,PanelTop:clip.top+2,PanelBottom:clip.bottom-2,SwipeX:pr.left+10,PanelScroll:p.scrollTop,BodyScroll:p.querySelector('.mpress-accessibility-body').scrollTop,PageScroll:scrollY,Ready:r.top>=clip.top+2&&r.bottom<=clip.bottom-2&&e.contains(document.elementFromPoint(x,y))};})()`, &box)
+		b.js(`(() => {const e=document.querySelector(`+browserQuote(selector)+`),p=document.getElementById('mpress-accessibility-panel');if(!e||e.disabled)throw Error('missing or disabled control');const r=e.getBoundingClientRect(),pr=p.getBoundingClientRect(),clip=(`+browserClipFunction+`)(e,p),x=r.x+r.width/2,y=r.y+r.height/2;return {X:x,Y:y,Top:r.top,Bottom:r.bottom,ClipTop:clip.top+2,ClipBottom:clip.bottom-2,SwipeX:pr.left+10,PanelScroll:p.scrollTop,BodyScroll:p.querySelector('.mpress-accessibility-body').scrollTop,PageScroll:scrollY,Ready:r.top>=clip.top+2&&r.bottom<=clip.bottom-2&&e.contains(document.elementFromPoint(x,y))};})()`, &box)
 		b.maxPanelScroll = max(b.maxPanelScroll, box.PanelScroll)
 		b.maxBodyScroll = max(b.maxBodyScroll, box.BodyScroll)
 		if box.PageScroll != 0 || (b.constrained && box.BodyScroll != 0) {
 			b.t.Fatalf("wrong touch scroll owner: body %.0f, page %.0f", box.BodyScroll, box.PageScroll)
 		}
-		if box.Ready {
-			b.run(chromedp.ActionFunc(func(ctx context.Context) error {
-				if err := input.DispatchTouchEvent(input.TouchStart, []*input.TouchPoint{{X: box.X, Y: box.Y, ID: 1}}).Do(ctx); err != nil {
-					return err
-				}
-				return input.DispatchTouchEvent(input.TouchEnd, []*input.TouchPoint{}).Do(ctx)
-			}))
-			return
-		}
-		span := box.PanelBottom - box.PanelTop
-		distance := span * .5
-		y := box.PanelTop + span*.75
-		if box.Top < box.PanelTop {
-			distance = -distance
-			y = box.PanelTop + span*.25
-		}
-		b.run(swipe(box.SwipeX, y, 0, -distance))
-	}
-	b.t.Fatalf("touch cannot reach %s", selector)
+		return box.browserTouchTarget
+	})
+	b.run(browserTap(box.X, box.Y))
 }
 func (b *accessibilityBrowser) touchPreferences() {
 	b.t.Helper()
@@ -208,8 +178,7 @@ func (b *accessibilityBrowser) checkTouchPreferences(tab string) {
 	}
 }
 
-const accessibilityClipFunction = `(e,p) => {const pr=p.getBoundingClientRect(),clip={top:pr.top+p.clientTop,bottom:pr.top+p.clientTop+p.clientHeight,left:pr.left+p.clientLeft,right:pr.left+p.clientLeft+p.clientWidth};for(let a=e.parentElement;a&&a!==p;a=a.parentElement){const s=getComputedStyle(a),r=a.getBoundingClientRect();if(/^(auto|scroll|hidden|clip)$/.test(s.overflowY)){clip.top=Math.max(clip.top,r.top+a.clientTop);clip.bottom=Math.min(clip.bottom,r.top+a.clientTop+a.clientHeight);}if(/^(auto|scroll|hidden|clip)$/.test(s.overflowX)){clip.left=Math.max(clip.left,r.left+a.clientLeft);clip.right=Math.min(clip.right,r.left+a.clientLeft+a.clientWidth);}}return clip;}`
-const accessibilityFocusStateJS = `(() => {const p=document.getElementById('mpress-accessibility-panel'),e=document.activeElement,r=e.getBoundingClientRect(),clip=(` + accessibilityClipFunction + `)(e,p);return {Inside:p.contains(e),Visible:r.top>=clip.top&&r.bottom<=clip.bottom&&r.left>=clip.left&&r.right<=clip.right&&e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)),Footer:e.matches('[data-a11y-reset]'),HTML:e.outerHTML.slice(0,180),Top:r.top,Bottom:r.bottom,PanelTop:clip.top,PanelBottom:clip.bottom,Scroll:p.scrollTop};})()`
+const accessibilityFocusStateJS = `(() => {const p=document.getElementById('mpress-accessibility-panel'),e=document.activeElement,r=e.getBoundingClientRect(),clip=(` + browserClipFunction + `)(e,p);return {Inside:p.contains(e),Visible:r.top>=clip.top&&r.bottom<=clip.bottom&&r.left>=clip.left&&r.right<=clip.right&&e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)),Footer:e.matches('[data-a11y-reset]'),HTML:e.outerHTML.slice(0,180),Top:r.top,Bottom:r.bottom,PanelTop:clip.top,PanelBottom:clip.bottom,Scroll:p.scrollTop};})()`
 
 func (b *accessibilityBrowser) keyboardPreferences() {
 	b.t.Helper()
