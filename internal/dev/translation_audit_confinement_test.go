@@ -3,7 +3,6 @@ package dev
 import (
 	"context"
 	"net/http"
-	"net/http/httptest"
 	"os"
 	"path/filepath"
 	"testing"
@@ -26,9 +25,7 @@ func TestAuthoringTranslationAuditRejectsExternalFiles(t *testing.T) {
 				t.Fatal("fixture could not isolate provider detection")
 			}
 			sentinel, original := installTranslationInputBoundary(t, server, boundary)
-			host := httptest.NewServer(server.Handler())
-			defer host.Close()
-			response := requestJSON(t, http.MethodPost, host.URL+"/__mpress/api/translations", map[string]any{"action": "audit", "language": "fr", "file": "index.md"}, "translation-boundary")
+			response := translationBoundaryRequest(t, server, http.MethodPost, "/__mpress/api/translations", map[string]any{"action": "audit", "language": "fr", "file": "index.md"})
 			defer response.Body.Close()
 			if response.StatusCode < 400 {
 				t.Errorf("translation audit read external %s: HTTP %d", boundary, response.StatusCode)

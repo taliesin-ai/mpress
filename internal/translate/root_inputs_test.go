@@ -2,6 +2,8 @@ package translate
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -118,9 +120,9 @@ func TestRootedTranslationInputRetainsBounds(t *testing.T) {
 	}
 }
 
-// The retained ambient helper is the actual reader still used by unqualified
-// audit/comparison/refinement paths. Compare both readers on the same invalid
-// sparse input; record rejection allocation cost, not ordinary load performance.
+// The old reader is retained only in this test unit, copied from cbb4c5c.
+// Compare both readers on the same invalid sparse input; record rejection
+// allocation cost, not ordinary load performance.
 func BenchmarkOversizedTranslationInput(b *testing.B) {
 	project := b.TempDir()
 	file, err := os.Create(filepath.Join(project, "large.txt"))
@@ -146,7 +148,7 @@ func BenchmarkOversizedTranslationInput(b *testing.B) {
 			for i := 0; i < b.N; i++ {
 				var err error
 				if name == "ambient" {
-					_, err = readProjectFile(project, "large.txt", 128<<10)
+					_, err = readProjectInputBefore(project, "large.txt", 128<<10)
 				} else {
 					_, err = readProjectFileRoot(files, "large.txt", 128<<10)
 				}
@@ -156,4 +158,20 @@ func BenchmarkOversizedTranslationInput(b *testing.B) {
 			}
 		})
 	}
+}
+
+// Original cbb4c5c reader retained only as the rejection-cost baseline.
+func readProjectInputBefore(root, name string, limit int64) ([]byte, error) {
+	clean := filepath.Clean(filepath.FromSlash(name))
+	if clean == "." || clean == ".." || filepath.IsAbs(clean) || strings.HasPrefix(clean, ".."+string(filepath.Separator)) {
+		return nil, errors.New("path must stay inside the project")
+	}
+	data, err := os.ReadFile(filepath.Join(root, clean))
+	if err != nil {
+		return nil, err
+	}
+	if int64(len(data)) > limit {
+		return nil, fmt.Errorf("file exceeds %d bytes", limit)
+	}
+	return data, nil
 }

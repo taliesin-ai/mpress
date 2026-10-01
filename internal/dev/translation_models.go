@@ -77,7 +77,12 @@ func (s *Server) handleTranslationModels(w http.ResponseWriter, r *http.Request)
 			writeAPIError(w, http.StatusBadGateway, err)
 			return
 		}
-		estimate, err := translate.EstimateProject(s.project, s.cfg)
+		engine, err := translate.NewEngine(s.project, s.cfg, nil).BorrowRoot(s.files)
+		if err != nil {
+			writeAPIError(w, http.StatusBadRequest, err)
+			return
+		}
+		estimate, err := engine.Estimate()
 		if err != nil {
 			writeAPIError(w, http.StatusBadRequest, err)
 			return
@@ -272,7 +277,12 @@ func (s *Server) compareTranslationModels(w http.ResponseWriter, r *http.Request
 		}
 		candidates[index] = translate.ComparisonCandidate{Model: id, ReasoningEffort: comparisonReasoningEffort(model)}
 	}
-	comparison, err := translate.CompareProjectModelsForFile(r.Context(), s.project, s.cfg, language, sourceFile, candidates)
+	engine, err := translate.NewEngine(s.project, s.cfg, nil).BorrowRoot(s.files)
+	if err != nil {
+		writeAPIError(w, http.StatusBadRequest, err)
+		return
+	}
+	comparison, err := engine.CompareModels(r.Context(), language, sourceFile, candidates)
 	if err != nil {
 		writeAPIError(w, http.StatusBadGateway, err)
 		return

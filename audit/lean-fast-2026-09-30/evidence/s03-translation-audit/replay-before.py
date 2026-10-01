@@ -11,7 +11,8 @@ with tempfile.TemporaryDirectory(prefix="mpress-translation-audit-") as work:
     temp = pathlib.Path(work)
     replacements = {}
     for name in ["internal/dev/server.go", "internal/translate/engine.go",
-                 "internal/translate/audit.go", "internal/translate/refine.go"]:
+                 "internal/translate/audit.go", "internal/translate/refine.go",
+                 "internal/translate/comparison.go", "internal/dev/translation_models.go"]:
         original = temp / name.replace("/", "-")
         data = subprocess.check_output(["git", "show", "61d1462:" + name], cwd=root)
         if name.endswith("engine.go"):
@@ -27,6 +28,9 @@ func (e *Engine) BorrowRoot(root *projectfs.FS) (*Engine,error) {
     future = temp / "future-input-tests.go"
     future.write_text("package translate\n")
     replacements[str(root / "internal/translate/root_inputs_test.go")] = str(future)
+    future_comparison = temp / "future-comparison-tests.go"
+    future_comparison.write_text("package dev\n")
+    replacements[str(root / "internal/dev/translation_comparison_confinement_test.go")] = str(future_comparison)
     overlay = temp / "overlay.json"
     overlay.write_text(json.dumps({"Replace": replacements}))
     result = subprocess.run(["go", "test", "-overlay=" + str(overlay), "./internal/dev",

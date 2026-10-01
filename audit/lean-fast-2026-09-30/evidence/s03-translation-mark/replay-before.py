@@ -12,7 +12,8 @@ with tempfile.TemporaryDirectory(prefix="mpress-translation-review-") as work:
     replacements = {}
     for name in ["internal/dev/server.go", "internal/content/content.go",
                  "internal/translate/engine.go", "internal/translate/state.go",
-                 "internal/translate/audit.go", "internal/translate/refine.go"]:
+                 "internal/translate/audit.go", "internal/translate/refine.go",
+                 "internal/translate/comparison.go", "internal/dev/translation_models.go"]:
         original = temp / name.replace("/", "-")
         original.write_bytes(subprocess.check_output(["git", "show", "22dddd1:" + name], cwd=root))
         replacements[str(root / name)] = str(original)
@@ -26,6 +27,9 @@ with tempfile.TemporaryDirectory(prefix="mpress-translation-review-") as work:
     future_audit = temp / "future-audit-tests.go"
     future_audit.write_text("package dev\n")
     replacements[str(root / "internal/dev/translation_audit_confinement_test.go")] = str(future_audit)
+    future_comparison = temp / "future-comparison-tests.go"
+    future_comparison.write_text("package dev\n")
+    replacements[str(root / "internal/dev/translation_comparison_confinement_test.go")] = str(future_comparison)
     overlay = temp / "overlay.json"
     overlay.write_text(json.dumps({"Replace": replacements}))
     result = subprocess.run(["go", "test", "-overlay=" + str(overlay), "./internal/dev",

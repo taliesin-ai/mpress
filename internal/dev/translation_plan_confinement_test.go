@@ -3,7 +3,6 @@ package dev
 import (
 	"context"
 	"net/http"
-	"net/http/httptest"
 	"os"
 	"path/filepath"
 	"testing"
@@ -16,9 +15,7 @@ func TestAuthoringTranslationPlanRejectsExternalFiles(t *testing.T) {
 		t.Run(boundary, func(t *testing.T) {
 			server := translationReviewFixture(t)
 			sentinel, original := installTranslationInputBoundary(t, server, boundary)
-			host := httptest.NewServer(server.Handler())
-			defer host.Close()
-			response := requestJSON(t, http.MethodGet, host.URL+"/__mpress/api/translations?lang=fr&file=index.md", nil, "translation-boundary")
+			response := translationBoundaryRequest(t, server, http.MethodGet, "/__mpress/api/translations?lang=fr&file=index.md", nil)
 			defer response.Body.Close()
 			if response.StatusCode < 400 {
 				t.Errorf("translation plan read external %s with HTTP %d", boundary, response.StatusCode)

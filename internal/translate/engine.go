@@ -317,8 +317,9 @@ func (e *Engine) RunRoot(ctx context.Context, root *projectfs.FS, options Option
 	return borrowed.Run(ctx, options)
 }
 
-// BorrowRoot returns a copy whose Run, Audit and RefineWithProvider operations
-// borrow root. The caller owns its lifetime; the original Engine is unchanged.
+// BorrowRoot returns a copy whose Run, Audit, RefineWithProvider, Estimate and
+// CompareModels operations borrow root. The caller owns its lifetime; the
+// original Engine is unchanged.
 func (e *Engine) BorrowRoot(root *projectfs.FS) (*Engine, error) {
 	if root == nil {
 		return nil, errors.New("translation project root is required")
@@ -1479,17 +1480,6 @@ type glossaryFile struct {
 	} `yaml:"terms"`
 }
 
-func loadGlossary(root, name string) (map[string][]GlossaryTerm, error) {
-	if strings.TrimSpace(name) == "" {
-		return map[string][]GlossaryTerm{}, nil
-	}
-	data, err := readProjectFile(root, name, 1<<20)
-	if err != nil {
-		return nil, fmt.Errorf("read translation glossary: %w", err)
-	}
-	return decodeGlossary(data)
-}
-
 func loadGlossaryRoot(files *projectfs.FS, name string) (map[string][]GlossaryTerm, error) {
 	if strings.TrimSpace(name) == "" {
 		return map[string][]GlossaryTerm{}, nil
@@ -1544,29 +1534,6 @@ func readProjectFileRoot(files *projectfs.FS, name string, limit int64) ([]byte,
 		return nil, fmt.Errorf("file exceeds %d bytes", limit)
 	}
 	data, err := io.ReadAll(io.LimitReader(file, limit+1))
-	if err != nil {
-		return nil, err
-	}
-	if int64(len(data)) > limit {
-		return nil, fmt.Errorf("file exceeds %d bytes", limit)
-	}
-	return data, nil
-}
-
-func readOptionalProjectFile(root, name string, limit int64) (string, error) {
-	if strings.TrimSpace(name) == "" {
-		return "", nil
-	}
-	data, err := readProjectFile(root, name, limit)
-	return string(data), err
-}
-
-func readProjectFile(root, name string, limit int64) ([]byte, error) {
-	clean := filepath.Clean(filepath.FromSlash(name))
-	if clean == "." || clean == ".." || filepath.IsAbs(clean) || strings.HasPrefix(clean, ".."+string(filepath.Separator)) {
-		return nil, errors.New("path must stay inside the project")
-	}
-	data, err := os.ReadFile(filepath.Join(root, clean))
 	if err != nil {
 		return nil, err
 	}

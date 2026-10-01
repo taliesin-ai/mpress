@@ -87,9 +87,14 @@ func translationReviewPath(server *Server, boundary string) string {
 
 func translationReviewRequest(t *testing.T, server *Server) *http.Response {
 	t.Helper()
+	return translationBoundaryRequest(t, server, http.MethodPost, "/__mpress/api/translations", map[string]any{"action": "mark", "language": "fr", "file": "index.md", "status": "reviewed"})
+}
+
+func translationBoundaryRequest(t *testing.T, server *Server, method, endpoint string, payload any) *http.Response {
+	t.Helper()
 	host := httptest.NewServer(server.Handler())
 	t.Cleanup(host.Close)
-	return requestJSON(t, http.MethodPost, host.URL+"/__mpress/api/translations", map[string]any{"action": "mark", "language": "fr", "file": "index.md", "status": "reviewed"}, "translation-boundary")
+	return requestJSON(t, method, host.URL+endpoint, payload, "translation-boundary")
 }
 
 func readTranslationFixture(t *testing.T, path string) []byte {

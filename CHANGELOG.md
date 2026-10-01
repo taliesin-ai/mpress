@@ -6,6 +6,8 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Fixed — 2026-10-02
 
+- Model comparison and workload estimation now share the pinned project filesystem for source and provider inputs. Five authenticated failing-before cases include comparison sending external content to both local test providers; safe aliases, read-only sampling and workload estimates remain supported. Removed obsolete ambient input readers from production. Beads `mp-b52.1.3` remains open for check, migration/conversion, deploy and metadata delegates.
+
 - Translation audit and refinement now confine source, target, state and provider inputs through the same pinned root, including independent review and final re-audit. Fifteen failing-before cases cover external reads and three external overwrites; internal aliases and clean-segment preservation remain supported. Removed the unused ambient atomic writer. Beads `mp-b52.1.3`; remaining delegates stay open.
 
 - Translation planning and execution now share the pinned project filesystem across source, target, state, provider inputs and relocation cleanup. External links and provider-time parent replacements are rejected; safe internal aliases remain supported. Style-guide/glossary limits apply before allocation. Generated documentation is unchanged. Beads `mp-b52.1.3` remains in progress for remaining delegates; see `audit/lean-fast-2026-09-30/S03.md`.

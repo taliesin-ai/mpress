@@ -1,0 +1,28 @@
+=== RUN   TestAuthoringComparisonRejectsExternalFilesBeforeProvider
+=== RUN   TestAuthoringComparisonRejectsExternalFilesBeforeProvider/source
+    translation_comparison_confinement_test.go:70: comparison exposed external source: HTTP 200 provider calls=2
+=== RUN   TestAuthoringComparisonRejectsExternalFilesBeforeProvider/style-guide
+    translation_comparison_confinement_test.go:70: comparison exposed external style-guide: HTTP 200 provider calls=2
+=== RUN   TestAuthoringComparisonRejectsExternalFilesBeforeProvider/glossary
+    translation_comparison_confinement_test.go:70: comparison exposed external glossary: HTTP 200 provider calls=2
+--- FAIL: TestAuthoringComparisonRejectsExternalFilesBeforeProvider (0.04s)
+    --- FAIL: TestAuthoringComparisonRejectsExternalFilesBeforeProvider/source (0.02s)
+    --- FAIL: TestAuthoringComparisonRejectsExternalFilesBeforeProvider/style-guide (0.02s)
+    --- FAIL: TestAuthoringComparisonRejectsExternalFilesBeforeProvider/glossary (0.01s)
+=== RUN   TestAuthoringEstimateRejectsExternalFilesBeforeTargetsExist
+=== RUN   TestAuthoringEstimateRejectsExternalFilesBeforeTargetsExist/source
+    translation_comparison_confinement_test.go:91: estimate read external source: HTTP 200 provider calls=0
+=== RUN   TestAuthoringEstimateRejectsExternalFilesBeforeTargetsExist/style-guide
+    translation_comparison_confinement_test.go:91: estimate read external style-guide: HTTP 200 provider calls=0
+--- FAIL: TestAuthoringEstimateRejectsExternalFilesBeforeTargetsExist (0.02s)
+    --- FAIL: TestAuthoringEstimateRejectsExternalFilesBeforeTargetsExist/source (0.01s)
+    --- FAIL: TestAuthoringEstimateRejectsExternalFilesBeforeTargetsExist/style-guide (0.01s)
+=== RUN   TestAuthoringComparisonRetainsInternalSourceAliasesWithoutWrites
+=== RUN   TestAuthoringComparisonRetainsInternalSourceAliasesWithoutWrites/relative
+=== RUN   TestAuthoringComparisonRetainsInternalSourceAliasesWithoutWrites/absolute
+--- PASS: TestAuthoringComparisonRetainsInternalSourceAliasesWithoutWrites (0.02s)
+    --- PASS: TestAuthoringComparisonRetainsInternalSourceAliasesWithoutWrites/relative (0.01s)
+    --- PASS: TestAuthoringComparisonRetainsInternalSourceAliasesWithoutWrites/absolute (0.01s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/dev	0.140s
+FAIL
