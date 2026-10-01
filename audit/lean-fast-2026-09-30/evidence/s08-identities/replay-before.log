@@ -1,0 +1,29 @@
+=== RUN   TestLoadAllIncludesMountedVersionsWithDistinctResources
+--- PASS: TestLoadAllIncludesMountedVersionsWithDistinctResources (0.00s)
+=== RUN   TestKnowledgeRejectsDuplicateArtifactIdentities
+=== RUN   TestKnowledgeRejectsDuplicateArtifactIdentities/page
+    identity_test.go:25: digest-valid duplicate page identity was accepted: <nil>
+=== RUN   TestKnowledgeRejectsDuplicateArtifactIdentities/term
+    identity_test.go:25: digest-valid duplicate term identity was accepted: <nil>
+--- FAIL: TestKnowledgeRejectsDuplicateArtifactIdentities (0.00s)
+    --- FAIL: TestKnowledgeRejectsDuplicateArtifactIdentities/page (0.00s)
+    --- FAIL: TestKnowledgeRejectsDuplicateArtifactIdentities/term (0.00s)
+=== RUN   TestKnowledgeSnapshotMatchingCurrentVersionHasDistinctResources
+    identity_test.go:102: page identity resolves to another version: {PageSummary:{ID:25f48bf00bb16949bfdc196b ResourceURI:mpress://knowledge/page/25f48bf00bb16949bfdc196b Language:en Version:v1 Route:/guide/ URL:/guide/ Source: Title:Current Description: Tags:[] ChunkCount:1} Text:current instructions} -> &{PageSummary:{ID:25f48bf00bb16949bfdc196b ResourceURI:mpress://knowledge/page/25f48bf00bb16949bfdc196b Language:en Version:v1 Route:/versions/v1/guide/ URL:/versions/v1/guide/ Source: Title:Snapshot Description: Tags:[] ChunkCount:2} Text:legacy instructions}
+--- FAIL: TestKnowledgeSnapshotMatchingCurrentVersionHasDistinctResources (0.00s)
+=== RUN   TestKnowledgeLegacyDuplicateChunkIDsRemainReadable
+=== RUN   TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/1
+    identity_test.go:172: legacy index still aliases sections: [{ChunkID:14b8899168ac21dbeb950e5f PageID:41b306e5988f6e7c9ac893ef ResourceURI:mpress://knowledge/section/14b8899168ac21dbeb950e5f PageResource:mpress://knowledge/page/41b306e5988f6e7c9ac893ef Title:Second PageTitle:Sections URL:/guide/ Language:en Version:current HeadingPath:[Second] Snippet:second text Score:164}] / [{ChunkID:14b8899168ac21dbeb950e5f PageID:41b306e5988f6e7c9ac893ef ResourceURI:mpress://knowledge/section/14b8899168ac21dbeb950e5f PageResource:mpress://knowledge/page/41b306e5988f6e7c9ac893ef Title:Second PageTitle:Sections URL:/guide/ Language:en Version:current HeadingPath:[Second] Snippet:second text Score:184}]
+=== RUN   TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/20971520
+    identity_test.go:172: legacy index still aliases sections: [{ChunkID:14b8899168ac21dbeb950e5f PageID:41b306e5988f6e7c9ac893ef ResourceURI:mpress://knowledge/section/14b8899168ac21dbeb950e5f PageResource:mpress://knowledge/page/41b306e5988f6e7c9ac893ef Title:Second PageTitle:Sections URL:/guide/ Language:en Version:current HeadingPath:[Second] Snippet:second text Score:164}] / [{ChunkID:14b8899168ac21dbeb950e5f PageID:41b306e5988f6e7c9ac893ef ResourceURI:mpress://knowledge/section/14b8899168ac21dbeb950e5f PageResource:mpress://knowledge/page/41b306e5988f6e7c9ac893ef Title:Second PageTitle:Sections URL:/guide/ Language:en Version:current HeadingPath:[Second] Snippet:second text Score:184}]
+--- FAIL: TestKnowledgeLegacyDuplicateChunkIDsRemainReadable (0.00s)
+    --- FAIL: TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/1 (0.00s)
+    --- FAIL: TestKnowledgeLegacyDuplicateChunkIDsRemainReadable/20971520 (0.00s)
+=== RUN   TestGeneratedRepeatedAndUnnamedSectionsHaveDistinctChunkIDs
+    identity_test.go:259: generated duplicate section ID 14b8899168ac21dbeb950e5f
+--- FAIL: TestGeneratedRepeatedAndUnnamedSectionsHaveDistinctChunkIDs (0.00s)
+=== RUN   TestCompressedKnowledgeRoundTrip
+--- PASS: TestCompressedKnowledgeRoundTrip (0.01s)
+FAIL
+FAIL	github.com/leaanthony/mpress/internal/knowledge	0.087s
+FAIL

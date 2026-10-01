@@ -1,0 +1,131 @@
+{
+  "baseline": "c4b8ddf",
+  "alternatingRunsPerCandidatePerCorpus": 3,
+  "sameInputPerComparison": true,
+  "cpuProfilingDuringTiming": false,
+  "memoryMetric": "Total Go allocation bytes/op, not peak RSS",
+  "samples": [
+    {
+      "corpus": "legacy",
+      "candidate": "before",
+      "iteration": 0,
+      "ns": 2426147383,
+      "allocatedBytes": 736330880,
+      "allocations": 2558121
+    },
+    {
+      "corpus": "legacy",
+      "candidate": "after",
+      "iteration": 0,
+      "ns": 3781081772,
+      "allocatedBytes": 1522484936,
+      "allocations": 5913883
+    },
+    {
+      "corpus": "legacy",
+      "candidate": "before",
+      "iteration": 1,
+      "ns": 2407880746,
+      "allocatedBytes": 736375104,
+      "allocations": 2558175
+    },
+    {
+      "corpus": "legacy",
+      "candidate": "after",
+      "iteration": 1,
+      "ns": 3754486592,
+      "allocatedBytes": 1522484984,
+      "allocations": 5913883
+    },
+    {
+      "corpus": "legacy",
+      "candidate": "before",
+      "iteration": 2,
+      "ns": 2438113846,
+      "allocatedBytes": 736313976,
+      "allocations": 2558098
+    },
+    {
+      "corpus": "legacy",
+      "candidate": "after",
+      "iteration": 2,
+      "ns": 3690226153,
+      "allocatedBytes": 1522747144,
+      "allocations": 5913907
+    },
+    {
+      "corpus": "corrected",
+      "candidate": "before",
+      "iteration": 0,
+      "ns": 2450498845,
+      "allocatedBytes": 736332416,
+      "allocations": 2558485
+    },
+    {
+      "corpus": "corrected",
+      "candidate": "after",
+      "iteration": 0,
+      "ns": 2482092905,
+      "allocatedBytes": 736265664,
+      "allocations": 2558402
+    },
+    {
+      "corpus": "corrected",
+      "candidate": "before",
+      "iteration": 1,
+      "ns": 2429109307,
+      "allocatedBytes": 736281720,
+      "allocations": 2558419
+    },
+    {
+      "corpus": "corrected",
+      "candidate": "after",
+      "iteration": 1,
+      "ns": 2425586055,
+      "allocatedBytes": 736275872,
+      "allocations": 2558411
+    },
+    {
+      "corpus": "corrected",
+      "candidate": "before",
+      "iteration": 2,
+      "ns": 2507480658,
+      "allocatedBytes": 736337336,
+      "allocations": 2558488
+    },
+    {
+      "corpus": "corrected",
+      "candidate": "after",
+      "iteration": 2,
+      "ns": 2469962690,
+      "allocatedBytes": 736320960,
+      "allocations": 2558469
+    }
+  ],
+  "medians": {
+    "legacy": {
+      "before": {
+        "ns": 2426147383,
+        "allocatedBytes": 736330880,
+        "allocations": 2558121
+      },
+      "after": {
+        "ns": 3754486592,
+        "allocatedBytes": 1522484984,
+        "allocations": 5913883
+      }
+    },
+    "corrected": {
+      "before": {
+        "ns": 2450498845,
+        "allocatedBytes": 736332416,
+        "allocations": 2558485
+      },
+      "after": {
+        "ns": 2469962690,
+        "allocatedBytes": 736275872,
+        "allocations": 2558411
+      }
+    }
+  }
+}

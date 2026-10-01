@@ -1,0 +1,5 @@
+=== RUN   TestExplicitKnowledgeCorpus
+    confinement_test.go:142: verified digest 79914ac2685e14fa0207b58dfa1cf9b2f149beb856b634d610a2e1df02ef7346: 2010 pages, 25696 chunks
+--- PASS: TestExplicitKnowledgeCorpus (2.46s)
+PASS
+ok  	github.com/leaanthony/mpress/internal/knowledge	2.586s

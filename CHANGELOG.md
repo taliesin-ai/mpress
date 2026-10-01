@@ -6,6 +6,8 @@ Changes to existing M-Press behaviour, tests and performance are recorded here.
 
 ### Fixed — 2026-10-01
 
+- Knowledge sections now have distinct deterministic identities for repeated or unnamed headings. Legacy bundles are repaired in memory after digest verification; duplicate page/term IDs fail explicitly. Mounted resources remain distinct from a current release with the same version and stable across release changes. Legacy reindexing cost is measured in `S08.md`; resource budgets remain open. Beads `mp-b52.1.8`.
+
 - Knowledge reads now pin project/site/version/bundle boundaries and validate all artifact filenames before reading, rejecting external links and traversal from the authenticated authoring endpoint. Internal aliases, compressed digests and version-resource behavior remain supported; generated docs are byte-identical. Beads `mp-b52.1.3`/`mp-b52.1.8`; resource and identity qualification remain open in `audit/lean-fast-2026-09-30/S08.md`.
 
 - Contribution dialogs now scroll on phones and short windows, containing touch gestures while expanded setup and instructions remain reachable. Six native touch cases qualify commands, translation, copy and Escape/close focus; embedded viewer assets were regenerated. Beads `mp-b52.2.3`; see `audit/lean-fast-2026-09-30/B03.md`.

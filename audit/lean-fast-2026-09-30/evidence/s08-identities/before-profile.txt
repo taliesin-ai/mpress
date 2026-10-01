@@ -1,0 +1,146 @@
+File: knowledge.test
+Build ID: 4755a5a8d6132b864708deb6e12666ab120072ad
+Type: cpu
+Time: 2026-10-01 21:48:53 AEST
+Duration: 7.23s, Total samples = 7.83s (108.24%)
+Showing nodes accounting for 7.11s, 90.80% of 7.83s total
+Dropped 118 nodes (cum <= 0.04s)
+      flat  flat%   sum%        cum   cum%
+     0.69s  8.81%  8.81%      1.28s 16.35%  encoding/json.checkValid
+     0.60s  7.66% 16.48%      0.73s  9.32%  compress/flate.(*decompressor).huffSym
+     0.43s  5.49% 21.97%      0.43s  5.49%  encoding/json.stateInString
+     0.41s  5.24% 27.20%      0.68s  8.68%  encoding/json.unquoteBytes
+     0.35s  4.47% 31.67%      4.06s 51.85%  encoding/json.(*decodeState).object
+     0.35s  4.47% 36.14%      0.41s  5.24%  encoding/json.(*decodeState).rescanLiteral
+     0.33s  4.21% 40.36%      1.25s 15.96%  compress/flate.(*decompressor).huffmanBlock
+     0.27s  3.45% 43.81%      0.27s  3.45%  runtime.memclrNoHeapPointers
+     0.24s  3.07% 46.87%      0.26s  3.32%  unicode/utf8.DecodeRune (inline)
+     0.20s  2.55% 49.43%      0.20s  2.55%  runtime.memmove
+     0.19s  2.43% 51.85%      0.34s  4.34%  reflect.(*rtype).Name
+     0.18s  2.30% 54.15%      0.18s  2.30%  crypto/internal/fips140/sha256.blockSHANI
+     0.16s  2.04% 56.19%      0.88s 11.24%  encoding/json.indirect
+     0.14s  1.79% 57.98%      0.15s  1.92%  bufio.(*Reader).ReadByte
+     0.14s  1.79% 59.77%      0.15s  1.92%  encoding/json.stateEndValue
+     0.13s  1.66% 61.43%      0.24s  3.07%  encoding/json.(*decodeState).scanWhile
+     0.12s  1.53% 62.96%      0.12s  1.53%  runtime.procyieldAsm
+     0.11s  1.40% 64.37%      1.59s 20.31%  encoding/json.(*decodeState).literalStore
+     0.10s  1.28% 65.64%      4.06s 51.85%  encoding/json.(*decodeState).array
+     0.09s  1.15% 66.79%      0.13s  1.66%  encoding/json.stateBeginValue
+     0.09s  1.15% 67.94%      0.09s  1.15%  runtime.madvise
+     0.09s  1.15% 69.09%      0.16s  2.04%  runtime.mallocgcSmallNoscan
+     0.09s  1.15% 70.24%      0.12s  1.53%  runtime.tryDeferToSpanScan
+     0.08s  1.02% 71.26%      4.06s 51.85%  encoding/json.(*decodeState).value
+     0.08s  1.02% 72.29%      0.08s  1.02%  reflect.Value.Elem
+     0.07s  0.89% 73.18%      0.07s  0.89%  runtime.mapaccess1_fast32
+     0.06s  0.77% 73.95%      0.06s  0.77%  aeshashbody
+     0.06s  0.77% 74.71%      0.09s  1.15%  compress/flate.(*dictDecoder).tryWriteCopy (inline)
+     0.06s  0.77% 75.48%      0.06s  0.77%  compress/flate.(*dictDecoder).writeByte (inline)
+     0.06s  0.77% 76.25%      0.06s  0.77%  reflect.(*rtype).exportedMethods
+     0.06s  0.77% 77.01%      0.07s  0.89%  reflect.Value.SetString
+     0.05s  0.64% 77.65%      0.05s  0.64%  hash/crc32.ieeeCLMUL
+     0.05s  0.64% 78.29%      0.09s  1.15%  internal/runtime/maps.(*Map).getWithoutKeySmallFastStr
+     0.05s  0.64% 78.93%      0.05s  0.64%  internal/strconv.ParseUint
+     0.05s  0.64% 79.57%      0.11s  1.40%  reflect.(*rtype).NumMethod
+     0.05s  0.64% 80.20%      0.18s  2.30%  reflect.Value.Addr
+     0.05s  0.64% 80.84%      0.39s  4.98%  runtime.mallocgc
+     0.05s  0.64% 81.48%      0.20s  2.55%  runtime.scanObject
+     0.04s  0.51% 81.99%      0.04s  0.51%  encoding/json.(*decodeState).readIndex (inline)
+     0.04s  0.51% 82.50%      0.05s  0.64%  internal/abi.Name.Name
+     0.04s  0.51% 83.01%      0.04s  0.51%  internal/runtime/syscall/linux.Syscall6
+     0.04s  0.51% 83.52%      0.15s  1.92%  reflect.(*rtype).String
+     0.04s  0.51% 84.04%      0.05s  0.64%  reflect.Value.Field
+     0.04s  0.51% 84.55%      0.04s  0.51%  reflect.Value.Index
+     0.04s  0.51% 85.06%      0.04s  0.51%  reflect.Value.OverflowInt (inline)
+     0.04s  0.51% 85.57%      0.04s  0.51%  runtime.futex
+     0.04s  0.51% 86.08%      0.28s  3.58%  runtime.growslice
+     0.04s  0.51% 86.59%      0.04s  0.51%  runtime.heapSetTypeSmallHeader (inline)
+     0.04s  0.51% 87.10%      0.11s  1.40%  runtime.resolveTypeOff
+     0.04s  0.51% 87.61%      0.30s  3.83%  runtime.slicebytetostring
+     0.04s  0.51% 88.12%      0.10s  1.28%  strconv.ParseInt
+     0.03s  0.38% 88.51%      0.12s  1.53%  encoding/json.cachedTypeFields
+     0.03s  0.38% 88.89%      0.09s  1.15%  internal/sync.(*HashTrieMap[go.shape.interface {},go.shape.interface {}]).Load
+     0.03s  0.38% 89.27%      0.06s  0.77%  reflect.resolveNameOff
+     0.02s  0.26% 89.53%      0.06s  0.77%  encoding/json.state0
+     0.02s  0.26% 89.78%      0.45s  5.75%  runtime.gcDrain
+     0.02s  0.26% 90.04%      0.05s  0.64%  runtime.scanObjectsSmall
+     0.01s  0.13% 90.17%      0.06s  0.77%  internal/strconv.ParseInt
+     0.01s  0.13% 90.29%      0.13s  1.66%  reflect.(*rtype).ptrTo
+     0.01s  0.13% 90.42%      0.29s  3.70%  reflect.Value.grow
+     0.01s  0.13% 90.55%      0.12s  1.53%  reflect.resolveTypeOff
+     0.01s  0.13% 90.68%      0.05s  0.64%  runtime.(*mheap).allocSpan
+     0.01s  0.13% 90.80%      0.14s  1.79%  runtime.suspendG
+         0     0% 90.80%      1.28s 16.35%  compress/flate.(*decompressor).Read
+         0     0% 90.80%      0.50s  6.39%  compress/flate.(*decompressor).nextBlock
+         0     0% 90.80%      1.33s 16.99%  compress/gzip.(*Reader).Read
+         0     0% 90.80%      0.18s  2.30%  crypto/internal/fips140/sha256.(*Digest).Write
+         0     0% 90.80%      0.18s  2.30%  crypto/internal/fips140/sha256.block
+         0     0% 90.80%      4.06s 51.85%  encoding/json.(*decodeState).unmarshal
+         0     0% 90.80%      5.34s 68.20%  encoding/json.Unmarshal
+         0     0% 90.80%      0.06s  0.77%  encoding/json.state1
+         0     0% 90.80%      7.18s 91.70%  github.com/leaanthony/mpress/internal/knowledge.BenchmarkExplicitKnowledgeLoadAll
+         0     0% 90.80%      7.18s 91.70%  github.com/leaanthony/mpress/internal/knowledge.LoadAll
+         0     0% 90.80%      7.18s 91.70%  github.com/leaanthony/mpress/internal/knowledge.LoadAllRoot
+         0     0% 90.80%      7.18s 91.70%  github.com/leaanthony/mpress/internal/knowledge.loadSite
+         0     0% 90.80%      0.06s  0.77%  github.com/leaanthony/mpress/internal/knowledge.newStore
+         0     0% 90.80%      1.60s 20.43%  github.com/leaanthony/mpress/internal/knowledge.readArtifact
+         0     0% 90.80%      0.05s  0.64%  github.com/leaanthony/mpress/internal/knowledge.readJSON
+         0     0% 90.80%      0.05s  0.64%  github.com/leaanthony/mpress/internal/projectfs.(*FS).ReadFile
+         0     0% 90.80%      0.05s  0.64%  hash/crc32.Update (inline)
+         0     0% 90.80%      0.05s  0.64%  hash/crc32.archUpdateIEEE
+         0     0% 90.80%      0.05s  0.64%  hash/crc32.update
+         0     0% 90.80%      0.04s  0.51%  internal/poll.(*FD).Read
+         0     0% 90.80%      0.04s  0.51%  internal/poll.ignoringEINTRIO (inline)
+         0     0% 90.80%      1.55s 19.80%  io.ReadAll
+         0     0% 90.80%      0.04s  0.51%  os.(*File).Read
+         0     0% 90.80%      0.04s  0.51%  os.(*File).read (inline)
+         0     0% 90.80%      0.05s  0.64%  os.(*Root).ReadFile
+         0     0% 90.80%      0.05s  0.64%  os.readFileContents
+         0     0% 90.80%      0.06s  0.77%  reflect.(*rtype).nameOff (inline)
+         0     0% 90.80%      0.12s  1.53%  reflect.(*rtype).typeOff (inline)
+         0     0% 90.80%      0.29s  3.70%  reflect.Value.Grow
+         0     0% 90.80%      0.28s  3.58%  reflect.growslice
+         0     0% 90.80%      0.13s  1.66%  reflect.ptrTo (inline)
+         0     0% 90.80%      0.13s  1.66%  runtime.(*mcache).nextFree
+         0     0% 90.80%      0.13s  1.66%  runtime.(*mcache).refill
+         0     0% 90.80%      0.13s  1.66%  runtime.(*mcentral).cacheSpan
+         0     0% 90.80%      0.11s  1.40%  runtime.(*mcentral).grow
+         0     0% 90.80%      0.05s  0.64%  runtime.(*mheap).alloc
+         0     0% 90.80%      0.05s  0.64%  runtime.(*mheap).alloc.func1
+         0     0% 90.80%      0.04s  0.51%  runtime.(*mheap).freeSpan (inline)
+         0     0% 90.80%      0.06s  0.77%  runtime.(*mspan).initHeapBits
+         0     0% 90.80%      0.09s  1.15%  runtime.(*pageAlloc).scavenge
+         0     0% 90.80%      0.09s  1.15%  runtime.(*pageAlloc).scavenge.func1
+         0     0% 90.80%      0.09s  1.15%  runtime.(*pageAlloc).scavengeOne
+         0     0% 90.80%      0.09s  1.15%  runtime.(*scavengerState).init.func2
+         0     0% 90.80%      0.09s  1.15%  runtime.(*scavengerState).run
+         0     0% 90.80%      0.05s  0.64%  runtime.(*sweepLocked).sweep
+         0     0% 90.80%      0.04s  0.51%  runtime.(*sweepLocked).sweep.(*mheap).freeSpan.func2
+         0     0% 90.80%      0.09s  1.15%  runtime.bgscavenge
+         0     0% 90.80%      0.05s  0.64%  runtime.bgsweep
+         0     0% 90.80%      0.04s  0.51%  runtime.findRunnable
+         0     0% 90.80%      0.46s  5.87%  runtime.gcBgMarkWorker
+         0     0% 90.80%      0.45s  5.75%  runtime.gcBgMarkWorker.func2
+         0     0% 90.80%      0.35s  4.47%  runtime.gcDrainMarkWorkerDedicated (inline)
+         0     0% 90.80%      0.10s  1.28%  runtime.gcDrainMarkWorkerIdle (inline)
+         0     0% 90.80%      0.04s  0.51%  runtime.makeslice
+         0     0% 90.80%      0.06s  0.77%  runtime.mallocgcSmallScanHeader
+         0     0% 90.80%      0.07s  0.89%  runtime.mallocgcSmallScanNoHeader
+         0     0% 90.80%      0.12s  1.53%  runtime.mapaccess1_faststr
+         0     0% 90.80%      0.16s  2.04%  runtime.markroot
+         0     0% 90.80%      0.16s  2.04%  runtime.markroot.func1
+         0     0% 90.80%      0.04s  0.51%  runtime.mcall
+         0     0% 90.80%      0.12s  1.53%  runtime.procyield (inline)
+         0     0% 90.80%      0.11s  1.40%  runtime.rtype.typeOff (inline)
+         0     0% 90.80%      0.05s  0.64%  runtime.scanSpan
+         0     0% 90.80%      0.04s  0.51%  runtime.schedule
+         0     0% 90.80%      0.06s  0.77%  runtime.sweepone
+         0     0% 90.80%      0.09s  1.15%  runtime.sysUnused (inline)
+         0     0% 90.80%      0.09s  1.15%  runtime.sysUnusedOS
+         0     0% 90.80%      0.66s  8.43%  runtime.systemstack
+         0     0% 90.80%      0.09s  1.15%  sync.(*Map).Load (inline)
+         0     0% 90.80%      0.04s  0.51%  syscall.RawSyscall6
+         0     0% 90.80%      0.04s  0.51%  syscall.Read (inline)
+         0     0% 90.80%      0.04s  0.51%  syscall.Syscall
+         0     0% 90.80%      0.04s  0.51%  syscall.read
+         0     0% 90.80%      7.19s 91.83%  testing.(*B).run1.func1
+         0     0% 90.80%      7.19s 91.83%  testing.(*B).runN

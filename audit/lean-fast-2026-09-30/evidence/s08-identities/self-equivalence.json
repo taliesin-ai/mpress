@@ -1,0 +1,11 @@
+{
+  "baseline": "c0183eb",
+  "files": 100,
+  "changed": [
+    "knowledge/chunks.json",
+    "knowledge/index.json",
+    "knowledge/manifest.json"
+  ],
+  "allOtherBytesIdentical": true,
+  "sameSourceAndPath": true
+}

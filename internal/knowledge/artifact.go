@@ -266,7 +266,8 @@ func makeChunks(page Page, renderedHTML string) ([]Chunk, error) {
 			})
 		}
 	}
-	return chunks, nil
+	_, err = uniqueChunkIdentities(chunks)
+	return chunks, err
 }
 
 func sectionsFromHTML(renderedHTML, pageTitle string) ([]section, error) {
@@ -605,7 +606,7 @@ func loadSite(site *projectfs.FS) (*Store, error) {
 	if digest := hex.EncodeToString(digestHash.Sum(nil)); digest != manifest.Digest {
 		return nil, errors.New("knowledge artifact digest does not match manifest")
 	}
-	return newStore(manifest, pages, chunks, index), nil
+	return checkedStore(manifest, pages, chunks, index)
 }
 
 // LoadAll loads the current artifact and any captured version artifacts mounted
@@ -660,10 +661,10 @@ func LoadAllRoot(site *projectfs.FS) (*Store, error) {
 		pages = append(pages, versionPages...)
 		chunks = append(chunks, versionChunks...)
 	}
-	return sortedVersionStore(current.Manifest, pages, chunks), nil
+	return sortedVersionStore(current.Manifest, pages, chunks)
 }
 
-func sortedVersionStore(manifest Manifest, pages []Page, chunks []Chunk) *Store {
+func sortedVersionStore(manifest Manifest, pages []Page, chunks []Chunk) (*Store, error) {
 	sort.Slice(pages, func(i, j int) bool {
 		if pages[i].Version != pages[j].Version {
 			return pages[i].Version < pages[j].Version
@@ -685,7 +686,7 @@ func sortedVersionStore(manifest Manifest, pages []Page, chunks []Chunk) *Store 
 		}
 		return chunks[i].ID < chunks[j].ID
 	})
-	return newStore(manifest, pages, chunks, makeIndex(chunks))
+	return checkedStore(manifest, pages, chunks, makeIndex(chunks))
 }
 
 func loadVersionSite(versions *projectfs.FS, name string) (*Store, error) {
@@ -714,9 +715,9 @@ func relabelVersion(pages []Page, chunks []Chunk, version, baseURL string) ([]Pa
 		oldID := page.ID
 		originalRoute := page.Route
 		page.Version = version
-		page.ID = stableID("page", page.Language, version, strings.Trim(originalRoute, "/"))
-		page.ResourceURI = "mpress://knowledge/page/" + page.ID
 		page.Route = "/versions/" + version + originalRoute
+		page.ID = stableID("page", page.Language, version, strings.Trim(page.Route, "/"))
+		page.ResourceURI = "mpress://knowledge/page/" + page.ID
 		page.URL = page.Route
 		if baseURL != "" {
 			page.URL = strings.TrimRight(baseURL, "/") + page.Route
@@ -727,9 +728,10 @@ func relabelVersion(pages []Page, chunks []Chunk, version, baseURL string) ([]Pa
 	relabelledChunks := make([]Chunk, len(chunks))
 	for index, chunk := range chunks {
 		page := pageIDs[chunk.PageID]
+		originalID := chunk.ID
 		chunk.Version = version
 		chunk.PageID = page.id
-		chunk.ID = stableID("chunk", chunk.PageID, chunk.HeadingID, fmt.Sprint(chunk.Part))
+		chunk.ID = stableID("chunk", chunk.PageID, originalID)
 		chunk.ResourceURI = "mpress://knowledge/section/" + chunk.ID
 		chunk.Route = page.route
 		chunk.URL = page.url

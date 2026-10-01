@@ -1,0 +1,6 @@
+goos: linux
+goarch: amd64
+pkg: github.com/leaanthony/mpress/internal/knowledge
+cpu: AMD Ryzen 9 3950X 16-Core Processor            
+BenchmarkExplicitKnowledgeLoadAll-32    	       1	2429109307 ns/op	736281720 B/op	 2558419 allocs/op
+PASS

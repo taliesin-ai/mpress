@@ -1,0 +1,7 @@
+{
+  "chunks": 25696,
+  "uniqueChunkIds": 24596,
+  "ambiguousIds": 204,
+  "extraCollidingEntries": 1100,
+  "cause": "IDs omit repeated/unnamed section occurrence"
+}

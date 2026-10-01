@@ -141,3 +141,20 @@ func TestExplicitKnowledgeCorpus(t *testing.T) {
 	}
 	t.Logf("verified digest %s: %d pages, %d chunks", store.Manifest.Digest, len(store.Pages), len(store.Chunks))
 }
+
+func BenchmarkExplicitKnowledgeLoadAll(b *testing.B) {
+	output := os.Getenv("MPRESS_KNOWLEDGE_CORPUS")
+	if output == "" {
+		b.Skip("set MPRESS_KNOWLEDGE_CORPUS to a built pinned corpus")
+	}
+	b.ReportAllocs()
+	for i := 0; i < b.N; i++ {
+		store, err := LoadAll(output)
+		if err != nil {
+			b.Fatal(err)
+		}
+		if len(store.Pages) == 0 {
+			b.Fatal("empty corpus")
+		}
+	}
+}
